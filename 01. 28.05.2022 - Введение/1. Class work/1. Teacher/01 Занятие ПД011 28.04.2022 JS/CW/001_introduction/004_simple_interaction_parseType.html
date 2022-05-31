@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Диалоговые методы</title>
+    <meta charset="utf-8">
+</head>
+<body>
+    <h1>Пример ввода/вывода, парсинг строк в числа</h1>
+    <script>
+
+        var x = prompt("Введите значение x (целое число)", "0"); // х - будет строкового типа
+        var y = prompt("Введите значение y (целое число)", "0"); // y - будет строкового типа
+        var result = x + y;
+        alert(`Операция конкатенации: ${x} + ${y} = ${result}`);
+
+        var conf = confirm("Подтвердите завершение расчета");
+        document.write(`<p>Ответ пользователя: ${conf}</p>`);
+        document.write(`Операция конкатенации: ${x} + ${y} = ${result}<hr/>`);
+
+        // Конвертация строкового значения в числовое:
+        // parseFloat() конвертация в вещественное значение.
+        // parseInt() конвертация в целочисленное значение.
+        // Данные функции возвращают значение NaN если конвертация не удалась.
+        var integerX = parseInt(x);
+        var integerY = parseInt(y);
+        result = integerX + integerY;
+        document.write(`Операция сложения: ${integerX} + ${integerY} = ${result}<hr/>`);
+
+        integerX = +x;  // унарный + приводит строку к числу
+        integerY = +y;
+        result = integerX + integerY;
+        document.write(`Операция сложения: ${integerX} + ${integerY} = ${result}<hr/>`);
+    </script>
+</body>
+</html>

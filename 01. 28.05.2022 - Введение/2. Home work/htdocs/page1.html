@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Задача 1. Вычисление z1, z2</title>
+
+        <!-- #region Стили -->
+        <link rel="stylesheet" href="../styles/style.css" />
+        <link rel="stylesheet" href="../styles/page1.css" />
+        <!-- #endregion -->
+
+        <!-- #region Шрифты -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+            rel="stylesheet"
+        />
+        <!-- #endregion -->
+
+        <!-- иконка -->
+        <link rel="shorcut icon" href="../images/logo.png" type="image/x-icon" />
+    </head>
+    <body>
+        <!-- Объявление количества итераций -->
+        <script>
+            // количество итераций
+            var n = 3;
+        </script>
+
+        <!-- #region Заголовок-->
+        <header>
+            <a href="index.html">
+                <img class="logo" src="../images/logo.png" alt="logo" />
+                <h2>Home Work</h2>
+            </a>
+        </header>
+        <!-- #endregion -->
+
+        <!-- #region Контент страницы -->
+        <main>
+            <!-- #region Навигация -->
+            <nav>
+                <!-- Главная -->
+                <a href="../index.html">
+                    <img src="../images/home.svg" />
+                    Главная
+                </a>
+
+                <!-- Задача 1. z1, z2 -->
+                <a class="select-tab" href="page1.html">
+                    <img src="../images/one.svg" />
+                    Задача 1. Вычисление z1, z2
+                </a>
+
+                <!-- Задача 2. If17, If30 -->
+                <a href="page2.html">
+                    <img src="../images/two.svg" />
+                    Задача 2. Вычисление If17, If30
+                </a>
+
+                <!-- Задача 3. Case9, Case16 -->
+                <a href="page3.html">
+                    <img src="../images/three.svg" />
+                    Задача 3. Case9, Case16
+                </a>
+            </nav>
+            <!-- #endregion -->
+
+            <!-- #region Контент -->
+            <section class="content">
+                <h2>Задача 1. Вычисление z1, z2</h2>
+
+                <!-- #region Вариант 14-->
+                <table>
+                    <caption>
+                        <h3>Вариант 14</h3>
+                    </caption>
+
+                    <thead>
+                        <th>&#8470;</th>
+                        <th>Число</th>
+                        <th>z<sub>1</sub></th>
+                        <th>z<sub>2</sub></th>
+                    </thead>
+                    <tbody>
+                        <!-- Скрипт -->
+                        <script>
+                            // вычисление и вывод z1, z2
+                            for (let i = 0; i < n; i++) {
+                                // переменные
+                                let a, z1, z2;
+
+                                // диапазон значений
+                                let min = -20,
+                                    max = 20;
+
+                                // генерация числа a
+                                a = +(min + max * 2 * Math.random()).toFixed(5);
+
+                                // sin и cos числа a (для оптимизации расчётов)
+                                let sinA = Math.sin(a),
+                                    cosA = Math.cos(a);
+
+                                // вычисление z1
+                                z1 = (cosA + sinA) / (cosA - sinA);
+
+                                // вычисление z2
+                                z2 = Math.tan(2 * a) + 1 / Math.cos(2 * a);
+
+                                // вывод чисел в таблицу
+                                document.write(`
+                                    <tr>
+                                        <td>${i + 1}</td>
+                                        <td>${a.toFixed(5)}</td>
+                                        <td>${z1.toFixed(5)}</td>
+                                        <td>${z2.toFixed(5)}</td>
+                                    </tr>
+                                `);
+                            }
+                        </script>
+                    </tbody>
+                </table>
+                <!-- #endregion -->
+
+                <!-- #region Вариант 15-->
+                <table>
+                    <caption>
+                        <h3>Вариант 15</h3>
+                    </caption>
+
+                    <thead>
+                        <th>&#8470;</th>
+                        <th>Число</th>
+                        <th>z<sub>1</sub></th>
+                        <th>z<sub>2</sub></th>
+                    </thead>
+
+                    <tbody>
+                        <!-- Скрипт -->
+                        <script>
+                            // вычисление и вывод z1, z2
+                            for (let i = 0; i < n; i++) {
+                                // переменные
+                                let b, z1, z2;
+
+                                // диапазон значений
+                                let min = 10,
+                                    max = 40;
+
+                                // генерация числа a
+                                b = +(min + max * 2 * Math.random()).toFixed(5);
+
+                                // вычисление z1
+                                z1 = Math.sqrt(2 * b + 2 * Math.sqrt(b * b - 4)) / (Math.sqrt(b * b - 4) + b + 2);
+
+                                // вычисление z2
+                                z2 = 1 / Math.sqrt(b + 2);
+
+                                // вывод чисел в таблицу
+                                document.write(`
+                                    <tr>
+                                        <td>${i + 1}</td>
+                                        <td>${b.toFixed(5)}</td>
+                                        <td>${z1.toFixed(5)}</td>
+                                        <td>${z2.toFixed(5)}</td>
+                                    </tr>
+                                `);
+                            }
+                        </script>
+                    </tbody>
+                </table>
+                <!-- #endregion -->
+            </section>
+            <!-- #endregion -->
+        </main>
+        <!-- #endregion -->
+
+        <!-- #region Подвал страницы -->
+        <footer>
+            <!-- <span>Сведения о странице:</span> -->
+            <div>
+                Разработчик:
+                <a href="https://github.com/MikhailGoriachev" target="_bank"> Горячев Михаил </a>
+            </div>
+            <div>Группа: ПД011</div>
+            <div>Город: Донецк</div>
+            <div>Год создания: 2022</div>
+            <div>
+                Поддержка:
+                <a href="mailto:goriachevmichael@gmail.com">goriachevmichael@gmail.com</a>
+            </div>
+        </footer>
+        <!-- #endregion -->
+    </body>
+</html>

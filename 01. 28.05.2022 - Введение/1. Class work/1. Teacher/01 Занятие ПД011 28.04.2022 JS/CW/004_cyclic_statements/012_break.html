@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<!--
+
+        Оператор - break.
+
+-->
+
+<html lang="ru">
+<head>
+    <title>Оператор break</title>
+    <meta charset="utf-8">
+
+    <script>
+
+        var count = +prompt("Сколько Вы хотите провести итераций?");
+        var exit = +prompt("На какой итерации выйти из цикла?");
+
+        for (var i = 0; i < count; i++) {
+            if (i === exit) {
+                break;
+            }
+            else {
+                document.write(i + "<br />");
+            }
+        }
+
+    </script>
+
+</head>
+<body>
+</body>
+</html>

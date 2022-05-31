@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+    <title>setTimeout()</title>
+    <link rel="stylesheet" href="style.css  ">
+</head>
+<body>
+    <h3>Таймер. Задержка запуска: setTimeout()</h3>
+    <p id="msg">Через 5 секунд будет изменен этот текст</p>
+
+    <script>
+        window.onload = function () {
+
+            // setTimeout - планирует один запуск указанной функции через определенное
+            //              количество миллисекунд
+            // функция showMessage будет запущена через 5 секунд
+            // setTimeout(callback, delayMS)
+            setTimeout(showMessage, 5_000);
+
+            function showMessage() {
+                document.getElementById("msg").innerHTML = "<b>Hello, world</b>";
+            }
+
+            // второй вариант запуска
+            setTimeout(() =>{
+                let bodyStyle = document.getElementsByTagName("body")[0].style;
+                bodyStyle.backgroundColor = 'lightgreen';
+                bodyStyle.fontSize = '32pt';
+            }, 8_000);
+
+            // второй вариант запуска
+            setTimeout(() =>{
+                let bodyStyle = document.getElementsByTagName("body")[0].style;
+                bodyStyle.backgroundColor = 'white';
+                bodyStyle.fontSize = '12pt';
+            }, 10_000);
+        }
+    </script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Пользовательский конструктор 2</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script >
+
+        // Функция-конструктор для создания объектов Human.
+        function Human(name) {
+            // свойство
+            this.name = name;
+
+            // внутренняя, как-бы приватная, функция
+            let sayGrateaing = function () {
+                document.write('<h3>Приветствие!</h3>');
+            }
+
+
+            // открытый метод - свойство объекта, которое содержит значение в виде функции.
+            // !! this - он делает метод открытым !!
+            this.sayHello = function () {
+                sayGrateaing();
+                document.write(`Привет! Я - ${this.name}<br >`);
+            };
+
+            this.sayGoodbye = function () {
+                document.write(`Я - ${this.name}, всем пока!<br>`);
+            };
+
+        } // Human
+
+        // Создание двух экземпляров типа Human
+
+        let h = new Human("Homer");
+        let r = new Human("Rocky");
+
+        // Вызов метода SayHello() на созданных объектах.
+        h.sayHello();
+        r.sayHello();
+
+        h.name = "Олег";
+        h.sayHello();
+
+        h.sayGoodbye();
+        r.sayGoodbye();
+    </script>
+
+</body>
+</html>

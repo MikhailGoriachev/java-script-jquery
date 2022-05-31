@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<!--
+    Наследование — механизм объектно-ориентированного программирования (наряду с
+    инкапсуляцией, полиморфизмом и абстракцией), позволяющий описать
+    новый класс на основе уже существующего (родительского), при этом свойства и
+     функциональность родительского класса заимствуются новым классом.
+
+    Другими словами, класс-наследник реализует спецификацию уже существующего класса
+     (базовый класс). Это позволяет обращаться с объектами
+    класса-наследника точно так же, как с объектами базового класса.
+-->
+
+<html lang="ru">
+<head>
+    <title>Наследование в JavaScript</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Наследование</h1>
+    <script>
+        // Наследование
+
+        // базовая функция-конструктор
+        function Human(name) {
+            // пример свойства
+            this.name = name;
+
+            // пример метода класса
+            this.talk = function () { document.write(`Hello My Name is <u>${this.name}</u><br>`) }
+        } // Human
+
+        // производная функция конструктор - но этого пока не видно :(
+        function Student(name) {
+            this.name = name;
+
+            // еще одно свойство
+            this.school = "IT Step Academy";
+        } // Student
+
+        // производная функция конструктор - но этого пока не видно :(
+        function Worker(name) {
+            this.name = name;
+
+            // еще одно свойства
+            this.speciality = "Software developer";
+        } // Worker
+
+        // Создаем экземпляр родителя
+        let human = new Human("name");
+        //human.talk();
+
+        // наследуем Student и Worker от Human устанавливая функцию-конструктор
+        // в качестве прототипа.
+        Student.prototype = human;
+        Worker.prototype = human;
+
+        let jhon = new Student("Jhon");
+        let jane = new Worker("Jane");
+
+        document.write("<br>Student<br>");
+        jhon.talk();
+        document.write(`Свойство ${jhon.name}<br>Свойство ${jhon.school}`);
+
+        document.write("<br><br>Worker<br>");
+        jane.talk();
+        document.write(`Свойство ${jane.name}<br>Свойство ${jane.speciality}`);
+    </script>
+</body>
+</html>

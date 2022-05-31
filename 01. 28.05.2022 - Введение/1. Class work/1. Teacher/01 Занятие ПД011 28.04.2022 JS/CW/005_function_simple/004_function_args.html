@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<!--
+
+    Функция может принимать аргументы. При создании функции 
+    можно указать под какими именами в ее теле будут использоваться 
+    значения переданные ей в качестве аргументов.
+
+-->
+
+<html lang="ru">
+<head>
+    <title>Аргументы функции</title>
+    <meta charset="utf-8">
+
+    <script>
+
+        let a = 10;
+        let b = 15;
+        let c = 20;
+        let d = 22;
+        let x1; //специально не определяем
+        let x2; //специально не определяем
+
+        function Sum1() {
+            let result = a + b;
+            document.write("<p>Sum1 result: " + result);
+        }
+
+        function Sum2(x1, x2) {
+            // старый способ защиты от передачи не всех парамтеров
+            // if (x1 == undefined) x1 = 1;
+            // if (x2 == undefined) x2 = 1;
+
+            let result = x1 + x2;//x1, x2 = undefined => indefined+undefined = NaN
+            document.write("<p>Sum2 result: " + result);
+        }
+
+        // параметры по умолчанию
+        function Sum3(x1 = 0, x2 = 0) {
+            let result = x1 + x2;
+            document.write("<p>Sum3 result: " + result);
+        }
+
+        // Вызов функций.
+
+        Sum1();
+
+
+        Sum2(); // Не передаем параметров при вызове.
+        Sum2(c, d);//
+
+        Sum3();
+        Sum3(1);
+        Sum3(c, d);
+    </script>
+
+</head>
+<body>
+</body>
+</html>

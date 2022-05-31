@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Обработчик события как атрибут</title>
+
+</head>
+<body>
+    <!--Обработчик события click-->
+    <input type="button" name="button1" value="Click me" onclick="alert('Hello')" />
+
+    <!--Если обработчик состоит из нескольких инструкций, они должны быть отделены ';'
+        this - объект, источник события
+        -->
+    <input type="button" name="button1" value="Click me"
+           onclick="if (window.counter) counter++; else counter = 1; this.value = counter;" />
+
+    <!-- формы только для примера, это забегаем вперед -->
+    <form>
+        <input type="text" name="firstName" />
+        <br />
+        <!--Если обработчик возвращает false, действие отменяется.-->
+        <input type="reset" onclick="return confirm('Вы уверены?')" />
+        
+        <!--Обработчик установлен как функция из тега script-->
+        <input type="button" value="Отправить" onclick="validate()" />
+    </form>
+
+    <h3 id="msg"></h3>
+
+    <script>
+        function validate() {
+            // проверка формы.
+            document.getElementById("msg").innerText = "Валидация формы выполнена";
+
+            setInterval(() => document.getElementById("msg").innerText = "", 2000)
+        }
+    </script>
+</body>
+</html>

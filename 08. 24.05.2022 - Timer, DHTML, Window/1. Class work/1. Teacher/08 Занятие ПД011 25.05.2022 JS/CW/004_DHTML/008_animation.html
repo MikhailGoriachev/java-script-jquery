@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+    <title>Простая анимация</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h3>Анимация</h3>
+
+    <div id="div1"
+        style="height: 60px; width: 60px; background-color: lightseagreen; position: relative;">
+    </div>
+
+    <script>
+        let div1;
+        let leftPos = 0;
+        let topPos = 0;
+
+        window.onload = function () {
+            div1 = document.getElementById("div1");
+            setInterval(animate, 50);
+        }
+
+        function animate() {
+            div1.style.left = `${leftPos}px`;
+            div1.style.top = `${topPos}px`;
+            leftPos++;
+            topPos++;
+
+            if (leftPos >= 300) {
+                leftPos = 0;
+                topPos = 0;
+            }
+        }
+    </script>
+</body>
+</html>

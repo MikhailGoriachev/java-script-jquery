@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!--
+   Паттерн "Модуль" базируется на замыканиях и состоит из двух компонентов:
+       ☼ внешняя функция, которая определяет лексическое окружение
+       ☼ возвращаемый набор внутренних функций, которые имеют доступ
+         к этому окружению
+
+   Такая конструкция позволяет закрыть некоторый набор данных в рамках функции-модуля
+   и опосредовать доступ к ним через определенный API - возвращаемые внутренние функции
+-->
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Паттерн модуль</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h3>Паттерн "Модуль"</h3>
+<script>
+    // создание модуля
+    const module = (function(){
+        // данные модуля - инкапсулированы, приватные
+        let name = {first: "Елизавета", second: "Сорокина"};
+        let age = 21;
+
+        // функции модуля для доступа к данным, обработки данных
+        return {
+            writeHello: function() {
+                // замыкание данных модуля
+                document.write(`<h3>Привет, ${name.second} ${name.first} из модуля!</h3>`);
+            },
+
+            writeBye: function() {
+                document.write("<h3>Модуль прощай! В добрый путь!</h3>");
+            },
+
+            // возможно изменение переменной из замыкания
+            setName: function (f, n) {
+                name.first = f;
+                name.second = n;
+            },
+
+            // чтение данных модуля
+            getAge: function () { return age; },
+
+            // еще один пример записи данных в модуль
+            setAge: function (value) { age = value;}
+        }
+    })();
+
+    // использование модуля
+    module.writeHello();
+    module.writeBye();
+
+    module.setName('Василий', 'Котофеев');
+    module.writeHello();
+
+    // чтение данных модуля
+    document.write(`<h4>age = ${module.getAge()}</h4>`)
+    document.write(`<h4>age = ${module.age}</h4>`)
+
+
+    // в модуле нет свойства name => также нет свойств name.first, name.second
+    // раскомментировать для демонстрации ошибки
+    // module.name.first = 'Петр';
+    // module.name.second = 'Михайлов';
+    // module.writeHello();
+</script>
+
+
+</body>
+</html>

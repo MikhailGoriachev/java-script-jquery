@@ -1,0 +1,38 @@
+﻿<!--
+    instanceof - оператор для проверки типа объекта
+                 т.е. отвечает на вопрос, какой функцией-конструктором
+                 был создан объект
+-->
+
+<html lang="ru">
+<head>
+    <title>Оператор instanceof</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h3>Оператор instanceof()</h3>
+<script>
+    let x = new Array(10);
+    if (x instanceof Array) { // аналог оператора is в C#
+        document.write("<h4>x is Array</h4>");
+    } // if
+
+    if (x instanceof Function) { // аналог оператора is в C#
+        document.write("<h4>x is Function</h4>");
+    } else {
+        document.write("<h4>x is not Function</h4>");
+    } // if
+
+    // проверим на собственном "классе"
+    function User(login = 'root', password='root') {
+        this.login = login;
+        this.password = password;
+    }
+    x = new User();
+    if (x instanceof User) { // аналог оператора is в C#
+        document.write("<h4>x is User</h4>");
+    } // if
+
+</script>
+</body>
+</html>

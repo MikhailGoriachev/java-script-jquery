@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<!--
+
+    slice()- возвращает фрагмент или подмассив указанного массива.
+             Исходный массив меняется!
+
+-->
+
+<html lang="ru">
+<head>
+    <title>Метод slice() пример</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Методы массивов JavaScript</h1>
+    <h2>Метод slice()</h2>
+    <h3>Метод slice() - пример использования</h3>
+
+    <script>
+
+        var arr = [
+            "January", "February", "March", "April", "May",
+            "June", "July", "August", "September", "October",
+            "November", "December"
+        ];
+
+        document.write("<p>" + arr.join(", ") + "</p>");
+
+        var from = 5;
+        var to = 8;
+
+        var res = arr.slice(from, to);
+        document.write("<p>" + res.join(", ") + "</p>");
+
+        from = 8;
+        to = 11;
+
+        res = arr.slice(from, to);
+        document.write("<p>" + res.join(", ") + "</p>");
+
+    </script>
+</body>
+</html>

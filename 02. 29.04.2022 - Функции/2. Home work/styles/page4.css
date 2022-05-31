@@ -1,0 +1,21 @@
+/* Страница "Задача 4. Очереди" (page4.html) */
+
+.container {
+    display: flex;
+
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    /* justify-content: space-evenly; */
+}
+
+/* таблица */
+.container table {
+    margin: 3rem 5rem 0 0;
+}
+
+/* статья */
+article {
+    font-family: Calibri, sans-serif;
+    font-size: 1.4rem;
+}

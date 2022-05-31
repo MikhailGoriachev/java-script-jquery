@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+    <title>Операторы</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h3>Операторы отношения</h3>
+    <script>
+
+        var a = +prompt("Введите первое число:", "1");
+        var b = +prompt("Введите второе число:", "2");
+        var res;
+
+        // Меньше (<)
+        res = a < b;
+        document.write(`a < b: ${a} < ${b}: ${res}<br />`);
+
+        // Больше (>)
+        res = a > b;
+        document.write("a > b " + res + "<br />");
+
+        // Меньше или равно (<=)
+        res = a <= b;
+        document.write("a <= b " + res + "<br />");
+
+        // Больше или равно (>=)
+        res = a >= b;
+        document.write("a >= b " + res + "<br />");
+
+    </script>
+</body>
+</html>

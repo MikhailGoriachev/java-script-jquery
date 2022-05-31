@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Работа с узлами DOM - Свойства</title>
+    <link rel="stylesheet" href="style.css  ">
+
+    <script>
+        window.onload = function () {
+
+            let e = document.getElementById("list");
+
+            // childNodes - получение всех дочерних узлов.
+            for (let i = 0; i < e.childNodes.length; ++i) {
+                let temp = e.childNodes[i];
+                console.log(`узел ${i} --> код типа узла: ${e.childNodes[i].nodeType}`);
+
+                // если найденный узел не элемент то пропустить его
+                if (temp.nodeType !== 1) {
+                    continue;
+                }
+
+                temp.style.color = "red";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Работа с узлами DOM - Свойства</h1>
+
+    <!-- После каждого элемента находится текстовый узел - перенос на новую строку. -->
+    <ul id="list">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+</body>
+</html>

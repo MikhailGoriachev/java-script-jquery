@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+
+<!--
+
+    Метод join() - преобразует все элементы массива в строки и объединяет их.
+    Если метод принимает строковой аргумент, то аргумент станет разделителем вместо запятых.
+
+-->
+
+<html lang="ru">
+<head>
+    <title>Метод Join()</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Методы массивов JavaScript</h1>
+    <h2>Метод join()</h2>
+
+    <script>
+
+        var arr = [
+            "September", "October", "November", "December",
+            "January", "February", "March", "April", "May",
+            "June", "Jule", "August"
+        ];
+
+        document.write(arr);
+
+        document.write("<p><b>Значение которое возвращает метод - join(' | ');</b>");
+
+        let res = arr.join(" | ");
+        document.write(`<p>${res}</p>`);
+
+        document.write("<p><b>Значение которое возвращает метод - join('< br>');</b></p>");
+
+        res = arr.join("<br>");
+        document.write(`<p>${res}</p>`);
+
+        // соберем упорядоченный  список - типичный прием в JS
+        document.write(`<ol start="0"><li>${arr.join('</li><li>')}</li></ol>`);
+
+
+        // чуть забегая вперед, покажем метод split(), относщийся к строкам.
+        // как-бы противоположность join()
+        str = "пример разбивки строки на элементы".split(" ");
+        document.write(str);
+
+    </script>
+
+</body>
+</html>

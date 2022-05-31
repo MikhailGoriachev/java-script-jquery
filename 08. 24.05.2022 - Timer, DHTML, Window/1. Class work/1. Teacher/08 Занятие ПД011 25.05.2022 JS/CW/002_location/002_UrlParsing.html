@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Анализ URL</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <script>
+
+        // Функция для чтения данных, которые переданы при GET запросе (в адресной строке).
+        function getQueryString() {
+
+            let args = {};                                  // пустой объект
+
+            // location.search - адресная строка, параметры GET-запроса
+            // login=admin password=123
+            let query = location.search.substring(1);       // Получение строки запроса.
+            let pairs = query.split("&");                   // Разделение строки по амперсанду
+
+            for (let i = 0; i < pairs.length; i++) {
+                let pos = pairs[i].indexOf('=');            // Проверка пары "name=value"
+                if (pos === -1) {                           // Если не найдено - пропустить
+                    continue;                    
+                }
+
+                let argname = pairs[i].substring(0, pos);   // Получение имени
+                let value = pairs[i].substring(pos + 1);    // Получение значения
+
+                args[argname] = value;                      // Сохранение как свойства
+            }
+
+            return args;
+        }
+
+        // Для теста примера перейдите по URL текущей страницы + ?login=admin&password=123
+        function parseParamExample() {
+            // разобрать параметры строки запроса
+            let args = getQueryString();
+
+            // создать абзац и добавить его в DOM
+            let paraInfo = document.createElement("p");
+            paraInfo.innerHTML = `Login: ${args.login}<br >Password: ${args.password}<br/>`;
+
+            document.body.appendChild(paraInfo);
+        }
+
+    </script>
+</head>
+<body>
+    <input type="button" name="name" value="Read Query Parameters" onclick="parseParamExample()" />
+</body>
+</html>
+

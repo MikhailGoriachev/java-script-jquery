@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<!--
+
+   Вложенные Функции.
+
+-->
+
+<html lang="ru">
+<head>
+    <title>Вложенные функции пример</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Пример использования вложенной функции</h1>
+    <script>
+
+        function hypotenuse(a, b) {
+
+            function sqr(x) {//функция возведения в квадрат - square
+                return x * x;
+            } // sqr
+
+            //Объект Math имеет метод .sqrt - квадратный корень
+            return Math.sqrt(sqr(a) + sqr(b));
+        } // hypotenuse
+
+        let a = 3;
+        let b = 4;
+        document.write(`<p>Гипотенуза треугольника с катетами ${a} и ${b} равна: ${hypotenuse(3, 4)}</p>`);
+
+    </script>
+</body>
+</html>

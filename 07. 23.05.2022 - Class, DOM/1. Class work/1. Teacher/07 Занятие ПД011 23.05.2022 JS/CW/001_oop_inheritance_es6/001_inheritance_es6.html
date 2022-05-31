@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Наследование на прототипах</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h3>Наследование на прототипах</h3>
+    <script>
+        // Базовый класс – персона (фамилия и инициалы, дата рождения, город проживания),
+        class Person {
+            constructor(fullName, dateOfBirth, city) {
+                this.fullName = fullName;         // фамилия и инициалы
+                this.dateOfBirth = dateOfBirth;     // дата рождения
+                this.city = city;                   // название города проживания
+            } // constructor
+
+            // переопределение метода toString()
+            toString() {
+                return `<td>${this.fullName}</td>
+                        <td>${this.dateOfBirth.toDateString()}</td>
+                        <td>${this.city}</td>`;
+            } // toString
+
+            // метод базового класса для доступа к нему в производном классе
+            foo() { document.write('Person: foo()'); }
+        } // Person
+
+
+        // Производный от базового класс – клиент (дата обращения за услугой, название услуги,
+        // стоимость услуги),
+        // Переопределите методы toString(), equals() для клиента.
+        class Client extends Person {
+            constructor(fullName, dateOfBirth, city, dateService, nameService, costService) {
+                // получение доступа к полям базового класса - унаследовали поля базового класса
+                // super(наборПараметровБазовогоКласса)
+                super(fullName, dateOfBirth, city);
+
+                // поля производного класса
+                this.dateService = dateService;
+                this.fullName = fullName;
+                this.dateOfBirth = dateOfBirth;
+                this.city = city;
+                this.nameService = nameService;
+                this.costService = costService;
+            } // constructor
+
+            // геттеры и сеттеры свойств
+            get dateService() { return this._dateService; }
+            set dateService(value) { this._dateService = value; }
+
+
+            <!--region авто сгенерированные геттеры и сеттеры -->
+            get fullName() {
+                return this._fullName;
+            }
+
+            set fullName(value) {
+                this._fullName = value;
+            }
+
+            get dateOfBirth() {
+                return this._dateOfBirth;
+            }
+
+            set dateOfBirth(value) {
+                this._dateOfBirth = value;
+            }
+
+            get city() {
+                return this._city;
+            }
+
+            set city(value) {
+                this._city = value;
+            }
+
+            get nameService() {
+                return this._nameService;
+            }
+
+            set nameService(value) {
+                this._nameService = value;
+            }
+
+            get costService() {
+                return this._costService;
+            }
+
+            set costService(value) {
+                this._costService = value;
+            }
+            <!--endregion-->
+
+// переопределение метода Object
+            toString() {
+                return `<td>${this.fullName}</td>
+                        <td>${this.dateOfBirth.toDateString()}</td>
+                        <td>${this.city}</td>
+                        <td>${this.dateService.toDateString()}</td>
+                        <td>${this._nameService}</td>
+                        <td>${this._costService}</td>`;
+            }
+        } // Client
+
+        // получение доступа к методам базового класса
+        // (если они есть)
+        // Client.prototype = Object.create(Person.prototype);
+        let client1 = new Client('Иванова О.Л.', new Date(), 'Амвросиевка', new Date(), 'ремонт зонтика', 200);
+        let client2 = new Client('Баранова Е.К.', new Date(), 'Макеевка', new Date(), 'ремонт замка дверного', 2300);
+        document.write(`<table><tr>${client1}</tr><tr>${client2}</tr></table>`);
+
+
+        // Производный от базового класс – мастер (тарифная ставка, дата начала работы, признак
+        // занятости ремонтом).
+        // Переопределите методы toString(), equals() для мастера.
+        // tariffRate - тарифная ставка
+        // busy - признак занятости/не занятости ремонтами
+        class Artisan extends Person{
+            constructor(fullName, dateOfBirth, city, tariffRate, startDate, busy) {
+                // наследование полей
+                super(fullName, dateOfBirth, city);
+
+                // присвоить данные полей мастера
+                this.tariffRate = tariffRate;
+                this.startDate = startDate;
+                this.busy = busy;
+            } // constructor
+
+            // методы "класса"
+            toString() {
+                return `<td>${this.fullName}</td><td>${this.dateOfBirth.toDateString()}</td><td>${this.city}</td>
+                        <td>${this.tariffRate}</td><td>${this.startDate.toDateString()}</td><td>${this.busy}</td>`;
+            } // tpString
+        } // Artisan
+
+        // получение доступа к методам базового класса
+        Artisan.prototype = Object.create(Person.prototype);
+        let artisan1 = new Artisan('Романов Б.Г.', new Date(), 'Амвросиевка', 20000, new Date(), true);
+        let artisan2 = new Artisan('Сидорова А.К.', new Date(), 'Енакиево', 40_000, new Date(), false);
+
+        document.write(`<table><tr>${client1}</tr><tr>${client2}</tr><tr>${artisan1}</tr><tr>${artisan2}</tr></table>`);
+
+        // демонстрация работы свойств
+        artisan1.busy = !artisan1.busy;
+        artisan1.tariffRate += 250;
+
+        document.write(`<table><tr>${client1}</tr><tr>${client2}</tr><tr>${artisan1}</tr><tr>${artisan2}</tr></table>`);
+
+        // вызываем метод, определенный в базовом классе
+        client1.foo();
+        artisan1.foo();
+    </script>
+</body>
+</html>

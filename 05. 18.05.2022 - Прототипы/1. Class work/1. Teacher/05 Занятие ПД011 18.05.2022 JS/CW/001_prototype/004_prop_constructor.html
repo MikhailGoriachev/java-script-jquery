@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<!--
+    constructor - свойство, хранящее ссылку на функцию-конструктор,
+    через которую был создан объект
+-->
+
+<html lang="ru">
+<head>
+    <title>Свойство constructor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h3>Свойство <u>constructor</u></h3>
+    <script>
+
+        // Создаем несколько объектов, используя различные конструкторы
+        let myArray = new Array(10);
+        let myDate = new Date();
+        let myString = new String("Some string value");
+        let myObj = new Object();
+        let myFunc = new Function("x", "y", "return x + y;");
+
+        // функция-конструктор
+        let MyCtor = function (x=-1, y=-1) {
+            this.x = x;
+            this.y = y;
+        }
+
+        let myCtorObject = new MyCtor(12, 3);
+
+        // Создаем функцию для вывода содержимого свойства constructor аргумента
+
+        document.write('<ul>');
+        let showCtor = (obj, name) =>
+            document.write(`<li>Конструктор обьекта ${name}  это ${obj.constructor}</li>`);
+
+        document.write('</ul>');
+
+        document.write("===============================================Значения конструкторов====================================<br />");
+        showCtor(myArray, "MyArray");
+        showCtor(myDate, "MyDate");
+        showCtor(myString, "MyString");
+        showCtor(myObj, "MyObj");
+        showCtor(myFunc, "MyFunc");
+        showCtor(myCtorObject, "MyCtorObject");
+        document.write("======================================================================================================<br />");
+
+        // Вызываем конструктор с помощью которого был создан объект myDate
+        let someNewObject = new myDate.constructor();
+        document.write(`<p>Значение обьекта someNewObject: ${someNewObject}</p>`);
+
+    </script>
+</body>
+</html>

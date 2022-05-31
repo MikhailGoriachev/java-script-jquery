@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Стрелочные функции в методах массивов</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Стрелочные функции в методах массивов</h1>
+    <script>
+        let arr = [1, 2, -3, 5, 5, -7, 12, 9, 13, -1, -8];
+        document.write(`<p>Исходный массив: ${arr.join(", ")}</p>`);
+
+        document.write("<h3>arr.filter()</h3>");
+        let result = arr.filter(x => x < 0);
+        // let result = arr.filter(function(x) { return x < 0;});
+        document.write(`<p>Массив: ${arr.join(", ")}</p>`);
+        document.write(`<p>Отрицательные элементы массива: ${result.join(", ")}</p>`);
+
+        document.write("<h3>arr.map() - возведение в квадрат отрицательных</h3>");
+        result = arr.map(x => x < 0?x*x:x);
+        document.write(`<p>Исходный массив: ${arr.join(", ")}</p>`);
+        document.write(`<p>Массив с преобразованными элементами : ${result.join(", ")}</p>`);
+
+        document.write("<h3>arr.sort()</h3>");
+        document.write(`<p>Исходный массив: ${arr.join(", ")}</p>`);
+        arr.sort((x, y) => x - y);  // отриц x < y, 0 x === y, полож  x > y
+        document.write(`<p>Отсортированный по возрастанию массив: ${arr.join(", ")}</p>`);
+
+        arr.sort((x, y) => y - x);  // отриц x < y, 0 x === y, полож  x > y
+        document.write(`<p>Отсортированный по убыванию массив: ${arr.join(", ")}</p>`);
+
+        // компараторы м.б. проще, чем в C#
+        arr.sort((x, y) => x < 0?-1:1);
+        document.write(`<p>Отсортированный по правилу "отрицательные в начало" массив: ${arr.join(", ")}</p>`);
+
+        document.write("<h3>arr.reduce()</h3>");
+        // acc = acc + item, 0 - начальное значение суммы
+        result = arr.reduce((acc, item) => item + acc, 0);
+        document.write(`<p>Сумма элементов массива ${result}</p>`);
+
+        result = arr.reduce((acc, item) => item * acc, 1);
+        document.write(`<p>Произведение элементов массива ${result}</p>`);
+
+        result = arr.reduce((acc, item) => acc + `<td>${item}</td>`, "<table><tr>") + "</tr></table>";
+        document.write(result);
+
+        // сумма отрицательных элементов массива
+        document.write("<h3>arr.filter() + arr.reduce()</h3>");
+        result = arr
+            .filter(x => x < 0)                     // выборка отрицательных
+            .reduce((acc, item) => acc + item, 0);  // сумма отобранных элементов
+        document.write(`<p>Сумма отрицательных элементов массива ${result}</p>`);
+
+        // метод, выполняемый для каждого элемента массива
+        document.write("<h3>arr.forEach()</h3><table><tr>");
+        arr.forEach(x => document.write(`<td>${x}</td>`));
+        document.write("</tr></table>");
+
+    </script>
+</body>
+</html>

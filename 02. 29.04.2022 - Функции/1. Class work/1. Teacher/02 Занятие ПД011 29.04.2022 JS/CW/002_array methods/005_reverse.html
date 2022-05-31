@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+
+<!--
+
+    reverse() - меняет порядок следования элементов массива на противоположный
+                и возвращает переупорядоченный массив.
+
+-->
+
+<html lang="ru">
+<head>
+    <title>Метод reverse()</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Методы массивов JavaScript</h1>
+    <h2>Метод reverse()</h2>
+
+    <script>
+
+        var a = [1, 2, 3, 4, 5, 6, 7];
+        document.write(`<p>Исходный масссив: ${a.join("|")}</p>`);
+
+        a.reverse();  // Меняет порядок следования элементов массива на противоположный.
+        document.write(`<p>Реверсированный масссив: ${a.join("|")}</p>`);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Метод equals</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Метод equals. Сравнение с переопределенным методом equals</h1>
+<script>
+    function Rectangle(w, h) {
+        this.width = w;
+        this.height = h;
+    }
+
+    Rectangle.prototype.getArea = function () {
+        return this.width * this.height;
+    }
+
+    // переопределение метода toString из Object
+    Rectangle.prototype.toString = function () {
+        return `Прямоугольник W: ${this.width} H:${this.height}`;
+    }
+
+    // переопределение метода valueOf из Object
+    Rectangle.prototype.valueOf = function () {
+        return this.getArea();
+    }
+
+    // метод для проверки равенства объектов
+    // сравниваем значение свойств объектов
+    Rectangle.prototype.equals = function (otherObj) {
+        return this.width === otherObj.width && this.height === otherObj.height;
+    }
+
+    // объекты имеют одинаковые значения.
+    let rect1 = new Rectangle(100, 200);
+    let rect2 = new Rectangle(100, 200);
+
+    document.write(`<p>${rect1.toString()}; ${rect1}</p>`);
+    document.write(`<p>${rect2.toString()}; ${rect2}</p><hr>`);
+
+    // проверка равенства объектов с помощью метода equals
+    let res = rect1.equals(rect2);
+    document.write(`rect1.equals(rect2) -> <b>${res}</b><br><br>`);
+
+    // оператор == по прежнему сравнивает ссылки
+    res = rect1 == rect2;
+    document.write(`rect1 == rect2 -> <b>${res}</b>`);
+
+</script>
+</body>
+</html>

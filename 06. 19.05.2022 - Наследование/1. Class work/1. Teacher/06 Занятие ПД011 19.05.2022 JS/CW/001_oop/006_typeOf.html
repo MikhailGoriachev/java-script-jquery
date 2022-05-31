@@ -1,0 +1,50 @@
+﻿<!--
+    typeof - оператор для получения типа объекта в виде строкового значения
+-->
+
+<html lang="ru">
+    <head>
+        <title>Оператор typeof</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>Оператор typeOf</h1>
+
+        <script>
+
+            let test = "hello";
+
+            // аналог GetType() в C#
+            document.write(`string: <b>${typeof test}</b><br>`);
+
+            let test2 = 123;
+            document.write(`number: <b>${typeof test2}</b><br>`);
+
+            let test3 = true;
+            document.write(`boolean: <b>${typeof test3}</b><br>`);
+
+            let test11;
+            document.write(`undefined: <b>${typeof test11}</b><br>`);
+
+            test11 = null;
+            document.write(`null: <b>${typeof test11}</b><br>`);
+
+            let test4 = new Array();
+            document.write(`array: <b>${typeof test4}</b><br>`);
+
+            let test5 = new Date();
+            document.write(`Date: <b>${typeof test5}</b><br>`);
+
+            function User(login = 'root', password='root') {
+                this.login = login;
+                this.password = password;
+            }
+            let test6 = new User();
+            document.write(`User: <b>${typeof test6}</b><br>`);
+
+            document.write(`function: <b>${typeof test3.toString}</b><br>`);
+
+        </script>
+
+    </body>
+</html>

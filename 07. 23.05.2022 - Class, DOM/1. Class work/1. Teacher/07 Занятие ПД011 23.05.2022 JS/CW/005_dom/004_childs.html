@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Работа с узлами DOM - Свойства</title>
+    <link rel="stylesheet" href="style.css  ">
+
+    <script>
+        window.onload = function () {
+
+            let e = document.getElementById("id-list");
+
+            // firstChild - получить первый дочерний узел
+            e.firstChild.style.color = "red";
+
+            // lastChild - получить последний дочерний узел 
+            e.lastChild.style.color = "orange";
+            e.lastChild.style.fontWeight = "bold";
+        }
+    </script>
+</head>
+<body>
+    <!-- если добавить любой символ (новая строка - это тоже символ) после ul - получаем проблему :) -->
+    <ul id="id-list"><li>Item 1</li><li>Item 2</li><li>Item 3</li><li>Item 4</li><li>Item 5</li></ul>
+</body>
+</html>

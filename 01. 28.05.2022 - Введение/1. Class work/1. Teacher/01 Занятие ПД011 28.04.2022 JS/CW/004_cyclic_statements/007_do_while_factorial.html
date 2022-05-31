@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<!--
+
+    Циклическая конструкция - do-while. 
+
+-->
+
+<html lang="ru">
+<head>
+    <title>Факториал</title>
+    <meta charset="utf-8">
+
+    <script>
+
+        var counter = +prompt("Введите число");
+        var factorial = 1;
+
+        document.write("Факториал числа: " + counter + "! = ");
+
+        do {
+
+            if (counter === 0) {
+                factorial = 1;
+                break;
+            }
+
+            factorial *= counter;
+            counter--;
+        } while (counter > 0);
+
+        document.write(factorial);
+
+    </script>
+
+</head>
+<body>
+</body>
+</html>
+

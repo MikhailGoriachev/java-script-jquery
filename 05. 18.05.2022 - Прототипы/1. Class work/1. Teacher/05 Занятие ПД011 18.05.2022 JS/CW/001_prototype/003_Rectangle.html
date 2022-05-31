@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Прототип</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Прототип</h1>
+
+    <script>
+        // функция-конструктор
+        function Rectangle(w, h) {
+            // Свойства
+            this.width = w;
+            this.height = h;
+
+            // метод функции-конструктора, как-бы метод класса
+            Rectangle.prototype.getArea = function () {
+                return this.width * this.height;
+            } // getArea
+        } // Rectangle
+
+        // Свойство прототипа, будет доступно всем экземплярам
+        // аналог static-свойства
+        Rectangle.prototype.name = "RECTANGLE";
+
+        let rect1 = new Rectangle(100, 50);
+        let rect2 = new Rectangle(30, 150);
+
+        document.write(
+            `Площадь прямоугольника 1 ${rect1.getArea()}<br>Площадь прямоугольника 2 ${rect2.getArea()}<br><br>`);
+
+        document.write(
+            `Имя прямоугольника 1 ${rect1.name}<br>Имя прямоугольника 2 ${rect2.name}<br><br>`);
+
+        // При попытке смены значения, которое было унаследовано от прототипа,
+        // в объекте будет создана копия свойства (свойство прототипа не изменится).
+        // Значение в прототипе может быть изменено только через операцию Rectangle.prototype.name
+        rect1.name = "первый прямоугольник";
+
+        document.write("После смены имени объекта rect1<br/>")
+        document.write(
+            `Имя прямоугольника 1 <b>${rect1.name}</b><br>
+             Имя прямоугольника 2 <b>${rect2.name}</b><br><br>`);
+
+        // удалить добавленное конкретному объекту свойство
+        delete rect1.name;
+
+        Rectangle.prototype.name = "first rectangle";
+
+        document.write("После смены значения прототипа<br/>")
+        document.write(
+            `Имя прямоугольника 1 <b>${rect1.name}</b><br>
+             Имя прямоугольника 2 <b>${rect2.name}</b><br><br>`);
+
+    </script>
+</body>
+</html>

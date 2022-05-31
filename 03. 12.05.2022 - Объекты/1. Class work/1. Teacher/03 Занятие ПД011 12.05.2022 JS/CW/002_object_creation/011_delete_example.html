@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+
+<!--
+
+        С помощью оператора delete можно удалять
+        элементы массивов по указанному индексу.
+
+-->
+
+<html lang="ru">
+<head>
+    <title>Оператор delete в массивах</title>
+
+
+</head>
+<body>
+    <h1>Пример использования оператора delete</h1>
+    <h3>Удаление элемента массива</h3>
+
+    <script>
+
+        let array = [0, 1, 2, 3, 4, 5, 6, 7];
+
+        document.write("<p>Массив до удаления: " + array.join(", "));
+
+        let index = prompt("Выберите индекс элемента для удаления: " + array.join(", "));
+
+        // Удаление элемента массива по указанному индексу.
+        delete array[parseInt(index)];
+
+        document.write("<p>Массив после удаления: " + array.join(", "));
+    </script>
+
+</body>
+</html>

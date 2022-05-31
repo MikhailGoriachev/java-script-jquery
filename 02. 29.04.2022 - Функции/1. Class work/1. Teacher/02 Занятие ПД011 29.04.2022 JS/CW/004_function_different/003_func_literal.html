@@ -1,0 +1,81 @@
+﻿<!--
+
+    Функции-литералы.
+    Т.к. Функция это тип данных мы можем ее присвоить переменной.
+    По сути именем функции и будет являться имя переменной.
+-->
+
+<html lang="ru">
+<head>
+    <title>Функции-литералы</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Литеральные или анонимные функции</h1>
+    <script>
+
+        // анонимные функции, литеральные функции, функциональные выражения
+        let f = function () {
+            document.write('<p>Привет!</p>');
+        }
+
+        f();  // Вызов функции.
+
+        let t = f;  // !! копирование тела функции !!
+        t();        // !! вызов того же кода, что был в f
+
+        // в переменную пишем другую функцию
+        f = function () {
+            document.write("<p>Пока!</p>");
+        };
+
+        f();  // Вызов новой функции
+        t();  // Вызов старой функции
+    </script>
+
+    <hr>
+
+    <h3>Анонимная функция и рекурсия</h3>
+    <script>
+
+        // !!! имя переменной совпадает с именем функции !!!
+        let factor = function(n) {
+            return n <= 1?1:n*factor(n-1);
+        } // factor
+
+        let x = 6;
+        let result = factor(x);
+        document.write(`<p>${x}! = ${result}</p>`);
+
+        // ошибка при переприсваивании переменной анонимной функцией
+        /*
+        let f1 = factor;
+        factor = 123;
+
+        result = f1(x);
+        document.write(`<p>${x}! = ${result}</p>`);
+        */
+    </script>
+
+    <hr>
+    <h3>Именованная литеральная функция и рекурсия</h3>
+    <script>
+
+        let factor1 = function factorial(n) {
+            return n <= 1?1:n*factorial(n-1);
+        } // factorial
+
+        x = 7;
+        result = factor1(x);
+        document.write(`<p>${x}! = ${result}</p>`);
+
+        // отсутствие ошибки при переприсваивании переменной анонимной функцией
+        let f1 = factor1;
+        factor1 = 123;
+
+        result = f1(x);
+        document.write(`<p>После переприсваивания: ${x}! = ${result}</p><p>factor1 = ${factor1}</p>`);
+    </script>
+</body>
+</html>

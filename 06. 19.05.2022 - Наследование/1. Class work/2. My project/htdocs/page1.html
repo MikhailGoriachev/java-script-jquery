@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Задача 1. Фигуры</title>
+
+        <!-- #region Стили -->
+        <link rel="stylesheet" href="../styles/style.css" />
+        <link rel="stylesheet" href="../styles/page1.css" />
+        <!--  -->
+        <!-- #endregion -->
+
+        <!-- #region Шрифты -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+            rel="stylesheet"
+        />
+        <!-- #endregion -->
+
+        <!-- Иконка -->
+        <link rel="shorcut icon" href="../images/logo.png" type="image/x-icon" />
+
+        <!-- Утилиты -->
+        <script src="../utils/utils.js"></script>
+    </head>
+    <body>
+        <!-- #region Заголовок-->
+        <header>
+            <a href="index.html">
+                <img class="logo" src="../images/logo.png" alt="logo" />
+                <h2>Home Work</h2>
+            </a>
+        </header>
+        <!-- #endregion -->
+
+        <!-- #region Контент страницы -->
+        <main>
+            <!-- #region Навигация -->
+            <nav>
+                <!-- Главная -->
+                <a href="../index.html">
+                    <img src="../images/home.svg" />
+                    Главная
+                </a>
+
+                <!-- Задача 1. Фигуры -->
+                <a class="select-tab" href="page1.html">
+                    <img src="../images/one.svg" />
+                    Задача 1. Фигуры
+                </a>
+            </nav>
+            <!-- #endregion -->
+
+            <!-- #region Контент -->
+            <section class="content">
+                <details open>
+                    <summary>
+                        <h2>Задача 1. Фигуры</h2>
+                    </summary>
+                    <!-- #region Задача 1 -->
+                    <article>
+                        <p>
+                            Разработай методы для вычисления площади поверхности, объема фигуры, вывода данных по фигуре
+                            и сравнения фигур по объему. !! вывести картинку фигуры !!
+                        </p>
+
+                        <p>Реализуйте "классы" для представления сферы, конуса и цилиндра.</p>
+
+                        <ul>
+                            <li>Разместите объекты этих классов в массиве.</li>
+                            <li>Отсортируйте массив по убыванию объемов.</li>
+                            <li>Отсортируйте массив по возрастанию площадей поверхности.</li>
+                        </ul>
+                    </article>
+                    <!-- #endregion -->
+                </details>
+
+                <h2>Хлебопечка</h2>
+
+                <div class="container">
+                    <!-- Решение задачи -->
+                    <script src="../scripts/task1.js"></script>
+                </div>
+            </section>
+            <!-- #endregion -->
+        </main>
+        <!-- #endregion -->
+
+        <!-- #region Подвал страницы -->
+        <footer>
+            <!-- <span>Сведения о странице:</span> -->
+            <div>
+                Разработчик:
+                <a href="https://github.com/MikhailGoriachev" target="_bank"> Горячев Михаил </a>
+            </div>
+            <div>Группа: ПД011</div>
+            <div>Город: Донецк</div>
+            <div>Год создания: 2022</div>
+            <div>
+                Поддержка:
+                <a href="mailto:goriachevmichael@gmail.com">goriachevmichael@gmail.com</a>
+            </div>
+        </footer>
+        <!-- #endregion -->
+    </body>
+</html>

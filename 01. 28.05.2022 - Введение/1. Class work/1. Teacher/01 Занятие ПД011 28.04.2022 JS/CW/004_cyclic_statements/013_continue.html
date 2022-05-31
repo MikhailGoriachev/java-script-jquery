@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<!--
+
+        Оператор - continue.
+
+-->
+
+<html lang="ru">
+<head>
+    <title>Оператор continue</title>
+    <meta charset="utf-8">
+
+    <script>
+
+        var count = +prompt("Сколько Вы хотите провести итераций?");
+        var skip = +prompt("Какое число вы не хотите увидеть?");
+
+        for (var i = 0; i < count; i++) {
+            if (i === skip) {
+                // document.write("<br />");
+                continue;
+            }
+
+            document.write(i + "<br />");
+        }
+
+    </script>
+
+</head>
+<body>
+</body>
+</html>

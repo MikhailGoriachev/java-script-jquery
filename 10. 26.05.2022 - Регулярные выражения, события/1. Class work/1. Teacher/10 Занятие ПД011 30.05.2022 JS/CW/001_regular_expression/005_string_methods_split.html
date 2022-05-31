@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru">
+    <head>
+        <title>Метод split</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <h3>Метод String.split()</h3>
+
+        <script>
+            // split() - разбивает строку на массив подстрок в соответствии с регулярным выражением.
+            let text = "test-А123test-B137test-C111test-D567";
+            // let text = "test-А123789121test-B123878test-C111007test-D567007";
+
+            // разбивка строки по трем цифрам
+            let res = text.split(/\d\d\d/); // возвращает массив ['test-A', 'test-B', 'test-C', 'test-D']
+            document.write(`${text}<br>${res}<br><br>`);
+
+            // разбивка по нескольким пробелам, при помощи метасимвола и квантификатора
+            // \s любой пробельный символ (тоже самое, что [\r\n\f\v\t])
+            // + один или несколько символов
+            // (см. пример 008_character_classes.html)
+            text = "  кот    ломом   колол   слона    ";
+            // res = text.trim().split(/\s/)
+            res = text.trim().split(/\s+/);
+            document.write(`${text}<br>${res}<br>`);
+        </script>
+    </body>
+</html>

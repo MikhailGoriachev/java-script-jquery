@@ -1,0 +1,47 @@
+/* Страница "Задача 3. Данные о погоде" (page3.html) */
+
+.container {
+    display: flex;
+
+    flex-wrap: wrap;
+}
+
+/* данные о погоде */
+.weather {
+    display: flex;
+
+    flex-direction: column;
+
+    width: 10rem;
+
+    padding: 1rem;
+
+    background-color: #e8e8e8;
+    border: 1px solid #bbbbbb;
+    border-radius: 1rem;
+    font-size: 1.1rem;
+    transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
+    margin: 1rem;
+}
+
+.weather:hover {
+    box-shadow: 0 0 1rem 1rem rgba(0, 0, 0, 0.164);
+}
+
+.weather .weather-image {
+    display: flex;
+
+    justify-content: center;
+    width: 100%;
+}
+
+/* поля */
+.weather div {
+    box-sizing: border-box;
+    padding: 0.5rem 0;
+}
+
+/* значение полей */
+.weather span {
+    font-weight: bold;
+}

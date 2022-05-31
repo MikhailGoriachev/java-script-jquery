@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+    <title>Примеры регулярных выражений</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h3>Примеры регулярных выражений</h3>
+    <script>
+        // 21-12-1999
+        // простой паттерн, но не без недостатков
+        let pattern = /\d{1,2}-\d{1,2}-\d{4}/;
+
+        // более сложный паттерн, но строже контролирует строку
+        // на соответствие формату dd-dd-dddd
+        // let pattern = /\b\d{1,2}\b-\b\d{1,2}\b-\b\d{4}\b/;
+        let text = "12-12-1985";
+        document.write(`${text} -> <b>${pattern.test(text)}</b><br><hr>`);
+
+
+        // +38 (ddd) ddd-dd-dd
+        pattern = /\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}/;
+        text = "+7 (071) 223-23-23";
+        document.write(`${text} -> ${pattern.test(text)}<br><hr>`);
+
+        // Иванов Иван Иванович - точнее, строка из русских букв
+        pattern = /[а-яА-Я]+ [а-яА-Я]+ [а-яА-Я]+/;
+        text = "Иванова Ирина Ильинична";
+        // pattern = /[а-яА-Я]+\s+[а-яА-Я]+\s+[а-яА-Я]+/;
+        // text = "Иванова      Ирина      Ильинична";
+        document.write(`${text} -> <b>${pattern.test(text)}</b><br><hr>`);
+
+        // ivanov.ivan@example.com
+        pattern = /\b[a-z0-9._]+@[a-z0-9-]+\.[a-z]{2,4}\b/i;
+        text = "ivanov.ivan@examp-le.com";
+        document.write(`${text} -> <b>${pattern.test(text)}</b><br><hr>`);
+
+        // hello.html
+        pattern = /\w+\.html/;
+        // text = "привет_2.html";
+        // text = "hello_2.html";
+        text = "hello.html";
+        document.write(`${text} -> <b>${pattern.test(text)}</b><br><hr>`);
+
+
+        // http://www.dataarea.com или https://www.dataarea.com
+        // s? означает, что s - не обязательно
+        pattern = /https?:\/\/[\w\d:\.\?\&]+/g;
+        text = "http://www.dataarea.com или https://www.dataarea.com blah-blah-blah http://www.google.com:80";
+        document.write(`<p>Строка для обработки: <b>${text}</b></p><ul>`)
+        let res;
+        while ((res = pattern.exec(text)) != null) {
+            document.write(`<li>Найдено ${res} по индексу ${res.index}</li>`);
+        } // while
+        document.write('</ul><hr>');
+
+    </script>
+</body>
+</html>

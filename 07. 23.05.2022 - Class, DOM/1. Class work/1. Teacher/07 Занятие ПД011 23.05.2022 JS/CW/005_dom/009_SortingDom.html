@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title></title>
+        <script>
+            // Основные типы узлов
+            // Интерфейс           | Константа nodeType            | Значение nodeType
+            // ------------------------------------------------------------------------
+            // Element             | Node.ELEMENT_NODE             | 1
+            // Text                | Node.TEXT_NODE                | 3
+            // Comment             | Node.COMMENT_NODE             | 8
+            // Document            | Node.DOCUMENT_NODE            | 9
+            // ------------------------------------------------------------------------
+
+            function sortchildren(e) {
+                if (typeof e != "string") return;
+
+                // доступ к элементу разметки
+                e = document.getElementById(e);
+
+                // Преобразуем дочерние элементы в массив
+                let children = [];
+                for (let x = e.firstChild; x != null; x = x.nextSibling)
+                    if (x.nodeType === 1 /* Node.ELEMENT_NODE */)
+                        children.push(x);
+
+                // сортировка
+                children.sort((n, m) => {
+                    // функция сравнения.
+                    console.log(`${n.firstChild.data}\n${m.firstChild.data}`);
+                    let s = n.firstChild.data; // текст узла n
+                    let t = m.firstChild.data; // текст узла m
+                    return s < t
+                        ? -1 // n перед m
+                        : s > t
+                        ? 1 // n после m
+                        : 0; // n и m равны
+                });
+
+                // Добавляем дочерние элементы обратно в родительский узел.
+                // Когда добавляется узел, который уже существует в документе, он автоматически
+                // удаляется со своей старой позиции и вставляется в новую.
+                for (let i = 0; i < children.length; i++)
+                    e.appendChild(children[i]);
+            }
+        </script>
+    </head>
+    <body>
+        <ul id="mylist">
+            <li>яблоки</li>
+            <li>груши</li>
+            <li>апельсины</li>
+            <li>мандарины</li>
+            <li>вишня</li>
+            <li>черешня</li>
+        </ul>
+
+        <button onclick="sortchildren('mylist')">Sort list</button>
+    </body>
+</html>

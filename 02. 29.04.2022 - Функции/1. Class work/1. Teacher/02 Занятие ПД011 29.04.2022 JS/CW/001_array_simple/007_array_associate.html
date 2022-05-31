@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+
+<!--
+
+    Ассоциативный массив - абстрактный тип данных, позволяющий хранить
+    пары вида «(ключ, значение)».
+    От простых массивов отличается тем, что доступ к элементам происходит
+    по ключу.
+
+-->
+
+<html lang="ru">
+    <head>
+        <title>Аcсоциативные массивы</title>
+        <meta charset="utf-8" />
+
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <h1>Ассоциативный массив</h1>
+        <script>
+            // Объект == ассоциативный массив, не экземпляр класса
+            // Объект, имеющий три свойства
+            // т.е. массив из трех элементов, пар "ключ - значение"
+            let laptop = {
+                cpu: "Core i7",
+                ram: "16 GB",
+                screen: "15.6",
+            };
+
+            // Запрос на введение имени свойства.
+            let key = prompt(
+                "Введите интересующий параметр (ram, cpu, screen)",
+                ""
+            );
+
+            // Обращение к массиву по ключу.
+            document.write(
+                `<p>Значение элемента с введенным ключом ${key}: <b>${laptop[key]}</b></p><hr>`
+            );
+
+            // Обращение к массиву по ключу: синтаксис с операцией доступа и синтаксис индексирования
+            // Данные выражения имеют одинаковое значение:
+            document.write(
+                `<p>CPU: ${laptop.cpu}, RAM: ${laptop.ram}, Screen: ${laptop.screen}</p>`
+            );
+            document.write(
+                `<p>CPU: ${laptop["cpu"]}, RAM: ${laptop["ram"]}, Screen: ${laptop["screen"]}</p>`
+            );
+
+            document.write("<hr>");
+
+            // еще один пример ассоциативного массива - объекта
+            let person = {
+                name: "Маша",
+                age: 42,
+                married: true,
+                children: ["Лена", "Диана", "Гриша", "Гоша"],
+            };
+
+            document.write(
+                `${person.name} ${person.age}  ${
+                    person.married ? "" : "не"
+                }замужем | дети: ${person.children}<br/>`
+            );
+
+            person.age++;
+            document.write(
+                `${person.name} ${person.age}  ${
+                    person.married ? "" : "не"
+                }замужем | дети: ${person.children}<br/>`
+            );
+        </script>
+    </body>
+</html>

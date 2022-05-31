@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Прототип</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <h3>Входит прототип :)</h3>
+        <h4>Enter prototype :)</h4>
+        <script>
+            function Rectangle(w, h) {
+                // свойства - для каждого экземпляра собственные
+                this.width = w;
+                this.height = h;
+
+                // Метод прототипа объявлен внутри функции-конструктора,
+                // как-бы метод класса
+                Rectangle.prototype.toString = function () {
+                    // this - ссылка на Rectangle, не на прототип
+                    return `${this.width} x ${this.height}`;
+                };
+
+                // Метод прототипа объявлен внутри функции-конструктора,
+                // как-бы метод класса
+                Rectangle.prototype.getPerimeter = function () {
+                    return 2 * (this.width + this.height);
+                };
+            } // Rectangle
+
+            // создание такого же объекта, но в стиле ES6+
+            // это синтаксический сахар
+            class Rect {
+                constructor(w, h) {
+                    // свойства - для каждого экземпляра собственные
+                    this.width = w;
+                    this.height = h;
+                }
+
+                // Метод прототипа объявлен внутри функции-конструктора,
+                // как-бы метод класса
+                toString() {
+                    // this - ссылка на Rectangle, не на прототип
+                    return `${this.width} x ${this.height}`;
+                }
+
+                // Метод прототипа объявлен внутри функции-конструктора,
+                // как-бы метод класса
+                getPerimeter() {
+                    return 2 * (this.width + this.height);
+                }
+
+                // Метод прототипа объявлен внутри функции-конструктора,
+                // как-бы метод класса
+                getArea() {
+                    return this.width * this.height;
+                }
+            }
+
+            // Метод прототипа Rectangle будет доступен каждому экземпляру,
+            // но храниться будет в прототипе, соответственно занимать меньше места
+            // чем если бы метод принадлежал каждому экземпляру.
+            Rectangle.prototype.getArea = function () {
+                return this.width * this.height;
+            };
+
+            let rectangle = new Rectangle(5, 6);
+            document.write(`
+             <p>Прямоугольник ${rectangle.toString()}:
+                площадь <b>${rectangle.getArea()}</b>
+                периметр <b>${rectangle.getPerimeter()}</b>
+             `);
+
+            // все экземпляры Rectangle используют единственный метод getArea()
+            let rectangles = [
+                new Rectangle(10, 20),
+                new Rectangle(3, 4),
+                new Rectangle(7, 8),
+            ];
+            document.write("<ul>");
+            rectangles.forEach((r) =>
+                document.write(`
+             <li>Прямоугольник ${r.toString()}: площадь <b>${r.getArea()}</b></li>`)
+            );
+            document.write("</ul>");
+
+            let rect = new Rect(5, 6);
+            document.write(`
+             <p>Прямоугольник ${rect.toString()}:
+                площадь <b>${rect.getArea()}</b>
+                периметр <b>${rect.getPerimeter()}</b>
+             `);
+
+            // все экземпляры Rect используют единственный метод getArea()
+            let rects = [new Rect(10, 20), new Rect(3, 4), new Rect(7, 8)];
+            document.write("<ul>");
+            rects.forEach((r) =>
+                document.write(`
+             <li>Прямоугольник ${r.toString()}: площадь <b>${r.getArea()}</b></li>`)
+            );
+            document.write("</ul>");
+        </script>
+    </body>
+</html>

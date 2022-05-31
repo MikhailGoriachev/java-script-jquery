@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Пример - ToolTip</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        .tooltip {
+            box-shadow: 2px 2px 3px black;
+
+            background-color: whitesmoke;
+            border: solid black 1px;
+            padding: 5px;
+            font: bold 10pt sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h3 title="заголовок на странице">Формирование ToolTip</h3>
+    <div id="test">
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+        Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+        unknown printer took a galley of type and scrambled it to make a type specimen book.
+        It has survived not only five centuries, but also the leap into electronic typesetting,
+        remaining essentially unchanged. It was popularised in the 1960s with the release
+        of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+        publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    </div>
+
+    <script>
+        class Tooltip {  // Конструктор для всплывающей подсказки
+            constructor() {
+                this.tooltip = document.createElement("div"); // Создание div для тени
+                this.tooltip.style.position = "absolute";     // Абсолютное позиционирование.
+                this.tooltip.style.visibility = "hidden";
+                this.tooltip.className = "tooltip";
+            }
+
+            // Установка содержимого для подсказки и отображение
+            show(text, x, y) {
+                this.tooltip.innerHTML = text;             // Текст подсказки
+                this.tooltip.style.left = `${x}px`;        // Координаты
+                this.tooltip.style.top = `${y}px`;
+                this.tooltip.style.visibility = "visible";
+
+                // Добавление подсказки в документ если он еще не присутствует.
+                if (this.tooltip.parentNode !== document.body)
+                    document.body.appendChild(this.tooltip);
+            };
+
+            // Функция для скрытия подсказки
+            hide() {
+                this.tooltip.style.visibility = "hidden";
+            };
+        }
+
+        let t = new Tooltip();
+
+        function mouseMoveHandler(e) {
+            if (!e) e = window.event;
+            t.show("<br/>This is tooltip text!!!", e.clientX + 10, e.clientY + 10);
+        }
+
+        function mouseOutHandler() {
+            t.hide();
+        }
+
+        window.onload = function () {
+            // получить элемент для добавления ToolTip
+            let d = document.getElementById("test");
+
+            // добавленир обработчиков события связывает Tooltip
+            // с элементом разметки
+            d.onmousemove = mouseMoveHandler;
+            d.onmouseout = mouseOutHandler;
+        }
+    </script>
+</body>
+</html>
+
+

@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Computed Styles (Вычисляемые свойства)</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            color: lightgoldenrodyellow;
+        }
+
+        div#first {
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <h3>Вычисляемые стили</h3>
+    <!--Для данного блока цвет задается через CSS стили определенные в элементе style в начале файла.-->
+    <div id="first" style="color:lightcoral">
+        <h3>id=first</h3>
+    </div>
+
+    <!--Для данного блока установлены inline стили-->
+    <div id="second" style="background-color: red" title="пример tool-tip">
+        <h3>id=second</h3>
+    </div>
+
+    <button id="btn1">Get first styles</button>
+    <button id="btn2">Get second styles</button>
+
+    <script>
+        window.onload = function () {
+            let div1 = document.getElementById("first"),
+                div2 = document.getElementById("second");
+
+            document.getElementById("btn1").onclick = function () {
+                alert("First div style - " +
+                    getStyle(div1, "backgroundColor") + "\n" +
+                    getStyle(div1, "color"));
+            }
+
+            document.getElementById("btn2").onclick = function () {
+                alert(
+                    "Second div style - " +
+                    getStyle(div2, "backgroundColor") + "\n" +
+                    getStyle(div2, "color")
+                );
+            }
+
+            // getComputedStyle - метод позволяет получить доступ к вычисляемым стилям.
+
+            function getStyle(element, styleName) {
+                if (element.currentStyle) { // получение доступа к Computed стилям для IE
+                    return element.currentStyle[styleName];
+                }
+                else if (window.getComputedStyle) {
+                    return window.getComputedStyle(element, null)[styleName];
+                }
+            }
+        }
+    </script>
+</body>
+</html>

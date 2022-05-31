@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+
+<!--
+
+    shift() - удаляет и возвращает первый элемент массива смещая все последующие элементы на одну позицию вниз,
+              чтобы занять место, освободившееся в начале массива.
+
+-->
+
+<html lang="ru">
+<head>
+    <title>Метод Shift()</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Методы массивов в JavaScript</h1>
+    <h2>Метод shift()</h2>
+
+    <script>
+
+        let arr = [1, 2, 3, 4, 5, 6, 7];
+
+        document.write("<p>Исходный массив: " + arr.join(" "));
+        document.write("<hr/>");
+
+        let value = arr.shift();
+
+        document.write("<p>Массив после сдвига: " + arr.join(" "));
+        document.write("<p>Выдвинутое значение: " + value);
+
+    </script>
+</body>
+</html>

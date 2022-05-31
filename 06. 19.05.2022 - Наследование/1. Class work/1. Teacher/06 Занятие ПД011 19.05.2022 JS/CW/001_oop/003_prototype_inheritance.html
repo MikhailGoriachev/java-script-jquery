@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Наследование на прототипах</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <h3>Наследование на прототипах</h3>
+        <script>
+            // Базовый класс – персона (фамилия и инициалы, дата рождения, город проживания),
+            function Person(fullName, dateOfBirth, city) {
+                this.fullName = fullName; // фамилия и инициалы
+                this.dateOfBirth = dateOfBirth; // дата рождения
+                this.city = city; // название города проживания
+
+                // переопределение метода toString()
+                Person.prototype.toString = function () {
+                    return `<td>${this.fullName}</td>
+                        <td>${this.dateOfBirth.toDateString()}</td>
+                        <td>${this.city}</td>`;
+                }; // toString
+            } // Person
+
+            // Производный от базового класс – клиент (дата обращения за услугой, название услуги,
+            // стоимость услуги),
+            // Переопределите методы toString(), equals() для клиента.
+            function Client(
+                fullName,
+                dateOfBirth,
+                city,
+                dateService,
+                nameService,
+                costService
+            ) {
+                // получение доступа к полям базового класса - унаследовали поля базового класса
+                // БазовыйКласс.call(this, наборПараметровБазовогоКлассс)
+                Person.call(this, fullName, dateOfBirth, city);
+
+                // поля производного класса
+                this.dateService = dateService;
+                this.nameService = nameService;
+                this.costService = costService;
+
+                // переопределение метода Object
+                Client.prototype.toString = function () {
+                    return `<td>${this.fullName}</td>
+                        <td>${this.dateOfBirth.toDateString()}</td>
+                        <td>${this.city}</td>
+                        <td>${this.dateService.toDateString()}</td>
+                        <td>${this.nameService}</td>
+                        <td>${this.costService}</td>`;
+                };
+            } // Client
+
+            // получение доступа к методам базового класса
+            // (если они есть)
+            Client.prototype = Object.create(Person.prototype);
+            let client1 = new Client(
+                "Иванова О.Л.",
+                new Date(),
+                "Амвросиевка",
+                new Date(),
+                "ремонт зонтика",
+                200
+            );
+            let client2 = new Client(
+                "Баранова Е.К.",
+                new Date(),
+                "Макеевка",
+                new Date(),
+                "ремонт замка дверного",
+                2300
+            );
+            document.write(
+                `<table><tr>${client1}</tr><tr>${client2}</tr></table>`
+            );
+
+            // Производный от базового класс – мастер (тарифная ставка, дата начала работы, признак
+            // занятости ремонтом).
+            // Переопределите методы toString(), equals() для мастера.
+            // tariffRate - тарифная ставка
+            // busy - признак занятости/не занятости ремонтами
+            function Artisan(
+                fullName,
+                dateOfBirth,
+                city,
+                tariffRate,
+                startDate,
+                busy
+            ) {
+                // наследование полей
+                Person.call(this, fullName, dateOfBirth, city);
+
+                // присвоить данные полей мастера
+                this.tariffRate = tariffRate;
+                this.startDate = startDate;
+                this.busy = busy;
+
+                // методы "класса"
+                Artisan.prototype.toString = function () {
+                    return `<td>${
+                        this.fullName
+                    }</td><td>${this.dateOfBirth.toDateString()}</td><td>${
+                        this.city
+                    }</td>
+                        <td>${
+                            this.tariffRate
+                        }</td><td>${this.startDate.toDateString()}</td><td>${
+                        this.busy
+                    }</td>`;
+                }; // tpString
+            } // Artisan
+
+            // получение доступа к методам базового класса
+            Artisan.prototype = Object.create(Person.prototype);
+            let artisan = new Artisan(
+                "Романов Б.Г.",
+                new Date(),
+                "Амвросиевка",
+                20000,
+                new Date(),
+                true
+            );
+            document.write(
+                `<table><tr>${client1}</tr><tr>${client2}</tr><tr>${artisan}</tr></table>`
+            );
+        </script>
+    </body>
+</html>

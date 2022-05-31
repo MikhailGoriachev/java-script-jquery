@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+    <title>Определение регулярного выражения</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        // Определение регулярного выражения через литерал
+        // /шаблонРегулярногоВыражения/Флаги
+        let pattern1 = /\d\d\d/;
+
+        // Определение регулярного выражения через класс RegExp
+        let pattern2 = new RegExp("\d\d\d");
+        
+        // \d - метасимвол, заменяющий любой символ - цифру
+        // \d\d\d - соответствует подстроке из трех цифр.
+    </script>
+</head>
+<body>
+    <h3>Введение в регулярные выражения<</h3>
+    <script>
+        console.log(pattern1);
+        console.log(pattern2);
+
+        document.write(`${pattern1}<br>${pattern2}<br>`);
+    </script>
+</body>
+</html>

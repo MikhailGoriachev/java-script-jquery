@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<!--
+
+    Сравнение строк производится посимвольно для числовых значений каждого символа
+    из кодировки Unicode.
+    Символ в верхнем регистре считается меньше символа в нижнем регистре.
+    Например: A - code (41 Hex)
+              a - code (61 Hex)
+
+-->
+
+<html lang="ru">
+<head>
+    <title>Операторы</title>
+    <meta charset="utf-8">
+</head>
+<body>
+    <h3>Отношения строк</h3>
+    <script>
+
+        res = "A" < "a";
+        document.write("A < a = " + res + "<br /><hr/>");
+
+        var c = "hello";
+        var d = "hallo";
+        res = c < d;
+        document.write("hello < hallo = <b>" + res + "</b><br />");
+
+        c = "199";
+        d = "25";
+        res = c > d;
+        document.write(`"${c}" > "${d}" = <b>${res}</b><br />`);
+
+        c = "Анапа";
+        d = "Анадырь";
+        res = c > d;
+        document.write(`"${c}" > "${d}" = <b>${res}</b><br />`);
+
+    </script>
+</body>
+</html>

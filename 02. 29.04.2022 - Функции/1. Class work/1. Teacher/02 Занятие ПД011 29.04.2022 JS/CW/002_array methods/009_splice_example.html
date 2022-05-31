@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<!--
+
+    Метод splice()
+
+-->
+
+<html lang="ru">
+<head>
+    <title>Метод splice() пример</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Методы массивов JavaScript</h1>
+    <h2>Метод splice()</h2>
+    <h3>Метод splice() - пример использования</h3>
+
+    <script>
+
+        var students = [
+            "Алексей", "Владимир", "Ярослава", "Владислав",
+            "Елена", "Руслан", "Анна", "Кирилл", "Ольга",
+            "Валентин", "Андрей"
+        ];
+        document.write(`<p>Студенты: ${students.join(", ")}</p>`);
+
+        var from = prompt("Введите индекс человека с которого начать выборку:");
+        var count = prompt("Введите количество человек:");
+
+        var res = students.splice(from, count);
+
+        document.write(`<p>Выбраны: ${res.join(", ")}</p>`);
+        document.write(`<p>Остались: ${students.join(", ")}</p>`);
+
+    </script>
+</body>
+</html>

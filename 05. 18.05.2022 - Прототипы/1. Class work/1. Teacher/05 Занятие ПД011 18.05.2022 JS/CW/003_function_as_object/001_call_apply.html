@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>call and apply</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h3>Передача контекста в функцию</h3>
+    <script>
+        // <editor-fold desc="Объект User">
+        function User(name, age) {
+            this.name = name;
+            this.age = age;
+
+            // переопределение toString
+            User.prototype.toString = function () {
+                return `имя ${this.name}, возраст в годах: ${this.age}`;
+            }
+        }
+
+        let tom = new User("Том", 31);
+
+        // функция без параметра для приема контекста
+        function write() {
+            // this - в д.с. это просто контекст функции
+            document.write(`<p>Ваше имя: <b>${this.name}</b></p>`);
+        }
+
+        // передача контекста в функцию при вызове
+        write.call(tom);   // теперь  this   это  tom
+        // </editor-fold>
+
+        // Еще один "класс"
+        function Month(name, days) {
+            this.name = name;
+            this.days = days;
+        }
+
+        let may = new Month("Май", 31);
+
+        // передача контекста в функцию при вызове
+        write.call(may);
+
+
+        // функция с параметром, для приема контекста объекта и
+        // скалярного набора параметра (не массив параметров)
+        function colorWrite(color, teg) {
+            document.write(`<p style="color: ${color}"><${teg}>${this.name}</${teg}></p>`);
+        }
+
+        // !!! передача параметров именно в таком порядке !!!
+        colorWrite.call(tom, 'tomato', 'b');
+        colorWrite.call(may, 'lightseagreen', 'u');
+        // colorWrite.call('lightseagreen', july);   // на строке нет свойства name => undefined
+
+        // функция для приема контекста и массива
+        function showArray() {
+            // выводим контекст
+            document.write(`<b>${this.name}</b><ul>`);
+
+            // работаем с псевдомассивом параметров arguments
+            for(item of arguments)
+                document.write(`<li>${item}</li>`);
+
+            // такое работать не будет - arguments это не массив, forEach() не определен
+            // arguments.forEach(item => document.write(`<li>${item}</li>`));
+
+            // просто завершаем вывод списка
+            document.write(`</ul>`);
+        }
+
+        // передача контекста и массива
+        showArray.apply(tom, [3, 5, 7, -12]);
+        document.write('<hr>');
+
+        showArray.apply(may, [
+            new User('Маша', 22),
+            new User('Даша', 19),
+            new User('Федор', 28)]);
+        document.write('<hr>');
+
+
+        // Пример передачи массива в Math.min/Math.max - контекст
+        // при этом не нужен, поэтому он равен null
+        let arr = [3, 5, 7, -1, 2, 8, -1, 3];
+        document.write(`<p>Массив для обоработки: ${arr}`);
+
+        let minArr = Math.min.apply(null, arr);
+        document.write(`<p>минимальный в массиве: ${minArr} (apply)</p>`);
+
+        // синтаксический сахар - оператор расширения, из массива делает список значений
+        // расширяет массив в список значений
+        minArr = Math.min(...arr);
+        document.write(`<p>минимальный в массиве: ${minArr} (оператор расширения)</p>`);
+
+        let maxArr = Math.max.apply(null, arr);
+        document.write(`<p>максимальный в массиве: ${maxArr} (apply)</p>`);
+
+        // синтаксический сахар - оператор расширения, из массива делает список значений
+        // расширяет массив в список значений
+        maxArr = Math.max(...arr);
+        document.write(`<p>максимальный в массиве: ${maxArr} (оператор расширения)</p>`);
+
+        document.write('<hr/');
+    </script>
+</body>
+</html>

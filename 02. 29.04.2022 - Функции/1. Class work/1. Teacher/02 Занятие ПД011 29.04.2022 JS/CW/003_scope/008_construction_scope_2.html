@@ -1,0 +1,34 @@
+﻿<!--
+
+    Область видимости не ограничивается телом
+    условной или циклической конструкции.
+
+-->
+
+<html lang="ru">
+<head>
+    <title>Область видимости внутри конструкций</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script>
+
+        function f() {
+
+            for (let counter = 0; counter < 3; counter++) {
+                document.write("<p style='background-color:lightblue;'>" + counter);
+            }
+            // counter - счетчик итераций цикла доступна вне тела цикла - for.
+            document.write(`<p style='background-color:lightseagreen'>${counter}</p>`);
+        }
+        f();
+
+        // ОШИБКА.
+        // Счетчик итераций цикла - counter, не доступен за пределами тела функции содержащей цикл.
+        document.write(`<p style='background-color:red'>${counter}</p>`);
+
+    </script>
+</body>
+</html>

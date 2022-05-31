@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!--
+
+Замыкание (closure) представляют собой конструкцию, когда функция,
+созданная в одной области видимости, запоминает свое лексическое окружение
+даже в том случае, когда она выполняется вне своей области видимости.
+
+-->
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Замыкания</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Замыкания</h1>
+    <script>
+        // ----- пример 1
+        function outer() {
+            let x = 5;
+
+            // внутренняя функция
+            function inner(){
+                x++;      // переменная захвачена, замкнута
+                document.write(`<p>x = ${x}</p>`);
+            } // inner
+
+            return inner;
+        } // outer
+
+        /*
+        // напоминание о литеральных функциях
+        function some() { return some; }
+        let ff = some();
+        */
+
+        // fn = inner, так как функция outer возвращает функцию inner
+        let fn = outer();
+
+        // вызываем внутреннюю функцию inner
+        fn();   // 6
+        fn();   // 7
+        fn();   // 8
+
+
+        // ----- пример 2
+        function multiply(n){
+            let x = n;  // x замыкается во внутренней функции !!!
+            return function(m){ console.log(`x = ${x}`); return x * m;};
+        }
+
+        let fn1 = multiply(5);
+        let result1 = fn1(6); // 30
+        console.log(result1); // 30
+
+        result1 = fn1(7); // 35
+        console.log(result1);  // 35
+
+        // при повторном обращении к функции multiply()
+        // создается еще один экземпляр контекста для
+        // сохранения уже существующего замыкания
+        let fn2= multiply(4);
+        let result2 = fn2(6); // 24
+        console.log(result2); // 24
+
+        // для этой функции  x равен 5
+        result1 = fn1(7); // 35
+        console.log(result1);  // 35
+
+        result2 = multiply(10)(7); // вызываем неявно заданную функцию :)
+        console.log(result2);
+
+        result2 = (multiply(10))(7); // вызываем неявно заданную функцию :)
+        console.log(result2);
+
+    </script>
+</body>
+</html>

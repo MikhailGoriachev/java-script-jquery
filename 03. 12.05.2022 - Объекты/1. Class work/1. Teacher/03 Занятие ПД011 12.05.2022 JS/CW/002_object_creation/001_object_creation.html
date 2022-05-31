@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<!--
+    Объект – это составной тип данных,
+    он объединяет множество значений в единый модуль и
+    позволяет сохранять и извлекать значения по их именам.
+
+    Создание объекта через блок инициализации:
+    let имя_объекта = {
+        имя_свойства1: значение_свойства1,
+        имя_свойства2: значение_свойства2,
+        ...
+        имя_свойстваN: значение_свойстваN
+    }
+-->
+<html lang="ru">
+<head>
+    <title>Обьекты</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script>
+
+        // Создание объекта через блок инициализации.
+        // !!! объект - ассоциативный массив !!!
+        let instance = {
+            // индекс, свойство : значение
+            propertyA: 111,
+            propertyB: 222
+        };
+
+
+        // вывод всего объекта по умолчанию - это унаследованный от Object вывод
+        // точнее, преобразование в строковый формат
+        document.write(`<p>instance = ${instance}</p>`);
+        document.write("<hr/>");
+
+        // Вывод значений свойств.
+        document.write(`<p>instance.propertyA = ${instance.propertyA}</p>`);
+        document.write(`<p>instance.propertyB = ${instance.propertyB}</p>`);
+        document.write("<hr/>");
+
+        // Присвоение новых значений свойствам.
+        instance.propertyA = 333;       // 1 способ.
+        document.write(`<p>instance.propertyA = ${instance.propertyA}</p>`);
+
+        instance["propertyB"] = 503;    // 2 способ.
+        document.write(`<p>instance.propertyB = ${instance['propertyB']}</p>`);
+        document.write("<hr/>");
+
+        // JS  - динамическая типа
+        instance.propertyA = 'привет';
+        instance.propertyB = 'мир объектов';
+        document.write(`<p>instance.propertyA = ${instance.propertyA}</p>`);
+        document.write(`<p>instance.propertyB = ${instance.propertyB}</p>`);
+        document.write("<hr/>");
+
+        // !!! JavaScript !!!
+        // добавление свойства объекту
+        instance.propertyC = "world!"; // это добавленное свойство объекту
+        document.write(`<p>instance.propertyA = ${instance.propertyA}</p>`);
+        document.write(`<p>instance.propertyB = ${instance.propertyB}</p>`);
+        document.write(`<p>instance.propertyC = ${instance.propertyC}</p>`);
+        document.write("<hr/>");
+
+    </script>
+</body>
+</html>

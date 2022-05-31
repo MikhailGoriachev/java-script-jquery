@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<!--
+
+    Логическое И (&&) - возвращает true тогда и только тогда 
+    когда оба операнда равны true.
+
+    Таблица истинности логического И (&&):
+            true  && true = true
+            false && true = false
+            true  && false = false
+            false && false = false
+
+-->
+
+<html lang="ru">
+<head>
+    <title>Логические операторы</title>
+    <meta charset="utf-8">
+</head>
+<body>
+    <h3>Операция логическое И, &&</h3>
+    <table cellpadding="6" border="1" cellspacing="0">
+        <tr><th>a</th><th>b</th><th>res</th></tr>
+        <script>
+
+            var a = false;
+            var b = false;
+
+            var res = a && b;
+            document.write(`<tr><td>${a}</td><td>${b}</td><th>${res}</th>`);
+
+            a = false;
+            b = true;
+
+            res = a && b;
+            document.write(`<tr><td>${a}</td><td>${b}</td><th>${res}</th>`);
+
+            a = true;
+            b = false;
+
+            res = a && b;
+            document.write(`<tr><td>${a}</td><td>${b}</td><th>${res}</th>`);
+
+            a = true;
+            b = true;
+
+            res = a && b;
+            document.write(`<tr><td>${a}</td><td>${b}</td><th>${res}</th>`);
+        </script>
+    </table>
+</body>
+</html>

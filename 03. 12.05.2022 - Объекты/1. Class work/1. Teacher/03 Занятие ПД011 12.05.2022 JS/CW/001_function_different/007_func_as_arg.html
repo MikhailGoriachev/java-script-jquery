@@ -1,0 +1,67 @@
+﻿<!--
+
+    Функции передаваемые в качестве аргументов другой функции
+    (CallBack Function - функции обратного вызова).
+    Суть этого примера показать, что вы можете спокойно делать функции аргументами других функций.
+
+-->
+
+<html lang="ru">
+<head>
+    <title>CallBack Function</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Функция, как аргумент функции</h1>
+    <!--
+    CallBack функция в какой-то определенный момент времени будет запущена.
+    То есть функция show сама решит, когда нужно запустить CallBack Function.
+    Запустит этот CallBack Function и по сути оповестит основной поток выполнения.
+    -->
+    <script>
+
+        let add = function (a, b) {//переменная с функцией
+            return a + b;           //выполняет сложение
+        }
+
+        let sub = function (a, b) {//переменная с функцией
+            return a - b;           //выполняет вычитание
+        }
+
+        // callBackFunction - обозначает, что при вызове функции show
+        // должны передать еще одну функцию, CallBack функцию. Функция show сама решит,
+        // когда нужно запустить CallBack Function
+        function show(callBackFunction, a, b) {
+            let result = callBackFunction(a, b);
+            document.write(`<p>${result}</p>`);
+
+            // а это выводим исходный код переданной функции
+            console.log(callBackFunction);
+        } // show
+
+        // передача в callBackFunction функцию add
+        show(add, 10, 20);
+
+        // передача в callBackFunction функцию sub
+        show(sub, 50, 30);
+
+        // передача анонимной функции
+        show(function (x, y) { return x*y;}, 20, 5);
+
+        // напоминаю, $ - нормальное имя в JavaScript
+        // библиотека jQuery - состоит из одной функции, это именно $
+        function $(callBackFunction, a, b) {
+            let result = callBackFunction(a, b);
+            document.write(`<p>${result}</p><p>${callBackFunction}</p>`);
+        } // $
+
+        // вызов функции $
+        $(function(a, b) {return a / b;}, 300, 15);
+
+        // перед вызовом корректность параметров не проверяется :(
+        // $(function() {document.write("<h1>Все!</h1>")}, 300, 15);
+
+    </script>
+</body>
+</html>

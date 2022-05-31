@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+    <title>Метод String.match</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h3>Метод String.match()</h3>
+    <script>
+        // match() - принимает регулярное выражение и возвращает массив с результатами поиска.
+        let text = "1 плюс 25 равно 3 но не 33";
+
+        document.write(`<p>${text}</p>`);
+
+        let res = text.match(/\d/);
+        document.write(`<p>/\\d/: res = ${res}</p>`);
+
+        res = text.match(/\d/g); // возвращает массив ['1', '2', '5', '3', '3', '3']
+        document.write(`<p>/\\d/g: res = ${res}</p>`);
+        document.write('<hr>')
+
+        // не будет найдено совпадений, ничего не вернет - т.к. match()
+        // понимает только литеральную запись регулярных выражений
+        document.write(`<p>${text}</p>`);
+        let res2 = text.match(new RegExp("\d"));
+
+        if (res2 == null)
+            document.write('<p>Ничего не найдено</p>');
+        else
+            document.write(`<p>Найдено, res2[0] = ${res2[0]}</p>`);
+
+        // при литеральном задании регулярного выражения все работает :)
+        res2 = text.match(/\d/);
+        if (res2 == null)
+            document.write('<p>Ничего не найдено</p>');
+        else
+            document.write(`<p>Найдено, res2[0] = ${res2[0]}</p>`);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>getElementsByName</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        
+        window.onload = function () {
+
+            // обработчик на событие нажатие по кнопке
+            document
+                .getElementById("answerButton")
+                .onclick = function () {
+
+                    // получение массива элементов с атрибутом name со значеним answer
+                    let radioButtons = document.getElementsByName("answer");
+
+                    let res = "<h3>Состояния радиокнопок:</h3><ul>";
+                    for (let i = 0; i < radioButtons.length; i++) {
+                        res += "<li>" + radioButtons[i].value + " <b>" + radioButtons[i].checked + "</b></li>";
+                    }
+
+                    // вывод результата в специальное поле
+                    document.getElementById("userAnswer").innerHTML = res + "</ul>";
+                }
+
+        }
+
+    </script>
+</head>
+<body>
+    <h1>Метод getElementsByName()</h1>
+
+    <!-- Радиокнопки только для примера :) -->
+    <label><input type="radio" name="answer" value="Да" />Да</label>
+    <label><input type="radio" name="answer" value="Нет" />Нет</label>
+    <label><input type="radio" name="answer" value="Не знаю" />Не знаю</label>
+
+    <input id="answerButton" type="button" value="Получить ответ" />
+
+    <!-- поле для вывода результатов работы -->
+    <div id="userAnswer"></div>
+</body>
+</html>

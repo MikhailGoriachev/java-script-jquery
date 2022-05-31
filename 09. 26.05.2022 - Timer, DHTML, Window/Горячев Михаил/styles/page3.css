@@ -1,0 +1,26 @@
+/* Страница "Задача 3. Светофор" (page3.html) */
+
+/* светофор */
+.lights {
+    background-color: red;
+    height: 20rem;
+    width: 20rem;
+    transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
+    margin: 1rem 1rem 1rem 0;
+    border: 0.5rem solid #bbbbbb;
+    border-radius: 1rem;
+}
+
+/* кнопки */
+.content button {
+    width: 15rem;
+    margin-top: 1rem;
+}
+
+/* контейнер светофора */
+.container-lights {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+}

@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Работа с узлами DOM - методы</title>
+    <link rel="stylesheet" href="style.css  ">
+
+    <script>
+        // Методы для работы с DOM
+        // appendChild  - добавить дочерний элемент
+        // insertBefore - добавить элемент перед указанным
+        // removeChild  - удаление элемента
+        // replaceChild - замена одного элемента на другой
+
+        window.onload = function () {
+
+            let div1 = document.getElementById("div1");
+
+            // создать и добавить в div1 абзац
+            let p1 = document.createElement("p");
+            p1.innerHTML = `Paragraph 1. <b>Lorem</b> <i>ipsum</i> dolor sit amet, consectetur adipisicing
+                            elit. Ab at atque consequatur cupiditate delectus dolorum esse harum
+                            magnam magni maxime modi natus nesciunt perferendis quae, sint soluta ullam.
+                            Debitis, quidem!`;
+            div1.appendChild(p1);
+
+            // создать и добавить в div1 еще один абзац
+            p1 = document.createElement("p");
+            p1.innerHTML = `Paragraph 2. Разнообразный и богатый опыт сложившаяся структура
+             организации требуют от нас анализа модели развития. Идейные соображения высшего
+             порядка, а также новая модель организационной деятельности играет важную роль
+             в формировании направлений прогрессивного развития. Товарищи! укрепление и
+             развитие структуры позволяет выполнять важные задания по разработке системы
+             обучения кадров, соответствует насущным потребностям. Разнообразный и богатый
+             опыт консультация с широким активом в значительной степени обуславливает создание
+             существенных финансовых и административных условий. С другой стороны реализация
+             намеченных плановых заданий способствует подготовки и реализации форм развития.
+              Таким образом консультация с широким активом в значительной степени обуславливает
+              создание системы обучения кадров, соответствует насущным потребностям.`;
+            div1.appendChild(p1);
+
+            // создать абзац и добавить его перед div1
+            let p2 = document.createElement("p");
+            p2.innerHTML = `Paragraph 3. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            Ab at atque consequatur cupiditate delectus dolorum esse harum magnam magni
+                            maxime modi natus nesciunt perferendis quae, sint soluta ullam. Debitis,
+                            quidem!`;
+            document.body.insertBefore(p2, div1);
+
+
+            // добавить заголовок уровня h2 перед p2
+            let h2 = document.createElement("h2");
+            h2.innerHTML = `Dynamic HTML в действии, сейчас ${new Date()}`;
+            document.body.insertBefore(h2, p2);
+        }
+
+    </script>
+</head>
+<body>
+    <h1>Работа с DOM - методы</h1>
+    <div id="div1" style="border:solid 1px red; padding:10px; margin:10px;">
+
+    </div>
+</body>
+</html>
