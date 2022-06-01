@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Работа с HTML формой</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        window.onload = function () {
+            // получение формы по имени
+            let f = document.form1;
+
+            // получение элементов по имени.
+            f.fName.value = "Алина";
+            f.lName.value = "Рощина";
+            f.age.value = "33";
+
+            // назначить обработчик события кнопке
+            f.btnRegister.addEventListener('click', function (e) {
+                // вывод данных, прочитанных из формы в разметку -
+                document.getElementById("out").innerText =
+                    `Регистрация для: ${f.lName.value} ${f.fName.value}, возраст в годах: ${f.age.value}`;
+
+                // стереть данные с экрана через 5 с
+                setTimeout(() => document.getElementById("out").innerText = "", 5000)
+            }, false);
+        }
+    </script>
+
+    <!-- сюжетно неважно... -->
+    <style>
+        label {
+            display: inline-block;
+            width: 80pt;
+            height: 16pt;
+        }
+
+        input[type='text'] {
+            display: inline-block;
+            width: 20em;
+            height: 1.5em;
+            margin-top:12pt;
+        }
+
+        input[type='button'] {
+            display: inline-block;
+            width: 20em;
+            height: 3em;
+            margin-top:12pt;
+            margin-left: 80pt;
+        }
+    </style>
+</head>
+<body>
+    <h3>Работа с формой в JavaScript - доступ по имени</h3>
+    <form name="form1">
+        <label for="text2">Фамилия</label><input id="text2" name="lName" type="text" value=" " /><br />
+        <label for="text1">Имя</label> <input id="text1" name="fName"  type="text" value=" " /><br />
+        <label for="text3">Возраст</label><input id="text3" name="age" type="text" value=" " /><br />
+        <input type="button" name="btnRegister" value="Регистрация" />
+    </form>
+    <h3>Вывод результатов регистрации</h3>
+    <p id="out"></p>
+</body>
+</html>

@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Пример использования событий DOM Level 2</title>
+    <script>
+
+        window.addEventListener("load", function () {
+
+            let guard = document.getElementById("guard");
+
+            guard.addEventListener("keypress", function (e) {
+
+                if (e.key !== '1' && e.key !== '0') {
+                    // если нажатая кнопка не 0 или 1 отменить действие по умолчанию.
+                    e.preventDefault();
+                }
+
+            }, true);  // false: обработать событие на этапе ВСПЛЫВАНИЕ
+
+        }, false);  // false: обработать событие на этапе ВСПЛЫВАНИЕ
+    </script>
+</head>
+<body>
+    <h3>Пример - фильтр ввода</h3>
+
+    <div id="guard">
+        <input type="text" placeholder="Вводите только 0 или 1" value="" />
+        <input type="text" placeholder="Вводите только 0 или 1" value="" />
+        <input type="text" placeholder="Вводите только 0 или 1" value="" />
+        <input type="text" placeholder="Вводите только 0 или 1" value="" />
+        <input type="text" placeholder="Вводите только 0 или 1" value="" />
+        <input type="text" placeholder="Вводите только 0 или 1" value="" />
+        <input type="text" placeholder="Вводите только 0 или 1" value="" />
+        <input type="text" placeholder="Вводите только 0 или 1" value="" />
+        <input type="text" placeholder="Вводите только 0 или 1" value="" />
+        <input type="text" placeholder="Вводите только 0 или 1" value="" />
+        <input type="text" placeholder="Вводите только 0 или 1" value="" />
+        <input type="text" placeholder="Вводите только 0 или 1" value="" />
+    </div>
+
+</body>
+</html>

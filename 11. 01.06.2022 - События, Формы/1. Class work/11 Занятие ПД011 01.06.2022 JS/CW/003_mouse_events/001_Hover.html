@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>События мыши</title>
+
+    <script>
+
+        window.onload = function () {
+            let p = document.getElementsByTagName("p")[0];
+
+            // курсор вошел в пределы элемента.
+            p.onmouseover = function () {
+                this.style.backgroundColor = "green";
+            }
+
+            // курсор вышел за пределы элемента.
+            p.onmouseout = function () {
+                this.style.backgroundColor = "yellow";
+            }
+        }
+
+    </script>
+
+    <style>
+        p {
+            background-color:red;
+            width:100px;
+            height:100px;
+        }
+    </style>
+</head>
+<body>
+    <p></p>
+</body>
+</html>

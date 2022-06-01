@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Установка обработчика DOM Level 2</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        // доступ к свойствам объекта через индексирование - просто для примера
+        // объекты - массивы ассоциативные
+        // window["onload"] = function () { }
+
+        window.onload = function () {
+
+            // addEventListener(событие, обработчик, когда_нужен_перехват_события)
+            let btn1 = document.getElementById("button1");
+
+            // проверка поддержки DOM Level 2 - отдаем дань традиции
+            if (btn1.addEventListener){
+
+                // Установка обработчика на событие click для кнопки с id button1
+                // добавление слушателя события
+                btn1.addEventListener(
+                    "click", // имя события
+                    function () {
+                        document.getElementById("out").innerHTML = `Обработчик события \
+                           нажатия кнопки: ${new Date().toLocaleTimeString()}`;
+                    },
+                    false);  // этот параметр объясняем позже
+            } // if
+        }
+    </script>
+</head>
+<body>
+    <h3>Слушатель события</h3>
+    <input id="button1" type="button" value="Кнопка" />
+    <p id="out"></p>
+</body>
+</html>

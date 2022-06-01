@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>stopPropagation()</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+
+        window.onload = function () {
+            let e1 = document.getElementById("first");
+            let e2 = document.getElementById("second");
+            let e3 = document.getElementById("third");
+
+            let propagation = document.getElementById("isPropagation");
+            let isTunnel = false;
+
+            e1.addEventListener("click",
+                // e - параметр хранит объект с информацией о событии
+                function (e) {
+                    // console.log(e);
+
+                    this.style.backgroundColor = "green";
+                    alert("Обработчик DIV 1");
+                    // прекращение дальнейшего маршрута события.
+                    if (!propagation.checked)
+                        e.stopPropagation();
+                },
+                isTunnel); // false: обработать событие на этапе ВСПЛЫВАНИЕ
+
+            e2.addEventListener("click",
+                function (e) {
+                    this.style.backgroundColor = "yellow";
+                    alert("Обработчик DIV 2");
+                    if (!propagation.checked)
+                        e.stopPropagation();
+                },
+                isTunnel); // false: обработать событие на этапе ВСПЛЫВАНИЕ
+
+            e3.addEventListener("click",
+                function (e) {
+                    this.style.backgroundColor = "red";
+                    alert("Обработчик DIV 3");
+                    if (!propagation.checked)
+                        e.stopPropagation();
+                },
+                isTunnel); // false: обработать событие на этапе ВСПЛЫВАНИЕ
+        }
+
+    </script>
+
+    <style>
+        div {
+            border: 3px solid gray;
+            padding: 50px;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    Первый
+    <div id="first">
+        Второй
+        <div id="second">
+            Третий
+            <div id="third">
+            </div>
+        </div>
+    </div>
+    <hr/>
+    <div>
+        <input type="checkbox" id="isPropagation" checked="checked" name="isPropagation"/> Распространение события
+    </div>
+</body>
+</html>

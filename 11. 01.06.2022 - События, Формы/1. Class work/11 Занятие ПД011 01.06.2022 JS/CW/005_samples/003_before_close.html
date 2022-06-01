@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Обработка закрытия окна браузера</title>
+    <script>
+
+        // Событие произойдет перед закрытием браузера.
+        // в IE работает
+        window.onbeforeunload = function () {
+            return confirm("Вы уверены, что хотите закрыть окно?");
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

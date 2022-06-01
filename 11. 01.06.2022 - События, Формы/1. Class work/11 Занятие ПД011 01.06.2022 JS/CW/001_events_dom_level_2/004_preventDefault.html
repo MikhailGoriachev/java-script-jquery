@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>preventDefault</title>
+    <script>
+        window.addEventListener("load", function () {
+
+            document.forms[0].addEventListener("submit", e => {
+                if (document.getElementById("nameInput").value.length === 0) {
+                    // Если поле ввода пустое, отменить действие по умолчанию, 
+					// связанное с событием.
+                    e.preventDefault();
+                    alert("Введите имя");
+                }
+            }, false);  // обработать событие на этапе ВСПЛЫВАНИЕ
+
+        }, false);
+    </script>
+</head>
+<body>
+    <!-- что именно будет обрабатывать форму сюжетно неважно -->
+    <form action="#" method="post">
+        Имя <input id="nameInput" type="text" name="name"/>
+        <input type="submit" value="Отправить" />
+    </form>
+</body>
+</html>

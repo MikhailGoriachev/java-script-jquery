@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Работа с HTML формой</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        window.onload = function () {
+            // получение первой формы на странице.
+            let f = document.forms[0];
+            
+            f.elements[0].value = "Натали"; // изменение первого по счету поля ввода в форме.
+            f.elements[1].value = "Black Widow";
+            f.elements[2].value = "46";
+        }
+    </script>
+    <style>
+        label {
+            display: inline-block;
+            width: 80pt;
+            height: 16pt;
+        }
+
+        input[type='text'] {
+            display: inline-block;
+            width: 20em;
+            height: 1.5em;
+            margin-top:12pt;
+        }
+
+        input[type='button'] {
+            display: inline-block;
+            width: 20em;
+            height: 3em;
+            margin-top:12pt;
+            margin-left: 80pt;
+        }
+    </style>
+</head>
+<body>
+    <h3>Работа с формой в JavaScript</h3>
+    <form>
+        <label for="text1">Имя</label> <input id="text1" type="text" value=" " /><br />
+        <label for="text2">Фамилия</label><input id="text2" type="text" value=" "/><br />
+        <label for="text3">Возраст</label><input id="text3" type="text" value=" "/><br />
+        <input type="button" value="Регистрация" />
+    </form>
+</body>
+</html>
