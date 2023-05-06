@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Типы данных в JavaScript</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Типы данных</h1>
+    <h2>Числовой тип</h2>
+
+    <script>
+        // Number
+        // Все числа хранятся в формате float64 - IEEE754 - 8 байт с плавающей точкой.
+        // В этом формате не всегда возможны точные вычисления.
+
+        // Infinity
+        // NaN - не число
+        // Number.MAX_VALUE - максимально допустимое значение в JavaScript +9007199254740992
+        // Number.MIN_VALUE - минимально допустимое значение в JavaScript  -9007199254740992
+        // Number.NaN - не число
+        // Number.POSITIVE_INFINITY - + бесконечность 1.7976931348623157E+308
+        // Number.NEGATIVE_INFINITY - - бесконечность -1.7976931348623157E+308
+
+        var a = 10;
+        var b = 0.8;
+        var c = a + b;
+
+        document.write(`<p>${a} + ${b} = ${c}</p><br/>`);
+
+        document.write(`<table cellpadding="6pt">
+            <tr><td>Number.NaN</td> <td>${Number.NaN}</td></tr>
+            <tr><td>Number.MAX_VALUE</td> <td>${Number.MAX_VALUE}</td></tr>
+            <tr><td>Number.MIN_VALUE</td> <td>${Number.MIN_VALUE}</td></tr>
+            <tr><td>Number.POSITIVE_INFINITY</td> <td>${Number.POSITIVE_INFINITY}</td></tr>
+            <tr><td>Number.NEGATIVE_INFINITY</td> <td>${Number.NEGATIVE_INFINITY}</td></tr>
+            </table><hr/>`);
+
+        // ------------------------------------------------------------------------------------
+
+        document.write("<h2>String</h2>");
+        // String
+        // Строки - тип данных для представления текста (в строку может входить любой UNICODE символ)
+        // строковые литералы нужно заключать в согласованные пары одинарных, двойных или обратных кавычек.
+        //
+        // Конкатенация (лат. concatenatio «присоединение цепями; сцепле́ние») —
+        // операция склеивания объектов линейной структуры, обычно строк.
+
+        var string1 = "Hello ";
+        var string2 = 'мир';
+
+        var resString = string1 + string2; // конкатенация значений переменных string1 и string2
+
+        document.write(`"${string1}" + "${string2}" = "${resString}"<br/>`);
+
+        var str = "10";
+        var a = 1;
+
+        // Конкатенация
+        // Произошло неявное преобразование значения типа Number в тип String.
+        // Значение в переменной (a) неявно преобразуется в строку (т.е в значение типа String)
+        // и далее над этой строкой-числом производится операция конкатенации.
+        document.write(`<p>${str} + ${a} = ${str + a}</p>`)
+
+        // Произошло неявное преобразование значения типа String в тип Number.
+        // Значение в переменной str неявно преобразуется в число (т.е в значение типа Number)
+        // и далее над этим числом производится арифметическая операция.
+        document.write(`${str} - ${a} = ${str - a}<br/>`);
+        document.write(`${str} * "2" = ${str * "2"}<br/>`);
+        document.write(`${str} / "2" = ${str / "2"}<br/>`);
+        document.write("<hr/>");
+
+        // ------------------------------------------------------------------------------------
+
+        document.write("<h2>Boolean</h2>");
+        // Boolean
+        // Логический тип данных.
+        // Данные хранящиеся в переменной булевого типа могут принимать два значения:
+        // истина (true) и ложь (false).
+        //
+        // Часто истина представляется единицей, а ложь — нулем.
+        var bool1 = true;
+        var bool2 = false;
+
+        document.write(`bool1 = ${bool1}<br/>`);
+        document.write(`bool2 = ${bool2}<br/><br/><hr/>`);
+
+        // ------------------------------------------------------------------------------------
+        document.write("<h2>Null</h2>");
+        // Null
+        // Null - это тип данных, указывающий на отсутствие объекта.
+        //
+        // В JavaScript null не является «ссылкой на несуществующий объект»
+        // или «нулевым указателем», как в некоторых других языках.
+        // Null - значение, аналогичное понятиям: «ничего» или «значение неизвестно»
+
+        var a = null;
+        document.writeln(`<h4>a(null): ${a}</h4>`);
+
+        // для демонстрации раскомментировать строку вывода отсутствующей переменной someVar
+        // Ошибка! Текст сообщения в консоли, выполнение скрипта прерывается
+        // document.writeln(someVar);
+        document.writeln("<hr/>");
+        // ------------------------------------------------------------------------------------
+        document.write("<h2>Undefined</h2>");
+        // Undefined
+        // undefined - это тип данных, который используется для переменных или свойств объекта,
+        // значения для которых не существует или оно не присвоено.
+        // Единственным значением неопределенного типа, которое может иметь переменная,
+        // является значение undefined.
+
+        var aVar = 123;
+        var someVar1;  // объявлена, но не проинициирована == undefined
+        document.writeln(`<ul><li>aVar: ${aVar}</li><li>someVar1: ${someVar1}, тип ${typeof(someVar1)}</li></ul><hr/>`);
+
+        // ф-я выполняет JS-код, очень опасная ф-я :(
+        eval('document.writeln(1 + 1)');
+    </script>
+</body>
+</html>

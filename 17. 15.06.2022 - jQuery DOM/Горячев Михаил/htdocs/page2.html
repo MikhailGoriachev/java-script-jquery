@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Задача 2. Фильмотека</title>
+
+        <!-- #region Стили -->
+        <link rel="stylesheet" href="../styles/style.css" />
+        <link rel="stylesheet" href="../styles/page2.css" />
+        <link rel="stylesheet" href="../styles/tile.css" />
+        <link rel="stylesheet" href="../styles/buttons.css" />
+        <link rel="stylesheet" href="../styles/form.css" />
+        <link rel="stylesheet" href="../styles/control-block.css" />
+        <link rel="stylesheet" href="../styles/table.css" />
+        <!-- #endregion -->
+
+        <!-- #region Шрифты -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+            rel="stylesheet"
+        />
+        <!-- #endregion -->
+
+        <!-- Иконка -->
+        <link rel="shorcut icon" href="../images/logo.png" type="image/x-icon" />
+
+        <!-- Утилиты -->
+        <script src="../utils/utils.js"></script>
+
+        <!-- Решение задачи -->
+        <script src="../scripts/jquery-3.6.0.min.js"></script>
+        <script src="../scripts/models/task2/Film.js"></script>
+        <script src="../scripts/models/task2/FilmLibrary.js"></script>
+        <script src="../scripts/task2.js"></script>
+    </head>
+    <body>
+        <!-- #region Заголовок-->
+        <header>
+            <a href="../index.html">
+                <img class="logo" src="../images/logo.png" alt="logo" />
+                <h2>Home Work</h2>
+            </a>
+        </header>
+        <!-- #endregion -->
+
+        <!-- #region Контент страницы -->
+        <main>
+            <!-- #region Навигация -->
+            <nav>
+                <!-- Главная -->
+                <a href="../index.html">
+                    <img src="../images/home.svg" />
+                    Главная
+                </a>
+
+                <!-- Задача 1. Студенты -->
+                <a href="page1.html">
+                    <img src="../images/one.svg" />
+                    Задача 1. Студенты
+                </a>
+
+                <!-- Задача 2. Фильмотека -->
+                <a class="select-tab" href="page2.html">
+                    <img src="../images/two.svg" />
+                    Задача 2. Фильмотека
+                </a>
+
+                <!-- Блок управления -->
+                <div class="control-block">
+                    <p class="text-align-center control-block-header">Параметры обработки</p>
+
+                    <hr />
+
+                    <p class="control-block-subheader">Выделение фильмов</p>
+
+                    <!-- выделение фильмов с заданным жанром -->
+                    <div class="control-block-field">
+                        <label for="genreListId">Выбор жанра:</label>
+                        <select id="genreListId"></select>
+                        <button
+                            id="selectFilmsWithGenre"
+                            class="control-block-button"
+                            title="Выделение фильмов с заданным жанром"
+                        >
+                            Выделить
+                        </button>
+                    </div>
+
+                    <!-- выделение фильмов с заданным режиссером -->
+                    <div class="control-block-field">
+                        <label for="producerListId">Выбор режиссера:</label>
+                        <select id="producerListId"></select>
+                        <button
+                            id="selectFilmsWithProducer"
+                            class="control-block-button"
+                            title="Выделение фильмов с заданным режиссером"
+                        >
+                            Выделить
+                        </button>
+                    </div>
+
+                    <!-- выделение фильмов с заданным годом выпуска -->
+                    <div class="control-block-field">
+                        <label for="yearListId">Год выпуска:</label>
+                        <input type="number" id="yearId" min="1900" value="2020" />
+                        <button
+                            id="selectFilmsWithYear"
+                            class="control-block-button"
+                            title="Выделение фильмов с заданным режиссером"
+                        >
+                            Выделить
+                        </button>
+                    </div>
+                </div>
+            </nav>
+            <!-- #endregion -->
+
+            <!-- #region Контент -->
+            <section class="content">
+                <details>
+                    <summary>
+                        <h2>Задача 2. Фильмотека</h2>
+                    </summary>
+                    <!-- #region Задача 2 -->
+                    <article>
+                        <p>
+                            <b>Задача 2.</b> Сформировать массив фильмов в фильмотеке (использовать классы, фильмов не
+                            менее 10, хранить в локальном хранилище, фильм описывается названием, фамилией и инициалами
+                            режиссера, жанром, годом выпуска). Вывести фильмы в таблицу. По командным кнопкам, при
+                            помощи функции css() выделить строки таблицы: с заданными жанрами, режиссерами, годом
+                            выпуска.
+                        </p>
+                    </article>
+                    <!-- #endregion -->
+                </details>
+
+                <!-- Конетйнер данных -->
+                <div class="container">
+                    <div id="filmListId" class="container"></div>
+                </div>
+            </section>
+            <!-- #endregion -->
+        </main>
+        <!-- #endregion -->
+
+        <!-- #region Подвал страницы -->
+        <footer>
+            <div>
+                Разработчик:
+                <a href="https://github.com/MikhailGoriachev" target="_bank"> Горячев Михаил </a>
+            </div>
+            <div>Группа: ПД011</div>
+            <div>Город: Донецк</div>
+            <div>Год создания: 2022</div>
+            <div>
+                Поддержка:
+                <a href="mailto:goriachevmichael@gmail.com">goriachevmichael@gmail.com</a>
+            </div>
+        </footer>
+        <!-- #endregion -->
+    </body>
+</html>

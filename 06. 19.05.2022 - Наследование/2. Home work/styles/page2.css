@@ -1,0 +1,10 @@
+/* Страница "Задача 2. Транспорт" (page2.html) */
+
+/* grid для вывода статистики */
+.grid-container {
+    display: grid;
+
+    /* столбцы */
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+}

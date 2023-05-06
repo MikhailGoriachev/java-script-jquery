@@ -1,0 +1,44 @@
+﻿<!--
+
+    Переменная - область памяти, которая хранит некоторое значение.
+    Область видимости переменных
+
+-->
+
+<html lang="ru">
+<head>
+    <title>Переменные в JavaScript</title>
+    <meta charset="utf-8">
+</head>
+<body>
+    <h1>Переменные в JavaScript</h1>
+
+    <script>
+
+        var a;        // по умолчанию undefined
+        var b = 777;
+        var c = b;
+        var d = null;
+
+        document.write("<p>a = " + a + "</p>");
+        document.write("<p>b = " + b + "</p>");
+        document.write("<p>c = " + c + "</p>");
+        document.write("<p>d = " + d + "</p>");
+
+        // ОШИБКА: чтение не существующей переменной.
+        // document.write("<p>e = " + e);
+
+        var a = 12;
+        document.write(`<p>a = ${a}</p>`);
+
+        // var разрешает повторное объявление, let не разрешает, ошибка при компиляции
+        let x = 3;
+        document.write(`<p>x = ${x}</p>`);
+
+        // при раскомментировании - ошибка
+        // let x = 'привет!';
+        // document.write(`<p>x = ${x}</p>`);
+    </script>
+
+</body>
+</html>

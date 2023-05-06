@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+    <title>Метод replace</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h3>Метод String.replace()</h3>
+    <script>
+        // replace() -  производит операцию поиска с заменой.
+        let text = "21 2 Строка для 123тести456рования при789мера 56.";
+        document.write(`<p>${text}</p>`);
+
+        let pattern = /\d\d\d/; // паттерн поиска и замены
+        let result = text.replace(pattern, '_%@#^#@%_');
+        document.write(`<p>${result}</p>`);
+
+        pattern = /\d\d\d/g; // g - глобальный поиск - все вхождения, а не только первое.
+        result = text.replace(pattern, '_%@#^#@%_');
+        document.write(`<p>${result}</p>`);
+
+        // все пробелы заменим на знак подчеркивания
+        result = text.replace(/ /g, '_');
+        document.write(`<p>${result}</p>`);
+
+    </script>
+</body>
+</html>

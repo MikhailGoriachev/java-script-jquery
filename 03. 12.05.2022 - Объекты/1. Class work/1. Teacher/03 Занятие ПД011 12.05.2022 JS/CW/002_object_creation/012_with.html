@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+
+<!--
+
+    Оператор with создает новую область видимости и 
+    представляет свойства объекта «object» как локальные переменные. 
+    
+    Оператор with является устаревшим и его использование не желательно. 
+    Его использование запрещено в Strict Mode. Подробнее: http://habrahabr.ru/post/118666/
+
+-->
+
+<html lang="ru">
+<head>
+    <title>Обьекты, создание</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Оператор with (устаревший, не рекомендуется к использованию)</h1>
+
+    <script>
+        // "use strict";
+
+        let house = {
+            roof: "<img src='images/roof.gif'/><br/>",
+            secondFloor: "<img src='images/second_floor.gif'/><br/>",
+            firstFloor: "<img src='images/first_floor.gif'/><br/>",
+            basement: "<img src='images/basement.gif'/><br/>",
+            address: "<p style='color:green'>UK. London. Muswell Hill. N10<hr/>"
+        }
+
+        document.write(house.roof);
+        document.write(house.secondFloor);
+        document.write(house.firstFloor);
+        document.write(house.basement);
+
+        // для сокращения записи свойства объекта
+        // house.roof --> roof
+        // with(объект) { свойство1, свойство2, ... }
+        with (house) {
+            document.write(roof);
+            document.write(secondFloor);
+            document.write(firstFloor);
+            document.write(basement);
+        } // with
+
+    </script>
+</body>
+</html>

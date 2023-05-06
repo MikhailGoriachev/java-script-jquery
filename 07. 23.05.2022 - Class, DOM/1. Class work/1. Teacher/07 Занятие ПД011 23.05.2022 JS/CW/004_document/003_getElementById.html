@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>getElementById</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Метод getElementById()</h1>
+    <p id="output">
+        После того, как вы подключили Font Awesome к своему проекту, иконки можно вызывать с помощью тега &lt;i&gt;.
+        Некоторые примеры были позаимствованы из документации Bootstrap.
+    </p>
+    <a id="link" href="http://itstep.org">Наш сайт</a>
+    <p id="example">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur consequatur debitis dolorem doloremque
+        dolorum eveniet facilis fuga, maiores nobis nostrum obcaecati odit possimus sequi sint voluptatibus.
+        Aliquam quam quo repellat!
+    </p>
+
+    <script>
+        // скрипт должен располагаться после элементов HTML, которые в этом скрипте используются.
+        // получение элемента со страницы по значению атрибута id
+        let paragraph = document.getElementById("output");
+        let hyperlink = document.getElementById("link");
+
+        // innerHTML - текст между открывающим и закрывающим тегами.
+        paragraph.innerHTML = "<b>HELLO</b> WORLD !!!";
+        hyperlink.innerHTML = "EDUCATION SITE !!!";
+
+        // обработчик события клика кнопки 1
+        function onClickHandler1() {
+            // innerText - замена текста c игнорированием элементов разметки - все выводится как текст
+            document
+                .getElementById("example").innerText =
+                    "<big>П</big>рочитал <b>первую</b> и вторую из вышеозначенных книг. " +
+                    "На мой субъективный взгляд книги совершенно бесполезные, " +
+                    "по меньшей мере в плане практическом, в софтверных проектах. Как с точки " +
+                    "зрения управляющего разработкой, так и с точки зрения человека, который пишет код. " +
+                    "Мой список правильных книг про гибкую разработку:";
+        }
+
+        // обработчик события клика кнопки 2
+        function onClickHandler2() {
+            // innerHTML - замена текста c исполнением разметки
+            document
+                .getElementById("example").innerHTML =
+                    "<big>П</big>рочитал <b>первую</b> и вторую из вышеозначенных книг. " +
+                    "На мой субъективный взгляд книги совершенно бесполезные, " +
+                    "по меньшей мере в плане практическом, в софтверных проектах. Как с точки " +
+                    "зрения управляющего разработкой, так и с точки зрения человека, который пишет код. " +
+                    "Мой список правильных книг про гибкую разработку:";
+        }
+    </script>
+
+    <!-- кнопка для примера изменения части существующей разметки -->
+    <input type="button" value="Замена текста" onclick="onClickHandler1()">
+    <input type="button" value="Замена разметки" onclick="onClickHandler2()">
+</body>
+</html>

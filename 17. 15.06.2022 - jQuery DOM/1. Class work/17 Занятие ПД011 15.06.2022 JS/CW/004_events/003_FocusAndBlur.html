@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>События focus & blur</title>
+    <script src="jquery-3.6.0.min.js"></script>
+    <meta charset="UTF-8">
+
+    <script>
+
+        $(function() {
+
+            let inputs = $("input");
+
+            // focus - событие происходит, когда элемент получает фокус
+            inputs.focus(function() {
+                $(this).val("focus");
+            });
+
+            // blur - событие происходит, когда элемент теряет фокус
+            inputs.blur(function() {
+                $(this).val("blur");
+            });
+
+            // change - событие происходит при изменении поля ввода, после выхода из этого поля
+            // после события blur
+            inputs.change(function (e) {
+                $('#log').text($(this).val());
+            });
+
+            // перехват события submit формы - не отправлять данные
+            // стандартно, реализовать собственную обработку или
+            // отправку данных
+            $("form").submit(function(e) {
+                // своя обработка, обычно AJAX-обмен с сервером
+                // AJAX - Asynchronous Javascript And XML
+                $("#btnSubmit").val("Обработано");
+
+                // e.preventDefault();  // прерывание стандартной обработки - вариант 1
+                return false;  // прерывание стандартной обработки - вариант 2
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <!-- в обработчике блокируется переход на указанный файл -->
+    <form action="002_Click.html">
+        <input type="text" />
+        <br />
+        <br />
+        <input type="text" />
+        <br />
+        <br />
+        <input type="text" />
+        <br />
+        <br />
+        <input type="text" />
+        <input id="btnSubmit" type="submit" value="Отправить">
+    </form>
+    <p id="log"></p>
+</body>
+</html>

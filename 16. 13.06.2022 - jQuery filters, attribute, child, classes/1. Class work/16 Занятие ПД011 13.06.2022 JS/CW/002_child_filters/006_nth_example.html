@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru">
+
+<head>
+    <style>
+        button {
+            display: block;
+            font-size: 12px;
+            width: 100px;
+        }
+
+        div {
+            float: left;
+            margin: 10px;
+            font-size: 10px;
+            border: 1px solid black;
+        }
+
+        span {
+            color: blue;
+            font-size: 18px;
+        }
+
+        #inner {
+            color: red;
+        }
+
+        td {
+            width: 50px;
+            text-align: center;
+        }
+    </style>
+    <script src="jquery-3.6.0.min.js"></script>
+    <title>Фильтры потомков в таблице</title>
+</head>
+<body>
+    <div>
+        <button>:nth-child(even)</button>
+        <button>:nth-child(odd)</button>
+        <button>:nth-child(3n)</button>
+        <button>:nth-child(2)</button>
+    </div>
+    <div>
+        <button>:nth-child(3n+1)</button>
+        <button>:nth-child(3n+2)</button>
+        <button>:even</button>
+        <button>:odd</button>
+    </div>
+
+    <div>
+        <table>
+            <tr>
+                <td>John</td>
+            </tr>
+            <tr>
+                <td>Karl</td>
+            </tr>
+            <tr>
+                <td>Brandon</td>
+            </tr>
+            <tr>
+                <td>Benjamin</td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <table>
+            <tr>
+                <td>Sam</td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <table>
+            <tr>
+                <td>Glen</td>
+                <td>Glen</td>
+                <td>Glen</td>
+            </tr>
+            <tr>
+                <td>Tane</td>
+                <td>Tane</td>
+                <td>Tane</td>
+            </tr>
+            <tr>
+                <td>Ralph</td>
+                <td>Ralph</td>
+                <td>Ralph</td>
+            </tr>
+            <tr>
+                <td>David</td>
+                <td>David</td>
+                <td>David</td>
+            </tr>
+            <tr>
+                <td>Mike</td>
+                <td>Mike</td>
+                <td>Mike</td>
+            </tr>
+            <tr>
+                <td>Dan</td>
+                <td>Dan</td>
+                <td>Dan</td>
+            </tr>
+        </table>
+    </div>
+
+    <span>tr<span id="inner"></span></span>
+
+    <script>
+        $("button").click(function () {
+            // читаем текст на кнопке по которой было произведено нажатие
+            let str = $(this).text(); // $(this) - кнопка, которая отправила событие.
+            $("tr").css("background", "white");
+            $("tr" + str).css("background", "tomato");
+            $("#inner").text(str);
+        });
+    </script>
+
+</body>
+</html>

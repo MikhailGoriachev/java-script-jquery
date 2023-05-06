@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+    <title>Фильтр атрибутов</title>
+    <script src="jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        table{
+            border:2px solid black;
+        }
+
+        td {
+            width: 80px;
+            border:2px solid black;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            // фильтр атрибута заключенный в квадратные скобки, отбирает элементы
+            // у которых указан выбранный атрибут
+            // $("[имяАтрибута]")
+            // фильтр выделит ячейки, у которых присутствует атрибут align
+            // забегая вперед - css() - функция манипулирвоания стилями,
+            // для изменения нескольких стилей применяем JSON-объект
+            $("td[align]").css({"background-color":"green", "color":"white"});
+        });
+    </script>
+
+</head>
+<body>
+	<h3>Фильтры атрибутов</h3>
+    <table>
+        <tr>
+            <th>th 0</th>
+            <th>th 1</th>
+            <th align="center">th 2</th>
+            <th align="center">th 3</th>
+        </tr>
+        <tr>
+            <td>td 0</td>
+            <td align="right">td 1</td>
+            <td>td 2</td>
+            <td align="center">td 3</td>
+        </tr>
+        <tr>
+            <td>td 4</td>
+            <td align="left">td 5</td>
+            <td>td 6</td>
+            <td>td 7</td>
+        </tr>
+        <tr>
+            <td>td 8</td>
+            <td>td 9</td>
+            <td align="right">td 10</td>
+            <td>td 11</td>
+        </tr>
+        <tr>
+            <td>td 12</td>
+            <td align="center">td 13</td>
+            <td>td 14</td>
+            <td align="right">td 15</td>
+        </tr>
+    </table>
+</body>
+</html>

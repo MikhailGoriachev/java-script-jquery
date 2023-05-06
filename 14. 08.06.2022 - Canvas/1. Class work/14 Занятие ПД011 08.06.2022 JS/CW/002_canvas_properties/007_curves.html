@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>quadraticCurveTo()</title>
+    <script>
+        window.addEventListener("load", init, false);
+        function init() {           
+
+            let canvas = document.getElementById("canvas");
+            let context = canvas.getContext("2d");
+
+            // первая точка
+            context.moveTo(0, 300);
+
+            context.quadraticCurveTo(/*управляющая точка*/350, 50, /*вторая точка*/600, 300);
+
+            context.lineWidth = 10;
+            context.strokeStyle = "orange";
+            context.stroke();
+
+        }      
+    </script>
+    <style>
+        canvas {
+            border: 3px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" height="600" width="600">
+        Ваш браузер не поддерживает элемент <i>Canvas</i>
+    </canvas>
+</body>
+</html>

@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Событие mousemove</title>
+    <script src="jquery-3.6.0.min.js"></script>
+    <meta charset="UTF-8">
+
+    <script>
+
+        // mousemove() - функция, устанавливающая обработчик на событие движения
+        // курсора по поверхности элемента.
+        $(function () {
+            $("div").mousemove(function (e) {
+
+                // параметр "e" - объект с информацией о событии.
+                // pageX, pageY - координаты относительно документа, учитывая прокрутку.
+                $("span").text(`Страничные координаты курсора мыши (${e.pageX}, ${e.pageY })`);
+            });
+        });
+
+    </script>
+    <style>
+        div {
+            background-color: lemonchiffon;
+            width: 500px;
+            height: 300px
+        }
+        body {
+            height: 2000px;
+        }
+    </style>
+</head>
+<body>
+    <span>Страничные координаты курсора мыши</span>
+    <div>
+
+    </div>
+    <span>Страничные координаты курсора мыши</span>
+</body>
+</html>

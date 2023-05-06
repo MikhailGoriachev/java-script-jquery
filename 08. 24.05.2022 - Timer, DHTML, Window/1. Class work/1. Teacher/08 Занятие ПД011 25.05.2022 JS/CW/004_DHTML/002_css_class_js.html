@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+    <title>Использование CSS классов</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        div {
+            height: 120px;
+            width: 120px;
+            border: solid 2px blue;
+            margin: 12px;
+        }
+
+        .class1 {
+            font-family: Tahoma,serif;
+            color: blue;
+            margin-left: 48px;
+        }
+
+        .class2 {
+            font-family: 'Courier New',serif;
+            color: red;
+            margin-left: 24px;
+        }
+
+        .class3 {
+            background-color: lightgoldenrodyellow;
+            padding: 12px;
+            margin-left: 36px;
+        }
+    </style>
+
+</head>
+<body>
+    <h3>Свойство className</h3>
+
+    <input id="first" type="button" value="First" />
+    <input id="second" type="button" value="Second" />
+    <input id="third" type="button" value="Third" />
+
+    <div id="testDiv">
+        Test Div
+    </div>
+
+    <script>
+        let div;
+
+        // назначение обработчиков клика по кнопкам
+        window.onload = function () {
+            document.getElementById("first").onclick = firstButtonHandler;
+            document.getElementById("second").onclick = secondButtonHandler;
+            document.getElementById("third").onclick = thirdButtonHandler;
+            div = document.getElementById("testDiv");
+        }
+
+        function firstButtonHandler() {
+            // установка значения для атрибута class (присвоение CSS класса для элемента)
+            div.className = "class1";
+        }
+
+        function secondButtonHandler() {
+            div.className = "class2";
+        }
+
+        // задать более одного класса тоже можно
+        function thirdButtonHandler() {
+            div.className = "class2 class3";
+        }
+    </script>
+</body>
+</html>

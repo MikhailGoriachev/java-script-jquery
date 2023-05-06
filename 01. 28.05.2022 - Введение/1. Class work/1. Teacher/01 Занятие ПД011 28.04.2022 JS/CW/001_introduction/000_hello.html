@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!-- первое приложение с JavaScript -->
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Первое приложение</title>
+
+    <!-- type="text/javascript" в HTML5 применяется по умолчанию -->
+    <script type="text/javascript">
+        alert('Привет, мир!'); // '' для строки
+        alert("Привет, мир!"); // "" для строки
+        alert(`Привет, мир!`); // ES6 - интерполяционные строки, используйте для вывода переменных
+        // document.write("<h2>Вывод из head</h2>");
+    </script>
+</head>
+<body>
+    <script>
+        // alert("Привет, world!");
+
+        // document - представление текущей страницы, конкретная реализация DOM
+        // DOM - Document Object Model
+        document.write("<h2>Привет, <u>world</u>!</h2>");
+        document.write("<h2>Брендон Эйк</h2>");
+    </script>
+
+    <h1>Первое приложение с JavaScript</h1>
+
+    <!-- загрузка внешнего скрипта -->
+    <script src="hello.js"/>
+
+    <script>
+        // alert("Привет, world!");
+        document.write("<h2>Привет, world! Еще раз!</h2>");
+    </script>
+	
+	<h3>Еще контент</h3>
+	
+	<!-- еще загрузка внешнего скрипта -->
+    <script src="hello.js"></script>
+
+    <h3>Страница загружена</h3>
+</body>
+</html>

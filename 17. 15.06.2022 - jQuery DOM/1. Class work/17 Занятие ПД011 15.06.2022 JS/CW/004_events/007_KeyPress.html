@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Событие keypress</title>
+    <script src="jquery-3.6.0.min.js"></script>
+    <meta charset="UTF-8">
+
+    <script>
+
+        // keypress - событие, которое возникает при нажатии
+        // символьной клавиши клавиатуры
+        // (не срабатывает для функциональных клавиш (Shift, Ctrl, Alt и т.д.)
+
+        $(window).keypress(function (event) {
+            $("#log")
+                .text(`${String.fromCharCode(event.charCвode)}(${event.charCode}) - ${event.code}`);
+        });
+
+    </script>
+</head>
+<body>
+    <h3>Нажимайте клавиши основной клавиатуры, цифровой панели (при активном NumLock) событие keypress</h3>
+    <p id="log"></p>
+</body>
+</html>

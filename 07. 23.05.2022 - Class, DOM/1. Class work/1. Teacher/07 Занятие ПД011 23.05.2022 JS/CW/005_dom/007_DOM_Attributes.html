@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Работа с узлами DOM - Атрибуты</title>
+    <link rel="stylesheet" href="style.css  ">
+
+    <script>
+        window.onload = function () {
+            let a1 = document.getElementById("a1");
+            let a2 = document.getElementById("a2");
+            let a3 = document.getElementById("a3");
+
+            // установка атрибута
+            a1.setAttribute("href", "https://itstep.org/ru");
+
+            // удаление атрибута
+            a2.removeAttribute("href");
+
+            // чтение и вывод атрибута
+            document.getElementById("output").innerHTML = a3.getAttribute("href");
+        }
+    </script>
+</head>
+<body>
+    <a id="a1">Text a1</a>
+    <a id="a2" href="https://itstep.org/ru">Text a2</a>
+    <a id="a3" href="https://vk.com">Text a3</a>
+    <hr/>
+
+    <!-- место для вывода значения атрибута-->
+    <h3 id="output"></h3>
+</body>
+</html>

@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru  ">
+<head>
+    <title>Пример проверки достоверности ввода</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="validate_002.js"></script>
+    <style>
+        .error {
+            background-color: Pink;
+        }
+        .valid {
+            background-color: LightGreen;
+        }
+    </style>
+</head>
+<body>
+    <h3>Валидация с использованием атрибутов data-val-</h3>
+    <form>
+        <label>User name:</label>
+        <input type="text" name="userName"
+            data-val="\S"
+            data-val-msg="Введите значение"
+            data-val-msg-id="userNameMsg" />
+
+        <span id="userNameMsg"></span>
+        <br >
+
+        <label>Email:</label>
+        <input type="text" name="email"
+            data-val="\b[a-z0-9._]+@[a-z0-9.-]+\.[a-z]{2,4}\b"
+            data-val-msg="Вы ввели не правильный email"
+            data-val-msg-id="emailMsg" />
+
+        <span id="emailMsg"></span>
+        <br >
+
+        <label>Zip:</label>
+        <input type="text" name="zip"
+            data-val="^\d{5}$"
+            data-val-msg="Почтовый индекс введен не правильно"
+            data-val-msg-id="zipMsg" />
+        <span id="zipMsg"></span>
+        <br >
+
+        <input type="submit" />
+    </form>
+</body>
+</html>
+

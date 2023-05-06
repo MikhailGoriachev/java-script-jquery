@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Использование cookies</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form>
+        <label for="color1"><input type="radio" id="color1" name="color" value="#ffd800" />Оранжевый фон</label>
+        <label for="color2"><input type="radio" id="color2" name="color" value="#5ade54"/>Зеленый фон</label>
+        <input id="saveButton" type="button" value="Сохранить" />
+    </form>
+
+    <script>
+        window.addEventListener("load", function () {
+
+            // при загрузке страницы установить цвет из куки, если куки есть
+            let savedColor = findCookieValue("page-color");
+            if (savedColor) {
+                document.body.style.backgroundColor = savedColor;
+            }
+
+            document.getElementById("saveButton").addEventListener("click", function () {
+                let selectedColor = getCheckedRadioId("color");
+                document.cookie = `page-color=${encodeURIComponent(selectedColor)};max-age=${60 * 60}`;
+                document.body.style.backgroundColor = selectedColor;
+            });
+
+            // служебная функция - получить значение отмеченной радиокнопки
+            function getCheckedRadioId(name) {
+                let elements = document.getElementsByName(name);
+
+                // предполагая, что доступ к локальной переменной быстрее доступа
+                // к свойству объекта выполним легкую оптимизацию кода по скорости
+                // получим длину массива в локальной переменной в части инициализации
+                // цикла
+                for (let i = 0, len = elements.length; i < len; ++i)
+                    if (elements[i].checked) return elements[i].value;
+            } // getCheckedRadioId
+
+            // служебная функция - получить значение куки по имени
+            function findCookieValue(cookieName) {
+                let allcookies = document.cookie;
+                let pos = allcookies.indexOf(cookieName + "=");
+
+                // Если cookie с указанным именем найден, извлечь его значения.
+                if (pos !== -1) {
+                    let start = pos + cookieName.length + 1;
+                    let end = allcookies.indexOf(";", start);
+
+                    if (end === -1) end = allcookies.length;
+
+                    let value = allcookies.substring(start, end);
+                    value = decodeURIComponent(value);
+                    return value;
+                } // if
+            } // findCookieValue
+        });
+    </script>
+
+</body>
+</html>

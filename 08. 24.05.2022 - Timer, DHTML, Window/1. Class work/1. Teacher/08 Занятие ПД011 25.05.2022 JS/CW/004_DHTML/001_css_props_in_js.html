@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+    <title>Соглашения об именах CSS атрибутов в JavaScript</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: darkorange;
+            margin: 12pt;
+        }
+    </style>
+</head>
+<body>
+    <div>
+    </div>
+    <input type="button" value="Сменить цвет" />
+    <input type="button" value="Восстановить цвет" />
+
+    <script>
+
+        // Если имя CSS аттрибута содержит дефисы, имя свойства объекта образуется путем удаления
+        // дефисов и перевода в верхний регистр буквы, непосредственно следующей за каждым из них.
+        // background-color -> backgroundColor
+
+        window.onload = function () {
+            let buttons = document.getElementsByTagName("input");
+            let div = document.getElementsByTagName("div")[0];
+
+            // сохранить исходный фон background-color -> backgroundColor
+            let savedBackGround = div.style.backgroundColor;
+
+            // установить цвет
+            buttons[0].onclick = function () {
+                // CSS атрибут background-color
+                // превращается в свойство backgroundColor
+                div.style.backgroundColor = "lightseagreen";
+            }
+
+            // восстановить исходный цвет
+            buttons[1].onclick = function () {
+                let div = document.getElementsByTagName("div")[0];
+
+                // CSS атрибут background-color
+                // div.style.backgroundColor = "darkorange";
+                div.style.backgroundColor = savedBackGround;
+            }
+        }
+
+    </script>
+</body>
+</html>

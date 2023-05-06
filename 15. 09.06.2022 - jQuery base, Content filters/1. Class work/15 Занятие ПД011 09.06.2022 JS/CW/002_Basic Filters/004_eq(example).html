@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+
+    <title>Выбор элементов по индексу, пример</title>
+
+    <style>
+        body {
+            background-color: White;
+            color: black;
+        }
+
+        p {
+            padding: 10px;
+            font-weight: bold;
+            background-color: Gray;
+        }
+
+        table td {
+            padding: 10px;
+            background-color: Gray;
+            color: White;
+        }
+    </style>
+
+    <script src="jquery-3.6.0.min.js"></script>
+
+    <script>
+        let count = 0;
+
+        $(document).ready(function () {
+            // установим иинтервал в одну секунду
+            let timer = setInterval(choose, 1_000);
+        });
+
+        function choose() {
+
+            count++;
+            let row = count % 8;
+
+            // меняем цвет заливки ячейки до элемента с индексом count и на прежний - серый
+            $("table tr:eq(" + (row - 1) + ") td")
+                .css("background-color", "Gray");
+
+            // выделит ячейку по индексу count синим фоновым цветом
+            $("table tr:eq(" + row + ") td")
+                .css("background-color", "#111199");
+        }
+    </script>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th>Number of row:(№0)</th>
+            <th>Even/Odd (odd)</th>
+            <th>Category</th>
+            <th>JQuery version</th>
+        </tr>
+        <tr>
+            <td>№1</td>
+            <td>even</td>
+            <td>Basic Filters</td>
+            <td>1.3.2</td>
+        </tr>
+        <tr>
+            <td>№2</td>
+            <td>odd</td>
+            <td>Basic Filters</td>
+            <td>1.3.2</td>
+        </tr>
+        <tr>
+            <td>№3</td>
+            <td>even</td>
+            <td>Basic Filters</td>
+            <td>1.3.2</td>
+        </tr>
+        <tr>
+            <td>№4</td>
+            <td>odd</td>
+            <td>Basic Filters</td>
+            <td>1.3.2</td>
+        </tr>
+        <tr>
+            <td>№5</td>
+            <td>even</td>
+            <td>Basic Filters</td>
+            <td>1.3.2</td>
+        </tr>
+        <tr>
+            <td>№6</td>
+            <td>odd</td>
+            <td>Basic Filters</td>
+            <td>1.3.2</td>
+        </tr>
+        <tr>
+            <td>№7</td>
+            <td>even</td>
+            <td>Basic Filters</td>
+            <td>1.3.2</td>
+        </tr>
+
+    </table>
+
+</body>
+</html>

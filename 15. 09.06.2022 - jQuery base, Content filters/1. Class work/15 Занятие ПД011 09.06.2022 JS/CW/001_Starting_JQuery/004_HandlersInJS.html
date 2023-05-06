@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Обработчик как свойство</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        function loadHandler() {
+            let p1 = document.getElementById("p1");
+            let p2 = document.getElementById("p2");
+            p1.onclick = function () { alert("hello") };
+            p2.onclick = clickHandler;
+        }
+
+        function clickHandler() {
+            alert("hello");
+        }
+    </script>
+</head>
+<body onload="loadHandler()">
+    <p id="p1">
+        click me!
+    </p>
+    <p id="p2">
+        click me!
+    </p>
+</body>
+</html>

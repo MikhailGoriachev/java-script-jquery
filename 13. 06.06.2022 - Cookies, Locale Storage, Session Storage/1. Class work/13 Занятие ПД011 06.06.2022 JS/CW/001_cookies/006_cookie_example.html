@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Использование cookies</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+
+        window.onload = function () {
+            $ = (id) => document.getElementById(id);
+
+            // получить ссылку на форму
+            let f = document.forms[0];
+
+            // собрать куки из полей формы, сохранить
+            $("saveBtn").onclick = () =>
+                document.cookie = `${f.cookieName.value}=${f.cookieValue.value};max-age=${f.cookieAge.value};`;
+
+            $("readAll").onclick = function () {
+                alert(document.cookie);
+            }
+
+            $("readSpec").onclick = function () {
+                alert(findCookieValue(f.nameToRead.value));
+            }
+
+            // поиск куки по имени
+            function findCookieValue(cookieName) {
+                let allcookies = document.cookie;
+                let pos = allcookies.indexOf(cookieName + "=");
+
+                // Если cookie с указанным именем найден, извлечь его значения.
+                if (pos !== -1) {
+                    let start = pos + cookieName.length + 1;
+                    let end = allcookies.indexOf(";", start);
+                    if (end === -1) end = allcookies.length;
+                    let value = allcookies.substring(start, end);
+                    value = decodeURIComponent(value);
+                    return value;
+                } // if
+            } // findCookieValue
+        }
+
+    </script>
+
+</head>
+<body>
+    <h3>Пример реализации набора операций с куки</h3>
+    <form>
+        <label>Имя:</label>
+        <input name="cookieName" value="" /><br />
+        <label>Значение:</label>
+        <input name="cookieValue" value="" /><br />
+        <label>Время жизни:</label>
+        <input name="cookieAge" value="" /><br />
+        <input id="saveBtn" type="button" value="Сохранить" />
+
+        <br />
+        <br />
+        <br />
+
+        <!-- чтение куки по имени -->
+        <label>Имя для чтения:</label>
+        <input type="text" name="nameToRead" />
+        <br/>
+        <br/>
+        <input id="readSpec" type="button" value="Прочитать" /> <input id="readAll" type="button" value="Прочитать все cookies" />
+    </form>
+</body>
+</html>

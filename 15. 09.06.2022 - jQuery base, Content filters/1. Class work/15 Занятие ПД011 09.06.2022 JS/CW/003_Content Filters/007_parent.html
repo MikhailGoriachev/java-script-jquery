@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+
+    <title>Выбор элементов с дочерними узлами</title>
+
+    <style type="text/css">
+        body {
+            color: White;
+        }
+
+        tr {
+            font-weight: bold;
+            background-color: Gray;
+        }
+
+        td {
+            height: 30px;
+            width: 80px;
+        }
+    </style>
+
+    <script src="jquery-3.6.0.min.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        // :parent - выбирает все элементы у которых есть хотя бы один дочерний узел (элемент или просто текст)
+        // противоположность селектору :empty
+
+        $(document).ready(function () {
+
+            $("td:parent").css("background-color", "#111199");                 //Выделит все четные(%2 = 0) параграфы
+        });
+    </script>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th>Row 0 th 0</th>
+            <th>th 1</th>
+            <th>th 2</th>
+            <th>th 3</th>
+        </tr>
+        <tr>
+            <td>Row 1 td 0</td>
+            <td>td 1</td>
+            <td>td 2</td>
+            <td>td 3</td>
+        </tr>
+        <tr>
+            <td>Row 2 td 4</td>
+            <td>td 5</td>
+            <td>td 6</td>
+            <td>td 7</td>
+        </tr>
+        <tr>
+            <td>Row 3 td 8</td>
+            <td></td>
+            <td>td 10</td>
+            <td>td 11</td>
+        </tr>
+        <tr>
+            <td>Row 4 td 12</td>
+            <td>td 13</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><a></a></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+
+    </table>
+</body>
+</html>

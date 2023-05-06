@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Методы write() и writeln() объекта document</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+
+        function buttonHandler() {
+            // При вызове метода document.write() после формирования страницы происходит
+            // создание нового документа.
+            // Данный метод не следует вызывать в обработчиках событий, что бы не потерять
+            // содержимое текущей страницы.
+            document.write("<h3>А Баба Яга против!</h3>");
+        }
+
+    </script>
+</head>
+<body>
+
+    <!--Использование метода write-->
+    <p style="padding: 8px; margin: 8px; color: green; font-weight: bold; border: solid 1px black;">
+        <script>
+            document.write("hello");
+            document.write(" 1", "-", "2", "-", "3");
+        </script>
+    </p>
+
+    <!--Использование метода writeln - работает в pre, не работает в p -->
+    <pre style="padding: 8px; margin: 8px; color: Green; font-weight: bold; border: solid 1px black;">
+<script>
+    document.writeln("hello");
+    document.writeln("world");
+</script>
+    </pre>
+
+    <!-- не рекомендуется до изучения форм -->
+    <input type="button" value="Кнопка" onclick="buttonHandler()" />
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>text functions</title>
+    <script>
+        window.addEventListener("load", init, false);
+        function init() {
+            let canvas = document.getElementById("canvas");
+            let context = canvas.getContext("2d");
+            context.beginPath();
+            context.strokeStyle = "red";
+            context.moveTo(0, 200);
+            context.lineTo(300, 200);
+            context.stroke();
+            // настройка шрифта
+            context.font = "bold 24px Segoe UI";
+            //тип отображения шрифта:
+            //top, bottom, middle,hanging, alphabetic
+            context.textBaseline = "alphabetic";
+            let text = "CANVAS text"
+            let text2 = "My first ";
+            //Получение размера текста
+            let w = context.measureText(text);
+            //Заполняем канвас текстом
+            //текст, х,у(координаты)
+            context.fillText(text, (context.canvas.width - w.width) / 2, 198);
+            context.beginPath();
+            context.strokeStyle = "red";
+            context.moveTo(0, 100);
+            context.lineTo(300, 100);
+            context.stroke();
+            w = context.measureText(text2);
+            context.fillText(text2, (context.canvas.width - w.width) / 2, 98);
+        }
+    </script>
+    <style>
+        canvas {
+            border: 3px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" height="300" width="300">
+        Ваш браузер не поддерживает элемент <i>Canvas</i>
+    </canvas>
+</body>
+</html>

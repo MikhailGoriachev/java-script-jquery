@@ -1,0 +1,41 @@
+/* Стиль контейнера canvas */
+
+/* контейнер */
+.canvas-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    font-size: 1.2rem;
+    /* width: %; */
+    border: 0.5rem solid #eee;
+    margin: 3rem;
+    padding: 3rem;
+    border-radius: 1rem;
+    background-color: #fff;
+
+    /* min-width: 15rem; */
+
+    transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
+
+    box-shadow: 0 0 0.7rem 0.5rem rgba(0, 0, 0, 0.15);
+
+    gap: 5rem;
+}
+
+.canvas-container * {
+    box-sizing: border-box;
+}
+
+/* canvas */
+.canvas-container canvas {
+    width: 30rem;
+    height: 15rem;
+    border: 1px solid #000;
+}
+
+/* поля упралвения */
+.fields {
+    display: flex;
+
+    flex-direction: column;
+}

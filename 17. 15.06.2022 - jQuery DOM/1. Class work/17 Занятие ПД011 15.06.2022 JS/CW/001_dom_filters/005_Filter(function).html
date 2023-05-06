@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Метод filter(function)</title>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+
+        // Метод filter(function). Если передать методу filter() некоторую функцию, он
+        // вызовет ее для каждого элемента в наборе и исключит те элементы, для которых
+        // эта функция вернет значение false.
+        //
+        // Эта функция получает доступ к текущему элементу набора через $(this).
+
+        $(function () {
+
+            // В качестве параметра "index" функция будет получать порядковый номер обрабатываемого элемента.
+            // если функция возвращает значение true - элемент проходит проверку и попадает в результирующий набор данных
+            // $(this) - обращение к текущему элементу а функции
+
+            $("p").filter(function (index) {
+                // факт установки атрибута align у элемента с индексом 0
+                return $(this).attr("align") && index === 0;
+
+                // факт установки атрибута align в "right" у элемента с индексом 0
+                // return $(this).attr("align") === "right" && index > 0;
+            }).css("background-color", "lightskyblue");
+
+        });
+
+    </script>
+    <style>
+        body {
+            background-color: silver;
+            color: darkblue;
+        }
+
+        p {
+            padding: 10px;
+            font-weight: bold;
+            background-color: lightgrey;
+        }
+    </style>
+</head>
+<body>
+
+    <p align="right">Test paragraph 1</p>
+    <p>Test paragraph 2</p>
+    <p align="center">Test paragraph 3</p>
+    <p>Test paragraph 4</p>
+    <p>Test paragraph 5</p>
+    <p>Test paragraph 6</p>
+    <p>Test paragraph 7</p>
+    <p align="right">Test paragraph 8</p>
+    <p>Test paragraph 9</p>
+    <p align="right">Test paragraph 10</p>
+</body>
+</html>

@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Чтение куки</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <h4>Значения куки:</h4>
+        <ul id="out"></ul>
+        <br />
+        <hr />
+        <input type="button" id="btnSetCookie" value="Установить куки" />
+        <input type="button" id="btnGetCookie" value="Прочитать куки" />
+
+        <script>
+            $ = (id) => document.getElementById(id);
+
+            window.addEventListener(
+                "load",
+                (e) => {
+                    // значения для сохранения в куки
+                    let version = document.lastModified;
+                    let value1 = 100;
+
+                    // обработчик события клика по кнопке - записать куки
+                    let setCookieHandler = function (e) {
+                        // имитация каких-то изменений в коде
+                        ++value1;
+
+                        // Чтобы связать временное значение cookie файла с текущим документом.
+                        // достаточно выполнить следующую операцию
+                        document.cookie = `version=${encodeURIComponent(
+                            document.lastModified
+                        )}`;
+                        document.cookie = `value1=${value1}`;
+                        // Cookie не могут содержать точку с запятой, запятые или символы разделители.
+                        // Перед сохранением значение в cookie желательно вызвать
+                        // функцию encodeURIComponent() при чтении значения надо вызвать decodeURIComponent()
+                        // записанный таким способом cookie сохраняются в текущем сеансе
+                        // браузера, но удаляются после его закрытия.
+                    };
+
+                    // обработчик события клика на кнопку "прочитать куки"
+                    let getCookieHandler = (e) => {
+                        let out = $("out"); // сюда будем выводить
+                        let version = findCookieValue("version"); // первое куки
+                        let value1 = findCookieValue("value1"); // второе куки
+
+                        // вывод в разметку прочитанных значений
+                        out.innerHTML = `<li>version = <u>${version}</u></li><li>value1 = <u>${value1}</u></li>`;
+                    };
+
+                    // назначение обработчиков событий
+                    $("btnSetCookie").addEventListener(
+                        "click",
+                        setCookieHandler,
+                        false
+                    );
+                    $("btnGetCookie").addEventListener(
+                        "click",
+                        getCookieHandler,
+                        false
+                    );
+
+                    // TODO: заменить алгоритм, использовать split
+                    // служебная функция получения значения куки по его имени
+                    // version=123; test=a1; test2=a2
+                    function findCookieValue(cookieName) {
+                        let allCookies = document.cookie;
+                        let pos = allCookies.indexOf(cookieName + "="); // version=
+
+                        // Если cookie с указанным именем найден, извлечь его значения.
+                        if (pos !== -1) {
+                            let start = pos + cookieName.length + 1;
+                            let end = allCookies.indexOf(";", start); // value1=23; version=3433
+
+                            if (end === -1) {
+                                end = allCookies.length;
+                            }
+
+                            let value = allCookies.substring(start, end);
+
+                            return decodeURIComponent(value);
+                        } // if
+                    } // findCookieValue
+
+                    // попытка прочитать куки сразу после загрузки страницы
+                    getCookieHandler();
+
+                    // если числовое значение куки не прочитано (в данном примере - потому
+                    // что этого куки еще нет), установить начальное значение куки
+                    if (value1 === Number.NaN) value1 = 99;
+                },
+                false
+            );
+        </script>
+    </body>
+</html>

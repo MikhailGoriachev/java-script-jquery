@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+    <title>Метод test()</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h3>Метод RegExp.test()</h3>
+    <script>
+        // Метод test возвращает true если метод exec возвращает не null;
+        let pattern = /\d\d\d/;
+
+        let input = "hello world";
+        if (pattern.test(input)) {
+            document.write(`<p>Строка '${input}' <b>соответствует</b> шаблону</p>`);
+        } else {
+            document.write(`<p>Строка '${input}' <b>НЕ соответствует</b> шаблону</p>`);
+        } // if
+
+        input = "test 123 test 678 123 и еще 100";
+        if (pattern.test(input)) {
+            document.write(`<p>Строка '${input}' <b>соответствует</b> шаблону</p>`);
+        } else {
+            document.write(`<p>Строка '${input}' <b>НЕ соответствует</b> шаблону</p>`);
+        } // if
+    </script>
+</body>
+</html>

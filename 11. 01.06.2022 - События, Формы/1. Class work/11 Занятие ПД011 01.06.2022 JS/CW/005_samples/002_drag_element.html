@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Перетаскивание элементов документа</title>
+    <style>
+        /* элемент для перетаскивания */
+        #elem {
+            position: absolute;
+
+            left: 100px;
+            top: 100px;
+
+            height: 50px;
+            width: 50px;
+
+            background-color: Green;
+        }
+    </style>
+    <script>
+        (function(){
+            window.addEventListener("load", init, false);
+
+            function init() {
+                let elem = document.getElementById("elem");
+                elem.addEventListener("mousedown", function (e) {
+                    drag(this, e);
+                })
+            }
+
+            function drag(elementToDrag, event) {
+
+                // Регистрация событий mouseup и mousemove
+                document.addEventListener("mousemove", moveHandler, true);
+                document.addEventListener("mouseup", upHandler, true);
+
+                // координаты мыши в начале перетаскивания.
+                let startX = event.clientX,
+                    startY = event.clientY;
+
+                // начальные координаты элемента, который будет перемещаться.
+                let origX = elementToDrag.offsetLeft,
+                    origY = elementToDrag.offsetTop;
+
+                // разница между координатами мыши и координатами перетаскиваемого элемента.
+                let deltaX = startX - origX,
+                    deltaY = startY - origY;
+
+                // перетаскивание при перемещении мыши
+                function moveHandler(e) {
+                    // перемещаем элемент с учетом отступа от первоначального клика.
+                    elementToDrag.style.left = `${e.clientX - deltaX}px`;
+                    elementToDrag.style.top = `${e.clientY - deltaY}px`;
+                }
+
+                // удаление обработчиков при отпускании кнопки мыши
+                function upHandler(e) {
+                    document.removeEventListener("mouseup", upHandler, true);
+                    document.removeEventListener("mousemove", moveHandler, true);
+                }
+            }
+        })()
+    </script>
+</head>
+<body>
+    <h3>Drag'n'Drop в JavaScript</h3>
+    <div id="elem">
+    </div>
+</body>
+</html>

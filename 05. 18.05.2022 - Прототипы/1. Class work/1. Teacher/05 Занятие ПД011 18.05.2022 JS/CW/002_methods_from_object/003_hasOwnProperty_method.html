@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Метод hasOwnProperty</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Метод hasOwnProperty()</h1>
+    <script>
+        function Rectangle(w, h) {
+            this.width = w;
+            this.height = h;
+        }
+
+        Rectangle.prototype.getArea = function () {
+            return this.width * this.height;
+        }
+
+        Rectangle.prototype.name = "RECTANGLE";
+
+        let rect1 = new Rectangle(100, 200);
+
+        // hasOwnProperty метод из Object с его помощью можно проверить существует ли
+        // свойство у конкретного объекта не проверяя наличие свойств у прототипа.
+        document.write(`hasOwnProperty('width'): <b>${rect1.hasOwnProperty("width")}</b><br>`);
+        document.write(`hasOwnProperty('name'): <b>${rect1.hasOwnProperty("name")}</b><br><hr>`);
+
+        // с помощью ключевого слова in можно проверить наличие свойства у объекта включая
+        // свойства прототипов
+        document.write(`'width' in rect1: <b>${"width" in rect1}</b><br>`);
+        document.write(`'name' in rect1: <b>${"name" in rect1}</b><br>`);
+    </script>
+</body>
+</html>

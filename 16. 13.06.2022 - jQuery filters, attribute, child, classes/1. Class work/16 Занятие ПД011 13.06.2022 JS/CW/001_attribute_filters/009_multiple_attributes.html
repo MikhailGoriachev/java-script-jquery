@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+    <title>Множественные фильтры аттрибутов</title>
+    <style>
+        body {
+            color: black;
+        }
+
+        p {
+            font-weight: bold;
+            background-color: Gray;
+        }
+    </style>
+
+    <script src="jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // фильтр атрибута заключенный в квадратные скобки, отбирает элементы у которых указаны
+            // выбранные атрибуты
+            $("input[id][value]").css("border","3px dotted blue");
+        });
+    </script>
+
+</head>
+<body>
+    
+    <input id="in1" name="man-news" value="Input 1"/>
+    <input name="milk man" value="Input 2"/>
+    <input id="in3" name="letterman2" value="Input 3"/>
+    <input id="in4" name="newmilk" placeholder="Input 4"/>
+
+</body>
+</html>

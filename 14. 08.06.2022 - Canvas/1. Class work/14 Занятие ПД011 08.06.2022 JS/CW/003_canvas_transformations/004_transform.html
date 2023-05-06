@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>transform transformation</title>
+    <script>
+        window.addEventListener("load", init, false);
+        function init() {
+            let $ = function (id) {
+                return document.getElementById(id);
+            }
+
+            // контекст для canvas
+            let context = $("canvas").getContext("2d");
+
+            let img = new Image();
+            img.src = "canvas.jpg";
+            img.onload = draw;
+            $("btn").onclick = draw;
+
+            function draw() {
+                // очистка всего полотна.
+                context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+
+                let scaleX = $("a").value;
+                let skewX = $("b").value;
+                let skewY = $("c").value;
+                let scaleY = $("d").value;
+                let transformX = $("tx").value;
+                let transformY = $("ty").value;
+                
+                // сохранение состояния полотна и начала системы координат.
+                context.save();
+                // перемещение
+                context.translate(100, 100);
+                // трансформация
+                context.transform(scaleX, skewX, skewY, scaleY, transformX, transformY);
+                context.drawImage(img, 0, 0, 100, 100);
+                // восстановление сохранённого состояния полотна.
+                context.restore();
+            }
+        }
+
+    </script>
+    <style>
+        canvas {
+            border: 3px solid black;
+        }
+
+        div {
+            border: 1px solid gray;
+			width:560px;
+            padding: 10px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="600" height="600">
+    </canvas>
+    <div>
+        Масштаб X
+        <input type="text" id="a" value="1" />
+        <br>
+        Искривление по Y
+        <input type="text" id="b" value="0" />
+        <br>
+        Искривление по X
+        <input type="text" id="c" value="0" />
+        <br>
+        Масштаб Y
+        <input type="text" id="d" value="1" />
+        <br>
+        Перемещение X
+        <input type="text" id="tx" value="0" />
+        <br>
+        Перемещение Y
+        <input type="text" id="ty" value="0" />
+        <input type="button" id="btn" value="transform" />
+    </div>
+</body>
+</html>

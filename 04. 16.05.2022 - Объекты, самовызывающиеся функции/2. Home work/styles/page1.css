@@ -1,0 +1,54 @@
+/* Страница "Задача 1. Книга" (page1.html) */
+
+.container {
+    display: flex;
+
+    flex-wrap: wrap;
+}
+
+/* книга */
+.book {
+    display: flex;
+
+    flex-direction: column;
+
+    width: 15rem;
+
+    padding: 1rem;
+
+    background-color: #e8e8e8;
+    border: 1px solid #bbbbbb;
+    border-radius: 1rem;
+    font-size: 1.1rem;
+    transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
+    margin: 1rem;
+}
+
+.book:hover {
+    box-shadow: 0 0 1rem 1rem rgba(0, 0, 0, 0.164);
+}
+
+/* поля */
+.book div {
+    box-sizing: border-box;
+    padding: 0.5rem 0;
+}
+
+/* изображение книги */
+.book-image img {
+    /* height: 100%; */
+    width: 100%;
+}
+
+/* значение полей */
+.book span {
+    font-weight: bold;
+}
+
+/* название книги */
+.book .title {
+    text-align: center;
+    padding: 0;
+    height: 5rem;
+    text-overflow: clip;
+}

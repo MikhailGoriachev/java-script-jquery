@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Метод slideDown()</title>
+    <meta charset="UTF-8">
+
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+
+        // slideDown - плавное изменение высоты выбранных элементов (высота увеличивается)
+
+        $(function () {
+
+            $('p').click(function () {
+                // is(выражение) - проверяет текущий набор элементов на соответствие указанному выражению и возвращает true, если хотя бы один элемент соответствует выражению.
+                // если первый div не отображается - возвращается значение true
+                let divs = $('div');
+                if (divs.is(":hidden")) {
+                    divs.slideDown("slow");
+                } else {
+                    divs.hide(5_000);
+                }
+            });
+
+        });
+    </script>
+    <style>
+        div {
+            background: #de9a44;
+            margin: 3px;
+            width: 80px;
+            height: 40px;
+            display: none;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <p>Click me!</p>
+    <div>
+    </div>
+    <div>
+    </div>
+    <div>
+    </div>
+</body>
+</html>

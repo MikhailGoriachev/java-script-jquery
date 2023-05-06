@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>setInterval and clearInterval</title>
+    <link rel="stylesheet" href="style.css  ">
+
+    <script>
+        window.onload = function () {
+            let counter = 0;
+            let intervalHandler;  // ссылка на объект, работающий с интервалом
+
+            function count(){
+                $("output").innerHTML = counter;
+                let bodyStyle = document.getElementsByTagName("body")[0].style;
+                counter++;
+                bodyStyle.backgroundColor = (counter % 2 === 0)?"lightseagreen":"lightgreen";
+            }
+
+            $("startButton").onclick = function () {
+                intervalHandler = setInterval(count, 500);
+            }
+
+            $("stopButton").onclick = function () {
+                // останавливаем таймер, по которому вызывается функция count
+                clearInterval(intervalHandler);
+                $("output").innerHTML = "таймер остановлен";
+            }
+        }
+
+        // пользовательская функция для получения элементов страницы по id
+        let $ = (id) => document.getElementById(id);
+    </script>
+</head>
+<body>
+    <p id="output">-</p>
+    <input id="startButton" type="button" value="Start" />
+    <input id="stopButton" type="button" value="Stop" />
+</body>
+</html>

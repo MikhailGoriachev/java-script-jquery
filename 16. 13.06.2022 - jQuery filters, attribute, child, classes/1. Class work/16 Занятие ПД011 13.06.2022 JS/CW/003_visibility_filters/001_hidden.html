@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru">
+    <head>
+        <title>Использование семейных фильтров nth-child</title>
+        <link rel="stylesheet" href="style.css" />
+        <script src="jquery-3.6.0.min.js"></script>
+
+        <script>
+            $(document).ready(function () {
+                $("div:hidden").slideDown(3_000); // развернуть в поток вывода за 3 с, эффект скольжения
+            });
+        </script>
+
+        <style>
+            /* для улучшения восприятия*/
+            div {
+                background-color: lightgreen;
+                margin: 12px;
+                width: 200px;
+                height: 90px;
+            }
+        </style>
+    </head>
+    <body>
+        <h3>Использование семейных фильтров nth-child</h3>
+        <div style="display: none">Скрытый</div>
+        <div></div>
+
+        <div>Отображается</div>
+        <div></div>
+
+        <div style="display: none">Скрытый</div>
+
+        <div>Отображается</div>
+        <div></div>
+    </body>
+</html>

@@ -1,0 +1,235 @@
+/* задаем собственные значения отступов */
+* {
+    margin: 0;
+}
+
+html, body {
+    font-family: Calibri, sans-serif;
+    font-size: 10pt; /* размер 1rem для удобства определения размеров шрифтов */
+}
+
+/* заголовок страницы */
+header {
+    width: 100%;
+    height: 3rem;
+    line-height: 3rem;
+    background-color : lightgray;
+}
+
+/* контейнер - контент страницы */
+.container {
+    width: 100%;
+    background-color: lavender;
+    min-height: 90vh;
+
+    /* организация флекс-контейнера */
+    display: flex;
+}
+
+/* левая часть контейнера */
+aside {
+    width: 20%;
+}
+
+/* навигационная панель в левой части контейнера */
+nav {
+    width: 100%;
+    background-color: lavender;
+}
+
+/* основная часть страницы, занимает всю область контейнера справа от навигационной панели */
+main {
+    width: 78%;
+
+    /* padding и margin участвуют в формировании ширины  */
+    padding: 20px 1%;
+
+    background-color: white;
+}
+
+/* подвал страницы, занимает все ширину страницы */
+footer {
+    width: 100%;
+    height: 3rem;
+    line-height: 3rem;
+    background-color: lightgray;
+}
+
+/* заголовок пункта меню */
+.menu-header {
+    font-size: 16pt;
+    font-family: Tahoma, sans-serif;
+    padding: 0 0 0 36px;
+    margin: 12pt 0 0 0;
+    font-weight: bold;
+}
+
+/* навигационное меню на базе списка */
+.menu-list {
+    list-style-type: none;
+    margin-top: 6px;
+    font-family: Tahoma, sans-serif;
+    font-size: 12pt;
+}
+
+/* стили пунктов меню */
+/* стиль пункта списка меню навигации */
+.menu-list-li {
+    line-height: 1.5rem;
+    margin: 8pt 0 0 0;
+    text-align: justify;
+}
+
+/* ссылка в пункте меню */
+.link {
+    display: inline-block;
+    text-decoration: none;
+    color: darkviolet;
+
+    /* для красивого выделения пункта меню при наведении мыши*/
+    padding-left: 16px;
+    padding-right: 16px;
+
+    /* место под вывод границы-маркера активного пункта */
+    border-left: 5px transparent solid;
+
+    /* анимировать изменение ширины пункта меню */
+    transition: padding-right 500ms ease-out;
+}
+
+/* псевдокласс для индикации наведения на пункт меню
+   применяем инверсию цветов фона и шрифта контента */
+.link:hover {
+    /*text-decoration: underline;*/
+    background-color: darkblue;
+    color: lavender;
+
+    /* для анимации при наведении на пункт меню */
+    padding-right: 64px;
+}
+
+
+/* заголовок страницы, в самом верхнем блоке, м.б. баннер */
+h1 {
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+/* заголовок контента */
+h2 {
+    font-size: 1.6rem;
+    text-align: left;
+    margin: 12pt 0 8pt 22pt;
+    color: rgb(46, 116, 181)  /* значения взяты в Word'е */
+}
+
+/* вспомогательный заголовок */
+h3 {
+    font-size: 1.5rem;
+    text-align: left;
+    margin: 12pt 0 8pt 22pt;
+}
+
+/* стили для элементов списка */
+ul {
+    margin-top: 0.8rem;
+    margin-bottom: 0.8rem;
+}
+li {
+    text-align: justify;
+    font-size: 1.4rem;
+}
+
+/* стиль для абзацев с текстом */
+p, summary {
+    margin: 0 0 0 8pt;
+    padding:  0 0 0 12pt;
+
+    text-align: justify;
+    font-size: 1.4rem;
+}
+
+
+/* стиль для выравнивания контента по центру */
+.align-center {
+    text-align: center;
+}
+
+/* стиль для выравнивания контента влево */
+.align-left {
+    text-align: left;
+}
+
+/* стиль для выравнивания контента по ширине */
+.align-justify {
+    text-align: justify;
+}
+
+/* стиль для выравнивания контента вправо */
+.align-right {
+    text-align: right;
+}
+
+/* заголовок в подвале страницы */
+.header-footer {
+    text-align: center;
+    font-size: 1rem;
+}
+
+/* обычная ссылка */
+.anchor {
+    font-weight: bold;
+    color: blue;
+    text-decoration: underline;
+}
+
+/* стиль для выбранного пункта навигационного меню */
+.active {
+    border-left: 5px solid darkblue;
+    color: darkblue;
+}
+
+/* стиль для блока с кнопками*/
+.controls {
+    margin: 16px;
+    padding: 16px;
+
+    border: darkviolet solid 1px;
+    border-radius: 6px;
+}
+
+/* стиль для кнопок */
+input[type="button"] {
+    display: inline-block;
+    color: darkviolet;
+    width: 98%;
+    height: 3rem;
+
+    margin:12px;
+    padding-left: 16px;
+    padding-right: 16px;
+
+    font-size: 1.2rem;
+}
+
+/* стиль для метки и для поля ввода чисел */
+label {
+    display: inline-block;
+    color: darkviolet;
+    width: 98%;
+    margin-top: 12px;
+    padding-left: 16px;
+
+    font-size: 1.4rem;
+}
+
+/* стиль для поля ввода числовых данных */
+input[type="number"] {
+    display: inline-block;
+    color: darkviolet;
+    width: 92%;
+    margin-left: 16px;
+    text-align: right;
+
+    font-size: 1.2rem;
+}

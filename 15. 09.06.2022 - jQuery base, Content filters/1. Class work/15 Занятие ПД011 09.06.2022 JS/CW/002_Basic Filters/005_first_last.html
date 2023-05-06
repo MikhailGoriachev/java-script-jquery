@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+    
+    <title>Выбор первого и последнего элементов</title>
+    
+    <style>
+    body
+    {
+        color:White;
+        }
+    tr
+    {
+        padding:10px;
+        font-weight: bold;
+        background-color:Gray;
+        }
+    p {
+        background-color: lightseagreen;
+    }
+    </style>
+
+    <script src="jquery-3.6.0.min.js"></script>
+
+    <script>
+
+        // :first - получение первого элемента.
+        // :last - получение последнего элемента.
+
+        $(document).ready(function () {
+
+            // $("tr").css("background-color", "#111199");
+            $("tr:first").css("background-color", "#111199");                    //Выделит первую строку
+            $("tr:last").css("background-color", "#111199");                     //Выделит последнюю строку
+            $("p:last").css("background-color", "#111199");                     //Выделит последнюю строку
+
+        });
+    </script>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th>Number of row:(№0)</th>
+            <th>Even/Odd (odd)</th>
+            <th>Category</th>
+            <th>JQuery version</th>
+        </tr>
+        <tr>
+            <td>№1</td>
+            <td>even</td>
+            <td>Basic Filters</td>
+            <td>1.3.2</td>
+        </tr>
+        <tr>
+            <td>№2</td>
+            <td>odd</td>
+            <td>Basic Filters</td>
+            <td>1.3.2</td>
+        </tr>
+        <tr>
+            <td>№3</td>
+            <td>even</td>
+            <td>Basic Filters</td>
+            <td>1.3.2</td>
+        </tr>
+        <tr>
+            <td>№4</td>
+            <td>odd</td>
+            <td>Basic Filters</td>
+            <td>1.3.2</td>
+        </tr>
+        <tr>
+            <td>№5</td>
+            <td>even</td>
+            <td>Basic Filters</td>
+            <td>1.3.2</td>
+        </tr>
+        <tr>
+            <td>№6</td>
+            <td>odd</td>
+            <td>Basic Filters</td>
+            <td>1.3.2</td>
+        </tr>
+        <tr>
+            <td>№7</td>
+            <td>even</td>
+            <td>Basic Filters</td>
+            <td>1.3.2</td>
+        </tr>
+
+    </table>
+    <p>Первый параграф на странице</p>
+    <p>ВТорой параграф</p>
+    <p>Третий(последний) параграф на странице</p>
+    <table>
+        <tr>
+            <th>Number of row:(№0)</th>
+            <th>Even/Odd (odd)</th>
+            <th>Category</th>
+            <th>JQuery version</th>
+        </tr>
+        <tr>
+            <td>№1</td>
+            <td>even</td>
+            <td>Basic Filters</td>
+            <td>1.3.2</td>
+        </tr>
+        <tr>
+            <td>№2</td>
+            <td>odd</td>
+            <td>Basic Filters</td>
+            <td>1.3.2</td>
+        </tr>
+        <tr>
+            <td>№3</td>
+            <td>even</td>
+            <td>Basic Filters</td>
+            <td>1.3.2</td>
+        </tr>
+        <tr>
+            <td>№4</td>
+            <td>odd</td>
+            <td>Basic Filters</td>
+            <td>1.3.2</td>
+        </tr>
+        <tr>
+            <td>№5</td>
+            <td>even</td>
+            <td>Basic Filters</td>
+            <td>1.3.2</td>
+        </tr>
+        <tr>
+            <td>№6</td>
+            <td>odd</td>
+            <td>Basic Filters</td>
+            <td>1.3.2</td>
+        </tr>
+        <tr>
+            <td>№7</td>
+            <td>even</td>
+            <td>Basic Filters</td>
+            <td>1.3.2</td>
+        </tr>
+
+    </table>
+</body>
+</html>

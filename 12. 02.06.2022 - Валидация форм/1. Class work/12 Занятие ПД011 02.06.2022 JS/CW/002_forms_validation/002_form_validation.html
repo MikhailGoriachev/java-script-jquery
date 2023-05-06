@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Пример проверки достоверности ввода</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="validate_001.js"></script>
+
+    <style>
+        input.invalid {
+            background-color: Pink;
+        }
+
+        input.valid {
+            background-color: LightGreen;
+        }
+    </style>
+</head>
+<body>
+    <h3>Валидация в ненавязчивом стиле</h3>
+    <form name="form1">
+        <label>User name:</label>
+        <input type="text" name="userName" /><br>
+        <label>E-mail:</label>
+        <input type="text" name="email" /><br>
+        <label>Zip:</label>
+        <input type="text" name="zip" /><br>
+        <input type="submit" />
+    </form>
+</body>
+</html>

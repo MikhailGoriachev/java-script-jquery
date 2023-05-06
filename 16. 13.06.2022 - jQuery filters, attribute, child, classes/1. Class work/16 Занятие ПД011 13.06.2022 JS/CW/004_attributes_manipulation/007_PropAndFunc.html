@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Attributes</title>
+
+    <script src="jquery-3.6.0.min.js"></script>
+
+    <script>
+        //.prop( имя_свойства, функция )
+        // функция будет возвращать значение для свойства 
+        // Устанавливает одно свойство у выбраного элемента или группы элементов
+
+        $(document).ready(function() {
+
+            // кнопка установки свойства checked
+            $("#btnSet").click(function() {
+                // Установка значения свойства checked через вызов функции у всех тэгов <input>
+                $("input[type='checkbox']").prop("checked", function () {
+                    $(`#${this.id}s`).html("<b>Установлено</b>");
+                    return true;
+                })
+            });
+
+            // кнопка сброса свойства checked
+            $("#btnUnset").click(function() {
+                // Установка значения свойства checked через вызов функции у всех тэгов <input>
+                $("input[type='checkbox']").prop("checked", function () {
+                    $(`#${this.id}s`).html("<u>Не установлено</u>");
+                    return false;
+                })
+            });
+        });
+    </script>
+
+</head>
+<body>
+
+    <input id="check1" type="checkbox" checked="checked" />
+    <label for="check1">Check first</label>&nbsp;<span id="check1s"></span>
+    <br/>
+
+    <input id="check2" type="checkbox" />
+    <label for="check2">Check second</label>&nbsp;<span id="check2s"></span>
+    <br/>
+
+    <input id="check3" type="checkbox" />
+    <label for="check3">Check third</label>&nbsp;<span id="check3s"></span>
+    <br/>
+
+    <input id="check4" type="checkbox" />
+    <label for="check4">Check third</label>&nbsp;<span id="check4s"></span>
+    <input type="text" value="Wood"/>
+    <br>
+    <hr>
+    <input type="button" id="btnSet" value="Установить свойство checked"/>
+    <input type="button" id="btnUnset" value="Сбросить свойство checked"/>
+    <br/>
+
+</body>
+</html>

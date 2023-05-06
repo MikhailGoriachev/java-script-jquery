@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<!--
+
+    Оператор присваивания "=" предназначен для задания
+    определенного значения переменной.
+
+-->
+
+<html lang="ru">
+<head>
+    <title>Оператор присваивания</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h1>Оператор присваивания, функции и константы Math</h1>
+    <script>
+
+        let a = 9;
+        let b = 5;
+
+        let result = a + b;
+        document.write(`a + b =  ${result}<br>`);
+
+        // Функции объекта Math
+        z1 = Math.pow(Math.cos(3*Math.PI/8 - a/4), 2) - Math.pow(Math.cos(11*Math.PI/8 + a/4), 2);
+        z2 = Math.SQRT2*Math.sin(a/2)/2;
+
+        // используем z1.toFixed(8) для задания количества цифр в дробной части
+        document.write(`z1 = ${z1.toFixed(8)}<br>z2 = ${z2.toFixed(8)}<hr>`);
+
+        // TODO: найти ошибку в коде :)
+        z1 = Math.cos(a) + Math.sin(a) + Math.cos(3*a) + Math.sin(3*a);
+        z2 = 1/4 - 1/4*Math.sin(5/2*Math.PI -  8*a);
+        document.write(`z1 = ${z1.toFixed(8)}<br>z2 = ${z2.toFixed(8)}<hr>`);
+    </script>
+
+    <h3>Загрузка страницы завершена</h3>
+</body>
+</html>

@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Lonely PingPong</title>		
+    <script src="game.js"></script>
+	<style type="text/css">
+		#gameCanvas {
+			background-color: lightgray;
+		}
+		  #score {position:absolute;
+			  width:360px;
+			  height:80px;
+			  padding: 12px;
+			  font-size:25px;
+			  top:20px;
+			  left:350px;
+			  border:2px solid green;
+		  }
+
+		p {text-align:center;}
+	</style>
+</head>
+<body>
+	<canvas id="gameCanvas" width="300px" height="500px"></canvas>
+    <div id="score">Мини-игра для веб-страницы
+    <p>Ваш счет: <span id="curr_score">0</span></p></div>
+</body>
+</html>

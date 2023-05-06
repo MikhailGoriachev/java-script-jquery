@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery UI Datepicker - Display inline</title>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="jqueryui/jquery-ui.css">       <!-- стиль jQueryUI -->
+    <script src="jqueryui/external/jquery/jquery.js"></script>  <!-- jQuery -->
+    <script src="jqueryui/jquery-ui.js"></script>
+    <script>
+
+        $(function () {
+            // если datepicker вызвать на элементе div, то календарь будет встроенный в страницу.
+            $("#datepicker").datepicker();
+        });
+
+    </script>
+</head>
+<body>
+    Date:
+    <div id="datepicker"></div>
+</body>
+</html>

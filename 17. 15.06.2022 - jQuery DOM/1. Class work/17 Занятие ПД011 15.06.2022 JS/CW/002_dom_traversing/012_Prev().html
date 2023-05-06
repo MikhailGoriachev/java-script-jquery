@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Метод prev()</title>
+        <script src="jquery-3.6.0.min.js"></script>
+        <script>
+            // Метод prev() - получает набор элементов, содержащий уникальные предыдущие
+            //                родственные элементы для всех элементов существующего набора.
+
+            $(function () {
+                // выбрать предыдущие элементы для параграфов
+                $("p").prev().css("background", "lightskyblue");
+
+                // выбрать span для последнего параграфа
+                // $("p:last").prev().css("background", "lightskyblue");
+            });
+        </script>
+    </head>
+    <body>
+        <span>Hello Again (span)</span>
+        <p>Hello (paragraph)</p>
+        <span>Hello Again (span)</span>
+        <span>Hello Again (span)</span>
+        <p>And Again</p>
+        <span>Hello Again (span)</span>
+        <p>Hello (paragraph)</p>
+        <span>Hello Again (span)</span>
+        <p>Hello (paragraph)</p>
+        <span>Hello Again (span)</span>
+        <p>And Again</p>
+        <span>Hello Again (span)</span>
+        <p>Hello (paragraph)</p>
+        <p>Hello (paragraph)</p>
+    </body>
+</html>

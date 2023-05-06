@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Обработчик как свойство</title>
+    <script>
+        // window.onload - после загрузки страницы
+        window.onload = loadHandler;
+
+        function loadHandler() {
+            let p1 = document.getElementById("p1");
+            let p2 = document.getElementById("p2");
+
+            // обработчик как анонимная функция.
+            p1.onclick = function () {
+                document.getElementById("info").innerText = "Привет из Anonymous";
+                setTimeout( () =>  document.getElementById("info").innerText = "", 1000);
+            }; // Ненавязчивый JS
+
+            // обработчик как другая функция из этого сценария.
+            p2.onclick = clickHandler;
+        }
+
+        function clickHandler() {
+            document.getElementById("info").innerText = "Привет из clickHandler";
+            setTimeout( () =>  document.getElementById("info").innerText = "", 1000);
+        }
+    </script>
+</head>
+
+<body>
+    
+    <p id="p1">
+        click me!
+    </p>
+
+    <p id="p2">
+        click me!
+    </p>
+
+    <h4 id="info"></h4>
+</body>
+</html>

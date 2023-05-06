@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+    <title>MouseEvent Интерфейс</title>
+    
+    <style>
+        div {
+            background-color: #ceffff;
+            height: 100px;
+            width: 100px;
+        }
+    </style>
+
+    <script>
+        window.addEventListener("load", init, false);
+
+        function init() {
+            let div = document.getElementsByTagName("div")[0];
+            div.addEventListener("mousemove", handler, false);
+        }
+
+        function handler(e) {
+            let message = "";
+            console.log(e);
+            message += e.button + "<br />";                 // 0 - левая клавиша, 1 - средняя клавиша, 2 - правая.
+            message += "Alt: " + e.altKey + "<br />";       // true если клавиша Alt зажата.
+            message += "Ctrl: " + e.ctrlKey + "<br />";     // true если клавиша Ctrl зажата.
+            message += "Shift: " + e.shiftKey + "<br />";   // true если клавиша Shift заэата.
+            message += "X: " + e.clientX + "<br />";        // координаты относительно левого верхнего угла документа.
+            message += "Y: " + e.clientY + "<br />";        // координаты относительно левого верхнего угла документа.
+            message += "screen X: " + e.screenX + "<br />"; // координаты относительно экрана.
+            message += "screen Y: " + e.screenY + "<br />"; // координаты относительно экрана.
+            document.getElementById("output").innerHTML = message;
+        }
+    </script>
+</head>
+<body>
+    <div></div>
+    <p id="output"></p>
+</body>
+</html>

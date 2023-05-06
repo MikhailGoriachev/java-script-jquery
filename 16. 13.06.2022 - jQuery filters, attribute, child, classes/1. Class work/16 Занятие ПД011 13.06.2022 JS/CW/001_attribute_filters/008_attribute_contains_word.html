@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+    <title>Фильтр атрибутов</title>
+    <style>
+        body {
+            color: black;
+        }
+
+        p {
+            font-weight: bold;
+            background-color: gray;
+        }
+    </style>
+
+    <script src="jquery-3.6.0.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // фильтр атрибута заключенный в квадратные скобки, отбирает элементы, у которых
+            // указан выбранный атрибут
+            // фильтр выделит ссылки у которых значение аттрибута name будет равен значению
+            // man либо же содержит данное слово отделенное пробелом
+            $("input[name~='man']").val("mr. man is in it!");
+        });
+    </script>
+
+</head>
+<body>
+    <h3>Фильтр атрибутов - </h3>
+    <input name="man-news" />
+    <input name="milk man" />
+    <input name="letterman2" />
+    <input name="newmilk" />
+    <input name="man in the middle" />
+    <input name="you are man in the middle" />
+
+</body>
+</html>

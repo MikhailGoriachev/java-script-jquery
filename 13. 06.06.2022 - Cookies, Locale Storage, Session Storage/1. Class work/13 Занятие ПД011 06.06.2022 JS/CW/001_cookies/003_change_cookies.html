@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Установка времени жизни для cookie</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h3>CRUD: Установка, чтение, изменение, удаление cookies</h3>
+    <p id="outArea">Куки: </p>
+    <input type="button" id="btnSetCookie" value="Установка куки" />
+    <input type="button" id="btnGetCookie" value="Чтение куки" />
+    <input type="button" id="btnChangeCookie" value="Изменение куки" />
+    <input type="button" id="btnDeleteCookie" value="Удаление куки" />
+
+    <script>
+
+        $ = id => document.getElementById(id);
+
+        // в стиле ненавязчивого JS настроим обработчики кнопок
+        window.addEventListener("load", () => {
+            // поиск куки при старте страницы
+            let outArea = $("outArea");
+            outArea.innerHTML = document.cookie.indexOf("lang") >= 0
+                ? `При загрузке страницы куки найден: <b>"${document.cookie}"</b>`
+                : `При загрузке страницы куки <b>lang</b> не найден`;
+
+            // назначить обработчик события клика на кнопку создания куки
+            $("btnSetCookie").addEventListener(
+                "click",
+                // собственно запись куки: document.cookie = "имя1=значение1; max-age=времяЖизниСекунд"
+                e => {
+                    let value = "lang=тестовое значение; max-age=120";
+                    document.cookie = value;
+
+                    // контрольный вывод
+                    outArea.innerHTML = `Куки записан: "<b>${value}</b>"`;
+                }, false
+            );
+
+            // назначить обработчик события клика на кнопку чтения куки
+            $("btnGetCookie").addEventListener(
+                "click",
+                // чтение куки и вывод в разметку
+                e => {
+                    // чтение строки из куки
+                    let value = document.cookie;
+                    outArea.innerHTML = `Куки прочитаны: "<b>${value}</b>"`;
+                }, false
+            );
+
+            // назначить обработчик события клика на кнопку изменения куки
+            $("btnChangeCookie").addEventListener(
+                "click",
+                // изменяется только куки "lang", остальные не изменятся
+                // время жизни (max-age) те же 120 с
+                e => {
+                    document.cookie = "lang=новое значение; max-age=120";
+
+                    // чтение новых значений из куки
+                    let value = document.cookie;
+                    outArea.innerHTML = `Куки изменен. Новое значение: "<b>${value}</b>"`;
+                }, false
+            );
+
+            // назначить обработчик события клика на кнопку удаления куки
+            $("btnDeleteCookie").addEventListener(
+                "click",
+                e => {
+                    // удаление куки - установка времени жизни 0 с
+                    document.cookie = "lang=; max-age=0";
+
+                    // чтение куки
+                    let value = document.cookie;
+                    outArea.innerHTML = `Куки удален. Новые значения: "<b>${value}</b>"`;
+                }, false
+            );
+        }, false);
+    </script>
+</body>
+</html>

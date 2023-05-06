@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Метод end().</title>
+        <script src="jquery-3.6.0.min.js"></script>
+        <script>
+            // end() - отменяет последнее деструктивное действие, возвращая тем самым
+            // набор элементов к его предыдущему состоянию (до деструктивной операции).
+            // Если никакой деструктивной операции не проводилось, то возвращается пустой набор.
+            // Под деструктивной операцией понимают операцию, которая изменяет набор элементов jQuery.
+            //
+            // То есть это любая из Traversing-функций, возвращающая объект jQuery: add, addBack,
+            // children, filter, find, map, next, nextAll, not, parent, parents, prev, prevAll,
+            // siblings, и slice, а также clone, appendTo, prependTo, insertBefore, insertAfter,
+            // и replaceAll.
+
+            $(function () {
+                $("p") // находим все p
+                    .add("div")
+                    .css("border", "1px solid darkgreen") // добавляем к выборке все div и задаем рамку
+                    .end() // убираем из выборки div, оставляя в ней p
+                    .css("background-color", "lightgreen"); // и меняем фон только параграфам
+            });
+        </script>
+
+        <style>
+            div,
+            p {
+                margin: 6pt 3pt;
+                padding: 3pt;
+            }
+        </style>
+    </head>
+    <body>
+        <p>Параграф №1</p>
+        <p>Параграф №2</p>
+        <p>Параграф №3</p>
+        <p>Параграф №4</p>
+        <p>Параграф №5</p>
+        <div>Див №1</div>
+        <div>Див №2</div>
+        <div>Див №3</div>
+        <div>Див №4</div>
+        <div>Див №5</div>
+    </body>
+</html>

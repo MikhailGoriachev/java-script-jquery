@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Location</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        window.onload = function() {
+            // location - URL адрес текущего документа.
+            document.getElementById("output").innerHTML =
+                 "location = " + document.location + "<br >" +               // весь url
+                 "protocol  = " + document.location.protocol + "<br >" +     // протокол
+                 "host  = " + document.location.host + "<br/>" +             // имя хоста
+                 "pathname  = " + document.location.pathname + "<br >" +     // путь к запрашиваемому ресурсу
+                 "search  = " + document.location.search + "<br >";         // строка запроса (после знака вопроса)
+
+            // location - http://localhost:63342/003_Location/001_Location.htm?_ijt=h9nl1guhmki3o4m8uple1cij3u
+            // protocol - http:
+            // host - localhost:63342
+            // pathname - /003_Location/001_Location.htm
+            // search - ?_ijt=h9nl1guhmki3o4m8uple1cij3u
+        }
+    </script>
+
+</head>
+<body>
+    <h1>Location</h1>
+    <div id="output"></div>
+</body>
+</html>

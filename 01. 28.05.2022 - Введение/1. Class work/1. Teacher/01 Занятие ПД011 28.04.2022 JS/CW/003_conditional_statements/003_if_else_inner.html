@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Условная конструкция if</title>
+    <meta charset="utf-8">
+</head>
+<body>
+    <script>
+
+        var a = prompt("Введите слово Hello, или World", "Hello");
+
+        if (a == "Hello" || a == 'hello') {
+            document.write("Введенное значение верно и равно Hello");
+        }
+        else if (a == "World" || a == 'world') {    // Выполнится если выражение в первой конструкции будет false
+            document.write("Введенное значение верно и равно World");
+        }
+        else {
+            document.write("Введенное значение НЕ верно");
+        }
+
+        document.write("<br/>Эта строка выполнится в любом случае");
+
+    </script>
+</body>
+</html>

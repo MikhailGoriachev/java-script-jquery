@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Метод fadeTo()</title>
+    <meta charset="UTF-8">
+
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+
+        $(function () {
+
+            $("p:first").click(function () {
+                // Первый параметр - скорость анимации, второй - прозрачность
+                // до которой анимация будет проигрываться анимация
+                // 1 - элемент полностью непрозрачен 0 - элемент скрыт
+                $(this).fadeTo("slow", 0.33);
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <p>
+        Paragraph. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        Aliquid eum fugit, inventore minima quidem sapiente temporibus velit
+        voluptatem voluptatum. Culpa cum, earum ex fugit in nihil voluptatum?
+        Corporis, quaerat, voluptates!
+    </p>
+    <p>
+        Paragraph.
+    </p>
+</body>
+</html>

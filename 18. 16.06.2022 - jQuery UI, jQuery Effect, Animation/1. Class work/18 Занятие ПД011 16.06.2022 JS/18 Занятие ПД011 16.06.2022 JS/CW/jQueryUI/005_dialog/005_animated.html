@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery UI Dialog - Animation</title>
+        <meta charset="UTF-8" />
+
+        <link rel="stylesheet" href="jqueryui/jquery-ui.css" />
+        <!-- стиль jQueryUI -->
+        <script src="jqueryui/external/jquery/jquery.js"></script>
+        <!-- jQuery -->
+        <script src="jqueryui/jquery-ui.js"></script>
+
+        <script>
+            // определение скорости по умолчанию для анимации
+            $.fx.speeds._default = 1500;
+
+            $(function () {
+                $("#dialog").dialog({
+                    autoOpen: false, // диалоговое окно будет открыто при вызове метода dialog("open")
+                    show: "blind", // эффект для отображения окна
+                    hide: "explode", // эффект для скрытия окна
+                });
+
+                $("#opener").click(function () {
+                    $("#dialog").dialog("open"); // открытие диалогового окна
+                    return false;
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id="dialog" title="Basic dialog">
+            <p>
+                This is an animated dialog which is useful for displaying
+                information. The dialog window can be moved, resized and closed
+                with the 'x' icon.
+            </p>
+        </div>
+        <button id="opener">Open Dialog</button>
+    </body>
+</html>

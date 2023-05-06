@@ -1,0 +1,33 @@
+﻿<!--
+
+        Порядок вызовов одноименных локальных и глобальных переменных.
+
+-->
+
+<html lang="ru">
+<head>
+    <title>Область видимости внутри функции</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script>
+
+        var variable = "<p style='color:navy;'>Глобальная переменная.";
+
+        function f() {
+
+            // Создается локальная переменная с именем имеющимся у глобальной переменной.
+            let variable = "<p style='color:green;'>Локальная переменная.";
+
+            document.write(variable);
+        }
+
+        f();
+
+        document.write(variable);
+
+    </script>
+</body>
+</html>

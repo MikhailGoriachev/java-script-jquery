@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<!--
+
+    Изменение размера массива за счет добавлния элементов
+
+-->
+
+<html lang="ru">
+<head>
+    <title>Длина массива</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <script>
+
+        let arr = [111, 222, 333];
+        document.write("Длина массива " + arr.length + "<br />");
+
+        // При присвоении значения по индексу, которого нет в массиве, происходит добавление
+        // нового элемента массива.
+        arr[7] = 777;
+        document.write("Новая длина массива " + arr.length + "<br/><hr/>");
+
+        // Значение свойства arr.length - всегда на единицу больше индекса последнего элемента в массиве.
+        document.write('<h4>Перебор массива по индексам</h4><ol start="0">');
+        for (let i = 0; i < arr.length; i++) {
+            document.write(`<li>${arr[i]}</li>`);
+        } // for i
+        document.write('</ol>');
+
+        // новый тип цикла, введенный в ES6, доступ только по
+        // чтению for ... of
+        // for (const item of arr) {
+        //     document.write(`<li>${item}</li>`);
+        // }
+        document.write('<h4>Перебор массива в стиле ES6+</h4><ol start="0">');
+        for (let item of arr) {
+            document.write(`<li>${item}</li>`);
+        }
+        document.write('</ol>');
+    </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>Свойства и методы</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h3>Свойства и методы</h3>
+    <script>
+        function Point(x, y) {
+
+            // свойства экземпляра
+            this.x = x;
+            this.y = y;
+
+            // метод экземпляра
+            this.print = function () {
+                document.write(`<p><b>(${this.x}, ${this.y})</b></p>`);
+            }
+        }
+
+        // свойство функции конструктора (аналог статических свойств).
+        Point.MaxPointCount = 100;
+
+        // Метод функции-конструктора (аналог статического метода).
+        Point.getOrigin = function () {
+            return new Point(0, 0) // this использовать недопустимо.
+        }
+
+        // создание экземпляров и работа со свойствами и методами экземпляров.
+        let p1 = new Point(100, 200);
+        p1.print();
+
+        p1.x = 300;
+        p1.y = 400;
+        p1.print();
+
+        let p2 = new Point(-100, -200);
+        p2.print();
+
+        // массив объектов
+        document.write('<hr><h3>Массив объектов</h3>');
+        arr = []
+        arr.push(p1);
+        arr.push(p2);
+        for (const p of arr) {
+            p.print();
+        }
+        document.write('<hr>');
+
+        // работа со свойством функции-конструктора и методом функции-конструктора.
+        Point.MaxPointCount = 10;
+        document.write(`<h4>${Point.MaxPointCount}</h4>`);
+        Point.getOrigin().print();
+
+        document.write('<hr><h3>Инициализация массива объектов - применение оператора new</h3>');
+
+        // инициализация массива объектов
+        arr = [
+            new Point(3, 7),
+            new Point(-3, -7),
+            new Point(-12, -7),
+            new Point(12, 2)
+        ];
+        for (const p of arr) {
+            p.print();
+        }
+        document.write('<hr>');
+
+        // сортировка массива объектов по возрастанию координаты x
+        document.write('<h3>Сортировка массива объектов - пример использования методов массивов</h3>');
+        arr.sort((a, b) => a.x - b.x);
+        for (const p of arr) {
+            p.print();
+        }
+        document.write('<hr>')
+    </script>
+</body>
+</html>

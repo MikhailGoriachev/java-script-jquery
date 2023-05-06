@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Событие click</title>
+    <script src="jquery-3.6.0.min.js"></script>
+    <meta charset="UTF-8">
+
+    <script>
+
+        // click() - добавляет обработчик на JavaScript событие "click"
+
+        // click(function) - добавляет функцию к событию click для каждого
+        //                   элемента набора.
+        // click() рассматривается как mousedown и mouseup, следующие друг
+        // за другом на одном и том же элементе.
+
+        $(function () {
+            // для всех абзацев назначить обработчик клика
+            $("p").click(function () { $("#log").append($(this).html() + " - clicked<br/>"); });
+
+            // по клику на кнопку вызываются обработчики для всех абзацев...
+            $("#button").click(function () { $("p").click() }); });
+
+    </script>
+</head>
+<body>
+    <p>Параграф №1 - кликабельный</p>
+    <p>Параграф №2 - кликабельный</p>
+    <p>Параграф №3 - кликабельный</p>
+    <input type="button" id="button" value="Вызов обработчиков всех абзацев" />
+
+    <hr>
+    <div id="log"></div>
+</body>
+</html>

@@ -1,0 +1,126 @@
+/* Стили таблицы */
+
+/* таблица */
+.content table {
+    margin: 3rem 0;
+}
+
+/* надпись таблицы */
+.content caption {
+    border: 1px solid rgb(138, 138, 138);
+    margin: 0 2px;
+    background-color: #e8e8e8;
+}
+
+/* заголовки и ячейки таблицы */
+.content th,
+.content td {
+    font-size: 1.1rem;
+    padding: 0.4rem;
+
+    border: 1px solid rgb(138, 138, 138);
+}
+
+/* заголовок таблицы */
+.content th {
+    background-color: #e8e8e8;
+}
+
+/* тело таблицы */
+.content tbody {
+    color: #fff;
+    font-weight: 300;
+}
+
+/* заголовки таблиц */
+.content th {
+    width: 6rem;
+}
+
+/* очень широкий заголовок */
+th.header-longer {
+    width: 20rem;
+}
+
+/* широкий заголовок */
+th.header-long {
+    width: 10rem;
+}
+
+/* средний заголовок */
+th.header-normal {
+    width: 6rem;
+}
+
+/* узкий заголовок */
+th.header-short {
+    width: 2rem;
+}
+
+/* очень широкая ячейка */
+td.cell-longer {
+    width: 20rem;
+}
+
+/* широкая ячейка */
+td.cell-long {
+    width: 10rem;
+}
+
+/* средняя ячейка */
+td.cell-normal {
+    width: 6rem;
+}
+
+/* узкая ячейка */
+td.cell-short {
+    width: 2rem;
+}
+
+/* розовая ячейка таблицы */
+td.cell-pink {
+    background-color: #e55685;
+}
+
+/* синяя ячейка таблицы */
+td.cell-blue {
+    background-color: #009bcc;
+}
+
+/* голубая ячейка таблицы */
+td.cell-light-blue {
+    background-color: #11bcaf;
+}
+
+/* оранжевая ячейка таблицы */
+td.cell-orange {
+    background-color: #ed6b04;
+}
+
+/* зеленая ячейка таблицы */
+td.cell-green {
+    background-color: #96c21f;
+}
+
+/* зеленая ячейка таблицы */
+td.cell-light-green {
+    background-color: #b6cf71;
+}
+
+/* желтая ячейка таблицы */
+td.cell-red {
+    background-color: #e62300;
+}
+
+/* желтая ячейка таблицы */
+td.cell-header-gray {
+    background-color: #e8e8e8;
+    text-align: center;
+    font-weight: bold;
+    color: black;
+}
+
+/* выравнивание текста по правому краю */
+.text-align-rigth {
+    text-align: right;
+}

@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru">
+    <head>
+        <title>setInterval</title>
+        <link rel="stylesheet" href="style.css  " />
+
+        <script>
+            window.onload = function () {
+                let counter = 0;
+
+                function count() {
+                    counter++;
+                    document.getElementById("output").innerHTML = counter;
+                }
+
+                // setInterval - планирование запуска указанной функции с заданным интервалом.
+                // setInterval(callBack, period);
+                // Планирование и запуск будут происходить многократно.
+                // запускать функцию count() с интервалом в 1 секунду
+                setInterval(count, 1_000);
+
+                count(); // первый запуск, чтобы не было начальной задержки
+            };
+        </script>
+    </head>
+    <body>
+        <h1>Функция setInterval()</h1>
+        <h2 id="output">0</h2>
+    </body>
+</html>

@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<!--
+
+        Метод - это функция принадлежащая конкретному объекту,
+        которую вызвать ее можно только на этом объекте.
+        При этом такая функция описывается, как функция литерал присвоенная свойству.
+        method: function() {.....}
+-->
+<html lang="ru">
+    <head>
+        <title>Методы</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <h1>Методы объектов</h1>
+        <script>
+            let human = {
+                firstName: "Сергей",
+                secondName: "Петров",
+                age: 27,
+                logo: "microsoft.jpg",
+
+                // Метод show() в блоке инициализации объекта.
+                show: function () {
+                    // !!! this.имяСвойства !!!
+                    document.write("<p>First name: " + this.firstName);
+                    document.write("<p>Second name: " + this.secondName);
+                    document.write("<p>Age: " + this.age + " years old<br/>");
+                    document.write(
+                        `<img src='images/${this.logo}' width='100'/>`
+                    );
+                },
+
+                // Создаем метод changeLogo() в блоке инициализации объекта
+                changeLogo: function (occupation) {
+                    this.logo = occupation;
+                },
+
+                // увеличить возраст - просто для примера
+                incAge: function (delta) {
+                    this.age += delta;
+                },
+            };
+
+            // Вызов методов.
+            document.write("<h4>Исходное состояние объекта</h4>");
+            human.show();
+
+            document.write("<h4>Место работы изменено</h4>");
+            human.changeLogo("it_step.png");
+            human.show();
+
+            document.write("<h4>Возраст увеличен</h4>");
+            human.incAge();
+            human.show();
+        </script>
+    </body>
+</html>

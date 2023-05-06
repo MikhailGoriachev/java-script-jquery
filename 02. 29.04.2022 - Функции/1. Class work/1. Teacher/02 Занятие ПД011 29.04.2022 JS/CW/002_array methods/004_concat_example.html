@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<!--
+
+        concat() пример использования
+
+-->
+
+<html lang="ru">
+<head>
+    <title>Метод concat() пример</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Методы массивов JavaScript</h1>
+    <h2>Метод concat()</h2>
+    <h3>Метод concat() - пример использования</h3>
+
+    <script>
+
+        let a = [];
+
+        let i = 0;
+        while (true) {
+            input = prompt("Введите новый элемент массива (Отмена для выхода):", "");
+            if (input == null) break;
+            a = a.concat(input);
+
+            // запись по несуществующему индексу тоже добавление элемента в массив
+            // a[i++] = input;
+        }
+
+        document.write(a.join("<br />"));
+
+    </script>
+
+</body>
+</html>

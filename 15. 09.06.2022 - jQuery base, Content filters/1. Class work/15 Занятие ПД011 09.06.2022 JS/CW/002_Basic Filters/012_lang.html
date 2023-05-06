@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+    
+    <title>Выбор элементов по значению аттрибута lang</title>
+    
+    <style>
+    body{
+        color:black;
+    }
+
+    p{
+        font-weight: bold;
+        background-color:Gray;
+    }
+
+    </style>
+
+    <script src="jquery-3.6.0.min.js"></script>
+
+    <script>
+        // :lang(language) - выбирает все элементы у которых значение аттрибута lang равен выбранному коду языка
+        // language - код языка 
+        
+        $(document).ready(function () {
+            $("p:lang(en-us)").css("background-color", "lightgreen");
+            $("p:lang(fr)").css("background-color", "lightblue");
+            $("p:lang(ru)").css("background-color", "pale").css("color", "white");
+        });
+    </script>
+</head>
+
+<body>
+    <p lang="ru">Русский язык здесь</p>
+    <p lang="en-us">English is here</p>
+    <p lang="fr">Cette paragraphe est redige en français</p>
+    <p lang="ru">Русский язык здесь</p>
+
+</body>
+</html>

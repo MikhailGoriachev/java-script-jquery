@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>getElementsByTagName</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+
+
+        window.onload = function () {
+            // получение ссылки на элемент и ее использование
+            // зададим цвет фона для body
+            document.getElementsByTagName('body')[0].style.backgroundColor = 'lightseagreen';
+
+            // получение всех элементов <p>
+            let paragraphs = document.getElementsByTagName("p");
+
+            for (let i = 0; i < paragraphs.length; i++) {
+                // смена CSS атрибутов для всех параграфов
+                // код только для демонстрации идеи
+                paragraphs[i].style.color = "lightcyan";
+                paragraphs[i].style.backgroundColor = "darkblue";
+                paragraphs[i].style.padding = "12px";
+                paragraphs[i].style.width = "450px";
+            } // for i
+        }
+
+    </script>
+
+    <style>
+        p {
+            color: darkgreen;
+        }
+    </style>
+</head>
+<body>
+    <h1>Метод getElementsByTagName()</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa debitis delectus
+        doloribus libero maiores! Aliquam aperiam culpa cupiditate, expedita illo iure,
+        libero nostrum obcaecati, quaerat repellat repudiandae ullam vel voluptates.
+    </p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor nam necessitatibus
+        nesciunt tempore. Consequuntur esse eum facere incidunt magnam, obcaecati optio s
+        imilique sit. Commodi, consequatur cum fuga ipsa quam quibusdam.
+    </p>
+    <p>Hello world!!!</p>
+    <p>Hello world!!!</p>
+    <p>Hello world!!!</p>
+</body>
+</html>

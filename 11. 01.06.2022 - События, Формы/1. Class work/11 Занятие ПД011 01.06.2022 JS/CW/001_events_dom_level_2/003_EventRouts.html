@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Распространение событий DOM Level 2</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+
+        // В модели DOM Level 2 события распространяются по следующему принципу:
+        // 1. Этап перехвата: событие распространяется от Document вниз до целевого
+        //                    элемента управления - туннелирование, погружение
+        // 2. Этап обработки в целевом узле
+        // 3. Этап всплывания: от целевого элемента обратно вверх до корневого элемента
+
+        // последний параметр в методе addEventListener:
+        // true  - обработать событие на этапе ПЕРЕХВАТА: туннелирование (true), спуск
+        // false - обработать событие на этапе ВСПЛЫВАНИЕ
+        
+        let isTunnel = true;
+
+        window.onload = function () {
+            let e1 = document.getElementById("first");
+            let e2 = document.getElementById("second");
+            let e3 = document.getElementById("third");
+
+            e1.addEventListener("click",
+                function () {
+                    this.style.backgroundColor = "darkseagreen";
+                    alert("Обработчик DIV first");
+                },
+            isTunnel);
+
+            e2.addEventListener("click",
+                function () {
+                    this.style.backgroundColor = "lemonchiffon";
+                    alert("Обработчик DIV second");
+                },
+            isTunnel);
+
+            e3.addEventListener("click",
+                function () {
+                    this.style.backgroundColor = "pink";
+                    alert("Обработчик DIV third");
+                },
+            isTunnel);
+        }
+
+    </script>
+
+    <style>
+        div {
+            border: 3px solid gray;
+            padding: 50px;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <h3>Маршрутизация событий</h3>
+    Первый
+    <div id="first">
+        Второй
+        <div id="second">
+            Третий
+            <div id="third">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

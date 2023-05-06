@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Работа с изображениями</title>
+    <script>
+
+        window.onload = function () {
+            let img1 = document.getElementById("logoImg");  // получение по id.
+            let img2 = document.images.logo;                // получение по name (первый способ).
+            let img3 = document.images["logo"];             // получение по name (второй способ).
+            let img4 = document.logo;                       // если name уникальный для всего документа.
+
+            document.getElementById('out').innerText = `${img1.id}, ${img2.id}, ${img3.id}, ${img4.id}`;
+        } // window.onload
+
+    </script>
+</head>
+
+<body>
+    <h3>Способы доступа к изображению из кода</h3>
+    <img id="logoImg" name="logo" src="images/logo.png" alt="IT Step Academy" />
+    <p id="out"></p>
+</body>
+</html>

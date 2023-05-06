@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Метод toString</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h3>Объект Object - метод toString()</h3>
+    <script>
+        function Rectangle(w, h) {
+            this.width = w;
+            this.height = h;
+
+
+            Rectangle.prototype.getArea = function () {
+                return this.width * this.height;
+            }
+
+            // переопределение метода toString из Object
+            Rectangle.prototype.toString = function () {
+                return `Прямоугольник <b>W: ${this.width} H:${this.height}</b>`;
+            }
+        }
+
+        let rect1 = new Rectangle(100, 200);
+        let rect2 = new Rectangle(400, 300);
+
+        // после переопределения метода toString() его можно не указывать,
+        // он вызывается по умолчанию
+        document.write(`<p>${rect1.toString()}; ${rect1}</p>`);
+        document.write(`<p>${rect2.toString()}; ${rect2}</p>`);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+
+<!--
+
+    Массив - объект, у которого имеется свойство length,
+    это свойство хранит в себе длину массива.
+    Это свойство удаляет и/или добавляет элементы массива в зависимости от
+    присваивания неотрицательного целого числа.
+
+-->
+
+<html lang="ru">
+<head>
+    <title>Длина массива, свойство length</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h3>Изменение свойства length - изменение массива</h3>
+    <script>
+
+        // Длина массива = 5 элементов.
+        var array = ['h', 'e', 'l', 'l', 'o'];
+        document.write(`Длина массива [${array}] равна = ${array.length}<br/>`);
+
+        // Массив увеличил свой размер на два элемента, новая длина - 7 элементов.
+        array.length = 7;
+        document.write(`Длина массива [${array}] равна = ${array.length}<br/>`);
+
+        // Значения всех элементов, которые не попали в новую заданную длину массива, будут утеряны.
+        array.length = 2;
+        document.write(`Длина массива [${array}] равна = ${array.length}<br/>`);
+
+        array.length = 5;
+        document.write(`Длина массива [${array}] равна = ${array.length}<br/>`);
+    </script>
+</body>
+</html>

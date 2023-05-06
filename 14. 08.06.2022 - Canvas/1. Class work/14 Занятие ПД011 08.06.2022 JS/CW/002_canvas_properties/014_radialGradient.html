@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>RadialGradient</title>
+    <script>
+        window.addEventListener("load", init, false);
+        function init() {
+            let canvas = document.getElementById("canvas");
+            let context = canvas.getContext("2d");
+            // Создание радиального градиента.
+            //x1,y1 - координата первого круга
+            //radius1 -радиус начала распространения
+            //x2,y2 - координата второго круга
+            //radius2 -радиус конца распространения
+            let gradient = context.createRadialGradient(150, 150, 100,   150, 150, 200);
+            gradient.addColorStop(0, 'white');
+            gradient.addColorStop(0.5, 'lightgreen');
+            gradient.addColorStop(1, 'green');
+            context.fillStyle = gradient;
+            context.fillRect(0, 0, 300, 300);
+        }
+
+      
+    </script>
+    <style>
+        canvas {
+            border: 3px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" height="300" width="300">
+        Ваш браузер не поддерживает элемент <i>Canvas</i>
+    </canvas>
+</body>
+</html>

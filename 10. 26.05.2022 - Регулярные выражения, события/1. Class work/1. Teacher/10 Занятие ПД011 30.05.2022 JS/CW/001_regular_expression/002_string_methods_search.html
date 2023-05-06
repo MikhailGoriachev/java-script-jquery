@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+    <title>Метод search()</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <h3>Метод String.search()</h3>
+    <script>
+        // https://ravesli.com/uroki-po-regexp/  -- курс по регулярным выражениям
+        // https://regex101.com/                 -- онлайн тренажер регулярных выражений
+        // search() - возвращает индекс первого найденного символа подстроки по шаблону
+        //            или -1 если подстрока не найдена
+        let text = "Строка 1234 121 для тестирования 789 примера 12.";
+
+        // let pattern = /\d\d\d/;
+
+        // с параметром повторения и разделители перед и после числа
+        // let pattern = /\b\d{3}\b/;
+        let firstIndex = text.search(pattern);
+
+        document.write(`<p>${text}</p>`);
+        document.write(`<p>Первое трехзначное число по индексу: ${firstIndex}</p>`);
+    </script>
+</body>
+</html>
+
+

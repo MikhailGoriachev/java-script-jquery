@@ -1,0 +1,11 @@
+/* Страница "Задача 2. Фильмотека" (page2.html) */
+
+/* контейнер для списка фильмов */
+#filmListId {
+    display: flex;
+
+    width: 100%;
+
+    justify-content: center;
+    /* align-items: center; */
+}

@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru">
+    <head>
+        <title>Фильтр атрибутов, пример</title>
+        <link rel="stylesheet" href="style.css" />
+
+        <style>
+            p {
+                padding: 10px;
+                background-color: darkgray;
+                color: lightgray;
+            }
+        </style>
+
+        <script src="jquery-3.6.0.min.js"></script>
+
+        <script>
+            // с помощью синтаксиса " + variable + " мы передаем значение данной переменной, как строку
+            $(document).ready(function () {
+                // var align = prompt("Insert Align to be shown:", "");
+                // $(`p[align=${align}]`).css("background-color", "black");
+
+                // обработчик клика по кнопке
+                $("#btnExec").click(function () {
+                    let align = $("#align").val();
+                    $(`p[align=${align}]`).css("background-color", "black");
+
+                    // через 5 секунд вернуть исходный цвет фона всем абзацам
+                    setTimeout(
+                        () => $("p").css("background-color", "darkgray"),
+                        5000
+                    );
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <h3>Фильтр атрибутов, пример</h3>
+        <p align="right">Параграф №1</p>
+        <p align="left">Параграф №2</p>
+        <p align="center">Параграф №3</p>
+        <p align="left">Параграф №4</p>
+        <p align="center">Параграф №5</p>
+        <p align="right">Параграф №6</p>
+        <p align="center">Параграф №7</p>
+        <p align="left">Параграф №8</p>
+        <hr />
+        <label>
+            Тип выравнивания для выделения абзацев:
+            <input type="text" id="align" name="align" />
+        </label>
+        <br />
+        <button id="btnExec">
+            Выделить абзацы
+            <br />
+            с заданным выравниванием
+        </button>
+    </body>
+</html>

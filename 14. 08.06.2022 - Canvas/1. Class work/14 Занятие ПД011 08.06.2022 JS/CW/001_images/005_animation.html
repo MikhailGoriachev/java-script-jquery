@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Анимация изображения</title>
+    <script src="Animation.js"></script>
+
+    <script>
+        window.addEventListener("load", function () {
+
+            let animation = new Animation(
+                "animContainer",                 // где рисовать
+                5,                               // с каким FPS рисовать
+                ["images/frame1.jpg",            // кадры анимации
+                 "images/frame2.jpg",
+                 "images/frame3.jpg",
+                 "images/frame4.jpg",
+                 "images/frame5.jpg",
+                 "images/frame6.jpg"]);
+
+            document.getElementById("startButton").addEventListener("click", function () {
+                animation.start();
+            });
+
+            document.getElementById("stopButton").addEventListener("click", function () {
+                animation.stop();
+            });
+
+        });
+
+    </script>
+</head>
+<body>
+    <img id="animContainer" src="images/frame1.jpg" />
+    <br>
+    <button id="startButton"><h4>Запуск анимации</h4></button>
+    <button id="stopButton"><h4>Останов анимации</h4></button>
+</body>
+</html>

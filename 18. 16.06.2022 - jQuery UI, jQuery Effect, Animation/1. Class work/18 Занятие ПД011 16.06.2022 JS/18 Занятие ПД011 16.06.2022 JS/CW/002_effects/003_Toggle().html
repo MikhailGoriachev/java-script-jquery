@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Метод toggle()</title>
+        <meta charset="UTF-8" />
+
+        <script src="jquery-3.6.0.min.js"></script>
+        <script>
+            $(function () {
+                $("button").click(function () {
+                    // toggle - функция, переключающая режим отображения каждого из элементов набора.
+                    // Если элемент скрыт, то данная функция отображает его (используя метод show);
+                    // Если элемент видимый — скрывает его (используя метод hide).
+                    $("p").toggle();
+                });
+            });
+        </script>
+        <style>
+            p {
+                background-color: lightseagreen;
+                color: white;
+                padding: 10px;
+                border-radius: 12px;
+                min-height: 36px;
+            }
+        </style>
+    </head>
+    <body>
+        <button>Show/Hide.</button>
+        <p>Paragraph.</p>
+    </body>
+</html>

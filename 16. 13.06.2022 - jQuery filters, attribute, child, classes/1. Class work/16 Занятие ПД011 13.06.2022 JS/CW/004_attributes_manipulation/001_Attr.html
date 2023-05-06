@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Attributes/attr</title>
+    <style>
+        /* для более наглядного отображения div */
+        div {
+            width: 600px;
+            height: 160px;
+            margin: 20px;
+
+            background: lightseagreen;
+        }
+    </style>
+</head>
+
+<script src="jquery-3.6.0.min.js"></script>
+
+<script>
+
+    // Функция attr позволяет получить значение атрибута выбранного элемента
+    // Если выбран набор элементов, тогда функция возвратит значение первого встречающегося
+    // элемента на странице
+    // Если элемент с выбранным атрибутом отсутствует, то возвращается значение undefined.
+
+    // К атрибутам относятся title, alt, src, href, width, style, align и т.д.
+
+    $(document).ready(function () {
+        // Получение значения атрибута align у первого "div"
+        let align = $("div").attr("align");
+        $("#out").text(`Атрибут align первого div: ${align}`);
+    });
+</script>
+
+<style>
+    div {
+        padding: 12px;
+    }
+</style>
+
+<body>
+    <h3>Чтение атрибута - функция attr()</h3>
+    <h4 id="out"></h4>
+
+    <div align="center">
+        <b>Текст в диве с позиционированнием по центру блока</b>
+        <br><br>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci asperiores
+        aspernatur dolorem ex iste itaque iusto laboriosam nam nostrum obcaecati omnis
+        optio qui, quia, quis quisquam rem rerum, ullam!
+    </div>
+
+    <div align="left">
+        <b>Текст в диве с позиционированнием по левому краю блока</b>
+        <br><br>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci asperiores
+        aspernatur dolorem ex iste itaque iusto laboriosam nam nostrum obcaecati omnis
+        optio qui, quia, quis quisquam rem rerum, ullam!
+    </div>
+
+    <div align="right">
+        <b>Текст в диве с позиционированнием по правому краю блока</b>
+        <br><br>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci asperiores
+        aspernatur dolorem ex iste itaque iusto laboriosam nam nostrum obcaecati omnis
+        optio qui, quia, quis quisquam rem rerum, ullam!
+    </div>
+</body>
+</html>
+

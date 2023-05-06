@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Работа с узлами DOM - Свойства</title>
+    <link rel="stylesheet" href="style.css  ">
+
+    <script>
+        window.onload = function () {
+
+            let e = document.getElementById("p1");
+
+            // console.log(`nodeValue = ${e.nodeValue}`)
+            // parentNode - получить родительский узел для узла 'e'
+            let parentStyle = e.parentNode.style;
+
+            // пример использования parent
+            parentStyle.border = "2px solid darkblue";
+            parentStyle.color = "darkgreen";
+            parentStyle.padding = "12px";
+        }
+    </script>
+</head>
+<body>
+    <div>
+        Div
+        <p id="p1">Paragraph</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus dignissimos dolores eligendi id nisi obcaecati quo sapiente totam! Esse ipsum praesentium voluptatem! Ab delectus, est excepturi in iste quibusdam voluptatibus!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus dignissimos dolores eligendi id nisi obcaecati quo sapiente totam! Esse ipsum praesentium voluptatem! Ab delectus, est excepturi in iste quibusdam voluptatibus!</p>
+    </div>
+</body>
+</html>

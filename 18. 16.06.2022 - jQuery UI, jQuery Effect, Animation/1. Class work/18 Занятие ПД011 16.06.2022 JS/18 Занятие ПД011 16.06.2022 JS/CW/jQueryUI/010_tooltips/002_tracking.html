@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery UI Tooltip - Track the mouse</title>
+    <meta charset="UTF-8">
+	<style>
+	    label {
+		    display: inline-block;
+		    width: 100px;
+		}
+	</style>
+    <!-- подключение локальное -->
+    <link rel="stylesheet" href="jqueryui/jquery-ui.css">       <!-- стиль jQueryUI -->
+    <script src="jqueryui/external/jquery/jquery.js"></script>  <!-- jQuery -->
+    <script src="jqueryui/jquery-ui.js"></script>
+    <script>
+
+        $(function () {
+            $(document).tooltip({
+                track: true
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <p>
+        <label for="name">Ваше имя:</label><input id="name" type="text" title="Укажите, пожалуйста, Ваше имя">
+	</p>    
+	<p>
+        <label for="age">Ваш возраст:</label><input id="age" type="number" title="Укажите, пожалуйста, Ваш возраст">
+	</p>
+</body>
+</html>

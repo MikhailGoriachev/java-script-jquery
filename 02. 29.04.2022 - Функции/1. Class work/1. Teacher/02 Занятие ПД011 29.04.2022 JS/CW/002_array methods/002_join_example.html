@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<!--
+
+    Метод join() - пример использования
+
+-->
+
+<html lang="ru">
+<head>
+    <title>Метод Join() пример</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Методы массивов JavaScript</h1>
+    <h2>Метод join()</h2>
+    <h3>Пример использования метода join()</h3>
+
+    <script>
+
+        var arr = ["September", "October", "November",
+            "December", "January", "February", "March",
+            "April", "May", "June", "Jull", "August"
+        ];
+
+        // вывод списка
+        document.write(`<ul><li>${arr.join("</li><li>")}</li></ul>`);
+    </script>
+</body>
+</html>

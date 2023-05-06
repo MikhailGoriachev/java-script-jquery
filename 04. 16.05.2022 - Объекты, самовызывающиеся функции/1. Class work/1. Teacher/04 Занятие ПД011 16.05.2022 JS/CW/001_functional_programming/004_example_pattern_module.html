@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!--
+   Модуль Calculator для операций над двумя числами
+-->
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Пример паттерна "Модуль"</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h3>Пример использования паттерна "Модуль"</h3>
+
+<script>
+    // создание модуля
+    const calculator = (function(){
+        // данные модуля: операнды и результат
+        let data = {op1: 0, op2: 0, result: 0};
+
+        // функции модуля для доступа к данным, обработки данных
+        return {
+            // строковое представление данных - например, HTML разметка
+            toString: function () {
+                return `операнд1: ${data.op1}; операнд2: ${data.op2}; результат последней операции: ${data.result.toFixed(3)}`;
+            },
+
+            // геттеры и сеттеры для данных
+            setOp1: function(value) { data.op1 = value;},
+            getOp1: function()      { return data.op1; },
+
+            setOp2: function(value) { data.op2 = value;},
+            getOp2: function()      { return data.op2; },
+
+            // геттер для результата последней операции
+            getResult: function()   { return data.result; },
+
+            // операция сложения
+            add: function () {
+                data.result = data.op1 + data.op2;
+                return data.result;
+            },
+
+            // операция умножения
+            mpy: function () {
+                data.result = data.op1 * data.op2;
+                return data.result;
+            },
+
+            // операция вычитания
+            sub: function () {
+                data.result = data.op1 - data.op2;
+                return data.result;
+            }
+        }
+    })();
+
+    // использование модуля
+    calculator.setOp1(2);
+    calculator.setOp2(3);
+
+    calculator.add();
+    document.write(`<p>${calculator.getOp1()} + ${calculator.getOp2()} = ${calculator.getResult().toFixed(3)}</p>`);
+    document.write(`<p>Строковое представление для модуля: ${calculator.toString()}</p><hr/>`);
+
+    calculator.mpy();
+    document.write(`<p>${calculator.getOp1()} * ${calculator.getOp2()} = ${calculator.getResult().toFixed(3)}</p>`);
+    document.write(`<p>Строковое представление для модуля: ${calculator.toString()}</p><hr/>`);
+
+    calculator.sub();
+    document.write(`<p>${calculator.getOp1()} - ${calculator.getOp2()} = ${calculator.getResult().toFixed(3)}</p>`);
+    document.write(`<p>Строковое представление для модуля: ${calculator.toString()}</p><hr/>`);
+</script>
+
+
+</body>
+</html>

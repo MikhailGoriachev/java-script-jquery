@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Создание баннера</title>
+        <meta charset="UTF-8" />
+
+        <script src="jquery-3.6.0.min.js"></script>
+        <script>
+            $(function () {
+                $("button[data-url]").click(function () {
+                    let img = $(this).data("url");
+                    changeImage(img);
+                });
+
+                function changeImage(img) {
+                    $("img").attr("src", img);
+                }
+            });
+        </script>
+    </head>
+    <body>
+        <img
+            src="html.jpg"
+            width="500"
+            height="300"
+            alt="красивая картинка... а Вы не видите :)"
+        />
+        <br />
+        <button data-url="html.jpg">1</button>
+        <button data-url="html5.jpg">2</button>
+        <button data-url="jq.jpg">3</button>
+    </body>
+</html>

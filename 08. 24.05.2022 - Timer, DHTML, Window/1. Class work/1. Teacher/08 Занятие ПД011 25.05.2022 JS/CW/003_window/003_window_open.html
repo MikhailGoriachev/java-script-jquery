@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+    <title>Window Open</title>
+</head>
+<body>
+    <input type="button" id="openButton" value="Открыть" />
+    <input type="button" id="closeButton" value="Закрыть" />
+	
+	<script>
+        // Ненавязчивый JavaScript
+        window.onload = function () {
+            let windowHandler;
+
+            // назначить обработчики событий
+            document.getElementById("openButton").onclick = openButtonHandler;
+            document.getElementById("closeButton").onclick = ()=>
+                windowHandler.close();
+
+            function openButtonHandler() {
+                // первый параметр - html страница, которая будет загружена в новом окне.
+                // второй параметр - имя окна
+                // третий параметр - список дополнительных параметров (необязательный)
+                windowHandler = window.open("window.html", "Window Name",
+                    "width=400,height=400,status=yes,resizable=no");
+            }
+        }
+    </script>
+</body>
+</html>

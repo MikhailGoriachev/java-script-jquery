@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>JQuery selector Class</title>
+        <link rel="stylesheet" href="style.css" />
+
+        <!-- Подключение библиотеки JQuery-->
+
+        <script src="jquery-3.6.0.min.js"></script>
+
+        <script>
+            // JQuery скрипт
+
+            $(document).ready(function () {
+                // $(".simpleClass") - JQuery селектор - позволяет
+                // выбрать элемент(ы) по CSS классу
+                $(".myClass").css("border", "solid 3px red");
+            });
+        </script>
+
+        <style>
+            .myClass {
+                width: 150px;
+                height: 60px;
+                float: left;
+                padding: 10px;
+                margin: 10px;
+                background-color: #eee;
+            }
+        </style>
+    </head>
+
+    <!--======================================= HTML разметка страницы =========================================-->
+
+    <body>
+        <div class="notMe">div class="notMe"</div>
+
+        <div class="myClass">div class="myClass"</div>
+
+        <span class="myClass">span class="myClass"</span>
+
+        <div class="notMe">div class="notMe"</div>
+    </body>
+</html>

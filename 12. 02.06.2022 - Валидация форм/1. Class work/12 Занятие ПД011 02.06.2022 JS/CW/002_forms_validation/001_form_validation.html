@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Пример проверки достоверности ввода</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        window.addEventListener("load", function () {
+            let timer;
+
+            // обработка события отправки запроса
+            document.forms[0].addEventListener("submit", function (e) {
+                let isValid = true;
+
+                let login = document.getElementsByName("login")[0],
+                    password = document.getElementsByName("password")[0];
+
+                // если условие сработает значение в форме будет считаться не правильным.
+                isValid = login.value.length > 0 && password.value.length > 0;
+
+                // В случае если форма заполнена не правильно - отображаем сообщение об ошибке 
+                // и предотвращаем отправку запроса с помощью вызова preventDefault()
+                if (!isValid) {
+                    // сброс текущего таймера
+                    clearTimeout(timer);
+
+                    // запрет отправки данных
+                    e.preventDefault();
+
+                    let msg = document.getElementById("msg");
+                    msg.innerText = "Вcе поля ввода должны быть заполнены";
+                    msg.style.color="red";
+
+                    // очистка сообщения
+                    timer = setTimeout(() => msg.innerText = "", 5_000);
+                }
+            });
+
+        })
+    </script>
+
+</head>
+<body>
+    <h3>Валидация с размещением кода в файле разметки</h3>
+    <form>
+        <label>Login:</label>
+        <input type="text" name="login" /><br>
+        <label>Password:</label>
+        <input type="password" name="password" /><br>
+        <input type="submit" />
+
+        <!-- поле вывода сообщений валидации -->
+        <span id="msg"></span>
+    </form>
+
+
+</body>
+</html>

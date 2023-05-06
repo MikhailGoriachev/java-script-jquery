@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>События клавиатуры</title>
+    <script>
+        $ = id => document.getElementById(id);
+
+        window.addEventListener("load", function () {
+            let main = $("main");
+
+            // onkeydown - событие подходит для обработки функциональных клавиш.
+            main.addEventListener("keypress", function (e) { // снять комментарий
+                clear();
+                console.log(e);
+
+                print("alt = " + e.altKey);
+                print("ctrl = " + e.ctrlKey);
+                print("shift = " + e.shiftKey);
+                print("charCode = " + e.charCode); // код символа (передается при событии keypress)
+                print("keyCode = " + e.keyCode); // устаревшее свойство
+                print("code = " + e.code); // свойство для замены keyCode 
+            }, false);
+
+            function print(message) {
+                $("output").innerHTML += message + "<br />";
+            }
+
+            function clear() {
+                $("output").innerHTML = "";
+            }
+        }, false);
+    </script>
+</head>
+<body id="main">
+    <p id="output"></p>
+</body>
+</html>

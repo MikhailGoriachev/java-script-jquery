@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<!--
+Инкапсуляция - сокрытие реализации и данных объекта.
+-->
+
+<html lang="ru">
+<head>
+    <title>Инкапсуляция в JavaScript</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Инкапсуляция</h1>
+
+    <script>
+
+        // класс для демонстрации
+        let MyClass = function (a, b) {
+            // это не приватное свойство. Это переменная
+            // существующая в одном экземпляре для всех объектов этого типа
+            // :(
+            var a = a;    // требуется именно var
+            this.b = b;   // открытое поле
+
+            // закрытый метод
+            var privateMethod = function () {
+                document.write("<p>Закрытый метод</p>");
+            };
+
+            // открытый метод
+            this.publicMethod = function () {
+                document.write("<p>Открытый метод </p>");
+                privateMethod();
+            };
+
+            // открытый метод
+            MyClass.prototype.toString = function () {
+                return `a = ${a}; b = ${this.b}`;
+            }
+        };
+
+        let obj1 = new MyClass(11, 10);
+        obj1.publicMethod();
+        document.write(`obj1: ${obj1}<br>`);
+
+        let obj2 = new MyClass(-1, -2);
+
+        // при выводе - обратить внимание на значение a
+        document.write(`obj1: ${obj1}<br>`);
+        document.write(`obj2: ${obj2}<br>`);
+
+        // раскомментировать для демонстрации ошибки
+        // obj1.privateMethod(); // ошибка
+
+    </script>
+</body>
+</html>

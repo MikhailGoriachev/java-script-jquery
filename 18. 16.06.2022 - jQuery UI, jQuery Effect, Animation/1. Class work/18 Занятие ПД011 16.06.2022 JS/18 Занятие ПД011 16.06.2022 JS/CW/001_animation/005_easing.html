@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Параметр easing</title>
+    <meta charset="UTF-8">
+
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+
+        $(function () {
+
+            // параметр ease - имя функции, которая контролирует скорость воспроизведения анимации.
+            // возможные значения - linear линейная скорость анимации, swing - ускорение в начале
+            // замедление в конце
+
+            $("div").animate({
+                    opacity: 0.25,
+                    marginLeft: '650px'
+                },
+                5_000,
+                "linear");  // попробовать значения linear, swing
+        });
+
+    </script>
+    <style>
+        div {
+            background-color: Green;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            color: White
+        }
+    </style>
+</head>
+<body>
+    <div>
+        Test div
+    </div>
+</body>
+</html>

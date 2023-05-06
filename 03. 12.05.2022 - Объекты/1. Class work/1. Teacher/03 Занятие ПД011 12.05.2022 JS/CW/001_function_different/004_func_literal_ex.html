@@ -1,0 +1,38 @@
+﻿<!--
+
+    Функции-литералы.
+-->
+
+<html lang="ru">
+<head>
+    <title>Функции-литералы пример</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Пример использования литеральных/анонимных функций</h1>
+
+    <script>
+
+        let flag = false;
+
+        // анонимная функция
+        let f = function () {
+            document.write("<p>Привет!</p>");
+            flag = true;
+        }
+
+        f();  // Вызов функции.
+
+
+        // Создание новой функции в теле условной конструкции.
+        if (flag) {
+            f = function () {
+                document.write("<p>Пока!</p>");
+            } // f
+        } // if
+
+        f();  // Вызов функции, созданной в теле условного оператора
+    </script>
+</body>
+</html>

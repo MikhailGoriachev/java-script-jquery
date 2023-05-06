@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<<<<<<< HEAD
+    <head>
+        <title>События клавиатуры</title>
+        <script>
+            $ = (id) => document.getElementById(id);
+
+            window.addEventListener(
+                "load",
+                function () {
+                    // Событие onkeypress используется для обработки клавиш с печатными символами.
+                    $("main").addEventListener(
+                        "keypress",
+                        function (e) {
+                            console.log(e);
+                            clear();
+                            print("alt = " + e.altKey);
+                            print("ctrl = " + e.ctrlKey);
+                            print("shift = " + e.shiftKey);
+                            print(
+                                "charCode = " + String.fromCharCode(e.charCode)
+                            ); // код символа (передается при событии keypress)
+                            print("char = " + e.char); // код символа клавиши
+                            print("keyCode = " + e.keyCode); // устаревшее свойство
+                            print("code = " + e.code); // свойство для замены keyCode
+                        },
+                        false
+                    );
+
+                    function print(message) {
+                        $("output").innerHTML += message + "<br />";
+                    }
+
+                    function clear() {
+                        $("output").innerHTML = "";
+                    }
+                },
+                false
+            );
+        </script>
+    </head>
+    <body id="main">
+        <p id="output"></p>
+    </body>
+</html>
+=======
+<head>
+    <title>События клавиатуры</title>
+    <script>
+    	$ = id => document.getElementById(id);
+
+        window.addEventListener("load", function () {
+            // Событие onkeypress используется для обработки клавиш с печатными символами.
+            $("main").addEventListener("keypress", function (e) {
+                clear();
+                print("alt = " + e.altKey);
+                print("ctrl = " + e.ctrlKey);
+                print("shift = " + e.shiftKey);
+                print("charCode = " + String.fromCharCode(e.charCode)); // код символа (передается при событии keypress)
+                print("char = " + e.char); // код символа клавиши
+                print("keyCode = " + e.keyCode); // устаревшее свойство
+                print("code = " + e.code); // свойство для замены keyCode 
+            }, false);
+
+            function print(message) {
+                $("output").innerHTML += message + "<br />";
+            }
+
+            function clear() {
+                $("output").innerHTML = "";
+            }
+        }, false);
+    </script>
+</head>
+<body id="main">
+    <p id="output"></p>
+</body>
+</html>
+>>>>>>> remotes/origin/main

@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>arc()</title>
+        <script>
+            window.addEventListener("load", init, false);
+            function init() {
+                let canvas = document.getElementById("canvas");
+                let context = canvas.getContext("2d");
+                context.beginPath();
+                context.fillStyle = "green";
+                // arc(x,y,radius,startAgle,endAngle,clockwise)
+                // Метод arc() принимает 6 аргументов:
+                // x, y - центр рисования дуги
+                // radius -радиус
+                // startAngle -начальный угол окружности
+                // endAngle - конечный угол окружности
+                // clockwise - направление прорисовки. false - по часовой стрелке
+                // context.arc(100, 100, 50, 0, Math.PI*2, true);
+                context.arc(100, 100, 50, 0, Math.PI * 2, true);
+
+                context.moveTo(300, 400);
+                context.arc(300, 400, 50, 0, 1, true);
+
+                context.moveTo(310, 405);
+                context.arc(310, 405, 50, 0, 1, false);
+                context.closePath();
+                context.fill();
+            }
+        </script>
+        <style>
+            canvas {
+                border: 3px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <canvas id="canvas" height="600" width="600">
+            Ваш браузер не поддерживает элемент
+            <i>Canvas</i>
+        </canvas>
+    </body>
+</html>

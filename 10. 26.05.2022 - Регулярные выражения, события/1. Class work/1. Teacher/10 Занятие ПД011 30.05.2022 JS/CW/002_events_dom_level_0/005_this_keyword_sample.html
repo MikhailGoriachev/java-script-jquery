@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Ключевое слово this в обработчике</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        window.onload = () => {
+
+            let pArr = document.getElementsByTagName("p");
+
+            for (let i = 0; i < pArr.length; i++) {
+                pArr[i].onclick = function() {
+                    this.style.backgroundColor = "red";
+
+                    // передача контекста, т.е. кнопки в функцию через замыкание
+                    let self = this;  // это и есть замыкание
+                    setTimeout( () =>  self.style.backgroundColor = "green", 1_000);
+                }
+            }
+        }
+    </script>
+    <style>
+        p {
+            background-color:green;
+            float: left;
+            height: 50px;
+            width: 50px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h3>Ключевое слово <u>this</u></h3>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+</body>
+</html>

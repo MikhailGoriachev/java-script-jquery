@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<!--
+    Метки.
+    Инструкция метки (label) используется вместе с break или continue для
+    альтернативного выхода из цикла.
+    Оно добавляется перед блочным выражением в качестве ссылки, которая
+    может быть использована в дальнейшем.
+
+    Вместо оператора goto.
+-->
+
+<html lang="ru">
+<head>
+    <title>Метки</title>
+    <meta charset="utf-8">
+</head>
+<body>
+    <h1>Начало</h1>
+    <script>
+
+        Label1:
+            for (var j = 0; j < 2; j++) {
+                for (let i = 0; i < 2; i++) {
+                    let input = prompt("Введите любой текст, чтобы выйти нажмите отмена", '');
+                    if (input == null)
+                        break Label1; //выйти сразу из 2-х циклов.
+                    // continue Label1;
+                    document.write(`${input} `);
+                }
+
+                for (let i = 0; i < 2; i++) {
+                    let input = prompt("Введите любой текст, чтобы выйти нажмите отмена", '');
+                    if (input == null)
+                        break Label1; //выйти сразу из 2-х циклов.
+                    // continue Label2;
+                    document.write(`${input} `);
+                }
+                document.write("<br/>");
+            }
+
+        document.write('Готово!');
+
+    </script>
+
+    <h2>Продолжение</h2>
+
+    <script>
+        // j доступен
+        document.write(`<p>j = ${j}</p>`)
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+﻿<!DOCUMENT html>
+<html>
+<head>
+    <title>jQuery UI Progressbar - Animated</title>
+    <meta charset="UTF-8">
+    <!-- подключение локальное -->
+    <link rel="stylesheet" href="jqueryui/jquery-ui.css">       <!-- стиль jQueryUI -->
+    <script src="jqueryui/external/jquery/jquery.js"></script>  <!-- jQuery -->
+    <script src="jqueryui/jquery-ui.js"></script>
+    <script>
+
+        $(function () {
+            $("#progressbar").progressbar({
+                value: 59
+            });
+        });
+
+    </script>
+    <style>
+        .ui-progressbar .ui-progressbar-value {
+            background-image: url(images/pbar-ani.gif);
+        }
+    </style>
+</head>
+<body>
+    <div id="progressbar" style="height: 22px"></div>
+    <div>
+        <p>
+            Для того, чтобы анимировать значение progress bar, необходимо установить свойство
+            <code>background-image</code>
+            для класса
+            <code>.ui-progressbar-value</code>
+        </p>
+    </div>
+</body>
+</html>

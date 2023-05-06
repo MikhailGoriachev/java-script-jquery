@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+
+    <title>jQuery getting started</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Подключение online библиотеки jQuery
+         CDN: Content Delivery Network
+    -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+
+        // jQuery скрипт
+        // $(document).ready(f);
+        $(document).ready(function() {
+            alert('Привет из jQuery!')
+        });
+
+        // Вызываем функцию с именем jQuery, которой в качестве аргумента передаем функцию - f.
+        jQuery(f);
+
+        $(f);   // $() - псевдоним функции jQuery()
+
+        function f() {
+            alert("Привет, jQuery из функции f()!");
+        }
+
+    </script>
+
+</head>
+
+<!--======================================= HTML разметка страницы =========================================-->
+
+<body>
+    <h4>Подключение jQuery через CDN</h4>
+    <a href="http://jquery.com">jQuery.com</a>
+
+</body>
+</html>

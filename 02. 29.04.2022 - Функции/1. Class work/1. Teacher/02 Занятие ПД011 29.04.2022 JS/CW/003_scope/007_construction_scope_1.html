@@ -1,0 +1,31 @@
+﻿<!--
+
+    Область видимости var не ограничивается телом
+    условной или циклической конструкции.
+
+    Область видимости let ограничивается телом
+    условной или циклической конструкции.
+
+-->
+
+<html lang="ru">
+<head>
+    <title>Область видимости внутри конструкций</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script type="text/javascript">
+
+        // let counter - видимость только в блоке кода
+        for (var counter = 0; counter < 3; counter++) {
+            document.write("<p style='background-color:lightblue;'>" + counter);
+        }
+
+        // counter - счетчик итераций цикла доступна вне тела цикла - for.
+        document.write("<p style='background-color:lemonchiffon;'>" + counter);
+
+    </script>
+</body>
+</html>

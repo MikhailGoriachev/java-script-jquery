@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>RemoveAttr</title>
+
+    <style>
+        /* для более наглядного отображения div */
+        div {
+            width: 600px;
+            height: 80px;
+            margin: 12px;
+            padding: 12px;
+
+            background: lightseagreen;
+        }
+    </style>
+
+    <script src="jquery-3.6.0.min.js"></script>
+
+    <script>
+
+        // удаляет указанный атрибут у набора выбранных элементов
+        //.removeAttr( имя_аттрибута )
+
+        $(document).ready(function() {
+            // Удаление атрибута align у всех <div>
+            $("#btnRemoveAlignAttr").click(function () {
+                $("div").removeAttr("align");
+            });
+
+            // удаление атрибута value у поля для ввода
+            $("#btnRemoveValueAttr").click(function () {
+                $("input").removeAttr("value");
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <div align="center">
+        Текст в диве с позиционированнием по центру
+    </div>
+    <div align="left">
+        Текст в диве с позиционированнием по левому краю страницы
+    </div>
+    <div align="right">
+        Текст в диве с позиционированнием по правому краю страницы
+    </div>
+    <div>
+        Текст в диве с дефолтным выравниванием
+    </div>
+
+    <input type="text" name="Some name" value="Введенная строка 1" />
+    <input type="text" name="name1" value="Введенная строка 2" />
+    <input type="text" name="name2" value="Введенная строка 3" />
+
+    <br><br>
+    <nav>
+        <button id="btnRemoveAlignAttr">
+            Удалить атрибут <b>align</b> у <u>div</u>
+        </button>
+
+        <button id="btnRemoveValueAttr">
+            Удалить атрибут <b>value</b> у <u>input</u>
+        </button>
+    </nav>
+</body>
+</html>

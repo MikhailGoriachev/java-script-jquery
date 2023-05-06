@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+    <title>Поиск для скрытых элементов</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        div {
+            width: 70px;
+            height: 40px;
+            background: lightseagreen;
+            margin: 5px;
+            float: left;
+          }
+    </style>
+
+    <script src="jquery-3.6.0.min.js" type="text/javascript"></script>
+
+
+    <!-- CDN для jQuery 3.x.x, ссылка на страницу CDN: https://code.jquery.com/  -->  	
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>-->
+    
+</head>
+<body>
+    <h3>Поиск для скрытых элементов</h3>
+    <div style="display:none;">1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div style="display:none;">5</div>
+    <div>6</div>
+    <div style="display:none;">7</div>
+    <div style="display:none;">8</div>
+    <hr style="clear: both"></hr>
+    <button id="button-show">Показать спрятанные</button>
+    <button id="button-hide">Скрыть все</button>
+
+    <script>
+        //:visible - фильтр выберет все видимые элементы на странице
+        //в нашем случае это div-ы находящиеся на 21-24 строках
+     
+        $("div:visible").click(function () {
+            $(this).css("background", "lightskyblue");
+        });
+
+        // при нажатии на кнопку все невидимые div-ы будут отображены на странице
+        $("#button-show").click(function () {
+            $("div:hidden").show("slow"); // отображение медленное
+        });
+
+        // при нажатии на кнопку все div-ы со стилем hidden будут скрыты со страницы
+        $("#button-hide").click(function () {
+            $("div:visible").hide("slow"); // отображение медленное
+        });
+    </script>
+
+</body>
+</html>

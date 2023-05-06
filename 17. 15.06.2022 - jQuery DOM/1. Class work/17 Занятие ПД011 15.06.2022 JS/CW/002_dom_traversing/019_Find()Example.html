@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<!-- выделить курсивом и подчеркиванием все слова, содержащие t -->
+<html lang="ru">
+<head>
+    <title>Метод find()</title>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+
+        // find(selector) - отыскивает дочерние элементы, которые удовлетворяют указанному выражению.
+
+        $(function () {
+
+            // каждое слово параграфа обрамляем тегом span:
+            // <span> When</span> <span>the</span> <span>day</span> <span>is</span> <span>short</span>
+            let paras = $("p");  // находим все параграфы
+            let newText = paras
+                .text()          // извлекаем текст из параграфов
+                .split(" ")      // разбиваем текст по пробелам
+                .join("</span> <span>"); // оборачиваем каждое слово в span
+
+            newText = `<span>${newText}</span>`;
+
+            paras.html(newText)
+                .find("span")
+                 // на <span> устанавливаем обработчики на событие
+                // наведения/отведения курсора мыши
+                .hover(function () {
+                    $(this).addClass("highlight");
+                },
+                function () {
+                    $(this).removeClass("highlight");
+                })
+                // отменяем деструктивное действие метода find(), т.е. из выборки убрали span
+                // и находим элементы, содержащие символ t. Добавляем им стили.
+                .end()
+                .find(":contains('t')")
+                .css({
+                    "font-style": "italic",
+                    "text-decoration": "underline"
+                });
+        });
+
+    </script>
+    <style>
+        p {
+            font-size: 20px;
+            width: 200px;
+            cursor: default;
+            color: darkblue;
+            font-weight: bold;
+            margin: 0 10px;
+        }
+
+        .highlight {
+            background: lightskyblue;
+        }
+    </style>
+</head>
+<body>
+    <p>When the day is short find that which matters to you or stop believing</p>
+</body>
+</html>

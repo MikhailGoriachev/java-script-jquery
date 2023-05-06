@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Свойства элементов в форме</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        window.addEventListener('load', () => {
+            document.getElementById("btnGetAllElements").addEventListener('click', getAllElements, false);
+        }, false);
+
+        function getAllElements() {
+            let message = "";
+            // for (let i = 0; i < form1.elements.length; i++) {
+            for (let fe of form1.elements) {
+                // let fe = form1.elements[i];
+                message += "value: " + fe.value + "\r\n";       // значение элемента
+                message += "form: " + fe.form.name + "\r\n";    // ссылка на форму, в которой элемент находится
+                message += "type: " + fe.type + "\r\n";         // тип элемента управления
+                message += "name: " + fe.name + "\r\n";         // имя элемента управления
+                message += "----------------------------------\r\n";
+            }
+            alert(message);
+        }
+
+    </script>
+
+    <style>
+        label, input[type='text'], input[type='button'] {
+            display: inline-block;
+        }
+
+        label {
+            width: 60pt;
+        }
+
+        input[type='button'] {
+            margin-left: 60pt;
+            width: 80pt;
+        }
+    </style>
+</head>
+<body>
+    <form name="form1">
+        <label for="text1">First Name</label>
+        <input type="text" id="text1" name="firstNameEdit" />
+        <br >
+        <label for="text2">Last Name</label>
+        <input type="text" id="text2" name="lastNameEdit" />
+        <br >
+        <input id="btnGetAllElements" type="button" value="Get All Elements" />
+    </form>
+</body>
+</html>

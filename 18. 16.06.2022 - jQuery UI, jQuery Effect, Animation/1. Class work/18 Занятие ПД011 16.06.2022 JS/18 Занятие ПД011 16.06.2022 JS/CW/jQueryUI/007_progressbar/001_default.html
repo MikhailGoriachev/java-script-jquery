@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery UI Progressbar - Default functionality</title>
+    <meta charset="UTF-8">
+    <!-- подключение локальное -->
+    <link rel="stylesheet" href="jqueryui/jquery-ui.css">       <!-- стиль jQueryUI -->
+    <script src="jqueryui/external/jquery/jquery.js"></script>  <!-- jQuery -->
+    <script src="jqueryui/jquery-ui.js"></script>
+
+    <script>
+
+        $(function () {
+            // создание progressbar
+            $("#progressbar").progressbar({
+                // определение текущего состояния элемента
+                value: 37
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <div id="progressbar"></div>
+</body>
+</html>

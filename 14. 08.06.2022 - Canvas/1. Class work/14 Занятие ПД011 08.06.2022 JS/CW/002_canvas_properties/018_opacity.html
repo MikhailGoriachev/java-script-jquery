@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Opacity</title>
+    <script>
+        window.addEventListener("load", init, false);
+        function init() {
+            let canvas = document.getElementById('canvas');
+            canvas = canvas.getContext("2d")
+
+            canvas.fillStyle = 'yellow';
+            canvas.fillRect(0, 0, 75, 75);
+            canvas.fillStyle = 'green';
+            canvas.fillRect(75, 0, 75, 75);
+            canvas.fillStyle = 'blue';
+            canvas.fillRect(0, 75, 75, 75);
+            canvas.fillStyle = 'red';
+            canvas.fillRect(75, 75, 75, 75);
+            canvas.fillStyle = 'lightgrey';
+
+            //Добавляем прозрачность
+            canvas.globalAlpha = 0.25;
+            for (i = 0; i < 4; i++) {
+                canvas.beginPath();
+                canvas.arc(75, 75, 10 + 10 * i, 0, Math.PI * 2, true);
+                //Заливка дуги
+                canvas.fill();
+            }
+        }
+    </script>
+    <style>
+        canvas {
+            border: 3px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" height="300" width="300">
+        Ваш браузер не поддерживает элемент <i>Canvas</i>
+    </canvas>
+</body>
+</html>

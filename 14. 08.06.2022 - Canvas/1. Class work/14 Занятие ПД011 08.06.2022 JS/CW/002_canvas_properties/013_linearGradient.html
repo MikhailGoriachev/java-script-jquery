@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>LinearGradient</title>
+    <script>
+        window.addEventListener("load", init, false);
+        function init() {
+            let canvas = document.getElementById('canvas');
+            let context = canvas.getContext('2d');
+
+            // Создаем массив цветов для цветовой модели
+            let stopColors = [[255, 0, 0], [255, 255, 0], [0, 255, 0], [0, 255, 255], [0, 0, 255], [255, 0, 255]];
+            let gradient = context.createLinearGradient(0, 0, canvas.width, 0);
+
+            // Добавляем цвета остановки
+            for (let i = 0; i <= 5; i++) {
+                let color = 'rgb(' + stopColors[i][0] + ', ' + stopColors[i][1] + ', ' + stopColors[i][2] + ')';
+                gradient.addColorStop(i * (1 / 6), color);
+            }
+            // Делаем заливку контекста
+            context.fillStyle = gradient;
+            context.fillRect(5, 5, 200, 100);
+
+        }
+    </script>
+    <style>
+        canvas {
+            border: 3px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" height="300" width="300">
+        Ваш браузер не поддерживает элемент <i>Canvas</i>
+    </canvas>
+</body>
+</html>
+

@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+    
+    <title>Выбор корневого элемента страницы</title>
+    
+    <style>
+    body{
+        color:black;
+    }
+
+    p{
+        font-weight: bold;
+        background-color:darkgreen;
+        color: honeydew;
+    }
+
+    </style>
+
+    <script src="jquery-3.6.0.min.js"></script>
+
+    <script>
+        // :root - выбирает элемент который является корневым,
+        // то есть родителем 0 уровня вложенности
+        $(document).ready(function () {
+            $(":root").css("background-color", "lightseagreen");
+        });
+    </script>
+</head>
+
+<body>
+
+    <p id="english">English is here</p>
+    <p>Cette paragraphe est redige en français</p>
+    <p>Русский язык здесь</p>
+</body>
+</html>

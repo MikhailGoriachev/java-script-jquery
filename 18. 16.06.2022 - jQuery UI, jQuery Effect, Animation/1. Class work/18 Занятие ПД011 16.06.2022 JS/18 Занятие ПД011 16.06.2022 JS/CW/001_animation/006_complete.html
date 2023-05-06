@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>call-back function</title>
+    <meta charset="UTF-8">
+
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+
+        // последний параметр функции animate() - функция, которая будет выполнена после завершения анимации.
+        $(function () {
+            $("#result").css("display", "none");
+
+            $("div").animate({
+                    opacity: 0.25,
+                    marginLeft: '350px'
+                },
+                3_000,
+                function () { // callback функция, которая будет вызвана по завершению анимации
+                    // $("div").animate({opacity: 1, marginLeft: '0px'}, 'fast');
+                    $("#result").css("display", "block").text("animation complete...");
+                });
+        });
+
+    </script>
+    <style>
+        div {
+            background-color: Green;
+            width: 100px;
+            height: 100px;
+            margin: 6px;
+            border: solid darkgreen 1px;
+            text-align: center;
+            color: White
+        }
+    </style>
+</head>
+<body>
+    <div>
+        Test div
+    </div>
+    <div>
+        Test div
+    </div>
+    <div>
+        Test div
+    </div>
+    <p id="result">Сюда выводим сообщение об окончании анимации</p>
+</body>
+</html>

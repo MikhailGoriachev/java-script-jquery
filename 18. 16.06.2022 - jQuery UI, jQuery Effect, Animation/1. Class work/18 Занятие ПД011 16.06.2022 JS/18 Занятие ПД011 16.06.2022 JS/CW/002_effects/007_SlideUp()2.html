@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Effects Slide Up</title>
+        <meta charset="UTF-8" />
+
+        <script src="jquery-3.6.0.min.js"></script>
+        <script>
+            // slideUp(скорость, функция) - после окончания анимации будет вызывана функция
+
+            $(function () {
+                $("button").click(function () {
+                    //parent() получение родительского элемента
+                    $(this)
+                        .parent()
+                        .slideUp("slow", function () {
+                            $("#msg").text(
+                                "Кнопка " + $(this).text() + " спрятана"
+                            );
+                        });
+                });
+            });
+        </script>
+        <style>
+            div {
+                margin: 2px;
+            }
+        </style>
+    </head>
+    <body>
+        <h3>Метод slideUp()</h3>
+        <div>
+            <button>Hide One</button>
+            <input type="text" value="One" />
+        </div>
+        <div>
+            <button>Hide Two</button>
+            <input type="text" value="Two" />
+        </div>
+        <div>
+            <button>Hide Three</button>
+            <input type="text" value="Three" />
+        </div>
+        <div id="msg"></div>
+    </body>
+</html>

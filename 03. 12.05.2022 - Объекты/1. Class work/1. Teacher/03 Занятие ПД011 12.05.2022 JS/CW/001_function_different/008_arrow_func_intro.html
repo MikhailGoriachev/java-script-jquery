@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Введение в стрелочные функции</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Введение в стрелочные функции</h1>
+    <script>
+        /*
+        * Синтаксис стрелочных функций
+        * () => operator;
+        * () => { op1; ... opN; return expression; }
+        * x => operator;
+        * x => { return operator; }
+        * (x1, x2, ...) => operator;
+        * (x1, x2, ...) => { op1; ... opN; return expression; }
+        *
+        * */
+
+        let add = function (a, b) {//переменная с функцией
+            return a + b;           //выполняет сложение
+        }
+
+        // callBackFunction - обозначает, что при вызове функции show
+        // должны передать еще одну функцию, CallBack функцию. Функция show сама решит,
+        // когда нужно запустить CallBack Function
+        function show(callBackFunction, a, b) {
+            let result = callBackFunction(a, b);
+            document.write(`<p>${result}</p>`);
+        } // show
+
+        // если передать в callBackFunction функцию add
+        show(add, 10, 20);
+
+        // если передать в callBackFunction стрелочную функцию
+        show(function(a, b) { return a - b; }, 50, 30);
+        show((a, b) => a - b, 50, 30);
+
+        // пример блочной стрелочной функции
+        show((a, b) => {
+                 let t = a - b;
+                 return t;
+            }, 50, 30);
+
+        // приведет к NaN, т.к. не все параметры show() переданы
+        show((a, b) => { return a - b});
+
+        // корректная работа, т.к. все параметры show() переданы
+        show((a, b) => a * b, 5, 3);
+    </script>
+</body>
+</html>

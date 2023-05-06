@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Конструктор String()</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h3>Встроенный объект String</h3>
+    <script>
+
+        // переменная со строковым значением
+        let simpleStr = "My String";
+
+        // объект типа String
+        let objectStr = new String("какая-то строка");
+
+        function newLine(str) {
+            document.write(`${str}<br>`);
+            document.write("==========================================================<br />");
+        }
+
+        newLine(simpleStr);
+        newLine(objectStr);
+
+        // добавлять новые свойства и методы можно только
+        // к объектам созданным через оператор new
+        objectStr.customProperty = 123;
+        document.write(objectStr.customProperty + "<br />");
+
+        // добавить свойство в simpleStr невозможно
+        simpleStr.customProperty2 = 123;
+        document.write(simpleStr.customProperty2);
+
+        // методы String
+        // поисковые методы
+        let str = "  кот   ломом    колол   слона  кот  хохотал ";
+        let str1 = "ко";
+        let i1 = str.indexOf(str1);
+        let i2 = str.lastIndexOf(str1);
+        let r = str.includes(str1);
+        let r1 = str.startsWith(' ');
+        let r2 = str.endsWith(' ');
+        document.write(`
+            <p>строка для исследований: "${str}"</p>
+            <p>первое вхождение <b>${str1}</b> с позиции ${i1}, последнее вхождение <b>${str1}</b>
+               с позиции ${i2}</p>
+            <p>строка включает <b>${str1}</b>: <b>${r}</b></p>
+            <p>строка начинается с пробела: <b>${r1}</b></p>
+            <p>строка заканчивается пробелом: <b>${r2}</b></p>`
+        );
+
+        // получение подстроки - начальный индекс и длина подстроки
+        let substr = str.substr(2, 3);
+        document.write(`<pre>"${substr}"</pre>`);
+
+        // получение подстроки - начальный индекс и конечный индекс
+        // (исключая конечный индекс)
+        substr = str.substring(2, 5);
+        document.write(`<pre>"${substr}"</pre>`);
+
+        // от указанного индекса до конца строки
+        substr = str.substring(2);
+        document.write(`<pre>"${substr}"</pre>`);
+
+        // управление регистром
+        str = str.toUpperCase();
+        document.write(`<p>${str}</p>`);
+        str = str.toLowerCase();
+        document.write(`<p>${str}</p>`);
+
+        // получение символа по индексу
+        document.write("<p>");
+        for (let i = 0; i < 10; ++i) {
+            document.write(`${str.charAt(i)} | `);
+        }
+        document.write("</p>");
+
+        // замена символов " " на "." - в цикле, т.к. replace() меняет
+        // только первое вхождение
+        while(str.includes(" ")) {
+            str = str.replace(" ", ".");
+        } // while
+        document.write(`<pre>"${str}"</pre>`);
+
+
+        // вернем пробелы
+        while(str.includes(".")) {
+            str = str.replace(".", " ");
+        }
+        document.write(`<pre>"${str}"</pre>`);
+
+        // удаление ведущих и хвостовых пробелов trim(), trimLeft(), trimRight()
+        // рекомендуется trimStart(), trimEnd() вместо trimLeft(), trimRight()
+        str = str.trim();
+        document.write(`<pre>"${str}"</pre>`);
+
+        // разделение строки
+        // str = "кот, ломом! колол, слона? кот..."
+        let tokens = str
+            .split(" ")
+            .filter(x => x.length > 0);
+
+        document.write("<ul>");
+        tokens.forEach(x => document.write(`<li><pre>"${x}"</pre></li>`));
+        document.write("</ul>");
+
+    </script>
+
+</body>
+</html>

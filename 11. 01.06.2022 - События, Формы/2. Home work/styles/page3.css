@@ -1,0 +1,22 @@
+/* Страница "Задача 3. Анимация" (page3.html) */
+
+.container {
+    position: relative;
+
+    width: 50rem;
+    height: 40rem;
+
+    background-color: rgb(152, 152, 152);
+    border: 20px solid #dddddd;
+}
+
+.image-model {
+    width: 16%;
+    height: 10%;
+    /* background-color: brown; */
+
+    position: relative;
+
+    background: url('../images/dvd.png');
+    background-size: cover;
+}

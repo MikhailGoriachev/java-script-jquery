@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Анимация цвета</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h3>Простая анимация цвета на HSL</h3>
+
+    <!-- HSL Hue, Saturation, Lightness (Intensity) - Цветовая модель, в которой цветовыми
+         координатами является цвет, насыщенность и яркость.
+        http://ru.wikipedia.org/wiki/HSL -->
+    <div id="rect">
+    </div>
+
+    <script type="text/javascript">
+        let e = document.getElementById("rect");
+
+        e.style.width = "100px";
+        e.style.height = "100px";
+        e.style.border = "solid black 1px";
+
+        let color = 0;
+
+        setInterval(function () {
+            color = (color + 1) % 360;
+            e.style.backgroundColor = `hsl(${color}, 100%, 50%)`; // hsl(0, 100%, 50%)
+        }, 50);
+    </script>
+</body>
+</html>

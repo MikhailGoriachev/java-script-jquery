@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Смена изображений</title>
+    <script>
+        window.addEventListener("load", function () {
+            let flag;
+            document.getElementById("changeBtn").addEventListener("click", function () {
+                if (flag) {
+                    //смена изображения, приводит к обращению на сервер
+                    // если изображение на загружено и не закешировано
+                    document.getElementById("img").src = "images/frame1.jpg";
+                }
+                else {
+                    document.getElementById("img").src = "images/frame2.jpg";
+                }
+                flag = !flag;
+            });
+
+        })
+    </script>
+</head>
+<body>
+    <h3>Заменаа изображения</h3>
+    <img id="img" src="images/frame1.jpg" alt="Frame" />
+    <br>
+    <button id="changeBtn">Change</button>
+</body>
+</html>

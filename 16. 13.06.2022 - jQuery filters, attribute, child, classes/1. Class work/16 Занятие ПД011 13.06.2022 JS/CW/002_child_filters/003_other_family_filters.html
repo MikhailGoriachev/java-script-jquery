@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+    <title>Использование семейных фильтров</title>
+
+    <style>
+        div {
+            margin: 6px;
+            background: lightblue;
+            width: 300px;
+            min-height: 40px;
+        }
+    </style>
+    <script src="jquery-3.6.0.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            // фильтр выделит параграф, первый в элементе #div2
+            // $("#div2 :first-child").css({"background-color":"lightseagreen", "color":"white"});
+
+            // фильтр выделит параграф, последний в элементе #div2 и
+            // последний элемент во вложенных в div2 элементах
+            // выбраны a и span
+            // $("#div2 :last-child").css({ "background-color": "Navy", "color": "white" });
+
+            //:first-of-type - вибырает элементы заданного типа, которые первыми встречается на странице
+            // фильтр выделит первые элементы типа p
+            // $("p:first-of-type").css("background-color", "lightpink");
+            
+            //:last-of-type - выбирает элементы заданного типа, которые последними
+            // встречается на странице фильтр выделит последние элементы ипа p
+            $("p:last-of-type").css("background-color", "lightgrey");
+
+            // фильтр выберет все параграфы которые являются единственным дочерним элементом своего родителя
+            // $("p:only-child").css("background-color", "lightgreen");
+        });
+    </script>
+</head>
+<body>
+    <div id="div1">
+        <p>Параграф №0</p>      <!-- единственный дочерний элемент для div -->
+    </div>
+    <div id="div2">
+        <p>
+            Параграф №0
+            <a>Link hello</a>
+        </p>
+        <p>Параграф №1</p>
+        <p>Параграф №2</p>
+        <p>Параграф №3</p>
+        <p>Параграф №4</p>
+        <p>Параграф №5</p>
+        <p>Параграф №6</p>
+        <p>Параграф №7</p>
+        <p>Параграф №8</p>
+        <p>Параграф №9</p>
+        <span>Span in div</span>
+    </div>
+    <div id="div3">
+        <p>Параграф №0</p>      <!-- единственный дочерний элемент для div -->
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+
+<!--
+
+    Массивы бывают многомерными,
+    для этого в каждый элемент массива следует расположить еще один массив.
+    Таким образом возможно реализовать n-мерный массив.
+
+-->
+
+<html lang="ru">
+    <head>
+        <title>Двумерная матрица</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <h3>Многомерный массив</h3>
+
+        <script>
+            // Создание многомерного массива.
+            var table = new Array(9); // массив ссылок на информационные "строки"
+
+            for (let i = 0; i < table.length; i++) {
+                // В таблице 9 строк
+                table[i] = new Array(12); // В каждой строке 12 столбцов
+            }
+
+            // Инициализация массива.
+            for (let row = 0; row < table.length; row++) {
+                for (let col = 0; col < table[row].length; col++) {
+                    table[row][col] = (row + col) % 2;
+                    //document.write(table[row][col]); //вывод заполненой ячейки сразу
+                }
+                // document.write("<br/>");//разрыв строки
+            }
+
+            // динамическая типизация в действии
+            table[8][1] =
+                "<img src='images/parquet3.jpg' width='50' height='50'/>";
+
+            for (let row = 0; row < table.length; row++) {
+                for (let col = 0; col < table[row].length; col++) {
+                    document.write(table[row][col]);
+                }
+                document.write("<br/>");
+            }
+
+            document.write(`<hr/>${table[8][1]}<hr/>`);
+        </script>
+    </body>
+</html>

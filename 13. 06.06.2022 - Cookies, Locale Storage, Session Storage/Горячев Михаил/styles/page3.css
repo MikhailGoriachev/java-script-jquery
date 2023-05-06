@@ -1,0 +1,26 @@
+/* Страница "Задача 3. Работники" (page3.html) */
+
+.container-field-cost {
+    /* width: 30rem; */
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-items: center;
+}
+
+#btnExperienceOverId {
+    margin: 0 0 0.5rem 1rem;
+}
+
+.controls {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    /* align-items: stretch; */
+}

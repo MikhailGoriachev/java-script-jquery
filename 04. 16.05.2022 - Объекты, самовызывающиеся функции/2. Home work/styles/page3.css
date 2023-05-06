@@ -1,0 +1,41 @@
+/* Страница "Задача 3. Строки" (page3.html) */
+
+/* таблица */
+.content table {
+    margin: 3rem 0;
+    width: 100%;
+}
+
+/* надпись таблицы */
+.content caption {
+    border: 1px solid rgb(138, 138, 138);
+    margin: 0 2px;
+    background-color: #e8e8e8;
+}
+
+/* заголовки и ячейки таблицы */
+.content th,
+.content td {
+    font-size: 1.3rem;
+    padding: 0.4rem;
+    font-family: Calibri, sans-serif;
+    min-width: 15rem;
+
+    border: 1px solid rgb(138, 138, 138);
+}
+
+/* заголовок таблицы */
+.content th {
+    background-color: #e8e8e8;
+}
+
+/* тело таблицы */
+.content tbody {
+    color: black;
+    /* font-weight: bold; */
+}
+
+/* заголовки таблиц */
+.content th {
+    width: 6rem;
+}

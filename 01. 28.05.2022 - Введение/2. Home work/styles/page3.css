@@ -1,0 +1,84 @@
+/* Страница "Задача 3. Case9, Case16" (page3.html) */
+
+/* заголовок 3-го уровня */
+.content h3 {
+    text-align: center;
+}
+
+/* заголовки и ячейки таблицы */
+.content th,
+.content td {
+    /* border: 1px solid #000; */
+    padding: 0.3rem;
+}
+
+/* заголовок таблицы */
+.content th {
+    background-color: #e8e8e8;
+}
+
+/* тело таблицы */
+.content tbody {
+    color: #fff;
+    font-weight: 300;
+}
+
+/* заголовки таблиц */
+.content th {
+    width: 8rem;
+}
+
+/* 1-й заголовок таблицы */
+.content th:nth-of-type(1) {
+    width: 2rem;
+}
+
+/* 5-й заголовок таблицы */
+.content .table-if17 th:nth-of-type(5) {
+    width: 15rem;
+}
+
+/* ячейки таблицы */
+.content td {
+    text-align: right;
+}
+
+/* 1-й столбец */
+.content td:nth-child(1) {
+    background-color: #009bcc;
+}
+
+/* #region Столбцы таблицы date */
+
+/* 2-й столбец */
+.content .table-date td:nth-child(2) {
+    background-color: #96c21f;
+}
+
+/* 3-й столбец */
+.content .table-date td:nth-child(3) {
+    background-color: #ed6b04;
+}
+
+/* 4-й столбец */
+.content .table-if17 td:nth-child(4) {
+    background-color: #96c21f;
+}
+
+/* #endregion */
+
+/* #region If30 */
+
+/* 2-й столбец */
+.content .table-years td:nth-child(2) {
+    background-color: #96c21f;
+}
+
+/* 3-й столбец */
+.content .table-years td:nth-child(3) {
+    background-color: #ed6b04;
+    width: 12rem;
+    text-align: left;
+}
+
+/* #endregion */

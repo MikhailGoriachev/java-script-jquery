@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<!--
+
+    Вложенный объект можно создать с помощью функции конструктора.
+
+-->
+
+<html lang="ru">
+<head>
+    <title>Создание вложенных объектов через конструктор</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Объект, как свойство другого объекта</h1>
+    <h2>Создание вложенного объекта внешним кодом</h2>
+
+    <script>
+
+        let human = new Object();
+
+        // добавление свойств к объекту
+        human.firstName = "Alex";
+        human.secondName = "Jazun";
+        human.age = 27;
+
+        // Создание вложенного обьекта.
+        human.occupation = new Object();
+
+        human.logo.company = "Microsoft";
+        human.logo.position = "Web Developer";
+
+        document.write("<p>First name: " + human.firstName);
+        document.write("<p>Second name: " + human.secondName);
+        document.write("<p>Age: " + human.age + " years old");
+
+        // Обращение к вложенному объекту.
+        document.write("<p>Company: " + human.logo.company);
+        document.write("<p>Position: " + human.logo.position);
+
+    </script>
+</body>
+</html>

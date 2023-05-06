@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>AddClass</title>
+
+    <script src="jquery-3.6.0.min.js"></script>
+
+    <script>
+
+        // addClass(имя класса) - добавляет класс для выбраного элемента.
+        //addClass(функция) - функция которая возвращает имя класса
+
+        $(document).ready(function () {
+            // Добавление класса к элементам с id First, Second и Third.
+            $("#First").addClass("class1");
+            $("#Second").addClass("class2");
+            $("div").addClass("class3");
+        });
+          
+    </script>
+
+    <style>
+        .class1 {
+            color: green;
+            background-color: aquamarine;
+        }
+        .class2 {
+            color: red;
+            background-color: beige;
+        }
+        .class3 {
+            color: lightskyblue;
+            background-color:green;
+        }
+        div{
+            text-align:right;
+            margin: 12px;
+        }
+    </style>
+</head>
+<body>
+    <p id="First">
+       Параграф с id="First"
+    </p>
+    <p id="Second">
+        Параграф с id="Second"
+    </p>
+
+    <div>
+        Текст в диве с позиционированнием по правому краю страницы
+        <div>
+            Текст в диве с позиционированнием по правому краю страницы
+        </div>
+        <div>
+            Текст в диве с позиционированнием по правому краю страницы
+        </div>
+    </div>
+
+    <div>
+        Текст в диве с позиционированнием по правому краю страницы
+    </div>
+    <div>
+        Текст в диве с позиционированнием по правому краю страницы
+    </div>
+    <div>
+        Текст в диве с позиционированнием по правому краю страницы
+    </div>
+
+</body>
+</html>

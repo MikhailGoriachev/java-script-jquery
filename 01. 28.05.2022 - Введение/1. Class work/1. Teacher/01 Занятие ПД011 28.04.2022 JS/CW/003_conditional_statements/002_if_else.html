@@ -1,0 +1,34 @@
+﻿<!--
+    
+        if (выражение) {  
+                инструкция1 - выполнится - если выражение будет истинным
+           } 
+        else {
+                инструкция2 - выполнится - если выражение будет ложным
+        }
+       
+-->
+
+<html lang="ru">
+<head>
+    <title>Условная конструкция if</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <script>
+
+        var a = prompt("Введите число", "0");
+        document.write(`<br/>a = ${a}<br/>`);
+
+        if (a >= 0) {
+            a++;
+        }
+        else {
+            a -= 2;
+        } // if
+
+        document.write(`<br/>a = ${a}<br/>`);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery UI Datepicker - Restrict date range</title>
+        <meta charset="UTF-8" />
+
+        <link rel="stylesheet" href="jqueryui/jquery-ui.css" />
+        <!-- стиль jQueryUI -->
+        <script src="jqueryui/external/jquery/jquery.js"></script>
+        <!-- jQuery -->
+        <script src="jqueryui/jquery-ui.js"></script>
+        <script>
+            $(function () {
+                $("#datepicker").datepicker({
+                    minDate: -20, // минимальная дата
+                    maxDate: "+1M +10D", // максимальная дата (+ 1 месяц и 10 дней)
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <p>
+            Date:
+            <input type="text" id="datepicker" />
+        </p>
+    </body>
+</html>

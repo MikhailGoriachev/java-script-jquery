@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Функция-конструктор Rectangle</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h3>Функция-конструктор</h3>
+    <script>
+
+        function Rectangle(w, h) {
+            // свойства
+            this.width = w;
+            this.height = h;
+
+            // метод класса
+            // недостатком данного метода, является то, что он будет дублироваться
+            // во всех объектах созданных через функцию Rectangle. Метод не будет меняться
+            // от объекта к объекту, но при этом будет занимать память, что не оптимально.
+            this.getArea = function () {
+                return this.width * this.height;
+            }
+        }
+
+        let rect = new Rectangle(100, 50);
+        document.write(`Площадь прямоугольника: ${rect.getArea()}`);
+
+        // в каждом экземпляре массива свой метод getArea()
+        let rectangles = [new Rectangle(10, 20), new Rectangle(3, 4), new Rectangle(7, 8)];
+        document.write('<ul>');
+        rectangles.forEach(r => document.write(`<li>${r.getArea()}</li>`));
+        document.write('</ul>');
+    </script>
+</body>
+</html>

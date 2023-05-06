@@ -1,0 +1,41 @@
+/* Стиль кнопок */
+
+/* Обычная кнопка */
+button {
+    padding: 1rem;
+    border-radius: 2rem;
+    border: 0;
+
+    background-color: rgb(38, 98, 226);
+    color: white;
+    cursor: pointer;
+
+    transition: all 0.3s;
+
+    margin: 1rem 1rem 1rem 0;
+}
+
+/* наведение на кнопку */
+button:hover {
+    background-color: rgb(34, 63, 226);
+}
+
+/* нажатие на кнопку */
+button:active {
+    background-color: rgb(21, 45, 180);
+}
+
+/* ширина */
+button.width-small {
+    width: 10rem;
+}
+
+/* ширина */
+button.width-normal {
+    width: 15rem;
+}
+
+/* ширина */
+button.width-big {
+    width: 25rem;
+}

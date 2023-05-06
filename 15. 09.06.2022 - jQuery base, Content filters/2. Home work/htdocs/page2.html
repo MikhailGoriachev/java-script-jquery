@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Задача 2. Заявки</title>
+
+        <!-- #region Стили -->
+        <link rel="stylesheet" href="../styles/style.css" />
+        <link rel="stylesheet" href="../styles/page2.css" />
+        <link rel="stylesheet" href="../styles/tile.css" />
+        <link rel="stylesheet" href="../styles/buttons.css" />
+        <link rel="stylesheet" href="../styles/form.css" />
+        <link rel="stylesheet" href="../styles/control-block.css" />
+        <!-- #endregion -->
+
+        <!-- #region Шрифты -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+            rel="stylesheet"
+        />
+        <!-- #endregion -->
+
+        <!-- Иконка -->
+        <link rel="shorcut icon" href="../images/logo.png" type="image/x-icon" />
+
+        <!-- Утилиты -->
+        <script src="../utils/utils.js"></script>
+
+        <!-- Решение задачи -->
+        <script src="../scripts/jquery-3.6.0.min.js"></script>
+        <script src="../scripts/models/task2/Ticket.js"></script>
+        <script src="../scripts/models/task2/TicketForm.js"></script>
+        <script src="../scripts/task2.js"></script>
+    </head>
+    <body>
+        <!-- #region Заголовок-->
+        <header>
+            <a href="../index.html">
+                <img class="logo" src="../images/logo.png" alt="logo" />
+                <h2>Home Work</h2>
+            </a>
+        </header>
+        <!-- #endregion -->
+
+        <!-- #region Контент страницы -->
+        <main>
+            <!-- #region Навигация -->
+            <nav>
+                <!-- Главная -->
+                <a href="../index.html">
+                    <img src="../images/home.svg" />
+                    Главная
+                </a>
+
+                <!-- Задача 1. Фигуры -->
+                <a href="page1.html">
+                    <img src="../images/one.svg" />
+                    Задача 1. Фигуры
+                </a>
+
+                <!-- Задача 2. Заявки -->
+                <a class="select-tab" href="page2.html">
+                    <img src="../images/two.svg" />
+                    Задача 2. Заявки
+                </a>
+
+                <!-- Задача 3. Работники -->
+                <a href="page3.html">
+                    <img src="../images/three.svg" />
+                    Задача 3. Работники
+                </a>
+
+                <!-- Блок управления -->
+                <div class="control-block">
+                    <p class="text-align-center control-block-header">Параметры обработки</p>
+
+                    <hr />
+
+                    <p class="control-block-subheader">Диаграммы</p>
+
+                    <!-- Диаграмма -->
+                    <a
+                        class="link-button control-block-button"
+                        href="task2Diagram.html"
+                        title="Открыть диаграмму стоимостей"
+                    >
+                        Диаграмма
+                    </a>
+
+                    <hr />
+
+                    <p class="control-block-subheader">Работа с коллекцией</p>
+
+                    <!-- Добавить билет -->
+                    <button id="btnAddTicket" class="control-block-button" title="Добавить билет">
+                        Добавить билет
+                    </button>
+
+                    <hr />
+
+                    <p class="control-block-subheader">Выделение билетов</p>
+
+                    <!-- Выделение билетов с заданным пунктом назначения -->
+                    <div class="control-block-field">
+                        <label for="pointListId">Выбор пункта назначения:</label>
+                        <select id="pointListId"></select>
+                        <button
+                            id="selectTicketsWithPoint"
+                            class="control-block-button"
+                            title="Выделение билетов с заданным пунктом назначения"
+                        >
+                            Выделить
+                        </button>
+                    </div>
+
+                    <!-- выделение фильмов с заданным номером рейса -->
+                    <div class="control-block-field">
+                        <label for="producerListId">Ввод рейса:</label>
+                        <input
+                            type="text"
+                            name="inpflightNumber"
+                            id="inpflightNumberId"
+                            class="text-field-input"
+                            placeholder="AZ 12345"
+                            pattern="^[A-Z]{2} [0-9]{4,5}$"
+                            title="Номер рейса должен быть в формате: AA 12345"
+                        />
+                        <button
+                            id="selectFilmsWithProducer"
+                            class="control-block-button"
+                            title="Выделение билетов с заданным номером рейса"
+                        >
+                            Выделить
+                        </button>
+                    </div>
+
+                    <!-- Выделение билетов с ценой выше указанного значения -->
+                    <div class="control-block-field">
+                        <label for="yearListId">Ввод цены:</label>
+                        <input type="number" id="inpCostOverId" min="0" placeholder="Введите стоимость &#8381;" />
+                        <button
+                            id="selectCostOverId"
+                            class="control-block-button"
+                            title="Выделение билетов с ценой выше указанного значения"
+                        >
+                            Выделить
+                        </button>
+                    </div>
+
+                    <hr />
+
+                    <p class="control-block-subheader">Сортировка</p>
+
+                    <!-- Исходный порядок -->
+                    <button id="btnTicketsDefualt" class="control-block-button" title="Коллекция в исходном порядке">
+                        По умолчанию
+                    </button>
+
+                    <!-- По пунтку назначения -->
+                    <button
+                        id="btnTicketsSortByDestinations"
+                        class="control-block-button"
+                        title="Сортировка по пункту назначения"
+                    >
+                        По пунтку назначения
+                    </button>
+
+                    <!-- По стоимости -->
+                    <button id="btnTicketsSortByCost" class="control-block-button" title="Сортировка по стоимости">
+                        По стоимости
+                    </button>
+                </div>
+            </nav>
+            <!-- #endregion -->
+
+            <!-- #region Контент -->
+            <section class="content">
+                <details>
+                    <summary>
+                        <h2>Задача 2. Заявки</h2>
+                    </summary>
+                    <!-- #region Задача 2 -->
+                    <article>
+                        <p>
+                            <b>Задача 2.</b> Каждая заявка на авиабилет содержит: пункт назначения, номер рейса, фамилию
+                            и инициалы пассажира, стоимость билета. Разработайте класс для хранения заявки, создайте
+                            массив заявок из 10 - 12 элементов. Выведите массив заявок в разметку, предусмотрите команды
+                            (назначенные на экранные кнопки и клавиши):
+                        </p>
+
+                        <ul>
+                            <li>Вывод исходного массива заявок</li>
+                            <li>Вывод копии массива, упорядоченного по пунктам назначения;</li>
+                            <li>Вывод копии массива, упорядочив по стоимости билета;</li>
+                            <li>Вывод копии массива, упорядочив по номеру рейса</li>
+                            <li>
+                                Вывод копии массива, выделив все заявки со стоимостью выше значения, вводимого из строки
+                                ввода (не используйте формы), снимайте выделение через 10 с
+                            </li>
+                            <li>
+                                <i
+                                    >Вывод копии массива с выделением заявок в заданный пункт назначения, выделение
+                                    выполняйте при помощи фильтра контента jQuery), снимайте выделение через 10 с</i
+                                >
+                            </li>
+                            <li>
+                                <i
+                                    >Вывод копии массива с выделением заявок с заданным номером рейса, выделение
+                                    выполняйте при помощи фильтра контента jQuery), снимайте выделение через 10 с</i
+                                >
+                            </li>
+                        </ul>
+
+                        <p>
+                            Разработайте форму (на той же странице, на которой выводится массив заявок) для добавления
+                            заявки. По кнопке «Отмена» все поля формы очищаются, по кнопке «Добавить» создается новый
+                            объект заявки на авиабилет, добавляется в массив объектов, выводится на страницу. Реализуйте
+                            изменение и удаление записей коллекции в форме.
+                        </p>
+
+                        <p>
+                            При создании массива проверить его наличие в локальном хранилище, если массива нет –
+                            записать его в локальное хранилище, если массив есть в хранилище – прочитать данные в
+                            массив. После изменения коллекции выполняйте запись в локальное хранилище.
+                        </p>
+
+                        <p>
+                            На отдельной странице выведите гистограмму стоимостей билетов, гистограмму стройте на базе
+                            блоков div по примеру в файлах 001_images\000_chart.html и BarChart.js
+                        </p>
+                    </article>
+                    <!-- #endregion -->
+                </details>
+
+                <!-- Клиенты -->
+                <h2 class="text-align-center">Билеты</h2>
+
+                <!-- Конетйнер данных -->
+                <div class="container">
+                    <div id="formContainerId"></div>
+                    <div id="ticketsListId" class="container"></div>
+                </div>
+            </section>
+            <!-- #endregion -->
+        </main>
+        <!-- #endregion -->
+
+        <!-- #region Подвал страницы -->
+        <footer>
+            <!-- <span>Сведения о странице:</span> -->
+            <div>
+                Разработчик:
+                <a href="https://github.com/MikhailGoriachev" target="_bank"> Горячев Михаил </a>
+            </div>
+            <div>Группа: ПД011</div>
+            <div>Город: Донецк</div>
+            <div>Год создания: 2022</div>
+            <div>
+                Поддержка:
+                <a href="mailto:goriachevmichael@gmail.com">goriachevmichael@gmail.com</a>
+            </div>
+        </footer>
+        <!-- #endregion -->
+    </body>
+</html>

@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Метод stopPropogation()</title>
+    <meta charset="UTF-8">
+
+    <script>
+
+        var isTunnel = false;   // true -- tonnel, false -- float
+
+        window.onload = function () {
+            let e1 = document.getElementById("first");
+            let e2 = document.getElementById("second");
+            let e3 = document.getElementById("third");
+
+            e1.addEventListener("click",
+                // e - параметр хранит объект с информацией о событии.
+                function (e) {
+                    
+                    this.style.backgroundColor = "lightgreen";
+                    alert("Обработчик DIV 1");
+                    // прекращение дальнейшего маршрута события.
+                    e.stopPropagation();
+                },
+            isTunnel);
+
+            e2.addEventListener("click",
+                function (e) {
+                    this.style.backgroundColor = "lightskyblue";
+                    alert("Обработчик DIV 2");
+                    e.stopPropagation();
+                },
+            isTunnel);
+
+            e3.addEventListener("click",
+                function (e) {
+                    this.style.backgroundColor = "lightseagreen";
+                    alert("Обработчик DIV 3");
+                    e.stopPropagation();
+                },
+            isTunnel);
+        }
+
+    </script>
+    <style>
+        div {
+            border: 3px solid gray;
+            padding: 50px;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    Первый
+    <div id="first">
+        Второй
+        <div id="second">
+            Третий
+            <div id="third">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

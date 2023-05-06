@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Задача 1. Фигуры</title>
+
+        <!-- #region Стили -->
+        <link rel="stylesheet" href="../styles/style.css" />
+        <link rel="stylesheet" href="../styles/page1.css" />
+        <link rel="stylesheet" href="../styles/buttons.css" />
+        <link rel="stylesheet" href="../styles/input.css" />
+        <link rel="stylesheet" href="../styles/canvas-container.css" />
+        <!-- #endregion -->
+
+        <!-- #region Шрифты -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+            rel="stylesheet"
+        />
+        <!-- #endregion -->
+
+        <!-- Иконка -->
+        <link rel="shorcut icon" href="../images/logo.png" type="image/x-icon" />
+
+        <!-- Утилиты -->
+        <script src="../utils/utils.js"></script>
+
+        <!-- Скрипты -->
+        <script src="../scripts/jquery-3.6.0.min.js"></script>
+        <script src="../scripts/models/task1/Triangle.js"></script>
+        <script src="../scripts/models/task1/Circle.js"></script>
+        <script src="../scripts/models/task1/Rectangle.js"></script>
+        <script src="../scripts/models/task1/Trapezoid.js"></script>
+        <script src="../scripts/task1.js"></script>
+    </head>
+    <body>
+        <!-- #region Заголовок-->
+        <header>
+            <a href="../index.html">
+                <img class="logo" src="../images/logo.png" alt="logo" />
+                <h2>Home Work</h2>
+            </a>
+        </header>
+        <!-- #endregion -->
+
+        <!-- #region Контент страницы -->
+        <main>
+            <!-- #region Навигация -->
+            <nav>
+                <!-- Главная -->
+                <a href="../index.html">
+                    <img src="../images/home.svg" />
+                    Главная
+                </a>
+
+                <!-- Задача 1. Фигуры -->
+                <a class="select-tab" href="page1.html">
+                    <img src="../images/one.svg" />
+                    Задача 1. Фигуры
+                </a>
+
+                <!-- Задача 2. Заявки -->
+                <a href="page2.html">
+                    <img src="../images/two.svg" />
+                    Задача 2. Заявки
+                </a>
+
+                <!-- Задача 3. Работники -->
+                <a href="page3.html">
+                    <img src="../images/three.svg" />
+                    Задача 3. Работники
+                </a>
+            </nav>
+            <!-- #endregion -->
+
+            <!-- #region Контент -->
+            <section class="content">
+                <details>
+                    <summary>
+                        <h2>Задача 1. Фигуры</h2>
+                    </summary>
+
+                    <!-- #region Задача 1 -->
+                    <article>
+                        <p>
+                            <b>Задача 1.</b> Разместите на странице три элемента canvas. Выведите в элементы
+                            прямоугольник, равнобедренный треугольник и круг, выравнивание элементов – по центру
+                            областей вывода. При помощи элементов управления изменяйте размеры фигур (высоту и ширину
+                            прямоугольника, высоту и основание треугольника, радиус круга,
+                            <i> высоту и основания прямоугольной трапеции </i>), цвет заливки и цвет рамки фигур.
+                        </p>
+
+                        <p>
+                            <i
+                                >Сохраняйте параметры фигур в локальном хранилище, восстанавливайте параметры при
+                                загрузке страницы.</i
+                            >
+                        </p>
+                    </article>
+
+                    <!-- #endregion -->
+                </details>
+
+                <!-- Кнопки -->
+                <!-- <button class="width-normal" id="btnClearCookies">Очитить Cookies</button> -->
+
+                <!-- Прямоугольник -->
+                <div class="canvas-container">
+                    <canvas id="rectCanvas"></canvas>
+
+                    <div class="fields">
+                        <h2>Прямоугольник</h2>
+
+                        <!-- Изменение внешнего вида -->
+                        <h3>Внешний вид:</h3>
+
+                        <div class="field">
+                            <label for="color">Цвет рамки:</label>
+                            <input type="color" id="rectStrokeColor" />
+                        </div>
+
+                        <div class="field">
+                            <label for="color">Цвет заливки:</label>
+                            <input type="color" id="rectFillColor" />
+                        </div>
+
+                        <!-- Изменение размеров -->
+                        <h3>Размеры:</h3>
+                        <div class="field">
+                            <button class="width-small" id="incRectHeight">Высота +</button>
+                            <button class="width-small" id="decRectHeight">Высота -</button>
+                        </div>
+
+                        <div class="field">
+                            <button class="width-small" id="incRectWidth">Ширина +</button>
+                            <button class="width-small" id="decRectWidth">Ширина -</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Треугольник -->
+                <div class="canvas-container">
+                    <canvas id="triangleCanvas"></canvas>
+
+                    <div class="fields">
+                        <h2>Треугольник</h2>
+
+                        <!-- Изменение внешнего вида -->
+                        <h3>Внешний вид:</h3>
+
+                        <div class="field">
+                            <label for="color">Цвет рамки:</label>
+                            <input type="color" id="triangleStrokeColor" />
+                        </div>
+
+                        <div class="field">
+                            <label for="color">Цвет заливки:</label>
+                            <input type="color" id="triangleFillColor" />
+                        </div>
+
+                        <!-- Изменение размеров -->
+                        <h3>Размеры:</h3>
+                        <div class="field">
+                            <button class="width-small" id="incTriangleHeight">Высота +</button>
+                            <button class="width-small" id="decTriangleHeight">Высота -</button>
+                        </div>
+
+                        <div class="field">
+                            <button class="width-small" id="incTriangleWidth">Основание +</button>
+                            <button class="width-small" id="decTriangleWidth">Основание -</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Круг -->
+                <div class="canvas-container">
+                    <canvas id="circleCanvas"></canvas>
+
+                    <div class="fields">
+                        <h2>Круг</h2>
+
+                        <!-- Изменение внешнего вида -->
+                        <h3>Внешний вид:</h3>
+
+                        <div class="field">
+                            <label for="color">Цвет рамки:</label>
+                            <input type="color" id="circleStrokeColor" />
+                        </div>
+
+                        <div class="field">
+                            <label for="color">Цвет заливки:</label>
+                            <input type="color" id="circleFillColor" />
+                        </div>
+
+                        <!-- Изменение размеров -->
+                        <h3>Размеры:</h3>
+                        <div class="field">
+                            <button class="width-small" id="incCircleRadius">Высота +</button>
+                            <button class="width-small" id="decCircleRadius">Высота -</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Трапеция -->
+                <div class="canvas-container">
+                    <canvas id="trapCanvas"></canvas>
+
+                    <div class="fields">
+                        <h2>Трапеция</h2>
+
+                        <!-- Изменение внешнего вида -->
+                        <h3>Внешний вид:</h3>
+
+                        <div class="field">
+                            <label for="color">Цвет рамки:</label>
+                            <input type="color" id="trapStrokeColor" />
+                        </div>
+
+                        <div class="field">
+                            <label for="color">Цвет заливки:</label>
+                            <input type="color" id="trapFillColor" />
+                        </div>
+
+                        <!-- Изменение размеров -->
+                        <h3>Размеры:</h3>
+                        <div class="field">
+                            <button class="width-small" id="incTrapHeight">Высота +</button>
+                            <button class="width-small" id="decTrapHeight">Высота -</button>
+                        </div>
+
+                        <div class="field">
+                            <button class="width-small" id="incTrapWidth">Ширина +</button>
+                            <button class="width-small" id="decTrapWidth">Ширина -</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- #endregion -->
+        </main>
+        <!-- #endregion -->
+
+        <!-- #region Подвал страницы -->
+        <footer>
+            <!-- <span>Сведения о странице:</span> -->
+            <div>
+                Разработчик:
+                <a href="https://github.com/MikhailGoriachev" target="_bank"> Горячев Михаил </a>
+            </div>
+            <div>Группа: ПД011</div>
+            <div>Город: Донецк</div>
+            <div>Год создания: 2022</div>
+            <div>
+                Поддержка:
+                <a href="mailto:goriachevmichael@gmail.com">goriachevmichael@gmail.com</a>
+            </div>
+        </footer>
+        <!-- #endregion -->
+    </body>
+</html>

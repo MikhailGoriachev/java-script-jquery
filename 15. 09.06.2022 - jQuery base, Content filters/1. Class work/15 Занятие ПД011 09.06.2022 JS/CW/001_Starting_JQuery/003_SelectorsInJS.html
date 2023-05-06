@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Выборка элементов в JavaScript</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+
+        function loadHandler() {
+            // Метод getElementsByTagName возвращает массив всех элементов страницы. 
+            // В качестве параметра принимает имя тега (регистр имени не имеет значения).
+            let paragraphs = document.getElementsByTagName("p");
+
+            // Возвращает элемент со страницы с указанным id.
+            let link1 = document.getElementById("a1");
+
+            // Возвращает массив элементов с указанным в параметре значением атрибуа name.
+            let link2 = document.getElementsByName("a2")[0];
+
+            // Возвращает массив элементов с указанным в параметре значением атрибута class.
+            let byclass = document.getElementsByClassName("testclass")[0]; // Не работает в IE!
+
+
+            let message = "getElementsByTagName:\r\n";
+
+            for (let i = 0; i < paragraphs.length; i++) {
+                message += paragraphs[i].innerHTML + "\r\n";
+            }
+
+            message += "\r\n\r\ngetElementById:\r\n";
+            message += link1.href;
+
+            message += "\r\n\r\ngetElementsByName:\r\n";
+            message += link2.innerHTML;
+
+            message += "\r\n\r\ngetElementByClassName:\r\n";
+            message += byclass.innerHTML;
+
+            alert(message);
+        }
+
+    </script>
+</head>
+
+
+<!--======================================= HTML разметка страницы =========================================-->
+
+<body onload="loadHandler()">
+    <p>Text 1</p>
+    <p class="testclass">Text 2</p>
+    <p>Text 3</p>
+    <a id="a1" href="http://www.example.com">Link 1</a>
+    <a name="a2" href="http://www.example.com">Link 2</a>
+</body>
+</html>

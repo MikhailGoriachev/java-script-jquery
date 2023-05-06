@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<!--
+
+    concat() - создает и возвращает новый массив, содержащий элементы
+               исходного массива, для которого был вызван метод concat(),
+               и значения всех аргументов, переданных методу concat().
+
+-->
+
+<html lang="ru">
+<head>
+    <title>Метод concat()</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Методы массивов JavaScript</h1>
+    <h2>Метод concat()</h2>
+
+    <script>
+
+        var a = [1, 2, 3];
+        document.write(`<p>Длина массива ${a.length}</p><p>${a}</p>`);
+
+        a = a.concat(4, 5);
+        document.write(`<p>Длина массива ${a.length}</p><p>${a}</p>`); // 1,2,3,4,5
+
+        a = a.concat([7, 8, 9]);
+        document.write(`<p>Длина массива ${a.length}</p><p>${a}</p>`);  // 1,2,3,4,5,6,7,8,9
+
+        a = a.concat(10, 11, [12, 13, 14, 15]);
+        document.write(`<p>Длина массива ${a.length}</p><p>${a}</p>`);  // 1,2,3,4,5,6,7,8,9
+
+    </script>
+</body>
+</html>

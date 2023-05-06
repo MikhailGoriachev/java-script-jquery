@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Класс "Виртуальный друг"</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h3>Пример использования конструктора</h3>
+    <script>
+
+        // еще один способ определения функции-конструктора
+        let Friend = function (mood) {
+            // настроение
+            this.mood = mood;
+
+            // если настроение "хорошее"
+            if (mood === "nice") {
+                this.talk = function () {
+                    alert("Hello what's up?");
+                };
+            }
+            // если настроение "плохое"
+            else if (mood === "bad") {
+                this.talk = function () {
+                    alert("Sorry, I don't want talk to you.");
+                };
+            }
+            // если настроение не определено
+            else {
+                this.talk = function () {
+                    alert("Hi");
+                };
+            }
+        }
+
+        let friendMood = prompt("Type friend mood (nice/bad):");
+        let david = new Friend(friendMood);
+
+        david.talk();
+
+    </script>
+</body>
+</html>

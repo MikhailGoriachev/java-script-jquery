@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Свойства объекта Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="background-color: #ecf2f2">
+
+    <h1>Некоторые свойства объекта Document</h1>
+
+    <script>
+        // bgColor - цвет фона документа.
+        // cookie - свойство позволяет читать и писать куки файлы.
+        document.write("<b>cookie</b>: '" + document.cookie + "'<br />");
+
+        // lastModified - дата последнего изменения документа.
+        document.write("<b>lastModified</b>: " + document.lastModified + "<br />");
+
+        // location - синоним свойства URL
+        document.write("<b>location</b>: " + document.location + "<br />");
+
+        // referrer - адрес документа, содержащего ссылку, которая привела на текущую страницу.
+        document.write("<b>referrer</b>: " + document.referrer + "<br />");
+
+        // title - содержимое тега title
+        document.write("<b>title</b>: " + document.title + "<br />");
+    </script>
+
+    <a href="http://lib.ru">lib.ru</a>
+
+    <form action="#">
+
+    </form>
+
+    <form action="#">
+
+    </form>
+
+
+    <!--якорь-->
+    <a name="anchor">Anchor</a>
+    <!--ссылка ведущая к якорю-->
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <a href="#anchor">Go To Anchor</a>
+    <script>
+        // anchors - массив якорей (именованных позиций документа) - тегов <a> c атрибутом name.
+        document.write("<br /><b>anchors</b>: " + document.anchors[0].name + "<br />");
+
+        // forms - массив форм HTML документа.
+        document.write(`<br><b>forms</b>: ${document.forms}, всего форм: ${document.forms.length}<br>`);
+
+        // images - массив изображений HTML документа.
+        document.write("<br /><b>images</b>: " + document.images + "<br>");
+
+        // links - массив ссылок HTML документа.
+        document.write("<br /><b>links</b>: " + document.links + "<br>");
+    </script>
+</body>
+</html>

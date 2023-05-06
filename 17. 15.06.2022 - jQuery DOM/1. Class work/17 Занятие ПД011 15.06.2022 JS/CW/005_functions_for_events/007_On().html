@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Метод on()</title>
+    <meta charset="UTF-8">
+
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+
+        // Метод on(событие, обработчик) используется для привязки обработчиков на события
+        // к объекту или объектам.
+        // Он принимает в качестве аругментов событие и функцию обработчик.
+        // Предусмотрено добавление дополнительных параметров. В отличии от addEventListener(),
+        // который может работать как на "перехвате", так и на всплытии, метод on()
+        // работает на "всплытие".
+        // 
+
+        $(function () {
+            $("ul").on("click", function (event) {
+                $(event.target).css("background", "lightgreen");
+            });
+
+            // добавим еще один обработчик
+            $("ul").on("click", function (event) {
+                $(event.target).css("color", "transparent");
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <ul>
+        <li>Текст</li>
+        <li>Текст</li>
+        <li>Текст</li>
+        <li>Текст</li>
+        <li>Текст</li>
+        <li>Текст</li>
+        <li>Текст</li>
+        <li>Текст</li>
+        <li>Текст</li>
+        <li>Текст</li>
+    </ul>
+    <img src="DelegateOn.gif" />
+</body>
+</html>

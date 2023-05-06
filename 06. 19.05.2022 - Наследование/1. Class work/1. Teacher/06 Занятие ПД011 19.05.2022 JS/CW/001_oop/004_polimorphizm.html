@@ -1,0 +1,74 @@
+﻿<!--
+Полиморфизм (в языках программирования) — возможность объектов с одинаковой
+спецификацией иметь различную реализацию.
+-->
+
+<html lang="ru">
+<head>
+    <title>Полиморфизм в JavaScript</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Полиморфизм</h1>
+
+    <script>
+        // базовая функция-конструктор
+        function Human(name) {
+            this.name = name;
+
+            this.talk = function () { document.write(`Hello My Name is ${this.name}<br>`) }
+        }
+
+        // производная функция конструктор
+        function Student(name) {
+            this.name = name;
+            this.school = "Step IT school";
+
+            // будет пользоваться методом talk() базового класса
+        }
+
+        // производная функция конструктор
+        function Worker(name) {
+            this.name = name;
+            this.speciality = "Software developer";
+
+            // переопределение метода из базовой функции-конструктора (override).
+            // !! переопределение не на прототипе !!
+            this.talk = function () { document.write(`Worker: Привет, меня зовут ${this.name}<br>`) }
+        }
+
+        // Создаем экземпляр родителя
+        let human = new Human("name");
+        //human.talk();
+
+        // наследуем Student и Worker от Human устанавливая функцию как прототип.
+        Student.prototype = human;
+        Worker.prototype = human;
+
+        let studentJhon = new Student("Jhon");
+        let workerJane = new Worker("Jane");
+
+        document.write("<br>Student<br>");
+
+        studentJhon.talk();
+        document.write(`Свойство ${studentJhon.school}`);
+
+        document.write("<br><br>Worker<br>");
+
+        workerJane.talk();
+        document.write(`Свойство ${workerJane.speciality}`);
+
+        // пример полиморфного массива
+        document.write("<hr><h3>Полиморфный массив :)</h3>")
+        let persons = [
+            studentJhon,
+            workerJane,
+            new Student("Billy"),
+            new Worker("Leon"),
+            new Human("Adam")
+        ];
+        persons.forEach(item => item.talk());
+        document.write("<hr>")
+    </script>
+</body>
+</html>

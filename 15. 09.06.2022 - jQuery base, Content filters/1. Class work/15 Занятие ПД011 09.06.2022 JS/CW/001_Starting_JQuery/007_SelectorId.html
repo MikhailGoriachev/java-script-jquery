@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+    <head>
+
+        <title>JQuery selector Id</title>
+        <link rel="stylesheet" href="style.css">
+
+        <!-- Подключение библиотеки JQuery-->
+   
+        <script src="jquery-3.6.0.min.js" ></script>
+
+        <style>
+            div {
+                width: 90px;
+                height: 90px;
+                float: left;
+                padding: 5px;
+                margin: 5px;
+                background-color: #EEEEEE;
+            }
+        </style>
+    </head>
+
+    <!--======================================= HTML разметка страницы =========================================-->
+
+    <body>
+
+    <div id="myDiv">
+        id="myDiv"
+    </div>
+        <div id="notMe">
+            <p>
+                id="notMe"
+            </p>
+        </div>
+
+	    <script>
+
+            // JQuery скрипт - выполнится по готовности документа
+            $(function () {
+
+                // $("#myDiv") - JQuery селектор - позволяет выбрать элемент по его id
+                $("#myDiv")
+                    .css("border", "solid 3px red")
+                    .css("font-family", "Verdana");
+                $("#notMe")
+                    .css("font-family", "Tahoma")
+                    .css("font-weight", "bold")
+                    .css("color", "darkgreen");
+            });
+        </script>
+		
+    </body>
+	
+</html>

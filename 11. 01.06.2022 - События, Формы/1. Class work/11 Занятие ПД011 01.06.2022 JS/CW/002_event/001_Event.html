@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Объект Event</title>
+    <script>
+        window.onload = handler;
+
+        // параметр e будет передаваться в IE только при регистрации события через attachEvent
+        function handler(e){
+            if (!e) e = window.event; // получение информации о событии в IE
+            // тело обработчика события
+        }
+
+        function handler2(event) {
+            // true JS:
+            // пример использования побочного эффекта оператора ||
+            // если определено значение event, то в e оно и запишется,
+            // если же не определено значение event, то в e запишется значение window.event
+            let e = event || window.event; // второй вариант.
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>

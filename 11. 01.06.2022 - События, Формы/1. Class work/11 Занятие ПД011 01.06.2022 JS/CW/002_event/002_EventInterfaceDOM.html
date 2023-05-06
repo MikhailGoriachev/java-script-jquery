@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="ru">
+<head>
+    <title>Интерфейс Event в моделе DOM</title>
+    <script>
+        window.addEventListener("load", init, false);
+
+        function init() {
+            let button1 = document.getElementById("button1");
+            button1.addEventListener("click", handler, true);
+        }
+
+        function handler(e) {
+            // тип события
+            let message = "type = " + e.type + "\r\n";
+
+            // узел документа, в котором произошло событие, может не совпадать currentTarget
+            message += "target = " + e.target.type + "\r\n";
+
+            // узел чей обработчик события работает в данный момент.
+            // На этапах перехвата и всплывания значение свойства отличается от target.
+            message += "currentTarget = " + e.currentTarget.type + "\r\n";
+
+            // число указывающее этап. Одна из констант
+            // Event.CAPTURING_PHASE=1, распространение
+            // Event.AT_TARGET=2,       на объекте
+            // Event.BUBBLING_PHASE=3   всплытие
+            message += "eventPhase = " + e.eventPhase + "\r\n";
+
+            // объект Date, указывающий, когда произошло событие.
+            message += "timeStamp = " + e.timeStamp + "\r\n";
+
+            // true если событие может всплывать по дереву элементов.
+            // События blur, focus, load, unload не всплывают.
+            message += "bubbles = " + e.bubbles + "\r\n";
+
+            // true если с этим событие связано действие по умолчанию и его можно
+            // отменить с помощью вызова метода preventDefault();
+            message += "cancelable = " + e.cancelable + "\r\n";
+
+            alert(message);
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <input type="button" name="button1" value="Click me!" id="button1" />
+    </div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>RemoveClass</title>
+
+    <script src="jquery-3.6.0.min.js"></script>
+
+    <script>
+
+        // removeClass(имя класса) - функция удаляет класс из элемента.
+        // removeClass(функция) - функция возвращает имя класса
+
+        $(document).ready(function () {
+            $("*").removeClass("class1");
+        });
+          
+    </script>
+
+    <style>
+        .class1 {
+            color: darkgreen;
+            background: lightgreen;
+        }
+
+        .class2 {
+            color: darkblue;
+            background: lightskyblue;
+        }
+
+        .class3 {
+            color: darksalmon;
+            background: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <p class="class1">
+        Параграф с class="class1"
+    </p>
+    <p class="class2">
+        Параграф с class="class2"
+    </p>
+    <p class="class1">
+        Параграф с class="class1"
+    </p>
+    <p class="class2">
+        Параграф с class="class2"
+    </p>
+    <p class="class3">
+        Параграф с class="class3"
+    </p>
+    <p class="class3">
+        Параграф с class="class3"
+    </p>
+
+    <div class="class3">
+        Текст в диве
+    </div>
+    <div class="class3">
+        Текст в диве
+    </div>
+    <div class="class1">
+        Текст в диве - class1
+    </div>
+    <div class="class3">
+        Текст в диве
+    </div>
+</body>
+</html>

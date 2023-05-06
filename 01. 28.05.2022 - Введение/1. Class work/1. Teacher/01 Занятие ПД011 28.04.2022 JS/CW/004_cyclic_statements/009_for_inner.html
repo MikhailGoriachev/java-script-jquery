@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<!--
+
+    Цикл for вложенный в цикл for. (Построение квадрата из звездочек - *)
+-->
+
+<html lang="ru">
+<head>
+    <title>Цикл for вложенный в цикл for</title>
+    <meta charset="utf-8">
+</head>
+<body>
+    <h1>Пример вложенного цикла for</h1>
+    <script>
+
+        for (var i = 0; i < 10; i++) {
+            // Выводим одну строку из 10 плиток.
+            for (var j = 0; j < 10; j++) {
+                document.write("<img src='tile.jpg' width='50' height='50'/>");
+            }
+
+            // Переход на новую строку.
+            document.write("<br/>");
+        }
+
+    </script>
+</body>
+</html>

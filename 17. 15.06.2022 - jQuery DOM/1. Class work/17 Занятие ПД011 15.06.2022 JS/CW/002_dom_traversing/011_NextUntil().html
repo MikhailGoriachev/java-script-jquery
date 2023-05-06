@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Метод nextUntil()</title>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+
+        // Метод nextUntil(selector) - Поиск всех родственных элементов после текущего элемента
+        //                             до указанного селектора.
+
+        $(function () {
+            // выбираются элементы до элемента с классом class2
+            $(".class1").nextUntil(".class2").css("background-color", "green");
+
+            // выбираются все элементы после элемента с классом class1
+            // $(".class1").nextUntil().css("background-color", "green");
+
+        });
+
+    </script>
+    <style>
+        body {
+            background-color: silver;
+            color: white;
+        }
+
+        p {
+            padding: 10px;
+            font-weight: bold;
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+    <p>Paragraph 1</p>
+    <p>Paragraph 2</p>
+    <p class="class1">Paragraph 3 class1</p>
+    <p>Paragraph 4</p>
+    <p>Paragraph 5</p>
+    <!-- div тоже будет выделен -->
+    <div>Div</div>
+    <p>Paragraph 6</p>
+    <p class="class2">Paragraph 7 class2</p>
+    <div>Div</div>
+    <p>Paragraph 8</p>
+    <p>Paragraph 9</p>
+    <p>Paragraph 10</p>
+    <div>Div</div>
+</body>
+</html>

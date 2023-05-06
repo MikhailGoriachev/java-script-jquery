@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+    <title>Фильтр атрибутов</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- дополнительные стили, специфичные для этого примера -->
+    <style>
+        p {
+            padding: 10px;
+            background-color: Gray;
+            color: White;
+        }
+    </style>
+
+    <script src="jquery-3.6.0.min.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+            // обработчик клика по кнопке
+            $("#btnExec").click(function (){
+                let align = $("#align").val();
+                $(`p[align*=${align}]`).css("background-color", "black");
+
+                // через 5 секунд вернуть исходный цвет фона всем абзацам
+                setTimeout(() => $("p").css("background-color", "darkgray"), 5000);
+            });
+        });
+
+    </script>
+
+</head>
+<body>
+    <h3>Пример на использование фильтра атрибутов</h3>
+    <p align="right">Параграф №1</p>
+    <p align="left">Параграф №2</p>
+    <p align="center">Параграф №3</p>
+    <p align="left">Параграф №4</p>
+    <p align="center">Параграф №5</p>
+    <p align="right">Параграф №6</p>
+    <p align="center">Параграф №7</p>
+    <p align="left">Параграф №8</p>
+
+    <hr>
+    <label>Тип выравнивания или его часть для выделения абзацев:
+        <input type="text" id="align" name="align"></label>
+    <br>
+    <button id="btnExec">Выделить абзацы<br/>с заданным выравниванием</button>
+</body>
+</html>

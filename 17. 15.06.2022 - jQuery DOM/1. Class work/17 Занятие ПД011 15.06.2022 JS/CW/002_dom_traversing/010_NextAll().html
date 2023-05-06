@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Метод nextAll()</title>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+
+        // Метод nextAll() - поиск всех родственных элементов после текущего элемента. 
+
+        $(function () {
+            // выбирать только параграфы  классом class1, для выбранных
+            // параграфов выбираем все соседние элементы
+            // $("p.class1").nextAll().css("background-color", "lightseagreen");
+
+            // выбирать только параграфы с классом class1, для выбранных
+            // параграфов выбираем все соседние параграфы
+            // $("p.class1").nextAll("p").css("background-color", "darkblue");
+        });
+
+    </script>
+    <style>
+        body {
+            background-color: silver;
+            color: white;
+        }
+
+        p,.class2 {
+            padding: 10px;
+            font-weight: bold;
+            background-color: gray;
+            display: block;
+            height:50px;
+            margin-bottom:10px; 
+        }
+    </style>
+</head>
+<body>
+    <p>Paragraph 1</p>
+    <p>Paragraph 2</p>
+    <p class="class1">Paragraph 3 - class1</p>
+    <p>Paragraph 4</p>
+    <p>Paragraph 5</p>
+    <p>Paragraph 6</p>
+    <p>Paragraph 7</p>
+    <p>Paragraph 8</p>
+    <p>Paragraph 9</p>
+    <p>Paragraph 10</p>
+    <div>Div</div>
+    <span class="class2"></span>
+    <span class="class2"></span>
+    <span class="class2"></span>
+    <span class="class2"></span>
+    <span class="class2"></span>
+    <span class="class2"></span>
+    <span class="class2"></span>
+    <span class="class2"></span>
+    <span class="class2"></span>
+</body>
+</html>

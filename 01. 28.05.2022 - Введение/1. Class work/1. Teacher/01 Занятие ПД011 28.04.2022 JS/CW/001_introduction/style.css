@@ -1,0 +1,16 @@
+/* стиль для таблиц */
+table{
+    width: 80%;
+    border-collapse: collapse;
+    border-spacing: 5px;
+    border: 1px solid black;
+    margin: auto;
+    empty-cells: show;
+}
+td, th{
+    border: 1px solid black;
+    font-family: Tahoma, serif;
+    font-size: 12pt;
+    padding: 5px;
+    vertical-align: top;
+}

@@ -1,0 +1,59 @@
+/* Стиль кнопок */
+
+/* Обычная кнопка */
+button,
+input[type='button'],
+input[type='submit'],
+input[type='reset'] {
+    padding: 1rem;
+    border-radius: 2rem;
+    border: 0;
+
+    background-color: rgb(38, 98, 226);
+    color: white;
+    cursor: pointer;
+
+    transition: all 0.3s;
+
+    margin: 1rem 1rem 1rem 0;
+}
+
+/* наведение на кнопку */
+button:hover,
+input[type='button']:hover,
+input[type='submit']:hover,
+input[type='reset']:hover {
+    background-color: rgb(34, 63, 226);
+}
+
+/* нажатие на кнопку */
+button:active,
+input[type='button']:active,
+input[type='submit']:active,
+input[type='reset']:active {
+    background-color: rgb(21, 45, 180);
+}
+
+/* ширина */
+button.width-small,
+input[type='button'].width-small,
+input[type='submit'].width-small,
+input[type='reset'].width-small {
+    width: 10rem;
+}
+
+/* ширина */
+button.width-normal,
+input[type='button'].width-normal,
+input[type='submit'].width-normal,
+input[type='reset'].width-normal {
+    width: 15rem;
+}
+
+/* ширина */
+button.width-big,
+input[type='button'].width-big,
+input[type='submit'].width-big,
+input[type='reset'].width-big {
+    width: 25rem;
+}

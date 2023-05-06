@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <title>Задание на 29.04.2022</title>
+
+    <!-- внешнее подключение стилевого файла  -->
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/page01.css">
+
+    <!-- еще один пример внешнего подключения -->
+    <link rel="icon" href="../images/blimp.png" type="image/x-icon">
+    <!-- картинка для отображения в заголовке вкладки браузера -->
+    <link rel="shortcut icon" href="../images/blimp.png" type="image/x-icon" />
+</head>
+<body>
+<header>
+    <h1>Страница 1 - задание на разработку страницы 1</h1>
+</header>
+
+<div class="container">
+    <!-- левая часть контейнера-->
+    <aside>
+        <nav>
+            <h3 class="menu-header">Навигация</h3>
+            <ul class="menu-list">
+                <li class="menu-list-li"><a class="link" href="../index.html">Главная страница</a></li>
+                <li class="menu-list-li"><a class="link active" href="page01.html">Cтраница 1</a></li>
+                <li class="menu-list-li"><a class="link" href="page02.html">Cтраница 2</a></li>
+                <li class="menu-list-li"><a class="link" href="page03.html">Cтраница 3</a></li>
+                <li class="menu-list-li"><a class="link" href="page04.html">Cтраница 4</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- контент - задание на разработку -->
+    <main>
+        <table style="width: 600px; border: darkblue solid 1px;">
+            <script>
+                let a = -10 + 20*Math.random();
+                let b = -10 + 20*Math.random();
+
+                // вычисление по заданию
+                let z1 = (Math.sin(a) + Math.cos(2*b - a)) / (Math.cos(a) - Math.sin(2*b - a));
+                let z2 = (1 + Math.sin(2*b)) / Math.cos(2*b);
+
+                // вывод результатов
+                document.write(`<tr><td>${a.toFixed(6)}</td><td>${b.toFixed(6)}</td><td>${z1.toFixed(6)}</td></tr>`)
+                document.write(`<tr><td></td><td></td><td>${z2.toFixed(6)}</td></tr>`)
+            </script>
+        </table>
+    </main>
+</div>
+
+<footer>
+    <h4 class="header-footer">Студент Программер, ПД011, Донецк, 2022</h4>
+</footer>
+</body>
+</html>

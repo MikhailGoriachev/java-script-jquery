@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>getElementById</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script src="004_getElementById.js"></script>
+</head>
+<body>
+    <p id="output">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        Ab accusantium ad at delectus doloremque dolorum ducimus fugit, iste modi
+        obcaecati perferendis praesentium quae ratione similique, tempore, totam
+        ut veritatis voluptatum.</p>
+    <a id="link" href="http://itstep.org">Lorem ipsum dolor</a>
+</body>
+
+<!-- это можно вынести во внешний файл  -->
+<script>
+    // Ненавязчивый JavaScript (Unobtrusive JavaScript) – отделение функциональности
+    // страницы от ее структуры.
+    // JavaScript может находиться в отдельных модулях и блоки JavaScript кода не
+    // должны появляться в разметке.
+
+    // событие срабатывает после полной загрузки страницы в браузер.
+    window.onload = function () {
+        // получение элемента со страницы по значению атрибута id
+        let paragraph = document.getElementById("output");
+        let hyperlink = document.getElementById("link");
+
+        paragraph.innerHTML = "<u>HELLO</u> <b>WORLD !!!</b>";
+        hyperlink.innerHTML = "<b>EDUCATION</b> <i>SITE</i> !!!";
+    }
+</script>
+</html>

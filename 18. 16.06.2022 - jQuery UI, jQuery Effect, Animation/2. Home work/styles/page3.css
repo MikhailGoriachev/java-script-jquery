@@ -1,0 +1,110 @@
+/* Страница "Задача 3. Анимация" (page3.html) */
+
+/* общий контейнер */
+.container {
+    display: grid;
+
+    grid-template-columns: auto auto;
+    grid-gap: 5rem;
+
+    margin: 2rem 1rem;
+}
+
+/* контейнер для блока с изображением */
+.container-block {
+    border: 1px #2e74b5 solid;
+    border-radius: 1rem;
+
+    width: 550px;
+    height: 550px;
+    background: #000;
+
+    position: relative;
+}
+
+/* блок с изображением */
+#blockId {
+    background: url("../images/circle.gif");
+    background-size: contain;
+
+    width: 150px;
+    height: 150px;
+
+    border-radius: 1rem;
+
+    left: 37%;
+    top: 37%;
+
+    position: relative;
+}
+
+/* контейнер контролов для управления блоком с изображением */
+.controls {
+    display: grid;
+
+    grid-template-rows: 5rem 10rem 7rem 10rem 10rem;
+    grid-template-columns: 10rem 10rem 10rem;
+}
+
+/* заголовок блока управления    */
+#headerControls {
+    grid-row: 1;
+    grid-column: 1/4;
+
+    align-self: center;
+    justify-self: center;
+}
+
+/* клавиши управления */
+
+/* старт движения по замкнутой траектории */
+#startElipse {
+    background: forestgreen;
+    transition: all linear 0.3s;
+}
+
+#startElipse:hover {
+    background: #276627;
+}
+
+#startElipse:active {
+    background: #2b5b2b;
+}
+
+/* старт движения по замкнутой траектории */
+#stopElipse {
+    background: firebrick;
+    transition: all linear 0.3s;
+}
+
+#stopElipse:hover {
+    background: #8f2828;
+}
+
+#stopElipse:active {
+    background: #722727;
+}
+
+/* вверх */
+#arrowUp {
+    grid-row: 4;
+    grid-column: 2;
+}
+
+/* вправо */
+#arrowRight {
+    grid-row: 5;
+    grid-column: 3;
+}
+
+/* вниз */
+#arrowDown {
+    grid-row: 5;
+    grid-column: 2;
+}
+
+/* влево */
+#arrowLeft {
+    grid-row: 5;
+    grid-column: 1;
+}

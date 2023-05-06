@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Анимация за заданное время</title>
+    <meta charset="UTF-8">
+
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+
+        $(function () {
+
+            $("#button1").click(function () {
+                // задать время выполнения анимации
+                $("p").toggle(5_000);
+            });
+
+        });
+
+    </script>
+
+    <style>
+        p {
+            color: darkblue;
+            padding: 10px;
+            border-radius: 12px;
+            min-height: 36px;
+        }
+    </style>
+</head>
+<body>
+    <h3>Показать/скрыть абзацы за заданное время</h3>
+    <p style="background-color: lightpink">
+        Параграф №1.
+    </p>
+    <p style="background-color: greenyellow">
+        Параграф №2.
+    </p>
+    <p style="background-color: lightgreen">
+        Параграф №3.
+    </p>
+    <p style="background-color: lightseagreen">
+        Параграф №4.
+    </p>
+    <p style="background-color: darkseagreen">
+        Параграф №5.
+    </p>
+    <input type="button" id="button1" value="Show/Hide" />
+</body>
+</html>
