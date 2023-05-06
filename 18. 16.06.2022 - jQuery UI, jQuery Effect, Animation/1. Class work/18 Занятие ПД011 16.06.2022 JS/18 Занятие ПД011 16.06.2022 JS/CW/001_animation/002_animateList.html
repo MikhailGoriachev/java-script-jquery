@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Несколько анимаций последовательно</title>
+    <meta charset="UTF-8">
+
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+
+        $(function () {
+            // цепочка анимаций
+            // items.animate(css-props, duration).animate(css-props, duration);
+            $("div")
+                .animate({
+                    opacity: 0.25,
+                    marginLeft: '550px'
+                }, 5_000)
+                .animate({
+                    opacity: 1.0,
+                    marginLeft: '0px'
+                }, 5_000);
+            // анимации будут выполняться друг за другом
+        });
+
+    </script>
+    <style>
+        #id1 {
+            background-color: Green;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            color: White;
+        }
+    </style>
+</head>
+<body>
+    <div id="id1">
+        Test div
+    </div>
+</body>
+</html>

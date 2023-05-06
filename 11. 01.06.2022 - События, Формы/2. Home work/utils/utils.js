@@ -135,3 +135,14 @@ function getFullName() {
 function $(id) {
     return document.getElementById(id);
 }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+// фильтр поля для ввода
+function filterInputForNumber(event) {
+    if (!/[0-9]/.test(String.fromCharCode(event.keyCode))) event.preventDefault();
+}
+=======
+>>>>>>> remotes/origin/main
+>>>>>>> master

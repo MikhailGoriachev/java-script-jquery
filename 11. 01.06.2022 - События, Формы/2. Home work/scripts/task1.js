@@ -1,3 +1,146 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+//  Задача 1. Заявки
+
+//  Задача 2. Каждая заявка на авиабилет содержит: пункт назначения, номер рейса,
+//  фамилию и инициалы пассажира, стоимость билета. Разработайте класс для хранения
+//  заявки, создайте массив заявок из 10 - 12 элементов. Выведите массив заявок в
+//  разметку, предусмотрите команды:
+//  •	Вывод исходного массива заявок
+//  •	Вывод копии массива, упорядоченного по пунктам назначения;
+//  •	Вывод копии массива, упорядочив по стоимости билета;
+//  •	Вывод копии массива, выделив все заявки со стоимостью выше 3000 рублей,
+//      снять выделение через 10 с
+
+// глобальная переменная модуля второго задания
+var moduleTask1 = {};
+
+// размер массива
+moduleTask1.size = 10;
+
+// исходная коллекция билетов
+moduleTask1.originTickets = Array(moduleTask1.size)
+    .fill()
+    .map((elem) => Ticket.getTicketGenerator());
+
+// массив представления билетов
+moduleTask1.viewTickets = [...moduleTask1.originTickets];
+
+// таймер
+moduleTask1.timer = null;
+
+// длительность работы таймера
+moduleTask1.timeoutTimer = 10_000;
+
+// вывод массива билетов
+moduleTask1.showTickets = function () {
+    $('ticketsList').innerHTML = moduleTask1.viewTickets.reduce((acc, elem) => (acc += elem.toHTML()), '');
+};
+
+// вывод массива клиентов без упорядочивания
+moduleTask1.showDefultTickets = function () {
+    // установка исходного массива
+    moduleTask1.viewTickets = [...moduleTask1.originTickets];
+
+    // вывод массива клиентов
+    moduleTask1.showTickets();
+};
+
+// вывод копии массива билетов упорядоченных по пануктам назначения
+moduleTask1.showTicketsByDestinations = function () {
+    // упорядочивание массива
+    moduleTask1.viewTickets.sort((a, b) => a.destination.localeCompare(b.destination));
+
+    // вывод массива
+    moduleTask1.showTickets();
+};
+
+// вывод копии массива билетов упорядоченных по стоимости билета
+moduleTask1.showTicketsByTicketCost = function () {
+    // упорядочивание массива
+    moduleTask1.viewTickets.sort((a, b) => a.ticketCost - b.ticketCost);
+
+    // вывод массива
+    moduleTask1.showTickets();
+};
+
+// выделение цветом билета
+moduleTask1.selectColorElems = function (
+    containerId = '',
+    comp = () => {},
+    resetColor = () => {},
+    color = 'rgba(143, 96, 219, 0.562)'
+) {
+    // вывод массива для отчистки прошлых выделений
+    moduleTask1.showTickets();
+
+    // контейнер для вывода клиентов
+    let elements = document.getElementsByName('ticket');
+
+    // выделение цветом клиента
+    for (let i = 0, k = 0; i < elements.length; i++) {
+        // текущий элемент разметки
+        const elem = elements[i];
+
+        // сравнение по компаратору
+        if (comp(k)) {
+            // выделение цветом
+            elem.style.backgroundColor = color;
+        }
+
+        k++;
+    }
+
+    // удаление текущего таймера
+    clearTimeout(moduleTask1.timer);
+
+    // запуск таймера для очистки выделения
+    moduleTask1.timer = setTimeout(resetColor, 10000);
+};
+
+// вывеление копии массива билетов со стоимостью выше указанного значения
+moduleTask1.selectColorTicketCostOver = function (cost) {
+    if (cost === 0) {
+        moduleTask1.showTickets();
+        return;
+    }
+
+    // вывод массива клиентов
+    moduleTask1.selectColorElems(
+        'ticketsList',
+        (i) => moduleTask1.viewTickets[i].ticketCost > cost,
+        moduleTask1.showTickets
+    );
+};
+
+// обработчик события загрузки страницы
+window.onload = function () {
+    // вывод билетов
+    moduleTask1.showDefultTickets();
+
+    // установка обработчиков событий
+
+    // По умолчанию
+    $('btnTicketsDefualt').addEventListener('click', moduleTask1.showDefultTickets, false);
+
+    // По назначениям
+    $('btnTicketsSortByDestinations').addEventListener('click', moduleTask1.showTicketsByDestinations, false);
+
+    // По стоимости
+    $('btnTicketsSortByCost').addEventListener('click', moduleTask1.showTicketsByTicketCost, false);
+
+    // Поле для ввода стомиости
+    $('inpCostOverId').addEventListener(
+        'input',
+        () => moduleTask1.selectColorTicketCostOver(+$('inpCostOverId').value),
+        false
+    );
+
+    // Обработка нажатия кнопки при вводе стоимости
+    $('inpCostOverId').addEventListener('keypress', filterInputForNumber, false);
+=======
+>>>>>>> master
 //  Задача 1. Строки
 
 //  Задача 1. Решите задачи на обработку строк при помощи методов регу-лярных выражений, строки
@@ -224,4 +367,8 @@ window.onload = function () {
 
     // установка обработки первой кнопки, по умолчнанию при загрузке страцниы
     $('btnPoint1').onclick();
+<<<<<<< HEAD
+=======
+>>>>>>> remotes/origin/main
+>>>>>>> master
 };

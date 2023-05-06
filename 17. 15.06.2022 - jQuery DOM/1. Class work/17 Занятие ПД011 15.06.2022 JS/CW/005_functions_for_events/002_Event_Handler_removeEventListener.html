@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Метод addEventListener()</title>
+    <meta charset="UTF-8">
+
+    <script>
+
+        // Установка обработичка на событие load.
+        window.addEventListener('load', function () {
+            let div = document.getElementById('test');
+            let del = document.getElementById('del');
+            function show_msg() {
+                document.getElementById("test").innerHTML = 'Ок!';
+            }
+
+            // Установка обработичка на событие mouseover для дива.
+            div.addEventListener('mouseover', show_msg, false);
+
+            del.addEventListener('click', function(){
+                // Удаление обработчика на событие mouseover для дива.
+                div.removeEventListener('mouseover', show_msg, false);
+                document.getElementById("test").innerHTML = '';
+            }, false);
+        }, false);
+
+    </script>
+    <style>
+        #test {
+            width: 300px;
+            height: 150px;
+            background: lightblue;
+            border: dotted 2px darkblue;
+        }
+    </style>
+</head>
+<body>
+    <div id="test"></div>
+    <p>Наведите курсор мыши на синий прямоугольник, нажмите на кнопку и еще раз наведите курсор мыши :)</p>
+    <input id="del" type="button" value="Удалить обработчик события" />
+</body>
+</html>

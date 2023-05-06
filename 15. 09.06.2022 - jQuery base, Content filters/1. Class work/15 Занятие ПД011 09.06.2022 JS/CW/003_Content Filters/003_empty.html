@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru">
+    <head>
+        <title>Выборка элементов без содержимого</title>
+        <style type="text/css">
+            div {
+                width: 240px;
+                height: 120px;
+                background-color: azure;
+                border: 1px solid gray;
+            }
+            p {
+                width: 200px;
+                height: 100px;
+                margin: 12px;
+            }
+        </style>
+        <script src="jquery-3.6.0.min.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                //фильтр выбирает все элементы в которых отсутствует содержимое
+                $("*:empty").css("background-color", "Red");
+            });
+        </script>
+    </head>
+    <body>
+        <div>Есть содержимое</div>
+        <div><p></p></div>
+        <div>Есть содержимое</div>
+        <div>Есть содержимое</div>
+        <div>Есть содержимое</div>
+        <div></div>
+    </body>
+</html>

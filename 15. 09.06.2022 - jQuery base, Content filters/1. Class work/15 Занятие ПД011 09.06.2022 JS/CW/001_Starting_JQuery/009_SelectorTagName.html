@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>JQuery selector Tag Name</title>
+        <link rel="stylesheet" href="style.css" />
+
+        <!-- Подключение библиотеки JQuery-->
+
+        <script src="jquery-3.6.0.min.js" type="text/javascript"></script>
+
+        <script>
+            // JQuery скрипт
+
+            // Следующий код вешает обработчики на клик для всех тэгов <а>
+            $(function () {
+                // $("a") - JQuery селектор - позволяет выбрать все тэги по имени
+                // click() - функция, которая будет обработчиком при нажатии на ссылку.
+                $("a").click(function () {
+                    alert("Hello, world");
+
+                    // выбрать все элементы с селектором button
+                    // выставить расстояние между элементами
+                    $("button").css("margin", "6pt");
+                });
+
+                // Выводим текст в элемент DOM по клику на кнопку btn1
+                $("#btn1").click(() => {
+                    // выбрать элемент по идентификатору, вывести текст
+                    $("#outText").text(
+                        `клик выполнен, момент времени: ${new Date().toLocaleTimeString()}`
+                    );
+                });
+
+                // Выводим HTML в элемент DOM по клику на кнопку btn1
+                $("#btn2").click(function () {
+                    // выбрать элемент по идентификатору, вывести разметку
+                    $("#outHtml").html(
+                        `клик выполнен, <u>момент времени</u>: <b>${new Date().toLocaleTimeString()}</b>`
+                    );
+                });
+            });
+        </script>
+    </head>
+
+    <!--======================================= HTML разметка страницы =========================================-->
+
+    <body>
+        <a href="#">Link</a>
+
+        <button id="btn1">
+            Нажми меня для вывода
+            <b><big>текста</big></b>
+        </button>
+        <button id="btn2">
+            Нажми меня для вывода
+            <b><big>HTML</big></b>
+        </button>
+
+        <p>
+            Место для вывода текста:
+            <span id="outText"></span>
+        </p>
+        <p>
+            Место для вывода HTML:
+            <span id="outHtml"></span>
+        </p>
+    </body>
+</html>

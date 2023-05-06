@@ -1,0 +1,21 @@
+/* Стиль страницы "Задача 3. Работники (Диаграмма)" */
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+    flex-direction: row;
+
+    width: 100%;
+
+    color: white;
+    margin: 1rem;
+}
+
+/* рамка */
+#diagram {
+    border: 3px solid rgb(196, 196, 196);
+    border-radius: 1rem;
+    padding: 4rem;
+}

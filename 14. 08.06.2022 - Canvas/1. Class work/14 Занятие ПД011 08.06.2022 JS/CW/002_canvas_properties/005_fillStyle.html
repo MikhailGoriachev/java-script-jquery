@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Canvas</title>
+        <script>
+            window.addEventListener("load", init, false);
+            function init() {
+                let canvas = document.getElementById("canvas");
+                let context = canvas.getContext("2d");
+
+                //Заливка области
+                context.save();
+                context.translate(150, 150);
+                context.fillStyle = "blue";
+                context.strokeStyle = "red";
+                context.lineWidth = 4;
+
+                //Закрашенный прямоугольник
+                context.fillRect(0, 0, 150, 50);
+                context.strokeRect(0, 60, 150, 50);
+
+                //Меняем цвет рамки и заливки
+                context.fillStyle = "green";
+                context.strokeStyle = "yellow";
+                context.strokeRect(0, 120, 150, 50);
+                context.fillRect(0, 180, 150, 50);
+                context.restore();
+            }
+        </script>
+        <style>
+            canvas {
+                border: 3px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <canvas id="canvas" height="600" width="600">
+            Ваш браузер не поддерживает элемент
+            <i>Canvas</i>
+        </canvas>
+    </body>
+</html>

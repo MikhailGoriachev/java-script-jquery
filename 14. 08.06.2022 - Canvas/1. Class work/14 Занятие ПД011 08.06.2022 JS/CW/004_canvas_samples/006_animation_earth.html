@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Планета</title>
+
+    <script>
+        window.addEventListener("load", init, false);
+        let sun = new Image();
+        let moon = new Image();
+        let earth = new Image();
+
+        function init() {
+            sun.src = 'Canvas_sun.png';
+            moon.src = 'Canvas_moon.png';
+            earth.src = 'Canvas_earth.png';
+
+            // window.requestAnimationFrame указывает браузеру, что необходимо произвести анимацию
+            // и нужно запланировать перерисовку на следующем кадре анимации.
+            // В качестве параметра метод получает функцию, которая вызывается каждый раз перед перерисовкой.
+            window.requestAnimationFrame(draw);
+        }
+
+        function draw() {
+            let context = document.getElementById('canvas').getContext('2d');
+
+            // Свойство - определяющее, каким образом фигура выводится на холст
+            context.globalCompositeOperation = 'destination-over';
+
+            // Каждый раз - очищаем холст
+            context.clearRect(0, 0, 300, 300);
+
+            // Тень, в момент когда Луна прячестся за Землю
+            context.fillStyle = 'rgba(0,0,0,0.4)';
+
+            // Рисуем орбиту
+            context.strokeStyle = 'rgba(255,153,255,0.4)';
+            context.save();
+            context.translate(150, 150);
+
+            // Прорисовка Земли
+            let time = new Date();
+            context.rotate(((2 * Math.PI) / 60) * time.getSeconds() + ((2 * Math.PI) / 60000) * time.getMilliseconds());
+            context.translate(105, 0);
+            context.fillRect(0, -12, 50, 24);
+            context.drawImage(earth, -12, -12);
+
+            // Прорисовка Луны
+            context.save();
+            context.rotate(((2 * Math.PI) / 6) * time.getSeconds() + ((2 * Math.PI) / 6000) * time.getMilliseconds());
+            context.translate(0, 28.5);
+            context.drawImage(moon, -3.5, -3.5);
+            context.restore();
+
+            context.restore();
+
+            context.beginPath();
+            context.arc(150, 150, 105, 0, Math.PI * 2, false);
+            context.stroke();
+
+            // рисуем Солнце
+            context.drawImage(sun, 0, 0, 300, 300);
+
+            window.requestAnimationFrame(draw);
+        }
+
+    </script>
+</head>
+<body>
+    <canvas id="canvas" width="300" height="300"></canvas>   
+</body>
+</html>

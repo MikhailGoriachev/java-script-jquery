@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Функции encodeURIComponent и decodeURIComponent</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <h3>Функции encodeURIComponent и decodeURIComponent</h3>
+
+        <label for="forDecode">Текст для кодирования</label>
+        <input id="forEncode" type="text" />
+        <br />
+        <input id="encodeBtn" type="button" value="Кодировать" />
+
+        <p id="encodedOutput"></p>
+
+        <label for="forDecode">Текст для декодирования</label>
+        <input id="forDecode" type="text" />
+        <br />
+        <input id="decodeBtn" type="button" value="Декодировать" />
+
+        <p id="decodedOutput"></p>
+
+        <script>
+            window.onload = function () {
+                $ = (id) => document.getElementById(id);
+
+                // кодирование строки
+                $("encodeBtn").onclick = () => {
+                    // URL кодирование данных
+                    let res = encodeURIComponent($("forEncode").value);
+                    $("encodedOutput").innerHTML = res;
+
+                    // для удобства работы закодированную строку скопируем в строку ввода для
+                    // декодирования
+                    $("forDecode").value = res;
+                }; // onclick
+
+                // декодирование строки
+                $("decodeBtn").onclick = () => {
+                    // URL декодирование данных
+                    let res = decodeURIComponent($("forDecode").value);
+
+                    $("decodedOutput").innerHTML = res;
+                }; // onclick
+            }; // onload
+        </script>
+    </body>
+</html>

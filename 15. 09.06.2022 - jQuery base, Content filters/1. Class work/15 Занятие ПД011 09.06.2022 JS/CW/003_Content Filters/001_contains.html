@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+    <title>Выборка элементов по содержимому</title>
+
+    <script src="jquery-3.6.0.min.js" type="text/javascript"></script>
+
+    <script>
+        $(document).ready(function () {
+            //:contains('text') - фильтр который выбирает все элементы в которых
+            // встречается указанный текст
+            // ЧУВСТВИТЕЛЬНЫЙ К РЕГИСТРУ !
+            $("p:contains('jQuery')").css("text-decoration", "underline");
+        });
+    </script>
+
+</head>
+<body>
+    
+    <p>Параграф №1<br>jquery — библиотека JavaScript, фокусирующаяся на взаимодействии JavaScript и HTML. </p>
+    <p>Параграф №2</p>
+    <div>
+        Текст внутри дива
+        <p>Параграф №3<br>Библиотека jQuery помогает легко получать доступ к любому элементу DOM, обращаться к атрибутам и содержимому элементов DOM, манипулировать ими.
+        </p>
+    </div>
+    <p>Параграф №3</p>
+    <p>Параграф №4<br>Также библиотека jQuery предоставляет удобный API для работы с AJAX.</p>
+    <p>Параграф №5</p>
+    укажем слово jQuery
+    <br>А это параграф?
+    <p>Вот это точно параграф, jQuery тут</p>
+</body>
+</html>

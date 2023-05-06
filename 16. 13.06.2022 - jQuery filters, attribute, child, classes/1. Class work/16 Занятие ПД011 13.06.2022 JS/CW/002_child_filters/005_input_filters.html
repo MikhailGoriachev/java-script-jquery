@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru">
+    <head>
+        <title>Использование фильтров для элемента input</title>
+        <script src="jquery-3.6.0.min.js" type="text/javascript"></script>
+
+        <script>
+            $(document).ready(function () {
+                // получение всех элементов input с типом text
+                // $("input:text")
+                $("input:text")
+                    .css("background-color", "lightskyblue")
+                    .val("Текст для ввода");
+            });
+        </script>
+    </head>
+    <body>
+        <div>
+            <input type="text" name="name" value="Text value" />
+            <br />
+            <input type="button" name="name" value="My Button" />
+            <br />
+            <label>
+                <input type="radio" name="name" value="Radio" />
+                Пример радиокнопки
+            </label>
+            <br />
+            <input type="text" name="name" value="Text Value " />
+            <br />
+            <input type="password" name="name" value="pass" />
+            <br />
+            <label>
+                <input type="checkbox" name="name1" checked />
+                Пример чекбокса
+            </label>
+            <br />
+        </div>
+    </body>
+</html>

@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Метод addEventListener()</title>
+    <meta charset="UTF-8">
+
+    <script>
+
+        window.addEventListener('load', function () {           // Установка обработичка на событие load.
+            
+            function show_msg() {
+                alert('Hello world');
+            }
+
+            var div = document.getElementById('test');
+            // Установка обработчика на событие mouseover для элемента c id test.
+            div.addEventListener('mouseover', show_msg, false);
+        }, false);
+
+    </script>
+    <style>
+        #test {
+            width: 300px;
+            height: 150px;
+            background: lightblue;
+            border: dotted 2px darkblue;
+        }
+    </style>
+</head>
+<body>
+    <div id="test"></div>
+    <p>Наведите курсор мыши на синий прямоугольник.</p>
+</body>
+</html>

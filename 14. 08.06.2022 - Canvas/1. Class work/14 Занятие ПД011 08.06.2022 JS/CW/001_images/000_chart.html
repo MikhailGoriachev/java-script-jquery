@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Создание гистограммы</title>
+    <script src="BarChart.js"></script>
+</head>
+<body>
+    <div id="chartContainer"></div>
+
+    <script>
+        window.addEventListener("load", function () {
+            let chart = createBarChart(
+                [12, 8, 16, 32, 27, 45, 42, 67, 45, 32, 15, 12, 11], // данные
+                600,               // ширина поля вывода
+                300,               // высота поля вывода
+                "lightseagreen");  // цвет прямоугольников
+
+            // получить контейнер для вывода гистограммы
+            let container = document.getElementById("chartContainer");
+
+            // добавить гистограмму в этот контейнер
+            container.appendChild(chart);
+
+        });
+    </script>
+</body>
+</html>

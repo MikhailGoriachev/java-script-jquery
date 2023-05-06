@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Round diagramm</title>
+    <script>
+        window.addEventListener("load", init, false)
+        function init() {
+            // Инициализация набора данных
+            let data = [100, 68, 20, 30, 100, 15];
+            let canvas = document.getElementById('canvas');
+            let context = canvas.getContext('2d');
+
+            // Прорисовка фона
+            context.fillStyle = "white";
+            context.fillRect(0, 0, 500, 500);
+            // коллекция для раскраски секторов диагарммы
+            let colors = ["orange", "green", "blue", "yellow", "teal", "pink"];
+
+            // Сумма всех данных:
+            let total = data.reduce((acc, item) => acc + item, 0);
+            let prevAngle = 0;
+            for (let i = 0; i < data.length; i++) {
+                // %, представленный сегментом
+                let fraction = data[i] / total;
+                // вычисляем начальный угол
+                let angle = prevAngle + fraction * Math.PI * 2;
+
+                // рисуем сегмент
+
+                // создаём контур
+                context.beginPath();
+                context.moveTo(250, 250);
+                context.arc(250, 250, 100, prevAngle, angle, false);
+                context.lineTo(250, 250);
+
+                context.fillStyle = colors[i];
+                context.fill();
+
+                // обводим его
+                context.strokeStyle = "black";
+                context.stroke();
+
+                // обновляем для следующей итерации цикла
+                prevAngle = angle;
+            }
+
+            context.fillStyle = "black";
+            context.font = "24pt sans-serif";
+            let text = "Частота посещения сайта";
+            let metrics = context.measureText(text);  // размеры блока текста
+            context.fillText(text, 250 - metrics.width / 2, 400);
+        }
+    </script>
+    <style>
+        canvas {
+            border: 3px solid black;
+        }
+    </style>
+
+</head>
+<body>
+    <canvas width="500" height="500" id="canvas"></canvas>
+</body>
+</html>

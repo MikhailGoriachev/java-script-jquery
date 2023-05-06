@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Параметр queue</title>
+        <meta charset="UTF-8" />
+
+        <script src="jquery-3.6.0.min.js"></script>
+        <script>
+            // параметр queue — булево значение, указывающее, следует ли помещать текущую анимацию
+            // в очередь функций.
+            // В случае false, анимация будет запущена сразу же, не вставая в очередь (функции
+            // будут запускаться одновременно).
+
+            $(function () {
+                // CSS-свойства для анимации
+                let anim = {
+                    marginLeft: "150px",
+                    marginTop: "150px",
+                };
+
+                // параметры анимации
+                let options = {
+                    // queue: true  - заставляет вторую анимацию выполняться после первой
+                    // queue: false - заставляет вторую анимацию выполняться параллельно с первой
+                    queue: false,
+                    duration: 3_000,
+                };
+
+                $("div").animate(anim, options /* 3_000 */).animate(
+                    {
+                        width: "50px",
+                        height: "50px",
+                    },
+                    3_000
+                );
+            });
+        </script>
+        <style>
+            div {
+                background-color: lightseagreen;
+                width: 100px;
+                height: 100px;
+                text-align: center;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <div>Test div</div>
+    </body>
+</html>

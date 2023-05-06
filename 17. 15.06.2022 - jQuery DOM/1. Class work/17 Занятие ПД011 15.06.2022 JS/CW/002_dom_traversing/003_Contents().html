@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Метод contents()</title>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+
+        // contents() - получает потомков каждого элемента в наборе соответствующих
+        // элементов, включая текстовые узлы и узлы комментариев.
+
+        $(function () {
+
+            // Превратим текстовые узлы внутри #content в
+            // параграфы (текстовые узлы: nodeType = 3)
+            $("#content").contents().filter(function () {
+                return this.nodeType === 3;  /* текстовый узел имеет тип узла === 3 */
+            }).wrap("<p>");   // об этом методе - позже, он оборачивает найденный текстовый узел в параграф
+            // Покрасим выше созданные параграфы внутри #content в синий цвет.
+            $("#content p")
+                .css({"background-color": "lightblue", "min-height": "40pt", "border": "solid 1px darkblue"});
+
+        });
+
+    </script>
+</head>
+<body>
+    <div id="content">
+        lorem ipsum
+        <!-- Перевод строки после этого комментария и после span - породит параграфы после работы кода,
+             т.к. этот перевод строки есть текстовый узел - такая вот особенность
+        -->
+        <span>lorem ipsum in span</span>
+    </div>
+</body>
+</html>

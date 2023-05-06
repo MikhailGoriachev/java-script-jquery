@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Сохранение и извлечение данных sessionStorage</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <p>
+        Значения существуют до тех пор, пока открыто окно или вкладка, в котором они сохранены
+    </p>
+    <p>
+        Значения видимы только в окне или вкладке, в которой они были созданы.
+    </p>
+
+    <input id="btn1" type="button" value="Запись в sessionStorage" />
+    <input id="btn2" type="button" value="Чтение из sessionStorage" />
+    <div id="output">
+    </div>
+
+    <script>
+        $ = id => document.getElementById(id);
+
+        function init() {
+            // получить ссылки на элементы разметки - для оптимизации запросов
+            // к элементам разметки
+            let output = $("output");
+            let btn1 = $("btn1");
+            let btn2 = $("btn2");
+
+            // сохранение данных в sessionStorage
+            btn1.onclick = function () {
+                window.sessionStorage.setItem("key1", "Test value 1");
+                // или
+                window.sessionStorage.key2 = "Test value 2";
+                // или
+                window.sessionStorage["key3"] = "Test value 3";
+            }
+
+            // чтение данных из sessionStorage
+            btn2.onclick = function () {
+                output.innerHTML = window.sessionStorage.getItem("key1");
+                output.innerHTML += "<br />";
+                output.innerHTML += window.sessionStorage.key2;
+                output.innerHTML += "<br />";
+                output.innerHTML += window.sessionStorage["key3"];
+            }
+        }
+
+        window.addEventListener("load", init, false);
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+    <title>Фильтр атрибутов</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // значение атрибута align должно содержать символы 'en'
+            $("p[align*=en]").css("background-color", "lightseagreen");
+
+            // значение атрибута align должно начинаться с символов 'lef'
+            // $("p[align^=lef]").css("background-color", "lime");
+
+            // значение атрибута align должно завершаться символом 't'
+            // $("p[align$=t]").css({ "background-color": "navy", "color": "white" });
+        });
+    </script>
+
+</head>
+<body>
+    <h3 align="center">Фильтрация по части значения атрибута</h3>
+    <p align="left">Параграф №1</p>
+    <p align="left">Параграф №1</p>
+    <p align="center">Параграф №1</p>
+    <p align="right">Параграф №1</p>
+    <p align="center">Параграф №1</p>
+    <p align="left">Параграф №1</p>
+    <p align="center">Параграф №1</p>
+    <p>Параграф №1</p>
+</body>
+</html>

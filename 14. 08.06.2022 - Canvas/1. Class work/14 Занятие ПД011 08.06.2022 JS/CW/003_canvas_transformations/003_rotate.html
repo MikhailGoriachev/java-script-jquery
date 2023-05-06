@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>rotate transformation</title>
+    <script>
+        window.addEventListener("load", init, false);
+        function init() {
+            let $ = function (id) {
+                return document.getElementById(id);
+            }
+            let context = $("canvas").getContext("2d");
+            let img = new Image();
+            img.src = "canvas.jpg";
+            img.onload = draw;
+            $("btn").onclick = draw;
+
+            function draw() {
+                context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+                let angle = $("angle").value;
+                angle = angle * Math.PI / 180;
+                context.save();
+
+                // трансформация вращения.
+                context.rotate(angle);
+                context.drawImage(img, 200, 200, 150, 150);
+                context.restore();
+            }
+        }       
+    </script>
+    <style>
+        canvas {
+            border: 3px solid black;
+        }
+
+        div {
+            border: 1px solid gray;
+            padding: 10px;
+			width: 560px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="600" height="600">
+    </canvas>
+    <div>
+        Угол поворота 
+        <input type="text" id="angle" value="0"/>
+        <input type="button" id="btn" value="rotate" />
+    </div>
+</body>
+</html>
+
+

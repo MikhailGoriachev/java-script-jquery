@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Effects Show</title>
+    <meta charset="UTF-8">
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+
+        // delay() - функция, которая останавливает выполнение анимации/эффектов на установленное время
+        $(function () {
+
+            $("#button1").click(function () {
+                $("p")
+                    .fadeOut("slow")
+                    .delay(3_000)
+                    .fadeIn("slow");
+            });
+        });
+
+    </script>
+</head>
+<body>
+<p>Параграф №1</p>
+<input type="button" id="button1" value="Push Me!" />
+</body>
+</html>

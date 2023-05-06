@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Событие load"</title>
+
+        <script src="jquery-3.6.0.min.js"></script>
+        <meta charset="UTF-8" />
+
+        <script>
+            // Готово DOM дерево
+            $(document).ready(function () {
+                $("#log1").text("Document loaded");
+            });
+
+            // load() - устанавливает обработчик на JavaScript событие load
+            // window.load - Загружена вся страница с учетом всех внешних ресурсов
+            // (картинок, сценариев, стилей)
+            // возникает ошибка в jQuery 3.5.1+
+            $(window).load(function () {
+                console.log("Window loaded");
+            });
+        </script>
+    </head>
+    <body>
+        <!-- Разметка страницы -->
+        <p id="log1"></p>
+        <p id="log2"></p>
+    </body>
+</html>

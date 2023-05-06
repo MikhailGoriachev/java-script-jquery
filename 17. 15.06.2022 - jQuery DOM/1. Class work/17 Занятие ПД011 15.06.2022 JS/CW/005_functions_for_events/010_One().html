@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Метод one()</title>
+        <meta charset="UTF-8" />
+
+        <script src="jquery-3.6.0.min.js"></script>
+        <script>
+            // Метод one() - устанавливает обработчик события выбранным элементам страницы.
+            // Особенностью метода является то, что обработчик будет вызван не более одного раза,
+            // на каждом из элементов.
+
+            $(function () {
+                let count = 0;
+
+                function add_text() {
+                    count++;
+                    $("#out").html(
+                        "Количество проводок мыши над этим div<br>" + count
+                    );
+                }
+
+                $("#out").one("mouseover", add_text);
+                // $("#out").on("mouseover", add_text);
+            });
+        </script>
+        <style>
+            div {
+                width: 20em;
+                height: 100pt;
+                padding: 6pt;
+                background: lightgreen;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="out"></div>
+    </body>
+</html>

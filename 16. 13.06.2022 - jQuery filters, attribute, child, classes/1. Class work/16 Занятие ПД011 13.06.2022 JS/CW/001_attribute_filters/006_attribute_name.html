@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+    
+    <title>Выбор элементов по атрибуту name</title>
+    
+    <style>
+    body
+    {
+        background-color:Silver;
+        color:White;
+        }
+    p
+    {
+        padding:10px;
+        font-weight: bold;
+        background-color:Gray;
+        }
+    </style>
+
+    <script src="jquery-3.6.0.min.js"></script>
+
+    <script>
+        // [attribute=value] - фильтр выбирает все элементы с аттрибутом attribute
+        // значение которого равно заданному value
+
+        $(document).ready(function () {
+            // выбираем все параграфы с атрибутом name равным ex
+            $("p[name=ex]").css("background-color", "#111199");
+            
+        });
+    </script>
+</head>
+
+<body>
+    <h3>Выбор элементов с атрибутом name равным 'ex'</h3>
+    
+    <p name="ex">Параграф №0</p>
+
+    <p name="ex">Параграф №1</p>
+    
+    <p>Параграф №2</p>
+    
+    <p name="ex">Параграф №3</p>
+    
+    <p>Параграф №4</p>
+    
+    <p name="ex1">Параграф №5</p>
+    
+    <p>Параграф №6</p>
+    
+    <p>Параграф №7</p>
+    
+    <p>Параграф №8</p>
+
+</body>
+</html>

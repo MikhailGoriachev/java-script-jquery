@@ -1,3 +1,269 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+//  Задача 2. Анимация
+
+//  Задача 3. Реализуйте «светофор» в выделенной части экрана: переключайте
+//  цвет области по циклу красный – желтый – зеленый, период переключения 3 с,
+//  предусмотрите кнопки разрешения и запрещения работы «светофора»
+
+// глобальная переменная модуля третьего задания
+var moduleTask2 = {};
+
+// период
+moduleTask2.interval = null;
+
+// длительность периода
+moduleTask2.durationPeriod = 14;
+
+// объёкт передвижения
+moduleTask2.model = $('imageModel');
+
+// координаты объекта
+moduleTask2.modelCoordinates = {
+    left: () => +moduleTask2.model.style.left.replace('px', ''),
+    top: () => +moduleTask2.model.style.top.replace('px', ''),
+};
+
+// установка координат объекта
+moduleTask2.setModelCoordinates = function (left = 0, top = 0) {
+    moduleTask2.model.style.left = `${left}px`;
+    moduleTask2.model.style.top = `${top}px`;
+};
+
+// направления
+moduleTask2.direction = {
+    // вверх
+    top: () => {
+        let left = moduleTask2.modelCoordinates.left();
+        let top = moduleTask2.modelCoordinates.top();
+
+        if (top <= 0) {
+            return;
+        }
+
+        // перемещение вверх
+        moduleTask2.setModelCoordinates(left, top - 5);
+    },
+
+    // вправо
+    right: () => {
+        let left = moduleTask2.modelCoordinates.left();
+        let top = moduleTask2.modelCoordinates.top();
+
+        if (left >= 480) {
+            return;
+        }
+
+        // перемещение вправо
+        moduleTask2.setModelCoordinates(left + 5, top);
+    },
+
+    // вниз
+    down: () => {
+        let left = moduleTask2.modelCoordinates.left();
+        let top = moduleTask2.modelCoordinates.top();
+
+        if (top >= 440) {
+            return;
+        }
+
+        // перемещение вниз
+        moduleTask2.setModelCoordinates(left, top + 5);
+    },
+
+    // влево
+    left: () => {
+        let left = moduleTask2.modelCoordinates.left();
+        let top = moduleTask2.modelCoordinates.top();
+
+        if (left <= 0) {
+            return;
+        }
+
+        // перемещение влево
+        moduleTask2.setModelCoordinates(left - 5, top);
+    },
+
+    // перемещение влево вверх
+    leftTop: () => {
+        let left = moduleTask2.modelCoordinates.left();
+        let top = moduleTask2.modelCoordinates.top();
+
+        if (left <= 0 || top <= 0) {
+            moduleTask2.currentDirection =
+                left == 0 ? moduleTask2.direction.rightTop : moduleTask2.direction.leftBottom;
+            return;
+        }
+
+        // перемещение влево вверх
+        moduleTask2.setModelCoordinates(left - 5, top - 5);
+    },
+
+    // перемещение вправо вниз
+    rightBottom: () => {
+        let left = moduleTask2.modelCoordinates.left();
+        let top = moduleTask2.modelCoordinates.top();
+
+        if (left >= 480 || top >= 440) {
+            moduleTask2.currentDirection =
+                left == 480 ? moduleTask2.direction.leftBottom : moduleTask2.direction.rightTop;
+            return;
+        }
+
+        // перемещение вправо вниз
+        moduleTask2.setModelCoordinates(left + 5, top + 5);
+    },
+
+    // перемещение вправо вверх
+    rightTop: () => {
+        let left = moduleTask2.modelCoordinates.left();
+        let top = moduleTask2.modelCoordinates.top();
+
+        if (left >= 480 || top <= 0) {
+            moduleTask2.currentDirection = top == 0 ? moduleTask2.direction.rightBottom : moduleTask2.direction.leftTop;
+            return;
+        }
+
+        // перемещение вправо вверх
+        moduleTask2.setModelCoordinates(left + 5, top - 5);
+    },
+
+    // перемещение влево вниз
+    leftBottom: () => {
+        let left = moduleTask2.modelCoordinates.left();
+        let top = moduleTask2.modelCoordinates.top();
+
+        if (left <= 0 || top >= 440) {
+            moduleTask2.currentDirection =
+                top == 440 ? moduleTask2.direction.leftTop : moduleTask2.direction.rightBottom;
+            return;
+        }
+
+        // перемещение влево вниз
+        moduleTask2.setModelCoordinates(left - 5, top + 5);
+    },
+};
+
+// текущее направление
+moduleTask2.currentDirection = moduleTask2.direction.rightBottom;
+
+// старт работы по заданию
+moduleTask2.start = function () {
+    clearInterval(moduleTask2.interval);
+
+    moduleTask2.interval = setInterval(() => moduleTask2.currentDirection(), moduleTask2.durationPeriod);
+};
+
+// остановка работы по заданию
+moduleTask2.stop = function () {
+    clearInterval(moduleTask2.interval);
+};
+
+// установка движение объекта при нажатии на клавишу
+moduleTask2.setDirectionKeyDown = function (e) {
+    let direction = moduleTask2.direction.top;
+
+    switch (e.code) {
+        // вверх
+        case 'KeyW':
+            direction = moduleTask2.direction.top;
+            break;
+
+        // вправо
+        case 'KeyD':
+            direction = moduleTask2.direction.right;
+            break;
+
+        // вниз
+        case 'KeyS':
+            direction = moduleTask2.direction.down;
+            break;
+
+        // влево
+        case 'KeyA':
+            direction = moduleTask2.direction.left;
+            break;
+
+        // иначе
+        default:
+            direction = null;
+            break;
+    }
+
+    // удаление текущего интервала
+    clearInterval(moduleTask2.interval);
+
+    // начало движения
+    moduleTask2.interval = setInterval(direction, moduleTask2.durationPeriod);
+};
+
+// обработка события отпускания клавиши
+moduleTask2.setDirectionKeyUp = function () {
+    // удаление текущего интервала
+    clearInterval(moduleTask2.interval);
+};
+
+// обработка события нажатие клавиши мыши
+moduleTask2.drag = function (e) {
+    // текущие координаты мыши
+    let mouseX = e.clientX,
+        mouseY = e.clientY;
+
+    // координаты элемента
+    let originX = moduleTask2.model.offsetLeft,
+        originY = moduleTask2.model.offsetTop;
+
+    // разница между координатами мыши и координатами элемента
+    let diffX = mouseX - originX,
+        diffY = mouseY - originY;
+
+    function mouseMove(e) {
+        x = e.clientX - diffX;
+        y = e.clientY - diffY;
+
+        // перемещение элемента
+        moduleTask2.model.style.left = (x >= 0 && x <= 480 ? x : moduleTask2.model.style.left) + 'px';
+        moduleTask2.model.style.top = (y >= 0 && y <= 440 ? y : moduleTask2.model.style.left) + 'px';
+    }
+
+    function mouseUp() {
+        // удаление слушателей
+        document.removeEventListener('mousemove', mouseMove, true);
+        document.removeEventListener('mouseup', mouseUp, true);
+    }
+
+    // обработка нажатия клавиши мыши
+    document.addEventListener('mousemove', mouseMove, true);
+
+    // обработка отпускания клавиши мыши
+    document.addEventListener('mouseup', mouseUp, true);
+};
+
+// обраотка события отпускания клавиши мыши
+moduleTask2.setDirectionMouseUp = function (e) {};
+
+// установка обработчика события загрузки страницы
+window.onload = function () {
+    moduleTask2.model = $('imageModel');
+
+    moduleTask2.model.style.left = '250px';
+    moduleTask2.model.style.top = '250px';
+
+    // обработчик кнопки Стар
+    $('btnStart').addEventListener('click', moduleTask2.start, false);
+
+    // обработчик кнопки Стоп
+    $('btnStop').addEventListener('click', moduleTask2.stop, false);
+
+    // установка обработчика события на нажатие клавиши
+    document.getElementsByTagName('body')[0].addEventListener('keydown', moduleTask2.setDirectionKeyDown, false);
+    document.getElementsByTagName('body')[0].addEventListener('keyup', moduleTask2.setDirectionKeyUp, false);
+
+    // установка обработчика события перетаскиваия мыши
+    moduleTask2.model.addEventListener('mousedown', moduleTask2.drag);
+=======
+>>>>>>> master
 //  Задача 2. Заявки
 
 //  Задача 2. Каждая заявка на авиабилет содержит: пункт назначения, номер рейса,
@@ -134,4 +400,8 @@ window.onload = function () {
 
     // Стоимость выше 3000
     $('btnTicketsSelectByCostOver').onclick = moduleTask2.selectColorTicketCostOver;
+<<<<<<< HEAD
+=======
+>>>>>>> remotes/origin/main
+>>>>>>> master
 };

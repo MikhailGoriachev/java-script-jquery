@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru">
+    <head>
+        <title>Выбор элементов с дочерними узлами</title>
+
+        <style type="text/css">
+            body {
+                color: White;
+            }
+
+            p {
+                font-weight: bold;
+                background-color: Gray;
+            }
+
+            div {
+                height: 30px;
+                width: 180px;
+                background-color: yellow;
+                color: black;
+            }
+        </style>
+
+        <script src="jquery-3.6.0.min.js" type="text/javascript"></script>
+
+        <script type="text/javascript">
+            // :parent - выбирает все элементы у которых есть хотя бы один дочерний узел (элемент или просто текст)
+            // противоположность селектору :empty
+
+            $(document).ready(function () {
+                $("p:parent").css("background-color", "#111199");
+                //$("p:not(:empty)").text("данные отсутствуют").css("color", "blue");
+                $("p:empty").text("данные отсутствуют").css("color", "white");
+            });
+        </script>
+    </head>
+
+    <body>
+        <p>Параграф с текстом</p>
+        <p></p>
+        <p>Параграф с текстом</p>
+        <p>Параграф с текстом</p>
+        <div></div>
+        <p>Параграф с текстом</p>
+        <div>Div с текстом</div>
+    </body>
+</html>

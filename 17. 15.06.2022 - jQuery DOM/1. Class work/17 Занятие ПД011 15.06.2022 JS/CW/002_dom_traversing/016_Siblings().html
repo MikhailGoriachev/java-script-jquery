@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Метод siblings()</title>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+
+        // Метод siblings() - получение всех родственных элементов и
+        //                    prev() и next()
+
+        $(function () {
+
+            let len = $(".highlight")
+                .siblings()
+                .css("background-color", "lightskyblue")
+                .length;
+
+            $("b").text(len);
+        });
+
+    </script>
+    <style>
+        ul {
+            float: left;
+            margin: 5px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        p {
+            color: blue;
+            margin: 10px 20px;
+            font-size: 16px;
+            padding: 5px;
+            font-weight: bolder;
+            clear: both;
+        }
+
+        .highlight {
+            background: lightgreen;
+        }
+    </style>
+</head>
+<body>
+    <h3>Определить количество уникальных соседних элементов для элементов с классом <u>highlight</u></h3>
+    <ul>
+        <li>One</li>
+        <li>Two</li>
+        <li class="highlight">Three</li>
+        <li>Four</li>
+    </ul>
+
+    <ul>
+        <li>Five</li>
+        <li>Six</li>
+        <li>Seven</li>
+    </ul>
+
+    <ul>
+        <li>Eight</li>
+        <li class="highlight">Nine</li>
+    </ul>
+
+    <p>Unique siblings: <b></b></p>
+</body>
+</html>

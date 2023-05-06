@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+    <title>Фильтр атрибутов</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        table{
+            border:2px solid black;
+        }
+
+        td {
+            width: 80px;
+            border:2px solid black;
+        }
+    </style>
+
+    <script src="jquery-3.6.0.min.js" type="text/javascript"></script>
+
+    <script>
+        $(document).ready(function () {
+            // получение всех ячеек с атрибутом align и значением center
+            // $("td[align=center]").css({"background-color":"purple", "color":"white"});
+
+            // получение всех ячеек с атрибутом align значением которого иное от center
+            // (дефолтные значения учитываются)
+            $("td[align!=center]").css({ "background-color": "purple", "color": "white" });
+        });
+
+    </script>
+</head>
+<body>
+    <h3>Выделены ячейки без атрибута <u>align=center</u></h3>
+    <table>
+        <tr>
+            <th>th 0</th>
+            <th align="center">th 1</th>
+            <th>th 2</th>
+            <th>th 3</th>
+        </tr>
+        <tr>
+            <td>td 0</td>
+            <td align="right">td 1</td>
+            <td>td 2</td>
+            <td align="center">td 3</td>
+        </tr>
+        <tr>
+            <td>td 4</td>
+            <td align="left">td 5</td>
+            <td>td 6</td>
+            <td>td 7</td>
+        </tr>
+        <tr>
+            <td>td 8</td>
+            <td>td 9</td>
+            <td align="right">td 10</td>
+            <td>td 11</td>
+        </tr>
+        <tr>
+            <td>td 12</td>
+            <td align="center">td 13</td>
+            <td>td 14</td>
+            <td align="right">td 15</td>
+        </tr>
+    </table>
+</body>
+</html>

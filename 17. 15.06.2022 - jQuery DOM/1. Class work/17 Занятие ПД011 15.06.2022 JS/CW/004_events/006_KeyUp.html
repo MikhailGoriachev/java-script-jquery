@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Событие keyup</title>
+    <script src="jquery-3.6.0.min.js"></script>
+    <meta charset="UTF-8">
+
+    <script>
+
+        // keyup() - создает обработчик на событие keyup для каждого
+        // элемента набора.
+
+        $(window).keyup(function (event) {
+            let log = $("#log");
+            console.log(event);  // далее раскрывать параметры в консоли
+
+            // https://keycode.info/ - данные по клавишам, в т.ч. символьные коды
+            switch (event.code) {                // event.code - код нажатой клавиши
+                case 'ArrowLeft':
+                    log.text("left pushed");
+                    break;
+                case 'ArrowUp':
+                    log.text("up pushed");
+                    break;
+                case 'ArrowRight':
+                    log.text("right pushed");
+                    break;
+                case 'ArrowDown':
+                    log.text("down pushed");
+                    break;
+            }
+        });
+
+    </script>
+</head>
+<body>
+    <h3>Нажимайте стрелки курсора, событие keyup</h3>
+    <p id="log"></p>
+</body>
+</html>

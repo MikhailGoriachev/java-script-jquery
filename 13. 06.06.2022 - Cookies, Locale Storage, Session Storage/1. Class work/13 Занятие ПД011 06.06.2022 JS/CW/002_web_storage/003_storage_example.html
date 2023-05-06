@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Использование localStorage</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form>
+        <label for="color1"><input type="radio" id="color1" name="color" value="#ffd800" />Оранжевый фон</label>
+        <label for="color2"><input type="radio" id="color2" name="color" value="#5ade54"/>Зеленый фон</label>
+        <input id="saveButton" type="button" value="Сохранить" />
+    </form>
+
+    <script>
+        window.addEventListener("load", function () {
+
+            // если в локальном хранилище есть сохраненный цвет, использовать его
+            if (window.localStorage.pageColor) {
+                document.body.style.backgroundColor = window.localStorage.pageColor;
+            } // if
+
+            document.getElementById("saveButton").addEventListener("click", function () {
+                let selectedColor = getCheckedRadioId("color")
+                window.localStorage.pageColor = selectedColor;
+                document.body.style.backgroundColor = selectedColor;
+            });
+
+            function getCheckedRadioId(name) {
+                let elements = document.getElementsByName(name);
+
+                for (let i = 0, len = elements.length; i < len; ++i)
+                    if (elements[i].checked) return elements[i].value;
+            } // getCheckedRadioId
+        });
+    </script>
+</body>
+</html>

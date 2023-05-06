@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Метод next()</title>
+        <script src="jquery-3.6.0.min.js"></script>
+        <script>
+            // Метод next() - получает набор элементов, содержащий уникальные
+            //                последующие родственные элементы для всех элементов
+            //                существующего набора (то же делает и свойство next-sibling)
+
+            $(function () {
+                // выбирает сиблинга для каждого абзаца
+                $("p").next().css("background", "lemonchiffon");
+
+                // выбирает сиблинга только для первого абзаца
+                // $("p:first").next().css("background", "lemonchiffon");
+            });
+        </script>
+    </head>
+    <body>
+        <p>Paragraph 1</p>
+        <span>Span 1</span>
+        <span>этот Span не является сиблингом</span>
+        <p>Paragraph 2</p>
+        <span>Span 2</span>
+        <p>Paragraph 3</p>
+        <span>Span 3</span>
+    </body>
+</html>

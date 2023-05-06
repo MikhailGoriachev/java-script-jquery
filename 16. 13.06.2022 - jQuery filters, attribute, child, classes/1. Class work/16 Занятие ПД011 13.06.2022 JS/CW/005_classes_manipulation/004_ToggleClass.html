@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>ToggleClass</title>
+
+    <script src="jquery-3.6.0.min.js"></script>
+
+    <script>
+
+        // toggleClass(имя класса) - функция проверяет есть ли у элемента класс
+        //                           и если класс есть то он удаляется, если
+        //                           нет - добавляется.
+        //toggleClass(имя_класса1 имя_класса2 имя_класса3) - классы перечисляються через пробел
+        
+        $(document).ready(function () {
+            // выберет все элементы div и удалит class1 у тех, у кого он есть или же добавит, если данный класс к div не применен
+            //$("div").toggleClass("class1");
+
+            // выберет все элементы div и удалит class2 у тех, у кого он есть или же добавит, если данный класс к div не применен
+            // $("div").toggleClass("class2");
+
+            // выберет все элементы div и удалит class1 и/или class2 у тех, у кого он есть или же добавит, если данный класс к div не применен
+            $("div").toggleClass("class1 class2");
+
+            $("#btnToggle").click(() => $("div").toggleClass("class1 class2"));
+        });
+
+    </script>
+
+    <style type="text/css">
+        
+        .class1 {
+            font-style: italic;
+        }
+        .class2 {
+            background-color:aliceblue;
+        }
+        div {
+            margin: 12px;
+            padding: 6px;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        <button id="btnToggle">Переключить классы</button>
+    </p>
+    <div class="class1 class2">
+        Текст в диве     class1 class2
+    </div>
+    <div class="class1">
+        Текст в диве    class1
+    </div>
+    <div class="class1 class2">
+        Текст в диве  class1 class2
+    </div>
+    <div class="class1">
+        Текст в диве 4  class1 class2
+    </div>
+    <div class="class1">
+        Текст в диве    class1
+    </div>
+    <div class="class2">
+        Текст в диве   class2
+    </div>
+    <div class="class2">
+        Текст в диве  class2
+    </div>
+</body>
+</html>

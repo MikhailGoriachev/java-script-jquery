@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru">
+    <head>
+        <title>с</title>
+        <link rel="stylesheet" href="style.css" />
+        <style>
+            p {
+                font-weight: bold;
+                background-color: gray;
+            }
+        </style>
+
+        <script src="jquery-3.6.0.min.js"></script>
+
+        <script>
+            $(document).ready(function () {
+                // фильтр выделит ссылки, у которых значение атрибута hreflang
+                // будет равен значению en или же будет начинаться с символов en,
+                // после которых следует символ - (дефис)
+                $("a[hreflang|=en]").css({
+                    "background-color": "purple",
+                    color: "white",
+                });
+
+                // фильтр выделит параграфы, у которых значение атрибута name будет равно
+                // значению val или же будет начинаться с символов val, после которых следует символ - (дефис)
+                $("p[name|=val]").css({
+                    "background-color": "purple",
+                    color: "white",
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <h3>Фильтр атрибутов, операция |</h3>
+        <a href="example.html" hreflang="en">Some text</a>
+        <a href="example.html" hreflang="en-UK">Some other text</a>
+        <a href="example.html" hreflang="english">will not be outlined</a>
+
+        <p name="val-1">Параграф 0</p>
+        <p name="val">Параграф 1</p>
+        <p name="val 3">Параграф 2</p>
+        <p></p>
+    </body>
+</html>

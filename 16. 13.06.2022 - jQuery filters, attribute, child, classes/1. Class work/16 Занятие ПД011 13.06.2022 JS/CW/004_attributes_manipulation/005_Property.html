@@ -1,0 +1,60 @@
+﻿<!DOCTYPE HTML>
+<!-- К свойствам относятся
+     visited,
+     active,
+     hover,
+     checked,
+     unchecked и т.д. -->
+<html lang="ru">
+<head>
+    <title>Attributes/attr/prop</title>
+</head>
+
+<script src="jquery-3.6.0.min.js"></script>
+
+<body>
+    <h3>Свойства, функция prop()</h3>
+    <h4 id="out"></h4>
+
+    <input id="check1" type="checkbox" checked />
+    <label for="check1">Check first</label>
+    <br/>
+
+    <input id="check2" type="checkbox" />
+    <label for="check2">Check second</label>
+    <br/>
+
+    <input id="check3" type="checkbox" />
+    <label for="check3">Check third</label>
+
+    <input id="check4" type="text" />
+    <br/>
+
+    <script>
+        // К свойствам относятся
+        //        visited,
+        //        active,
+        //        hover,
+        //        checked,
+        //        unchecked и т.д.
+
+        // Функция prop позволяет получить значение свойства элемента
+        // Если выбран набор элементов, тогда функция возвратит значение первого встречающегося
+        // элемента на странице
+        // Если элемент с выбранным свойством отсутствует, то возвращается значение false (undefined)
+
+        //.prop( имя_свойства ) 
+
+        // по изменению элемента ввода выводить в консоль свойство checked
+        $("input").change(function () {
+            let $input = $(this);
+            console.log($input);
+            // Вывод булевого значения свойства checked
+            // разница в возвращаемых значениях между prop(имя) и attr(имя)
+            $("#out").text(`id: ${$input.attr("id")} | prop(): ${$input.prop("checked")} | attr(): ${$input.attr("checked")}`);
+        });
+
+    </script>
+
+</body>
+</html>

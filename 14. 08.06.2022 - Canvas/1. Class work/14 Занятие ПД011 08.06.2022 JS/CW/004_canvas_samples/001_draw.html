@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Canvas Paint</title>
+    <script type="text/javascript">
+        window.addEventListener("load", init, false);
+        let started = false, canvas, context, button;
+        function init() {
+            canvas = document.getElementById("canvas");
+            context = canvas.getContext("2d");
+            button = document.getElementById("clear");
+
+            canvas.addEventListener("mousemove", moveHandler, false);
+            canvas.addEventListener("mousedown", downHandler, false);
+            canvas.addEventListener("mouseup", upHandler, false);
+
+            //Кнопка нажатия - очищает поле для рисования 
+        button.onclick = function () {
+            context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+        }
+        // Получение координат мыши относительно элемента canvas        
+        function getCoords(e) {
+            let x, y;
+
+            if (e.layerX || e.layerX == 0) { // Firefox
+                x = e.layerX;
+                y = e.layerY;
+            } else if (e.offsetX || e.offsetX == 0) {//Chrome
+                x = e.offsetX;
+                y = e.offsetY;
+            }
+
+            return { x: x, y: y };
+        }
+
+        // Начало рисования.
+        function downHandler(e) {
+            context.beginPath();
+            context.moveTo(getCoords(e).x, getCoords(e).y);
+            started = true;
+        }
+        
+        // Прекращение рисования.
+        function upHandler(e) {
+            started = false;
+        }
+
+        // обработка движения указателя по элементу canvas
+        function moveHandler(e) {
+            if (started) {
+                context.lineTo(getCoords(e).x, getCoords(e).y);
+                context.stroke();
+            }
+        }
+        }
+    </script>
+    <style>
+        canvas {
+            border: 3px solid black;
+        }       
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="400" height="400" style="border: 1px solid black;">
+        Браузер не поддерживает canvas
+    </canvas>
+    <button id="clear">Clear canvas</button>
+</body>
+</html>

@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Установка времени жизни для cookie</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h4>Запись и чтение куки</h4>
+    <input type="button" id="setCookie" value="Запись куки" />
+    <input type="button" id="getCookie" value="Чтение куки" />
+    <hr/>
+    <h4>Значение куки</h4>
+    <p id="out"></p>
+
+    <script>
+        window.onload = function () {
+            $ = id => document.getElementById(id);
+
+            // запись куки
+            $("setCookie").onclick = function() {
+                // следующий cookie будет хранится браузером на протяжении 1 недели (60 * 60 * 24 * 7).
+                document.cookie = "info1=456; max-age=604800";
+
+                // следующий cookie будет хранится браузером на протяжении 10 c.
+                document.cookie = "info2=789; max-age=10";
+
+                // Существует возможность указать время жизни cookie через устаревшее свойство expires
+                let nextYear = new Date();
+                nextYear.setFullYear(nextYear.getFullYear() + 1);
+                document.cookie = `name=Ольга Семенова; expires=${nextYear.toGMTString()}`;
+            } // setCookie
+
+            // чтение куки
+            $("getCookie").onclick = function () {
+                $("out").innerText = document.cookie;
+            } // getCookie
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+﻿<!DOCTYPE HTML>
+<html lang="ru">
+<head>
+    <title>Attributes</title>
+
+    <script src="jquery-3.6.0.min.js"></script>
+
+    <script>
+        // .prop( свойство, значение )
+        // Задает одно или множество значений свойств в выбранном наборе элементов
+
+        $(document).ready(function () {
+            // раскомментировать по очереди
+            // установка свойств checked у всех тегов <input> в значение false - не отмечены
+            // $("input").prop("checked", true);
+
+            // Установка значений свойств disabled у всех тегов <input> в значение false - доступны
+            // $("input").prop("disabled", true);
+
+            //Для задания значений множества свойств используем следующую конструкцию
+            // .prop({свойство1: "значение1", свойство2: "значение2"})
+            $("input").prop({checked:true, disabled:false});
+        });
+
+    </script>
+
+</head>
+<body>
+    <input id="check1" type="checkbox" unchecked />
+    <label for="check1">Check first</label>
+    <br/>
+
+    <input id="check2" type="checkbox" unchecked />
+    <label for="check2">Check second</label>
+    <br/>
+
+    <input id="check3" type="checkbox" unchecked />
+    <label for="check3">Check third</label>
+    <br/>
+
+    <!-- отстутствие свойства checked у строки ввода - не проблема -->
+    <label>Имя входа:<input id="text1" type="text"></label>
+</body>
+</html>

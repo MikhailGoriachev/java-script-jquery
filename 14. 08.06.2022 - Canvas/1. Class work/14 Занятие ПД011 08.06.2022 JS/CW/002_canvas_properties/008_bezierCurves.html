@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>bezierCurveTo()</title>
+    <script>
+        window.addEventListener("load", init, false);
+        function init() {
+            let canvas = document.getElementById("canvas");
+            let context = canvas.getContext("2d");
+            context.fillStyle = 'red';
+            context.beginPath();
+            // первая точка
+            context.moveTo(10, 30);
+            context.bezierCurveTo(/*управляющая точка 1*/50, 90,/*управляющая точка 2*/ 159, -30,/*вторая точка*/ 200, 30);
+            context.lineTo(200, 190);
+            context.bezierCurveTo(/*управляющая точка 1*/50, -100,/*управляющая точка 2*/ 159, 330,/*вторая точка*/ 10, 190);
+            context.closePath();
+            context.fill();
+        }
+    </script>
+    <style>
+        canvas {
+            border: 3px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" height="600" width="600">
+        Ваш браузер не поддерживает элемент <i>Canvas</i>
+    </canvas>
+</body>
+</html>

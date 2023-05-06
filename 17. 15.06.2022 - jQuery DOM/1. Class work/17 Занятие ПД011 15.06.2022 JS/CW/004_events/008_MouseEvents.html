@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>События mouseover & mouseout</title>
+    <script src="jquery-3.6.0.min.js"></script>
+    <meta charset="UTF-8">
+
+    <script>
+     
+        // mouseover(f) - функция, которая принимает и назначает функцию "f"
+        //                как обработчик на событие mouseover для каждого
+        //                элемента набора.
+        // событие происходит при входе курсора в область элемента.
+
+        // mouseout(f) - функция, которая принимает и назначает функцию "f"
+        //               как обработчик на событие mouseout для каждого
+        //               элемента набора.
+        // событие происходит при выходе курсора в область элемента.
+    
+        // Создаем счетчики для подсчета количества входов и выходов мыши за пределы элемента.
+
+        let overCount = 0;
+        let outCount = 0;
+
+        $(function () {
+
+            // Добавляем обработчики на события
+
+            // курсор попадает в область элемента
+            $("div:first").mouseover(function () { overCount++; updateView(); })
+
+            // курсор выходит за область элемента
+            $("div:last").mouseout(function () { outCount++; updateView(); })
+        });
+
+        function updateView() {
+            $("#over").text(`MouseOver: ${overCount}`);
+            $("#out").text(`MouseOut: ${outCount}`);
+        }
+
+    </script>
+</head>
+<body>
+    <h3>Демонстрация событий MouseOver и MouseOut</h3>
+
+    <div id="first" style="padding: 20px; background-color: lightgreen;">
+        Считаем количество входов курсора в этот элемент
+    </div>
+    <div style=" margin-top: 30px; margin-bottom: 30px; padding: 20px; background-color: lightblue">
+        <p id="over">MouseOver: </p>
+        <p id="out">MouseOut: </p>
+    </div>
+    <div id="last" style="padding: 20px; background-color: lightsteelblue">
+        Считаем количество выходов курсора из этого элемента
+    </div>
+</body>
+</html>

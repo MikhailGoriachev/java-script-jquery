@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery UI Tooltip - Default functionality</title>
+    <meta charset="UTF-8">
+    <!-- подключение локальное -->
+    <link rel="stylesheet" href="jqueryui/jquery-ui.css">       <!-- стиль jQueryUI -->
+    <script src="jqueryui/external/jquery/jquery.js"></script>  <!-- jQuery -->
+    <script src="jqueryui/jquery-ui.js"></script>
+    <script>
+
+        $(function () {
+            // после вызова метода tooltip значения атрибутов title будут отображаться во всплывающей подсказке
+            $(document).tooltip();
+        });
+
+    </script>
+</head>
+<body>
+    <p>
+        Ваш возраст: <input id="age" type="number" title="Укажите, пожалуйста, Ваш возраст">
+    </p>
+	<p>
+        Ваш рост: <input id="height" type="number" title="Укажите, пожалуйста, Ваш рост">
+    </p>
+</body>
+</html>

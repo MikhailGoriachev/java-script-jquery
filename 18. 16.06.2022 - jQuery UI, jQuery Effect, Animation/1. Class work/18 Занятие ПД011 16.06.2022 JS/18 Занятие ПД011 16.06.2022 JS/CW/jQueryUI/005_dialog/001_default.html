@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery UI Dialog - Default functionality</title>
+        <meta charset="UTF-8" />
+
+        <link rel="stylesheet" href="jqueryui/jquery-ui.css" />
+        <!-- стиль jQueryUI -->
+        <script src="jqueryui/external/jquery/jquery.js"></script>
+        <!-- jQuery -->
+        <script src="jqueryui/jquery-ui.js"></script>
+        <script>
+            $(function () {
+                // создание диалогового окна при загрузке документа
+                $("#dialog").dialog();
+            });
+        </script>
+    </head>
+    <body>
+        <div id="dialog" title="Basic dialog">
+            <p>
+                Это стандартное диалоговое окно, которое можно передвинуть,
+                поменять размер и закрыть с помощью иконки 'x'.
+            </p>
+
+            <button>Принять</button>
+            <button>Отмена</button>
+        </div>
+    </body>
+</html>

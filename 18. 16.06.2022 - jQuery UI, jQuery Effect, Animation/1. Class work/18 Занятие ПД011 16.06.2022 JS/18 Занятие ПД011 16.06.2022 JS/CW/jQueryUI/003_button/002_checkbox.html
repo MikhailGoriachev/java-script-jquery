@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>jQuery UI Button - Checkboxes</title>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="jqueryui/jquery-ui.css">       <!-- стиль jQueryUI -->
+    <script src="jqueryui/external/jquery/jquery.js"></script>  <!-- jQuery -->
+    <script src="jqueryui/jquery-ui.js"></script>               <!-- jQueryUI после jQuery -->
+    <script>
+
+        $(function () {
+            $("#check1, #check2").button(); // если дл¤ элемента checkbox вызвать метод button - создастс¤ toggle button
+        });
+
+    </script>
+    <style>
+        #format {
+            margin-top: 16px;
+        }
+    </style>
+</head>
+<body>
+    <!-- label для чек-бокса должен быть, но где конкретно - не важно -->
+    <label for="check1"><input type="checkbox" id="check1" />Toggle 1</label>
+    <input type="checkbox" id="check2" /><label for="check2">Toggle 2</label>
+    <div>
+        <p>Checkbox стилизован как toggle button. Элемент label используется как текст для кнопки</p>
+    </div>
+</body>
+</html>

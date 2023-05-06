@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Метод parent()</title>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+
+        // parent()        - возвращает ссылку на ближайшего родителя.
+        // hover(over,out) - метод, который имитирует эффект hovering
+        //                   (отслеживание попадания указателя мыши в пределы объекта).
+        //                   Параметры метода: over - функция при наведении,
+        //                   out - функция при отведении курсора мыши.
+
+        $(function () {
+            $("span").hover(
+                // функция срабатывает при наведении курсора на элемент
+                function () {
+                    $(this) // this - ссылка на span, на который навели указатель мыши
+                        .css("background-color", "lightgreen")
+                        .parent()  // ближайший предок
+                        .css("background-color", "lightsteelblue");
+                },
+
+                // функция срабатывает при выходе курсора за пределы элемента
+                function () {
+                    $(this)
+                        .css("background-color", "white")
+                        .parent()
+                        .css("background-color", "white");
+                });
+        });
+
+    </script>
+
+    <style>
+        div, p {
+            padding: 6pt;
+            margin: 6pt;
+        }
+
+        span {
+            padding-left: 6pt;
+            padding-right: 6pt;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>
+            Для изменения цвета <span>Span</span> этого параграфа нужно навести курсор мыши на этот <span><b>Span</b></span>
+        </p>
+        <p>
+            Для изменения цвета этого параграфа нужно навести курсор мыши на этот <span><b>Span</b></span>
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur <span><b>Span</b></span> adipisicing elit. Aliquid assumenda
+            corporis eius fugiat, in ipsa molestiae pariatur quis sint tenetur. Aliquam delectus fuga ipsa
+            quas quidem, <span><b>Span</b></span> sequi temporibus ut vel?
+        </p>
+    </div>
+</body>
+</html>

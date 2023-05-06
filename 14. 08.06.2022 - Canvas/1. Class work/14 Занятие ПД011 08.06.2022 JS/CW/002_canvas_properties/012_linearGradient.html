@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>LinearGradient</title>
+    <script>
+        window.addEventListener("load", init, false);
+        function init() {
+            let canvas = document.getElementById("canvas");
+            let context = canvas.getContext("2d");
+
+            // Создание объекта градиента и указание начальной и конечной точки оси градиента.
+            let gradient = context.createLinearGradient(0, 0, 270, 270);
+            // Добавление цвета и смещения позиции остановки цвета.
+            gradient.addColorStop(0, "Black");
+            gradient.addColorStop(0.35, "Blue");
+            gradient.addColorStop(0.8, "LightBlue");
+            gradient.addColorStop(1, "White");
+
+            // Установка объекта градиента в качестве цвета заливки контекста.
+            context.fillStyle = gradient;
+            context.fillRect(0, 0, 300, 300);
+        }
+
+
+    </script>
+    <style>
+        canvas {
+            border: 3px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" height="600" width="600">
+        Ваш браузер не поддерживает элемент <i>Canvas</i>
+    </canvas>
+</body>
+</html>

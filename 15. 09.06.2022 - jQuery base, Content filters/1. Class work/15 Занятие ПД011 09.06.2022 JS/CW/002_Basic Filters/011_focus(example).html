@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+
+    <title>Выбор сфокусированных элементов</title>
+
+    <style>
+        body {
+            color: White;
+        }
+
+        p {
+            font-weight: bold;
+            background-color: Gray;
+        }
+
+        div {
+            height: 30px;
+            width: 180px;
+            background-color: yellow;
+            color: black;
+        }
+
+    </style>
+
+    <script src="jquery-3.6.0.min.js"></script>
+
+</head>
+
+<body>
+
+    <input id="in1" type="text" value="1st input" />
+    <br>
+    <input id="in2" type="text" value="2nd input" />
+    <br>
+    <input id="in3" type="text" value="3rd input" />
+    <p>Some Text</p>
+    <script>
+
+        setInterval(function () {
+            //сперва фон всех полей для ввода мы делаем белый
+            $("input").css("background-color", "white");
+            //выбираем поле для ввода на котором мы сфокусированы, и меняем цвет его фона на жёлтый
+            $("input:focus").css("background-color", "lightseagreen");
+        }, 100);
+    </script>
+</body>
+</html>

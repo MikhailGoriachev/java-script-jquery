@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery UI Progressbar - Resizable</title>
+    <meta charset="UTF-8">
+    <!-- подключение локальное -->
+    <link rel="stylesheet" href="jqueryui/jquery-ui.css">       <!-- стиль jQueryUI -->
+    <script src="jqueryui/external/jquery/jquery.js"></script>  <!-- jQuery -->
+    <script src="jqueryui/jquery-ui.js"></script>
+    <script>
+
+        $(function () {
+            $("#progressbar").progressbar({
+                value: 37
+            });
+
+            // определение контейнера, с помощью которого можно будет менять размер содержимого дочерних элементов
+            $("#progressbarWrapper").resizable();
+        });
+
+    </script>
+</head>
+<body>
+    <div id="progressbarWrapper" style="height: 30px;" class="ui-widget-default">
+        <div id="progressbar" style="height: 100%;"></div>
+    </div>
+    <div class="demo-description">
+        <p>Размеры progress bar заданы в процентах для того, чтобы элемент полностью заполнял свой контейнер.</p>
+    </div>
+</body>
+</html>

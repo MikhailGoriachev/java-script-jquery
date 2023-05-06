@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .class1 {
+            font-family:Tahoma, sans-serif;
+            color:Blue;
+        }
+        .class2 {
+            font-family:Courier New, sans-serif;
+            color:Red;
+        }
+    </style>
+
+    <script>
+        let div;
+
+        window.onload = function () {
+            document.getElementById("first").onclick = firstButtonHandler;
+            document.getElementById("second").onclick = secondButtonHandler;
+            div = document.getElementById("testDiv");
+        }
+
+        function firstButtonHandler() {
+            div.className  = "class1";
+        }
+
+        function secondButtonHandler() {
+            div.className = "class2";
+        }
+    </script>
+
+</head>
+<body>
+    <input id="first" type="button" value="First" />
+    <input id="second" type="button" value="Second" />
+
+    <div id="testDiv">
+        Test Div
+    </div>
+</body>
+</html>

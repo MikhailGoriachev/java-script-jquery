@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Canvas</title> 
+    <script>
+        window.addEventListener("load", init, false);
+        function init() {
+            let canvas = document.getElementById("canvas");
+            let context = canvas.getContext("2d");
+            context.save();
+            context.translate(100, 100);
+
+            // начало пути.
+            context.beginPath();
+            context.moveTo(125, 100);
+            context.lineTo(200, 200);
+            context.lineTo(125, 300);
+            context.lineTo(50, 250);
+            context.lineTo(50, 150);
+            context.closePath();
+
+            // настройка стилей линии.
+            context.lineWidth = 20;
+            context.strokeStyle = "green";
+            //Определяем форму вершин, в которых сходятся линии
+            //round, bevel, miter
+            context.lineJoin = "round";
+            context.stroke();
+            // восстанавливаем прежнее состояние контекста.
+            context.restore();
+        }
+
+      
+    </script>
+    <style>
+        canvas {
+            border: 3px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" height="600" width="600">
+        Ваш браузер не поддерживает элемент <i>Canvas</i>
+    </canvas>
+</body>
+</html>

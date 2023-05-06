@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Canvas</title>
+        <script>
+            window.addEventListener("load", init, false);
+
+            function init() {
+                // получение элемента и его графического контекста.
+                let canvas = document.getElementById("canvas");
+                let context = canvas.getContext("2d");
+
+                // сохраняем копию текущего состояния контекста.
+                context.save();
+
+                // начало пути
+                context.beginPath();
+
+                //Переход в точку с координатами (100,100)
+                context.moveTo(100, 100);
+                context.lineTo(200, 100);
+                context.lineTo(200, 200);
+                context.lineTo(100, 200);
+
+                //Замыкаем путь
+                context.closePath();
+
+                // черчение линии на холсте.
+                context.stroke();
+
+                // восстанавливаем прежнее состояние контекста.
+                context.restore();
+            }
+        </script>
+        <style>
+            canvas {
+                border: 3px solid darkblue;
+            }
+        </style>
+    </head>
+    <body>
+        <canvas id="canvas" height="300" width="300">
+            Ваш браузер не поддерживает элемент
+            <i>Canvas</i>
+        </canvas>
+        <h3>Проверка работы Canvas в современных браузерах</h3>
+        <a href="https://caniuse.com/#search=canvas">
+            Могу ли я пользоваться Canvas?
+        </a>
+    </body>
+</html>

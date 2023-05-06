@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>HasClass</title>
+
+    <script src="jquery-3.6.0.min.js"></script>
+
+    <script>
+
+        // hasClass(имя класса) - функция поверяет наличие класса у элемента
+        //                        и возвращает true если класс есть или false если нет.
+
+        $(document).ready(function () {
+            // проверяем есть ли класс class1 у первого тега <p> на странице.
+            let className = "class1";
+            if ($("div").hasClass(className))
+                $("div").css("background-color", "lightseagreen");
+            else
+                $("div").css("background-color", "lightpink");
+        });
+          
+    </script>
+
+    <style>
+        div {
+            height: 40px;
+            margin: 12px;
+            width: 300px;
+        }
+
+        .class1
+        {
+            color: black;
+        }
+        .class2
+        {
+            color: lightsalmon;
+        }
+        .class3
+        {
+            color: aliceblue;
+        }
+    </style>
+    
+</head>
+<body>
+    <p class="class1">
+        Параграф с id="First"<br>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aut
+        deleniti dolorem ipsum labore laboriosam, laborum modi molestias natus non, perspiciatis
+        reprehenderit saepe sapiente sed, ut vero vitae. Dolor, quibusdam!
+    </p>
+    <p class="class2">
+        Параграф с id="Second"<br>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus fuga harum
+        voluptatum. Architecto, asperiores culpa dolorum eaque earum esse fuga harum hic
+        ipsam mollitia natus, non suscipit, ullam? Tempora, voluptatibus.
+    </p>
+
+    <div class="class1">
+        Текст в диве
+    </div>
+    <div class="class1">
+        Текст в диве
+    </div>
+    <div class="class3">
+        Текст в диве
+    </div>
+    <div class="class3">
+        Текст в диве
+    </div>
+    <div class="class1">
+        Текст в диве
+    </div>
+</body>
+</html>

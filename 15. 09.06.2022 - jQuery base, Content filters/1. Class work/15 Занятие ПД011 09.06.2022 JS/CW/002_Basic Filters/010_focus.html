@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+    
+    <title>Выбор сфокусированных элементов</title>
+    
+    <style>
+    body{
+        color:White;
+    }
+
+    p{
+        font-weight: bold;
+        background-color:Gray;
+    }
+
+    div{
+        height:30px;
+        width:180px;
+        background-color:yellow;
+        color:black;
+    }
+    focused{
+        background-color:yellow;
+    }
+    </style>
+
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+    // :focus - выбирает все элементы на которых мы сфокусированы
+    // focus() - функция которая немедленно передает фокус выбранному элементу
+
+    $(document).ready(function () {
+        $("#in2").focus();
+        $(":focus").css("background-color", "linen");
+    });
+    </script>
+
+</head>
+
+<body>
+
+    <input id="in1" type="text" value="1st input" />
+    <br>
+    <input id="in2"  type="text" value="2nd input" />
+    <br>
+    <input id="in3"  type="text" value="3rd input" />
+    <p>Some Text</p>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Метод eq()</title>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+
+        // Метод eq(n) - возвращает элемент, идущий под индексом 'n'
+        //               в наборе выбранных элементов.
+
+        // выбирается див с индексом 2, игнорируются
+        // другие элементы, например, абзацы
+        $(function () {
+            // jQuery рекомендует сохранять ссылку на выборку элемнтов,
+            // не выбирать элементы повторно
+            let divs = $("div");
+            divs.eq(2).addClass("blue");
+
+            // второй с конца :)
+            divs.eq(-2).addClass("blue");
+        });
+
+    </script>
+    <style>
+
+        div {
+            width: 60px;
+            height: 60px;
+            margin: 10px;
+            float: left;
+            border: 2px solid blue;
+        }
+
+        p {
+            float: left;
+            margin: 10px;
+            width: 60px;
+            height: 60px;
+            border: 2px solid black;
+        }
+
+        .blue {
+            background: blue;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div>0</div>
+    <p>ipsum</p>
+    <div>1</div>
+    <p>lorem</p>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <p>dolor</p>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+</body>
+</html>

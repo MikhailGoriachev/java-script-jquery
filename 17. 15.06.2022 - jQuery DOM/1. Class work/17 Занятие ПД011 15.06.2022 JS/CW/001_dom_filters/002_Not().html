@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Метод not()</title>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+
+        // Метод not(n) исключает из набора те элементы, которые соответствуют
+        // выражению селекции 'n'.
+
+        $(function () {
+            // установить стиль всем элементам списка, кроме элемента с индексом 2
+            $('li').not(':eq(2)').css({"color":"lightblue", "background": "darkblue", "width":"200px"});
+
+            // установить стиль всем элементам списка, кроме 2-го с конца элемента
+            // $('li').not(':eq(-2)').css({"color":"lightgreen", "background": "darkgreen", "width":"200px"});
+        });
+    </script>
+</head>
+<body>
+    <ul>
+        <li>Item 0</li>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+        <li>Item 6</li>
+        <li>Item 7</li>
+        <li>Item 8</li>
+        <li>Item 9</li>
+        <li>Item 10</li>
+    </ul>
+</body>
+</html>

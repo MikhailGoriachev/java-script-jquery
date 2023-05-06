@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Метод filter(selector)</title>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+
+        // filter(selector) - в качестве параметра может быть передан селектор,
+        //                    используемый для получения соответствующих ему элементов.
+        $(function () {
+            // получить параграфы, как и рекомендуется
+            let paragraphs = $("p");
+
+            paragraphs.filter(":odd").css("background-color", "lightseagreen");
+            paragraphs.filter(".test").css("background-color", "darkblue");
+        });
+
+    </script>
+    <style>
+        body {
+            background-color: Silver;
+            color: White;
+        }
+
+        p {
+            padding: 10px;
+            font-weight: bold;
+            background-color: Gray;
+        }
+    </style>
+</head>
+<body>
+
+    <p>Test paragraph 0</p>
+    <p>Test paragraph 1</p>
+    <p class="test">Test paragraph 2</p>
+    <p>Test paragraph 3</p>
+    <p>Test paragraph 4</p>
+    <p>Test paragraph 5</p>
+    <p>Test paragraph 6</p>
+    <p class="test">Test paragraph 7</p>
+    <p>Test paragraph 8</p>
+    <p>Test paragraph 9</p>
+
+</body>
+</html>

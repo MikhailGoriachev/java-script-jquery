@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Метод html(val)</title>
+    <meta charset="UTF-8">
+
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+
+        //Метод html() - получает HTML-содержимое первого элемента в наборе
+        // соответствующих элементов или устанавливает HTML-разметку для каждого
+        // совпавшего элемента.
+
+        $(function () {
+            $("p").html("<u>Привет, мир jQuery!</u>");
+        });
+
+    </script>
+    <style>
+        p {
+            background-color: darkorchid;
+            color: white;
+            padding: 4px;
+            font-family: Verdana, sans-serif;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        тестовая строка 1
+    </p>
+    <p>
+        <b>тестовая строка 2</b>
+    </p>
+    <p>
+        тестовая строка 3
+    </p>
+</body>
+</html>

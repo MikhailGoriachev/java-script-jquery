@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Метод parents()</title>
+        <script src="jquery-3.6.0.min.js"></script>
+        <script>
+            $(function () {
+                /*
+            parents() - выбирает все родительские элементы (узлы) для  ранее выбраных
+                        элементов. Принимает в качестве аргумента дополнительный
+                        фильтр-селектор.
+            */
+
+                // подсчет и демонстрация количества предков для span над которым
+                // сейчас курсор мыши
+                function showNumParents() {
+                    // убрать рамки вокруг элементов
+                    $("div").css("border-color", "white");
+
+                    let len = $("span.selected")
+                        .parents("div")
+                        .css("border", "2px lightseagreen dotted").length;
+
+                    $("#out").html(
+                        `Уникальных родителей (элементов div): <u>${len}</u>`
+                    );
+                } // showNumParents
+
+                // назначить событию hover обработчик
+                $("span").hover(function () {
+                    $(this).toggleClass("selected");
+                    showNumParents();
+                });
+            });
+        </script>
+        <style>
+            p,
+            div,
+            span {
+                margin: 2px;
+                padding: 1px;
+            }
+
+            div {
+                border: 2px white solid;
+            }
+
+            span {
+                cursor: pointer;
+                font-size: 16pt;
+            }
+
+            .selected {
+                color: lightsteelblue;
+            }
+
+            #out {
+                color: darkblue;
+                font-size: 14pt;
+            }
+        </style>
+    </head>
+    <body>
+        <h3>Подсчет количества уникальных родителей элемента</h3>
+        <h4 id="out">
+            Уникальных родителей (элементов div):
+            <u>поиск еще не выполнен</u>
+        </h4>
+
+        <div>
+            <div>
+                <span>Привет!</span>
+            </div>
+            <span>И снова привет!</span>
+        </div>
+
+        <div>
+            <span>И опять привет!</span>
+            <div>
+                <div>
+                    <span>И еще привет!</span>
+                </div>
+                <span>И снова еще опять привет!</span>
+            </div>
+        </div>
+
+        <!-- украшательство мелкое :) -->
+        <br />
+        <hr />
+        <h4>Наведите курсор мыши на приветствия.</h4>
+    </body>
+</html>

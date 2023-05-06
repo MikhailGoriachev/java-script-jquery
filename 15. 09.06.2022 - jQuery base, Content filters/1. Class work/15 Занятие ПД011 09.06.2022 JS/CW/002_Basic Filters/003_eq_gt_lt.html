@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+    
+    <title>Выбор элементов по индексу, до него, и после</title>
+    
+    <style>
+    body {
+        color:white;
+    }
+    tr  {
+        padding:10px;
+        font-weight: bold;
+        background-color:Gray;
+        }
+    td {
+        width: 150px;
+        padding: 6px;
+    }
+    </style>
+
+    <script src="jquery-3.6.0.min.js"></script>
+
+    <script>
+        // :eq(индекс) - элемент по индексу.
+        // :gt(индекс) -  все элементы индекс которых больше указаного.
+        // :lt(индекс) -  все элементы индекс которых меньше указаного.
+        $(document).ready(function () {
+            // $("td:eq(3)").css("background-color", "indigo");                       //Выделит ячейку с индексом 3
+            // $("td:lt(6)").css("background-color", "#111199");                     //Выделит все ячейки до элемента с индексом 6
+
+            // при перестановке операций результат меняется
+            // Выберет сперва все ячейки из столбцов, индекс которых меньше 10,
+            // а затем из сформировавшегося массива выберет все элементы больше
+            // 4 ( не включая эти элементы)
+            $("td:lt(10):gt(4)").css("background-color", "#111199");
+            // $("td:gt(4):lt(10)").css("background-color", "#111199");
+
+        });
+    </script>
+</head>
+
+<body>
+    
+    <table>
+        <tr>
+            <th>Row 0 th 0</th>
+            <th>th 1</th>
+            <th>th 2</th>
+            <th>th 3</th>
+        </tr>
+        <tr>
+            <td>Row 1 td 0</td>
+            <td>td 1</td>
+            <td>td 2</td>
+            <td>td 3</td>
+        </tr>
+        <tr>
+            <td>Row 2 td 4</td>
+            <td>td 5</td>
+            <td>td 6</td>
+            <td>td 7</td>
+        </tr>
+        <tr>
+            <td>Row 3 td 8</td>
+            <td>td 9</td>
+            <td>td 10</td>
+            <td>td 11</td>
+        </tr>
+        <tr>
+            <td>Row 4 td 12</td>
+            <td>td 13</td>
+            <td>td 14</td>
+            <td>td 15</td>
+        </tr>
+        <tr>
+            <td>Row 5 td 16</td>
+            <td>td 17</td>
+            <td>td 18</td>
+            <td>td 19</td>
+        </tr>
+
+    </table></body>
+</html>

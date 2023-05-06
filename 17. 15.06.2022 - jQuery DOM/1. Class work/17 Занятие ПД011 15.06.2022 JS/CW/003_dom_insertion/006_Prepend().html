@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Методы prepend() и prependTo()</title>
+        <script src="jquery-3.6.0.min.js"></script>
+        <script>
+            // Метод prepend()   - добавляет контент внутрь каждого элемента набора.
+            //                     контент добавдяется перед уже существующим.
+            // Метод prependTo() - добавляет все элементы набора к другому указанному набору
+            //                     элементов. Элементы добавляются перед уже существующими.
+
+            $(function () {
+                $("p").prepend("Это новый текст!"); // Добавление контента в элемент "p".
+                $("table").prepend("tr><td>333</td><td>456</td></tr>");
+                $("<b>Добавленная строка текста</b>").prependTo(".test"); // Добавление контента в элемент ".test".
+            });
+        </script>
+    </head>
+    <body>
+        <p id="first">hello</p>
+
+        <table border="1">
+            <tr>
+                <td>1</td>
+                <td>2</td>
+            </tr>
+        </table>
+
+        <br />
+
+        <div class="test">1</div>
+        <div class="test">2</div>
+        <div class="test">3</div>
+    </body>
+</html>

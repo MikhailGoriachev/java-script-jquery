@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+    
+    <title>Выбор элементов с помощью фильтра NOT</title>
+    
+    <style>
+    body
+    {
+        background-color:Silver;
+        color:White;
+        }
+    p
+    {
+        padding:10px;
+        font-weight: bold;
+        background-color:Gray;
+        }
+    </style>
+
+    <script src="jquery-3.6.0.min.js"></script>
+
+    <script>
+
+        // :not(selector) - выберет все элементы из массива выборки кроме
+        // тех которые соответствуют selector
+
+        $(document).ready(function () {
+            // выберет все элементы из массива выборки кроме тех, которые имеют класс some_class
+            $("p:not(.some_class)").css("background-color", "#111199");                   
+        });
+    </script>
+</head>
+
+<body>
+    
+    <p>Параграф №0</p>
+
+    <p>Параграф №1</p>
+    
+    <p>Параграф №2</p>
+    
+    <p class="some_class">Параграф №3 с классом some_class</p>
+    
+    <p>Параграф №4</p>
+    
+    <p>Параграф №5</p>
+    
+    <p>Параграф №6</p>
+    
+    <p>Параграф №7</p>
+    
+    <p>Параграф №8</p>
+
+</body>
+</html>

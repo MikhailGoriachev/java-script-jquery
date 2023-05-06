@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>События focus и blur</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+
+        window.onload = function () {
+            for (let el of document.forms[0].elements) {
+
+                // событие на получение фокуса
+                el.onfocus = function () {
+                    this.style.border = "3px solid lightgreen";
+                }
+
+                // событие на потерю фокуса.
+                el.onblur = function () {
+                    let element = this;
+                    element.style.border = "3px dotted orange";
+
+                    // сюжетно не важно, но красиво
+                    setTimeout(() => element.style.border = "solid 1px black",3000);
+                }
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <h3>Вводите данные в поле ввода, затем нажмите TAB</h3>
+    <h4>или просто выбирайте мышью поля ввода</h4>
+    <form>
+        <label>First </label><input type="text" name="first" value="" /> <br >
+        <label>Second</label><input type="text" name="second" value="" /> <br >
+        <label>Third</label><input type="text" name="third" value="" /> <br >
+    </form>
+</body>
+</html>

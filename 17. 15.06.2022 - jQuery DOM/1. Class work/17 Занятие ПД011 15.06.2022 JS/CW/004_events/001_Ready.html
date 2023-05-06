@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Событие ready</title>
+    <meta charset="UTF-8">
+
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+
+        // ready - определяет функцию, которая будет запущена после полной загрузки DOM
+        //         при многократном вызове добавляет обработчики события
+
+        // Первый вариант.
+        $(document).ready(function () {
+            $('#log1').text("DOM сформирован, обработчик по варианту 1");
+        });
+
+        // Второй вариант.
+        $(document).ready(after_ready);
+
+        function after_ready() {
+            $('#log2').text("DOM сформирован, обработчик по варианту 2");
+        }
+
+        // Третий вариант. (Сокращенная запись)
+        $(function () {
+            $('#log3').text("DOM сформирован, обработчик по варианту 3");
+        });
+
+    </script>
+</head>
+<body>
+
+    <!-- Разметка страницы -->
+    <ul>
+        <li id="log1"></li>
+        <li id="log2"></li>
+        <li id="log3"></li>
+    </ul>
+
+</body>
+</html>

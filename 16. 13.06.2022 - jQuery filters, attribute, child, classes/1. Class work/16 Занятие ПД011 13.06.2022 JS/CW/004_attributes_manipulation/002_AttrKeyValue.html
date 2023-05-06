@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Attributes</title>
+
+    <script src="jquery-3.6.0.min.js"></script>
+
+    <script>
+        // .attr( имя_атрибута, значение )
+        // Задает одно или множество значений аттрибутов в выбранном
+        // наборе элементов
+
+        $(document).ready(function() {
+            // установка значений атрибута align у всех тегов <div>
+            // по клику на кнопке
+            $("#btnDiv").click(function() {
+                $("div").attr("align", "right");
+            });
+
+
+            // Установка значений атрибутов class у всех параграфов <p>
+            // по клику на кнопке
+            $("#btnP").click(function () {
+                $("p").attr("class", "myClass");
+            });
+
+            // Установка значений нескольких атрибутов при клике на кнопку -
+            // при помощи JSON-объекта
+            // .attr({атрибут1: "значение1", атрибут2: "значение2"})
+            $('#btnA').click(function() {
+                $("a").attr({href:"#", title:"Подсказка установлена в коде"});
+            });
+
+        });
+    
+    </script>
+
+    <style>
+        .myClass {
+            background-color: lightgreen;
+            padding: 6px;
+            text-align: justify;
+            font-family: Verdana, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h3>Установка атрибутов - attr(ключ, значение)</h3>
+    <div>
+        Текст в диве
+        <p>Текст в параграфе №1</p>
+    </div>
+    <div>
+        Текст в диве
+    </div>
+    <div>
+        Текст в диве
+    </div>
+
+    <p>Текст в параграфе №1</p>
+    <p>Текст в параграфе №2</p>
+    <p>Текст в параграфе №3</p>
+
+    <nav>
+        <a>Link 1</a>
+        <a>Link 2</a>
+        <a>Link 3</a>
+    </nav>
+
+    <nav>
+        <button id="btnDiv">Установить атрибут<br/>всем div</button>
+        <button id="btnP">Установить атрибут<br/>всем p</button>
+        <button id="btnA">Установить несколько <br/>атрибутов всем a</button>
+    </nav>
+</body>
+</html>

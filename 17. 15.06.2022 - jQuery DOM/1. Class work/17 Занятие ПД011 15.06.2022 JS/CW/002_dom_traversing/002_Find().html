@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Метод find()</title>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+
+        // Метод find(selector) - отыскивает дочерние элементы, соответствующие
+        // указанному выражению.
+
+        $(function () {
+            // находим все параграфы и ищем в них элементы span
+            $("p").find("span").css('color', 'red');
+
+            // т.к. все элементы - потомки body - это поиск всех span
+            // $("body").find("span").css('color', 'red');
+        });
+
+    </script>
+</head>
+<body>
+    <p>Тестовый параграф с элементами <span>span</span> и <span>span</span></p>
+    <span>Просто span</span>
+    <p>Тестовый параграф с элементами <span>span</span> и <span>span</span>
+        <u>
+            <i>Первый <span>span</span></i>
+            <i>Второй <span>span</span></i>
+        </u>
+        Тестовый параграф с элементами <span>span</span> и <span>span</span>
+    </p>
+    <div>
+        <span>span в div</span>
+        <div>
+            <span>вложенный span</span>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Метод children()</title>
+        <script src="jquery-3.6.0.min.js"></script>
+        <script>
+            // children(selector) - получает набор элементов, содержащий всех
+            //                      прямых потомков для каждого совпавшего элемента.
+            $(function () {
+                $(".class1")
+                    .children("p") // получить все дочерние элементы p для элемента с классом class1
+                    .css({
+                        "background-color": "lightseagreen",
+                        color: "white",
+                    });
+            });
+        </script>
+
+        <style>
+            div,
+            p {
+                padding: 6pt;
+                margin: 6pt;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- class1 нигде не определен, но мы с ним можем работать -->
+        <div class="class1">
+            <div>
+                <p>Lorem ipsum in div</p>
+            </div>
+            <p>
+                <!-- дочерний параграф div с классом class1 -->
+                Lorem ipsum in paragraph - дочерний элемент
+            </p>
+
+            <div>
+                <p>Lorem ipsum in div</p>
+            </div>
+            <p>
+                <!-- дочерний параграф div с классом class1 -->
+                Lorem ipsum in paragraph - дочерний элемент
+            </p>
+        </div>
+    </body>
+</html>

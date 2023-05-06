@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Задача 1. Студенты</title>
+
+        <!-- #region Стили -->
+        <link rel="stylesheet" href="../styles/style.css" />
+        <link rel="stylesheet" href="../styles/page1.css" />
+        <link rel="stylesheet" href="../styles/buttons.css" />
+        <link rel="stylesheet" href="../styles/input.css" />
+        <link rel="stylesheet" href="../styles/control-block.css" />
+        <link rel="stylesheet" href="../styles/form.css" />
+        <link rel="stylesheet" href="../styles/student-tile.css" />
+        <!-- #endregion -->
+
+        <!-- #region Шрифты -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+            rel="stylesheet"
+        />
+        <!-- #endregion -->
+
+        <!-- Иконка -->
+        <link rel="shorcut icon" href="../images/logo.png" type="image/x-icon" />
+
+        <!-- Утилиты -->
+        <script src="../utils/utils.js"></script>
+
+        <!-- Скрипты -->
+        <script src="../scripts/jquery-3.6.0.min.js"></script>
+        <script src="../scripts/models/task1/Mark.js"></script>
+        <script src="../scripts/models/task1/Student.js"></script>
+        <script src="../scripts/models/task1/StudentForm.js"></script>
+        <script src="../scripts/task1.js"></script>
+    </head>
+    <body>
+        <!-- #region Заголовок-->
+        <header>
+            <a href="../index.html">
+                <img class="logo" src="../images/logo.png" alt="logo" />
+                <h2>Home Work</h2>
+            </a>
+        </header>
+        <!-- #endregion -->
+
+        <!-- #region Контент страницы -->
+        <main>
+            <!-- #region Навигация -->
+            <nav>
+                <!-- Главная -->
+                <a href="../index.html">
+                    <img src="../images/home.svg" />
+                    Главная
+                </a>
+
+                <!-- Задача 1. Студенты -->
+                <a class="select-tab" href="page1.html">
+                    <img src="../images/one.svg" />
+                    Задача 1. Студенты
+                </a>
+
+                <!-- Задача 2. Фильмотека -->
+                <a href="page2.html">
+                    <img src="../images/two.svg" />
+                    Задача 2. Фильмотека
+                </a>
+
+                <!-- Блок управления -->
+                <div class="control-block">
+                    <p class="text-align-center control-block-header">Параметры обработки</p>
+
+                    <hr />
+
+                    <p class="control-block-subheader">Управление коллекцией</p>
+
+                    <!-- добавление -->
+                    <button id="addStudent" class="control-block-button">Добавить студента</button>
+
+                    <hr />
+
+                    <p class="control-block-subheader">Выделение студентов</p>
+
+                    <!-- выделение студентов, имеющих хотя бы одну оценку 2 (средствами jQuery, не менять модель) -->
+                    <button
+                        id="selectStudentsWithMark2"
+                        class="control-block-button"
+                        title="Выделение студентов, имеющих оценку 2"
+                    >
+                        Студенты, имеющие оценку 2
+                    </button>
+
+                    <!-- выделение студентов, имеющих оценки 4 и 5 (средствами jQuery, не менять модель) -->
+                    <button
+                        id="selectStudentsWithMark4And5"
+                        class="control-block-button"
+                        title="Выделение студентов, имеющих оценки 4 и 5"
+                    >
+                        Студенты, имеющие оценки 4 и 5
+                    </button>
+
+                    <!-- выделение студентов заданной группы (средствами jQuery, не менять модель) -->
+                    <div class="control-block-field">
+                        <label for="groupListId">Выбор группы:</label>
+                        <select id="groupListId"></select>
+                        <button
+                            id="selectStudentsByGroup"
+                            class="control-block-button"
+                            title="Выделение студентов заданной группы"
+                        >
+                            Студенты заданной группы
+                        </button>
+                    </div>
+
+                    <hr />
+
+                    <p class="control-block-subheader">Упорядочивание студентов</p>
+
+                    <!-- вывод массива студентов в исходном порядке -->
+                    <button
+                        id="showOriginStudents"
+                        class="control-block-button"
+                        title="Вывод массива студентов в исходном порядке "
+                    >
+                        Исходный порядок
+                    </button>
+
+                    <!-- упорядочивание копии массива студентов по возрастанию среднего балла (работаем с моделью) -->
+                    <button
+                        id="sortStudentsByAverageMark"
+                        class="control-block-button"
+                        title="Упорядочивание копии массива студентов по возрастанию среднего балла"
+                    >
+                        По возрастанию среднего балла
+                    </button>
+
+                    <!-- упорядочивание копии массива студентов по фамилиям и инициалам (работаем с моделью) -->
+                    <button
+                        id="sortStudentsByFullName"
+                        class="control-block-button"
+                        title="Упорядочивание копии массива студентов по фамилиям и инициалам"
+                    >
+                        По фамилиям и инициалам
+                    </button>
+
+                    <!-- упорядочивание копии массива студентов по названию группы (работаем с моделью) -->
+                    <button
+                        id="sortStudentsByGroup"
+                        class="control-block-button"
+                        title="Упорядочивание копии массива студентов по названию группы"
+                    >
+                        По назанию группы
+                    </button>
+                </div>
+            </nav>
+            <!-- #endregion -->
+
+            <!-- #region Контент -->
+            <section class="content">
+                <details>
+                    <summary>
+                        <h2>Задача 1. Студенты</h2>
+                    </summary>
+
+                    <!-- #region Задача 2-->
+                    <article>
+                        <p><b>Задача 1.</b> Описать класс Student, содержащий поля:</p>
+
+                        <ul>
+                            <li>фамилия и инициалы;</li>
+                            <li>пол студента;</li>
+                            <li>
+                                фотография студента (заранее подготовленные файлы, с именами man001, woman001 и т.д. Имя
+                                файла генерируется в зависимости от пола студента);
+                            </li>
+                            <li>название группы;</li>
+                            <li>успеваемость (массив из пяти элементов типа Mark)</li>
+                            <li>Mark – класс: название предмета, оценка</li>
+                        </ul>
+
+                        <p>
+                            Реализуйте действия с коллекцией объектов класса Student, сохранять коллекцию в локальном
+                            хранилище:
+                        </p>
+
+                        <ul>
+                            <li>заполнение данными (сгенерированными) массива из десяти элементов</li>
+                            <li>добавление и редактирование студента в форме</li>
+                            <li>удаление студента</li>
+                            <li>
+                                выделение студентов, имеющих хотя бы одну оценку 2 (средствами jQuery, не менять модель)
+                            </li>
+                            <li>выделение студентов, имеющих оценки 4 и 5 (средствами jQuery, не менять модель)</li>
+                            <li>выделение студентов заданной группы (средствами jQuery, не менять модель)</li>
+                            <li>
+                                упорядочивание копии массива студентов по возрастанию среднего балла (работаем с
+                                моделью)
+                            </li>
+                            <li>упорядочивание копии массива студентов по фамилиям и инициалам (работаем с моделью)</li>
+                            <li>упорядочивание копии массива студентов по названию группы (работаем с моделью)</li>
+                            <li>вывод массива студентов в исходном порядке</li>
+                        </ul>
+                    </article>
+
+                    <!-- #endregion -->
+                </details>
+
+                <!-- Кнопки -->
+                <!-- <button class="width-normal" id="btnClearCookies">Очитить Cookies</button> -->
+
+                <!-- Коллекция студентов -->
+                <div id="studentList" class="container"></div>
+                <div id="studentForm"></div>
+            </section>
+            <!-- #endregion -->
+        </main>
+        <!-- #endregion -->
+
+        <!-- #region Подвал страницы -->
+        <footer>
+            <!-- <span>Сведения о странице:</span> -->
+            <div>
+                Разработчик:
+                <a href="https://github.com/MikhailGoriachev" target="_bank"> Горячев Михаил </a>
+            </div>
+            <div>Группа: ПД011</div>
+            <div>Город: Донецк</div>
+            <div>Год создания: 2022</div>
+            <div>
+                Поддержка:
+                <a href="mailto:goriachevmichael@gmail.com">goriachevmichael@gmail.com</a>
+            </div>
+        </footer>
+        <!-- #endregion -->
+    </body>
+</html>

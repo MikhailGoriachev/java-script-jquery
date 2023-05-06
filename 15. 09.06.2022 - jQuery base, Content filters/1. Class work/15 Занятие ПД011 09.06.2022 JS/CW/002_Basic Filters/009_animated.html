@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru">
+    <head>
+        <title>Выбор анимированных элементов</title>
+
+        <style>
+            div {
+                background: linen;
+                border: 1px solid #aaa;
+                width: 80px;
+                height: 80px;
+                margin: 0 5px;
+                float: left;
+            }
+
+            div.colored {
+                background: green;
+            }
+        </style>
+
+        <script src="jquery-3.6.0.min.js"></script>
+
+        <script>
+            // :animated - выбирает все элементы которые находятся в процессе
+            // анимации на момент применения данного селектора
+
+            $(document).ready(function () {
+                animateIt();
+
+                $("#run").click(function () {
+                    // по нажатию элемент с идентификатором run
+                    $("div:animated").toggleClass("colored"); // к дивам, к которым в данный момент применена
+                }); // анимация добавится класс colored
+            });
+
+            // slideToggle - функция которая скрывает или показывает элемент
+            // с эффектом скольжения
+            function animateIt() {
+                $("#mover").slideToggle("slow", animateIt);
+            }
+        </script>
+    </head>
+
+    <body>
+        <button id="run">Run</button>
+
+        <div></div>
+        <div id="mover"></div>
+        <div></div>
+    </body>
+</html>

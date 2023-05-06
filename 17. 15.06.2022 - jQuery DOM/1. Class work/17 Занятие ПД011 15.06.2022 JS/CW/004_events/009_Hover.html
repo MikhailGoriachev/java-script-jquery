@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Функция hover()</title>
+    <script src="jquery-3.6.0.min.js"></script>
+    <meta charset="UTF-8">
+
+    <script>
+        // hover(in, out) - функция, которая отвечает за привязку обработчиков
+        //                  на события mouseover и mouseout.
+
+        // после загрузки документа настроим обработчик события,
+        // выведем начальное состояние страницы
+        $(function () {
+            $("div").hover(onIn, onOut);
+
+            // инициализация начального состояния
+            onOut();
+        });
+
+        // Функция, которая отработает при наведении курсора на элемент
+        function onIn() {
+            let div = $("div");
+            div.html("IN");
+            div.css("background", "darkgreen");
+        }
+
+        // Функция которая отработает при выходе курсора за элемент
+        function onOut() {
+            let div = $("div");
+            div.html("OUT");
+            div.css("background", "lightseagreen");
+        }
+
+
+    </script>
+    <style>
+        div {
+            background: lightseagreen;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        Test div
+    </div>
+</body>
+</html>

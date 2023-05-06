@@ -1,1 +1,32 @@
+<<<<<<< HEAD
 /* Страница "Задача 2. Заявки" (page2.html) */
+=======
+<<<<<<< HEAD
+/* Страница "Задача 2. Анимация" (page2.html) */
+
+.container {
+    position: relative;
+
+    /* width: 50rem;
+    height: 40rem; */
+    width: 600px;
+    height: 500px;
+
+    background-color: rgb(152, 152, 152);
+    border: 20px solid #dddddd;
+}
+
+.image-model {
+    width: 120px;
+    height: 60px;
+    /* background-color: brown; */
+
+    position: absolute;
+
+    background: url('../images/dvd.png');
+    background-size: cover;
+}
+=======
+/* Страница "Задача 2. Заявки" (page2.html) */
+>>>>>>> remotes/origin/main
+>>>>>>> master

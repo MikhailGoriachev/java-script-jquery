@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Css function</title>
+
+    <script src="jquery-3.6.0.min.js"></script>
+
+    <script>
+
+        //width() - возвращает значение ширины элемента
+
+        $(document).ready(function () {
+
+            $("#out").html(
+                `Ширина документа ${$(document).width()}px<br>Ширина первого div ${$("div").width()}px`
+            );
+        });
+    </script>
+</head>
+<body>
+
+    <div align="center" style="width: 152px">
+        Текст в диве с позиционированнием по центру
+    </div>
+    <div align="left">
+        Текст в диве с позиционированнием по левому краю страницы
+    </div>
+    <div align="right">
+        Текст в диве с позиционированнием по правому краю страницы
+    </div>
+    <div>
+        Текст в диве с дефолтным позиционированнием
+    </div>
+
+    <input type="text" name="Some name" value="Текст для обработки" style="color:blue"/>
+
+    <p id="out" style="border-left: darkblue solid 6px; padding-left: 6px"></p>
+</body>
+</html>

@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <title>Занятие 02.06.2022</title>
+
+    <!-- внешнее подключение стилевого файла  -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/table.css">
+
+    <!-- использование Fontawesome https://fontawesome.ru/ -->
+    <link rel="stylesheet" href="../css/font-awesome/css/font-awesome.min.css">
+
+    <!-- еще один пример внешнего подключения -->
+    <link rel="icon" href="../images/blimp.png" type="image/x-icon">
+    <!-- картинка для отображения в заголовке вкладки браузера -->
+    <link rel="shortcut icon" href="../images/blimp.png" type="image/x-icon" />
+
+    <script src="../js/utils.js"></script>
+</head>
+<body>
+<header>
+    <h1>Задача 2. Сведения о заказах авиабилетов</h1>
+</header>
+
+<div class="container">
+    <!-- левая часть контейнера-->
+    <aside>
+        <nav>
+            <ul class="menu-list">
+                <li class="menu-list-li"><a class="link" href="../index.html">Главная страница</a></li>
+                <li class="menu-list-li"><a class="link" href="page01.html">Задача 1</a></li>
+                <li class="menu-list-li"><a class="link active" href="page02.html">Задача 2</a></li>
+            </ul>
+        </nav>
+
+        <!-- блок кнопок -->
+        <div class="controls">
+            <input id="btnSrcData" type="button" value="Исходный набор">
+            <input id="btnOrderByDestination" type="button" value="По пунктам назначения"
+                   title="Упорядочивание заявок на авиабилеты по пунктам назначения">
+            <input id="btnOrderByCost" type="button" value="По стоимости билетов"
+                   title="Упорядочивание заявок по стоимости билетов">
+            <input id="btnOrderByFlight" type="button" value="По номеру рейса"
+                   title="Упорядочивание заявок по номеру рейса">
+
+            <hr>
+
+            <label for="boundCost">Порог стоимости заявки:</label><br>
+            <input type="number" id="boundCost" value="1000"><br>
+            <input id="btnSelectTickets" type="button" value="Выделить заявки"
+                   title="Выделить заявку/заявки со стоимостью выше заданного порога">
+        </div>
+    </aside>
+
+    <!-- контент - задание на разработку -->
+    <main>
+		<!-- Условие задачи -->
+        <details>
+            <summary><b>Задача 2.</b> Сведения о заказах авиабилетов, ООП в синтаксисе ES6+</summary>
+            <p>
+                Каждая заявка на авиабилет содержит: пункт назначения, номер рейса,
+                фамилию и инициалы пассажира, стоимость билета. Разработайте класс для хранения заявки,
+                создайте массив заявок из 10 - 12 элементов. Вы-ведите массив заявок в разметку,
+                предусмотрите команды:
+            </p>
+
+            <ul>
+                <li>Вывод исходного массива заявок</li>
+                <li>Вывод копии массива, упорядоченного по пунктам назначения;</li>
+                <li>Вывод копии массива, упорядочив по стоимости билета;</li>
+                <li><i>Вывод копии массива, упорядочив по номеру рейса</i></li>
+                <li>Вывод копии массива, выделив все заявки со стоимостью
+                    <i>выше значения, вводимого из строки ввода (не используйте формы)</i>,
+                    снять выделение через 10 с</li>
+            </ul>
+        </details>
+
+        <details>
+            <summary>
+                <b>Задача 2.</b> Форма добавления заявки на авиабилет
+            </summary>
+            <form action="#" name="addTicket">
+
+            </form>
+        </details>
+
+        <!-- Разметка и код решения задачи в стиле ненавязчивого JavaScript -->
+        <h2 id="title">Сведения о заявках на авиабилеты</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>№<br>п/п</th>
+                <th>Фамилия И.О.</th>
+                <th>Пункт назначения</th>
+                <th>Номер рейса</th>
+                <th>Стоимость</th>
+                <th>Управление</th>
+            </tr>
+            </thead>
+
+            <tbody id="tickets">
+
+            </tbody>
+
+        </table>
+
+        <script src="../js/task2.js"></script>
+    </main>
+</div>
+
+<footer>
+    <h4 class="header-footer">Студент Программер, ПД011, Донецк, 2022</h4>
+</footer>
+</body>
+</html>

@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Canvas</title>
+       <script>
+        window.addEventListener("load", init, false);
+        function init() {
+            let canvas = document.getElementById('canvas');
+            let context = canvas.getContext('2d');
+            // Прорисовка прямоугольника (x,y,width,height) x,y - Начало координат
+            context.fillRect(100, 100, 400, 300);               
+        }
+    </script>
+    <style>
+    canvas {
+    border: 3px solid black;
+    }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" height="600" width="600">
+        Ваш браузер не поддерживает элемент <i>Canvas</i>
+    </canvas>
+
+</body>
+</html>

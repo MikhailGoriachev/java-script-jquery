@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Метод closest()</title>
+        <script src="jquery-3.6.0.min.js"></script>
+        <script>
+            // Метод closest() - получает набор, содержащий ближайшие родительский
+            // элемент, которые соответствуют указанному селектору.
+            $(function () {
+                $("span").on("click", function () {
+                    $(this).closest("div").toggleClass("hilight");
+                });
+            });
+        </script>
+        <style>
+            .outer {
+                padding: 20px;
+                background: steelblue;
+            }
+            .inner {
+                padding: 20px;
+                background: lightgreen;
+            }
+            p {
+                padding: 5px;
+                background: lightsteelblue;
+            }
+            span {
+                background: lightskyblue;
+            }
+            .hilight {
+                background: darkblue;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="outer">
+            <div class="inner">
+                <p>
+                    <span>
+                        Кликни тут для переключения фона ближайшего
+                        родительского div
+                    </span>
+                </p>
+            </div>
+        </div>
+    </body>
+</html>

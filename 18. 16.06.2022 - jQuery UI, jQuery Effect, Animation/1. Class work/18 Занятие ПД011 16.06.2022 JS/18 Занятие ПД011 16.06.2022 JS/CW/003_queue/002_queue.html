@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Метод queue()</title>
+        <script src="jquery-3.6.0.min.js"></script>
+        <meta charset="UTF-8" />
+
+        <script>
+            // queue - отображает массив функций, которые должны быть выполнены для указанного элемента.
+            // По умолчанию все манипуляции производятся с очередью “fx” – т.е. очередь со всей анимацией
+
+            $(function () {
+                let div = $("div");
+
+                function runIt() {
+                    div.show("slow");
+                    div.animate({ left: "+=200" }, 2_000);
+                    div.slideToggle(1_000);
+                    div.slideToggle("fast");
+                    div.animate({ left: "-=200" }, 1_500);
+                    div.hide("slow");
+                    div.show(1_200);
+                    div.slideUp("normal", runIt); // !!! зацикливание анимации !!!
+                }
+
+                // выводить текущую длину очереди анимации
+                function showQueueLength() {
+                    // в q получить всю очередь функций - анимационных эффектов
+                    let q = div.queue("fx");
+
+                    // каждые 10 мс будем выводить количество оставшихся эффектов анмации
+                    $("span").text("Queue length is: " + q.length);
+                    setTimeout(showQueueLength, 100);
+                }
+
+                runIt();
+                showQueueLength();
+            });
+        </script>
+
+        <style>
+            div {
+                width: 100px;
+                height: 100px;
+                background-color: green;
+                position: absolute;
+            }
+        </style>
+    </head>
+    <body>
+        <span></span>
+        <div></div>
+    </body>
+</html>

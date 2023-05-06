@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+    
+    <title>Выбор четных и нечетных элементов</title>
+    
+    <style>
+    body {
+        background-color:Silver;
+        color:White;
+        }
+    p {
+        padding:10px;
+        font-weight: bold;
+        background-color:darkseagreen;
+        }
+    </style>
+
+    <script src="jquery-3.6.0.min.js"></script>
+
+    <script>
+
+        // по готовности объекта document (по окончании загрузки) выполнить
+        // анонимную функцию
+        $(document).ready(function () {
+            // :even - все четные
+            // Выделит все четные(%2 = 0) параграфы
+            // назначает обработчик клика на выбранные абзацы
+            $("p:even")
+                .css("background-color", "darkblue")
+                .click(() => $("p:odd").text("Абзац"));
+        });
+    </script>
+</head>
+
+<body>
+    
+    <p>Параграф №0</p>
+
+    <p>Параграф №1</p>
+    
+    <p>Параграф №2</p>
+    
+    <p>Параграф №3</p>
+    
+    <p>Параграф №4</p>
+    
+    <p>Параграф №5</p>
+    
+    <p>Параграф №6</p>
+    
+    <p>Параграф №7</p>
+    
+    <p>Параграф №8</p>
+
+</body>
+</html>

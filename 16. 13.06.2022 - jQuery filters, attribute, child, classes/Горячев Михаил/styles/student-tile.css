@@ -1,0 +1,113 @@
+/* Стиль плитки отображения студента */
+
+/* контейнер */
+.container {
+    display: flex;
+
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-items: flex-end;
+}
+
+/* элемент */
+.student-tile {
+    display: grid;
+
+    grid-template-rows: auto auto;
+
+    width: 35rem;
+
+    padding: 1rem;
+
+    background-color: #e8e8e8;
+    border: 1px solid #bbbbbb;
+    border-radius: 1rem;
+    font-size: 1.2rem;
+    transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
+    margin: 2rem 2rem 2rem 0;
+    box-shadow: 0 0 0.7rem 0.5rem rgba(0, 0, 0, 0.073);
+
+    cursor: pointer;
+}
+
+/* наведение на элемент */
+.student-tile:hover {
+    box-shadow: 0 0 0.7rem 0.5rem rgba(0, 0, 0, 0.15);
+}
+
+.student-info {
+    display: grid;
+
+    /* grid-template-columns: 25rem 15rem 15rem; */
+    grid-template-columns: 20rem auto;
+    grid-template-rows: auto auto;
+}
+
+/* поля */
+.student-column-info {
+    box-sizing: border-box;
+    padding: 1rem;
+
+    display: flex;
+    flex-direction: column;
+
+    grid-row: 1;
+}
+
+.student-tile-image {
+    box-sizing: border-box;
+
+    background-color: #bebcbc;
+
+    padding: 1rem;
+    border: 1px solid #bbbbbb;
+    border-radius: 1rem;
+}
+
+/* изображение элемента  */
+.student-tile-image img {
+    /* height: 100%; */
+    width: 100%;
+}
+
+/* контроллы */
+.student-tile-controls {
+    box-sizing: border-box;
+    padding: 1rem;
+
+    display: flex;
+    flex-direction: row;
+
+    justify-content: right;
+
+    grid-row: 2;
+}
+
+/* -------------------------------------------- */
+
+/* маленькое изображение элемента  */
+.student-tile-image {
+    align-self: center;
+}
+
+.student-tile-image-small img {
+    /* height: 100%; */
+    width: 5rem;
+}
+
+.student-tile-image-normal img {
+    /* height: 100%; */
+    width: 25rem;
+}
+
+/* значение полей */
+.student-tile span {
+    font-weight: bold;
+}
+
+/* заголовок */
+.student-tile-header {
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: bold;
+}

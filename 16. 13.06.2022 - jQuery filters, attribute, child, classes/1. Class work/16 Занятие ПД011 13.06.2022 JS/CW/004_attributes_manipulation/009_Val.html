@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Attributes/val</title>
+</head>
+
+<script src="jquery-3.6.0.min.js"></script>
+
+<script>
+
+    // Функция val позволяет получить значение элемента
+    // Если выбран набор элементов, тогда функция возвратит
+    // значение первого встречающегося элемента на странице
+
+    // Получает значения таких элементов как input, select, textarea и т.д.
+    // или устанавдkвает val(значение)
+
+    $(document).ready(function () {
+        // Получение значения первого тега input
+        alert($("input").val());
+
+        // получить и вывести в поле вывода значения элементов ввода
+        $("#out1").text($("#text1").val());
+        $("#out2").text($("#text2").val());
+        $("#out3").text($("#check1").val());
+
+        // получение значений полей ввода по клику на кнопку
+        $('#btn').click(function () {
+            $("#out1").text($("#text1").val());
+            $("#out2").text($("#text2").val());
+            $("#out3").text($("#check1").val());
+        });
+    });
+</script>
+
+<body>
+    <label for="text1">Имя: <input type="text" id="text1" value="Пример текста 1" /></label>
+    <br/><br/>
+    <label for="text2">Имя: <input type="text" id="text2" value="Пример текста 2" /></label>
+    <br/><br/>
+    <label for="check1"><input type="checkbox" id="check1" value="true" />Опция 1</label>
+    <br/>
+    <input id="btn" type="button" value="Получить атрибут val">
+
+    <!-- поле отображения значений из полей ввода -->
+    <p id="out1"></p>
+    <p id="out2"></p>
+    <p id="out3"></p>
+
+</body>
+</html>
+

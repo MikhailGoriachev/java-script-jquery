@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Attributes</title>
+
+    <script src="jquery-3.6.0.min.js"></script>
+
+    <script>
+        //.attr( имя_атрибута, вызовФункции() )
+        //.attr( имя_атрибута, имяФункции )
+        // функция будет возвращать значение для аттрибута
+        // Устанавливает один атрибут у выбраного элемента или группы элементов
+
+        $(document).ready(function() {
+            // Установка значения атрибута title через вызов функции у всех тэгов <a>
+            $("a").attr("title", valueOfTitle);
+
+            // Установка значения атрибута value для поля ввода в значение атрибута name этого же элемента
+            let inputs = $('input');
+            inputs.attr("value", function () { return inputs.attr("name");});
+        });
+
+        // функция формирование подсказки для элемента <a>
+        function valueOfTitle() {
+            return "Текст установленной в коде подсказки для тега <a>";
+        }
+
+    </script>
+
+</head>
+<body>
+    <h3>Для ссылок установлена подсказка, текст поля ввода - это имя поля ввода</h3>
+    <div id="links">
+        <a href="#">Link 1</a>
+        <a href="#">Link 2</a>
+        <a href="#">Link 3</a>
+    </div>
+    <br>
+    Имя поля ввода отображается в поле ввода<br>
+    <input type="text" name="Some name" value="Какой-то текст..."/>
+    <input type="text" name="Another name" value="Какой-то текст..."/>
+</body>
+</html>

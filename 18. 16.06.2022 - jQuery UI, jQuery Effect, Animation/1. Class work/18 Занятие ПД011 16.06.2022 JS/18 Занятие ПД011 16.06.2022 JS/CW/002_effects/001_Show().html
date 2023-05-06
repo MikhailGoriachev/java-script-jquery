@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Метод show()</title>
+        <meta charset="UTF-8" />
+
+        <script src="jquery-3.6.0.min.js"></script>
+        <script>
+            // Show - делает видимым любой элемент если он был скрыт
+            $(function () {
+                $("#show1").click(function () {
+                    $("p").show();
+                });
+
+                $("#show2").click(function () {
+                    $("#div1").show("slow"); // значения - slow, normal, fast
+                    //$("#div1").show(7000); // время анимации, заданное в миллисекундах
+                });
+
+                $("#show3").click(function () {
+                    // 1 аргумент - скорость анимации 2 аргумент - функция, которая будет вызвана после анимации
+                    let div2 = $("#div2");
+                    div2.show("fast", func);
+
+                    // покажем связь с темой "анимация"
+                    div2.animate({ "margin-left": "200px" }, 1_000);
+                });
+
+                function func() {
+                    $("#div2 > span").show(1_000);
+                }
+            });
+        </script>
+        <style>
+            #div1,
+            #div2 {
+                background-color: lightgreen;
+                width: 100px;
+                height: 100px;
+
+                display: none;
+
+                margin: 6pt;
+            }
+            input[type="button"] {
+                margin: 3pt;
+                padding: 3pt;
+            }
+        </style>
+    </head>
+    <body>
+        <input id="show1" type="button" value="Show" />
+        <p style="display: none">Hidden Text</p>
+        <br />
+        <input id="show2" type="button" value="Show Slow" />
+        <div id="div1"></div>
+        <br />
+        <input id="show3" type="button" value="Show And Run" />
+
+        <div id="div2">
+            <span style="display: none">Hidden Text</span>
+        </div>
+    </body>
+</html>

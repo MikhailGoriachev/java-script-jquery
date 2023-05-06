@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Сохранение и извлечение данных localStorage</title>
+    <link rel="stylesheet" href="style.css">
+
+
+</head>
+<body>
+    <p>
+        Значения в localStorage существуют не зависимо от закрытия вкладки или браузера
+    </p>
+    <p>
+        Значения совместно используются всеми окнами и вкладками, выполняющимися на одном
+        и том же источнике.
+    </p>
+    <input id="btn1" type="button" value="Запись в localStorage" />
+    <input id="btn2" type="button" value="Чтение из localStorage" />
+    <ul id="output">
+    </ul>
+
+    <script>
+        // для более удобного доступа к элементам DOM
+        $ = id => document.getElementById(id);
+
+        // пример объекта
+        let user = {
+            name: 'Сережа',
+            age: 33,
+            married: true,
+
+            // запись полей, полученных после десериализации из
+            // строки JSON
+            assign: function(other) {
+                this.name = other.name;
+                this.age = other.age;
+                this.married = other.married;
+            },
+
+            // вывод свойств объекта
+            toString: function() {
+                return `${this.name}, возраст ${this.age}, ${this.married}`;
+            }
+        };
+
+
+        // еще один объект
+        class Worker {
+            constructor(fullName, age, salary) {
+                this.fullName = fullName;
+                this.age = age;
+                this.salary = salary;
+            }
+
+            // чтение полей из JSON-строки
+            deserialize(jsonStr) {
+                let other = JSON.parse(jsonStr);
+                [this.fullName, this.age, this.salary] = [other.fullName, other.age, other.salary];
+            }
+
+            // вывод свойств объекта
+            toString() {
+                return `${this.fullName}, возраст ${this.age}, оклад ${this.salary} руб.`;
+            }
+        } // class Worker
+
+
+        // обработчик события загрузки страницы
+        function loadHandler() {
+            let btn1 = $("btn1");
+            let btn2 = $("btn2");
+            let output = $("output");
+
+            // создание объекта для записи в локальное хранилище,
+            // чтения из локального хранилища
+            let worker = new Worker('Демиденкова А.Р.', 34, 45_000);
+
+            // запись в локальное хранилище
+            btn1.addEventListener("click", function () {
+                // сериализация в JSON-формат средствами JavaScript, при этом сохраняются
+                // поля, но не методы.
+                // Теряется информация о прототипе, теряются методы
+                let strUser = JSON.stringify(user);
+                let strWorker = JSON.stringify(worker);
+
+                // варианты записи в локальное хранилище
+                window.localStorage.setItem("key1", "Test value 1");
+                // или
+                window.localStorage.key2 = strUser;
+                // или
+                window.localStorage["key3"] = "Test value 3";
+
+                // запись объекта
+                window.localStorage.worker = strWorker;
+            }, false);
+
+            // чтение из локального хранилища
+            btn2.addEventListener("click", function () {
+                // изменяем поля объектов
+                user.name = '';
+                user.age = 0;
+                user.married = false;
+                worker = new Worker('', 0, 0);
+
+                // десериализация / чтение полей объекта из строки в формате JSON,
+                // такое чтение должно выполняться, если в объекте есть методы
+                // JSON.parse(str) возвращает объект только с полями, методы теряются
+                // при сериализации в JSON
+                user.assign(JSON.parse(window.localStorage.key2));
+
+                // еще один пример чтения полей объекта, оформим, как метод объекта
+                worker.deserialize(window.localStorage.worker);
+
+                // варианты чтения из локального хранилища
+                output.innerHTML = `
+                    <li>${window.localStorage.getItem("key1")}</li>
+                    <li>${window.localStorage.key2}</li>
+                    <li>${window.localStorage["key3"]}</li>
+                    <li>${user.toString()}</li>
+                    <li>${worker.toString()}</li>
+                `;
+
+                // вывод объектов в консоль для исследований
+                console.log(user);
+                console.log(worker);
+
+            }, false);
+        } // init
+
+        // назначение обработчика события загрузки страницы в стиле DOM Level-2
+        window.addEventListener("load", loadHandler, false);
+    </script>
+</body>
+</html>

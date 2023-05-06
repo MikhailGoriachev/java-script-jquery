@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Метод slice(start,end) </title>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+
+        // slice(start,end) - выделяет подмножество из набора совпавших элементов.
+        // Ведет себя точно так же как и встроенный метод разделения массивов.
+        // Выделение подмножества начинается с индекса "start" (включительно) по индекс "end"
+        // (не включительно).
+
+        $(function () {
+            // выборка абзацев для оптимизации доступа
+            let paras = $("p");
+
+            $("#btn1").click(function () {
+                paras.css("background-color", "green");
+                paras
+                    .slice(0, 3)
+                    .css("background-color", "red");
+            });
+
+            $("#btn2").click(function () {
+                paras.css("background-color", "green");
+                paras
+                    .slice(2, 4)
+                    .css("background-color", "red");
+            });
+
+            $("#btn3").click(function () {
+                paras.css("background-color", "green");
+                paras
+                    .slice(3)
+                    .css("background-color", "red");
+            });
+
+            $("#btn4").click(function () {
+                paras.css("background-color", "green");
+                paras
+                    .slice(3, -3)
+                    .css("background-color", "red");
+            });
+        });
+
+    </script>
+    <style>
+        body {
+            color: White;
+        }
+        p {
+            padding: 10px;
+            font-weight: bold;
+            background-color: darkblue;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="btn1">slice (0, 3)</button>
+    <button id="btn2">slice (2, 4)</button>
+    <button id="btn3">slice (3)</button>
+    <button id="btn4">slice (3, -3)</button>
+
+    <p>Test paragraph 1</p>
+
+    <p>Test paragraph 2</p>
+
+    <p>Test paragraph 3</p>
+
+    <p>Test paragraph 4</p>
+
+    <p>Test paragraph 5</p>
+
+    <p>Test paragraph 6</p>
+
+    <p>Test paragraph 7</p>
+
+    <p>Test paragraph 8</p>
+
+    <p>Test paragraph 9</p>
+
+    <p>Test paragraph 10</p>
+
+</body>
+</html>
